@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sheep Beans Games - 遊戲官網</title>
+    <link rel="icon" type="image/png" href="Icon.png">
     <style>
         * {
             margin: 0;
@@ -25,9 +26,12 @@
         }
 
         .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #4ecca3;
+            display: inline-block;
+        }
+
+        .logo img {
+            height: 60px;
+            vertical-align: middle;
         }
 
         nav {
@@ -44,18 +48,23 @@
         }
 
         nav a:hover {
-            background: rgba(78, 204, 163, 0.3);
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .hero {
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
+        }
+
+        .hero-logo {
+            max-width: 200px;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #4ecca3;
+            color: #fff;
         }
 
         .hero p {
@@ -73,20 +82,64 @@
         .games-section h2 {
             font-size: 2rem;
             margin-bottom: 40px;
-            color: #4ecca3;
+            color: #fff;
         }
 
-        .game-placeholder {
+        .game-card {
             background: rgba(255,255,255,0.1);
             border-radius: 20px;
-            padding: 60px;
-            max-width: 400px;
+            padding: 30px;
+            max-width: 350px;
             margin: 0 auto;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .game-placeholder p {
-            color: #888;
-            font-size: 1.1rem;
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .game-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .game-logo {
+            max-width: 250px;
+            margin-bottom: 15px;
+        }
+
+        .game-card p {
+            color: #aaa;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .app-store-btn:hover {
+            background: #eee;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
         }
 
         footer {
@@ -112,11 +165,19 @@
         .footer-links a {
             margin: 0 15px;
         }
+
+        .footer-logo {
+            height: 40px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">🐑 Sheep Beans Games</div>
+        <div class="logo">
+            <img src="splash_logo.png" alt="Sheep Beans Games">
+        </div>
         <nav>
             <a href="index.html">首頁</a>
             <a href="privacy.html">隱私權政策</a>
@@ -124,21 +185,26 @@
     </header>
 
     <section class="hero">
+        <img src="splash_logo.png" alt="Sheep Beans Games" class="hero-logo">
         <h1>歡迎來到 Sheep Beans Games</h1>
         <p>我們致力於開發有趣且創新的手機遊戲，帶給玩家最佳的遊戲體驗。</p>
     </section>
 
     <section class="games-section">
         <h2>我們的遊戲</h2>
-        <div class="game-placeholder">
-            <p>🎮 遊戲即將上線，敬請期待！</p>
+        <div class="game-card">
+            <img src="Icon.png" alt="NumFusion" class="game-icon">
+            <img src="NumFusion.png" alt="NumFusion" class="game-logo">
+            <p>一款結合數字與策略的益智遊戲</p>
+            <span class="coming-soon">即將上線</span>
         </div>
     </section>
 
     <footer>
+        <img src="splash_logo.png" alt="Sheep Beans Games" class="footer-logo">
         <div class="footer-links">
             <a href="privacy.html">隱私權政策</a>
-            <a href="mailto:contact@sheepbeansgames.com">聯絡我們</a>
+            <a href="mailto:sheepbeansgames@gmail.com">聯絡我們</a>
         </div>
         <p>&copy; 2024 Sheep Beans Games. All rights reserved.</p>
     </footer>
