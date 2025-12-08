@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隱私權政策 - Sheep Beans Games</title>
-    <link rel="icon" type="image/png" href="images/Icon.png">
+    <title data-i18n="privacy.title">隱私權政策 - Sheep Beans Games</title>
+    <link rel="icon" type="image/png" href="images/icon-numfusion.png">
     <style>
         * {
             margin: 0;
@@ -21,8 +21,16 @@
 
         header {
             padding: 20px;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background: rgba(0,0,0,0.3);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         .logo {
@@ -30,18 +38,18 @@
         }
 
         .logo img {
-            height: 60px;
+            height: 50px;
             vertical-align: middle;
         }
 
         nav {
-            margin-top: 15px;
+            display: flex;
+            gap: 10px;
         }
 
         nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
             padding: 8px 16px;
             border-radius: 20px;
             transition: background 0.3s;
@@ -49,6 +57,31 @@
 
         nav a:hover {
             background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lang-btn.active {
+            background: #4ecca3;
+            border-color: #4ecca3;
         }
 
         .content {
@@ -125,77 +158,208 @@
             margin-bottom: 15px;
             opacity: 0.8;
         }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-left {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="images/splash_logo.png" alt="Sheep Beans Games">
+        <div class="header-left">
+            <div class="logo">
+                <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games">
+            </div>
+            <nav>
+                <a href="index.html" data-i18n="nav.home">首頁</a>
+                <a href="privacy.html" data-i18n="nav.privacy">隱私權政策</a>
+            </nav>
         </div>
-        <nav>
-            <a href="index.html">首頁</a>
-            <a href="privacy.html">隱私權政策</a>
-        </nav>
+        <div class="lang-switch">
+            <button class="lang-btn active" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
     </header>
 
     <div class="content">
-        <h1>隱私權政策</h1>
-        <p class="last-updated">最後更新日期：2025年1月</p>
+        <h1 data-i18n="privacy.heading">隱私權政策</h1>
+        <p class="last-updated" data-i18n="privacy.updated">最後更新日期：2025年1月</p>
 
-        <p>Sheep Beans Games（以下簡稱「我們」）非常重視您的隱私。本隱私權政策說明我們如何收集、使用和保護您在使用我們的遊戲和服務時所提供的資訊。</p>
+        <p data-i18n="privacy.intro">Sheep Beans Games（以下簡稱「我們」）非常重視您的隱私。本隱私權政策說明我們如何收集、使用和保護您在使用我們的遊戲和服務時所提供的資訊。</p>
 
-        <h2>1. 我們收集的資訊</h2>
-        <p>我們可能收集以下類型的資訊：</p>
+        <h2 data-i18n="privacy.s1.title">1. 我們收集的資訊</h2>
+        <p data-i18n="privacy.s1.desc">我們可能收集以下類型的資訊：</p>
         <ul>
-            <li><strong>裝置資訊</strong>：包括裝置型號、作業系統版本、唯一裝置識別碼等</li>
-            <li><strong>遊戲資料</strong>：遊戲進度、成就、偏好設定等</li>
-            <li><strong>分析資料</strong>：應用程式使用情況、錯誤報告等</li>
+            <li data-i18n="privacy.s1.item1"><strong>裝置資訊</strong>：包括裝置型號、作業系統版本、唯一裝置識別碼等</li>
+            <li data-i18n="privacy.s1.item2"><strong>遊戲資料</strong>：遊戲進度、成就、偏好設定等</li>
+            <li data-i18n="privacy.s1.item3"><strong>分析資料</strong>：應用程式使用情況、錯誤報告等</li>
         </ul>
 
-        <h2>2. 資訊使用方式</h2>
-        <p>我們使用收集的資訊用於：</p>
+        <h2 data-i18n="privacy.s2.title">2. 資訊使用方式</h2>
+        <p data-i18n="privacy.s2.desc">我們使用收集的資訊用於：</p>
         <ul>
-            <li>提供、維護和改善我們的遊戲服務</li>
-            <li>分析使用模式以優化遊戲體驗</li>
-            <li>修復錯誤和技術問題</li>
-            <li>遵守法律義務</li>
+            <li data-i18n="privacy.s2.item1">提供、維護和改善我們的遊戲服務</li>
+            <li data-i18n="privacy.s2.item2">分析使用模式以優化遊戲體驗</li>
+            <li data-i18n="privacy.s2.item3">修復錯誤和技術問題</li>
+            <li data-i18n="privacy.s2.item4">遵守法律義務</li>
         </ul>
 
-        <h2>3. 資訊分享</h2>
-        <p>我們不會出售您的個人資訊。我們可能在以下情況下分享資訊：</p>
+        <h2 data-i18n="privacy.s3.title">3. 資訊分享</h2>
+        <p data-i18n="privacy.s3.desc">我們不會出售您的個人資訊。我們可能在以下情況下分享資訊：</p>
         <ul>
-            <li>經您同意</li>
-            <li>與協助我們營運服務的服務提供商分享</li>
-            <li>法律要求時</li>
+            <li data-i18n="privacy.s3.item1">經您同意</li>
+            <li data-i18n="privacy.s3.item2">與協助我們營運服務的服務提供商分享</li>
+            <li data-i18n="privacy.s3.item3">法律要求時</li>
         </ul>
 
-        <h2>4. 資料安全</h2>
-        <p>我們採取合理的安全措施來保護您的資訊免受未經授權的存取、使用或揭露。</p>
+        <h2 data-i18n="privacy.s4.title">4. 資料安全</h2>
+        <p data-i18n="privacy.s4.desc">我們採取合理的安全措施來保護您的資訊免受未經授權的存取、使用或揭露。</p>
 
-        <h2>5. 兒童隱私</h2>
-        <p>我們的服務不針對13歲以下的兒童。我們不會故意收集13歲以下兒童的個人資訊。</p>
+        <h2 data-i18n="privacy.s5.title">5. 兒童隱私</h2>
+        <p data-i18n="privacy.s5.desc">我們的服務不針對13歲以下的兒童。我們不會故意收集13歲以下兒童的個人資訊。</p>
 
-        <h2>6. 政策變更</h2>
-        <p>我們可能會不時更新本隱私權政策。任何變更將在本頁面上公布，並更新「最後更新日期」。</p>
+        <h2 data-i18n="privacy.s6.title">6. 政策變更</h2>
+        <p data-i18n="privacy.s6.desc">我們可能會不時更新本隱私權政策。任何變更將在本頁面上公布，並更新「最後更新日期」。</p>
 
-        <h2>7. 您的權利</h2>
-        <p>根據適用法律，您可能擁有以下權利：</p>
+        <h2 data-i18n="privacy.s7.title">7. 您的權利</h2>
+        <p data-i18n="privacy.s7.desc">根據適用法律，您可能擁有以下權利：</p>
         <ul>
-            <li>存取我們持有的您的資料</li>
-            <li>要求更正或刪除您的資料</li>
-            <li>反對或限制某些處理方式</li>
+            <li data-i18n="privacy.s7.item1">存取我們持有的您的資料</li>
+            <li data-i18n="privacy.s7.item2">要求更正或刪除您的資料</li>
+            <li data-i18n="privacy.s7.item3">反對或限制某些處理方式</li>
         </ul>
 
         <div class="contact-box">
-            <h2>8. 聯絡我們</h2>
-            <p>如果您對本隱私權政策有任何問題或疑慮，請透過以下方式聯絡我們：</p>
+            <h2 data-i18n="privacy.s8.title">8. 聯絡我們</h2>
+            <p data-i18n="privacy.s8.desc">如果您對本隱私權政策有任何問題或疑慮，請透過以下方式聯絡我們：</p>
             <p>Email: <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a></p>
         </div>
     </div>
 
     <footer>
-        <img src="images/splash_logo.png" alt="Sheep Beans Games" class="footer-logo">
+        <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games" class="footer-logo">
         <p>&copy; 2025 Sheep Beans Games. All rights reserved.</p>
     </footer>
+
+    <script>
+        const i18n = {
+            zh: {
+                'nav.home': '首頁',
+                'nav.privacy': '隱私權政策',
+                'privacy.title': '隱私權政策 - Sheep Beans Games',
+                'privacy.heading': '隱私權政策',
+                'privacy.updated': '最後更新日期：2025年1月',
+                'privacy.intro': 'Sheep Beans Games（以下簡稱「我們」）非常重視您的隱私。本隱私權政策說明我們如何收集、使用和保護您在使用我們的遊戲和服務時所提供的資訊。',
+                'privacy.s1.title': '1. 我們收集的資訊',
+                'privacy.s1.desc': '我們可能收集以下類型的資訊：',
+                'privacy.s1.item1': '裝置資訊：包括裝置型號、作業系統版本、唯一裝置識別碼等',
+                'privacy.s1.item2': '遊戲資料：遊戲進度、成就、偏好設定等',
+                'privacy.s1.item3': '分析資料：應用程式使用情況、錯誤報告等',
+                'privacy.s2.title': '2. 資訊使用方式',
+                'privacy.s2.desc': '我們使用收集的資訊用於：',
+                'privacy.s2.item1': '提供、維護和改善我們的遊戲服務',
+                'privacy.s2.item2': '分析使用模式以優化遊戲體驗',
+                'privacy.s2.item3': '修復錯誤和技術問題',
+                'privacy.s2.item4': '遵守法律義務',
+                'privacy.s3.title': '3. 資訊分享',
+                'privacy.s3.desc': '我們不會出售您的個人資訊。我們可能在以下情況下分享資訊：',
+                'privacy.s3.item1': '經您同意',
+                'privacy.s3.item2': '與協助我們營運服務的服務提供商分享',
+                'privacy.s3.item3': '法律要求時',
+                'privacy.s4.title': '4. 資料安全',
+                'privacy.s4.desc': '我們採取合理的安全措施來保護您的資訊免受未經授權的存取、使用或揭露。',
+                'privacy.s5.title': '5. 兒童隱私',
+                'privacy.s5.desc': '我們的服務不針對13歲以下的兒童。我們不會故意收集13歲以下兒童的個人資訊。',
+                'privacy.s6.title': '6. 政策變更',
+                'privacy.s6.desc': '我們可能會不時更新本隱私權政策。任何變更將在本頁面上公布，並更新「最後更新日期」。',
+                'privacy.s7.title': '7. 您的權利',
+                'privacy.s7.desc': '根據適用法律，您可能擁有以下權利：',
+                'privacy.s7.item1': '存取我們持有的您的資料',
+                'privacy.s7.item2': '要求更正或刪除您的資料',
+                'privacy.s7.item3': '反對或限制某些處理方式',
+                'privacy.s8.title': '8. 聯絡我們',
+                'privacy.s8.desc': '如果您對本隱私權政策有任何問題或疑慮，請透過以下方式聯絡我們：'
+            },
+            en: {
+                'nav.home': 'Home',
+                'nav.privacy': 'Privacy Policy',
+                'privacy.title': 'Privacy Policy - Sheep Beans Games',
+                'privacy.heading': 'Privacy Policy',
+                'privacy.updated': 'Last Updated: January 2025',
+                'privacy.intro': 'Sheep Beans Games ("we") values your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use our games and services.',
+                'privacy.s1.title': '1. Information We Collect',
+                'privacy.s1.desc': 'We may collect the following types of information:',
+                'privacy.s1.item1': 'Device Information: Including device model, operating system version, unique device identifiers, etc.',
+                'privacy.s1.item2': 'Game Data: Game progress, achievements, preferences, etc.',
+                'privacy.s1.item3': 'Analytics Data: App usage, crash reports, etc.',
+                'privacy.s2.title': '2. How We Use Information',
+                'privacy.s2.desc': 'We use the collected information to:',
+                'privacy.s2.item1': 'Provide, maintain, and improve our game services',
+                'privacy.s2.item2': 'Analyze usage patterns to optimize gaming experience',
+                'privacy.s2.item3': 'Fix bugs and technical issues',
+                'privacy.s2.item4': 'Comply with legal obligations',
+                'privacy.s3.title': '3. Information Sharing',
+                'privacy.s3.desc': 'We do not sell your personal information. We may share information in the following circumstances:',
+                'privacy.s3.item1': 'With your consent',
+                'privacy.s3.item2': 'With service providers who assist in operating our services',
+                'privacy.s3.item3': 'When required by law',
+                'privacy.s4.title': '4. Data Security',
+                'privacy.s4.desc': 'We implement reasonable security measures to protect your information from unauthorized access, use, or disclosure.',
+                'privacy.s5.title': '5. Children\'s Privacy',
+                'privacy.s5.desc': 'Our services are not directed to children under 13. We do not knowingly collect personal information from children under 13.',
+                'privacy.s6.title': '6. Policy Changes',
+                'privacy.s6.desc': 'We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Last Updated" date.',
+                'privacy.s7.title': '7. Your Rights',
+                'privacy.s7.desc': 'Depending on applicable law, you may have the following rights:',
+                'privacy.s7.item1': 'Access data we hold about you',
+                'privacy.s7.item2': 'Request correction or deletion of your data',
+                'privacy.s7.item3': 'Object to or restrict certain processing',
+                'privacy.s8.title': '8. Contact Us',
+                'privacy.s8.desc': 'If you have any questions or concerns about this Privacy Policy, please contact us:'
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) {
+                    if (el.tagName === 'TITLE') {
+                        document.title = i18n[lang][key];
+                    } else {
+                        el.textContent = i18n[lang][key];
+                    }
+                }
+            });
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
+            localStorage.setItem('lang', lang);
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.getAttribute('data-lang'));
+            });
+        });
+
+        // Load saved language or default to zh
+        const savedLang = localStorage.getItem('lang') || 'zh';
+        setLanguage(savedLang);
+    </script>
 </body>
 </html>
