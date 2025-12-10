@@ -848,8 +848,14 @@
             });
         });
 
-        // Load saved language or default to zh
-        const savedLang = localStorage.getItem('lang') || 'zh';
+        // Detect browser language
+        function detectLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            return browserLang.startsWith('zh') ? 'zh' : 'en';
+        }
+
+        // Load saved language, or detect from browser
+        const savedLang = localStorage.getItem('lang') || detectLanguage();
         setLanguage(savedLang);
     </script>
 </body>
