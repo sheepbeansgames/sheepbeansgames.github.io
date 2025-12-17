@@ -407,6 +407,21 @@
             to { transform: rotate(360deg); }
         }
 
+        .app-store-link {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .app-store-link:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .app-store-badge {
+            height: 50px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        }
+
         /* Footer */
         footer {
             position: relative;
@@ -619,6 +634,10 @@
                 font-size: 14px;
             }
 
+            .app-store-badge {
+                height: 45px;
+            }
+
             footer {
                 padding: 60px 20px 32px;
             }
@@ -703,6 +722,10 @@
                 font-size: 13px;
             }
 
+            .app-store-badge {
+                height: 40px;
+            }
+
             .lang-switch {
                 width: 100%;
                 justify-content: center;
@@ -764,7 +787,9 @@
                         <span class="game-tag" data-i18n="games.numfusion.tag2">策略</span>
                         <span class="game-tag" data-i18n="games.numfusion.tag3">休閒</span>
                     </div>
-                    <div class="coming-soon-badge" data-i18n="games.coming">即將上線</div>
+                    <a href="https://apps.apple.com/app/id6756245734" class="app-store-link" target="_blank" rel="noopener noreferrer">
+                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="app-store-badge">
+                    </a>
                 </div>
             </article>
         </div>
