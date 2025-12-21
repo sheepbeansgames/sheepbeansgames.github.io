@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheep Beans Games - 創造歡樂的遊戲體驗</title>
+    <title>Sheep Beans Games - 下班後，一個人慢慢做的遊戲</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Sheep Beans Games 是一間專注於開發有趣手機遊戲的獨立工作室。我們的代表作 NumFusion 是一款結合數字與策略的益智遊戲，現已在 App Store 上架。">
+    <meta name="description" content="下班後，一個人慢慢做的遊戲。NumFusion 是一款結合數字與策略的益智遊戲，現已在 App Store 上架。">
     <meta name="keywords" content="Sheep Beans Games, NumFusion, 益智遊戲, puzzle game, 手機遊戲, mobile game, iOS game, 數字遊戲, 策略遊戲">
     <meta name="author" content="Sheep Beans Games">
     <meta name="robots" content="index, follow">
@@ -16,8 +16,8 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sheepbeansgames.github.io/">
-    <meta property="og:title" content="Sheep Beans Games - 創造歡樂的遊戲體驗">
-    <meta property="og:description" content="專注於開發有趣手機遊戲的獨立工作室。代表作 NumFusion 是一款結合數字與策略的益智遊戲。">
+    <meta property="og:title" content="Sheep Beans Games - 下班後，一個人慢慢做的遊戲">
+    <meta property="og:description" content="下班後，一個人慢慢做的遊戲。NumFusion 是一款結合數字與策略的益智遊戲。">
     <meta property="og:image" content="https://sheepbeansgames.github.io/images/logo-sheepbeans.png">
     <meta property="og:locale" content="zh_TW">
     <meta property="og:locale:alternate" content="en_US">
@@ -25,8 +25,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://sheepbeansgames.github.io/">
-    <meta name="twitter:title" content="Sheep Beans Games - 創造歡樂的遊戲體驗">
-    <meta name="twitter:description" content="專注於開發有趣手機遊戲的獨立工作室。代表作 NumFusion 是一款結合數字與策略的益智遊戲。">
+    <meta name="twitter:title" content="Sheep Beans Games - 下班後，一個人慢慢做的遊戲">
+    <meta name="twitter:description" content="下班後，一個人慢慢做的遊戲。NumFusion 是一款結合數字與策略的益智遊戲。">
     <meta name="twitter:image" content="https://sheepbeansgames.github.io/images/logo-sheepbeans.png">
 
     <!-- JSON-LD Structured Data -->
@@ -37,7 +37,7 @@
         "name": "Sheep Beans Games",
         "url": "https://sheepbeansgames.github.io",
         "logo": "https://sheepbeansgames.github.io/images/logo-sheepbeans.png",
-        "description": "專注於開發有趣手機遊戲的獨立遊戲工作室",
+        "description": "下班後，一個人慢慢做的遊戲",
         "email": "sheepbeansgames@gmail.com",
         "sameAs": []
     }
@@ -413,8 +413,16 @@
         .game-logo {
             width: 100%;
             max-width: 300px;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        }
+
+        .game-status {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            font-style: italic;
+            opacity: 0.8;
         }
 
         .game-description {
@@ -484,6 +492,33 @@
         .app-store-badge {
             height: 50px;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Notes Section */
+        .notes-section {
+            position: relative;
+            padding: 60px 32px;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .notes-header {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .notes-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .notes-subtitle {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            opacity: 0.7;
         }
 
         /* Footer */
@@ -827,13 +862,12 @@
     <section class="hero">
         <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games" class="hero-logo">
         <h1 class="hero-title" data-i18n="hero.title">Sheep Beans Games</h1>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">做一些好玩的手機遊戲</p>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">下班後，一個人慢慢做的遊戲</p>
     </section>
 
     <section class="games-section">
         <div class="section-header">
-            <h2 class="section-title" data-i18n="games.title">我們的遊戲</h2>
-            <p class="section-subtitle" data-i18n="games.subtitle">精心打造的遊戲體驗</p>
+            <h2 class="section-title" data-i18n="games.title">作品</h2>
         </div>
 
         <div class="games-container">
@@ -846,6 +880,7 @@
                 </div>
                 <div class="game-content">
                     <img src="images/logo-numfusion.png" alt="NumFusion" class="game-logo">
+                    <p class="game-status" data-i18n="games.numfusion.status">仍在調整中的作品</p>
                     <p class="game-description" data-i18n="games.numfusion.desc">一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。</p>
                     <div class="game-tags">
                         <span class="game-tag" data-i18n="games.numfusion.tag1">益智</span>
@@ -857,6 +892,13 @@
                     </a>
                 </div>
             </article>
+        </div>
+    </section>
+
+    <section class="notes-section">
+        <div class="notes-header">
+            <h2 class="notes-title" data-i18n="notes.title">Notes</h2>
+            <p class="notes-subtitle" data-i18n="notes.subtitle">做遊戲路上的一些小筆記</p>
         </div>
     </section>
 
@@ -885,14 +927,17 @@
                 'nav.numfusion': 'NumFusion',
                 'nav.privacy': '隱私權政策',
                 'hero.title': 'Sheep Beans Games',
-                'hero.subtitle': '做一些好玩的手機遊戲',
-                'games.title': '我們的遊戲',
-                'games.subtitle': '精心打造的遊戲體驗',
+                'hero.subtitle': '下班後，一個人慢慢做的遊戲',
+                'games.title': '作品',
+                'games.numfusion.status': '仍在調整中的作品',
                 'games.numfusion.desc': '一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。',
                 'games.numfusion.tag1': '益智',
                 'games.numfusion.tag2': '策略',
                 'games.numfusion.tag3': '休閒',
+                'games.numfusion.appstore': '可以在 App Store 找到 →',
                 'games.coming': '即將上線',
+                'notes.title': 'Notes',
+                'notes.subtitle': '做遊戲路上的一些小筆記',
                 'footer.contact': '聯絡我們'
             },
             en: {
@@ -900,14 +945,17 @@
                 'nav.numfusion': 'NumFusion',
                 'nav.privacy': 'Privacy Policy',
                 'hero.title': 'Sheep Beans Games',
-                'hero.subtitle': 'Making fun mobile games',
-                'games.title': 'Our Games',
-                'games.subtitle': 'Crafted with love and care',
+                'hero.subtitle': 'One person. After work. Slowly.',
+                'games.title': 'Work',
+                'games.numfusion.status': 'Still evolving.',
                 'games.numfusion.desc': 'A puzzle game combining numbers and strategy, challenging your logical thinking while training your brain in a relaxed and enjoyable atmosphere.',
                 'games.numfusion.tag1': 'Puzzle',
                 'games.numfusion.tag2': 'Strategy',
                 'games.numfusion.tag3': 'Casual',
+                'games.numfusion.appstore': 'Available on the App Store →',
                 'games.coming': 'Coming Soon',
+                'notes.title': 'Notes',
+                'notes.subtitle': 'Thoughts along the way.',
                 'footer.contact': 'Contact Us'
             }
         };
