@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MailFlow - Smart Email Reader</title>
+    <meta name="description" content="The smart email reader that respects your privacy. 100% local processing, zero servers.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #4ECDC4;
-            --primary-rgb: 78, 205, 196;
-            --accent: #FF6B6B;
-            --accent-rgb: 255, 107, 107;
+            --bg-void: #050508;
+            --bg-surface: #0a0a0f;
+            --bg-elevated: #0f0f16;
+            --bg-card: #12121a;
+            --cyan-pure: #00ffd5;
+            --cyan-soft: #22d3ee;
+            --cyan-pale: #a5f3fc;
+            --cyan-glow: rgba(0, 255, 213, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-accent: rgba(0, 255, 213, 0.2);
+            --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
         * {
@@ -21,206 +34,364 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            min-height: 100vh;
-            background: #000;
-            color: #fff;
+            font-family: var(--font-sans);
+            background: var(--bg-void);
+            color: var(--text-primary);
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Animated gradient background */
-        .bg-wrapper {
+        /* Grid pattern background */
+        .bg-grid {
             position: fixed;
             inset: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .bg-gradient {
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            top: -25%;
-            left: -25%;
-            background:
-                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(var(--primary-rgb), 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(var(--accent-rgb), 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse 50% 30% at 50% 80%, rgba(100, 100, 255, 0.1) 0%, transparent 50%);
-            animation: bgMove 20s ease-in-out infinite;
-        }
-
-        @keyframes bgMove {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(2%, 1%) rotate(1deg); }
-            66% { transform: translate(-1%, 2%) rotate(-1deg); }
-        }
-
-        .noise {
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-            opacity: 0.03;
+            background-image:
+                linear-gradient(rgba(0, 255, 213, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 213, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 50% at 50% 0%, black 40%, transparent 100%);
             pointer-events: none;
+            z-index: 0;
         }
 
+        /* Glow orbs */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-1 {
+            width: 600px;
+            height: 600px;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cyan-pure);
+            opacity: 0.08;
+        }
+
+        .glow-2 {
+            width: 400px;
+            height: 400px;
+            bottom: 20%;
+            right: -100px;
+            background: #6366f1;
+            opacity: 0.05;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(5, 5, 8, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 30px var(--cyan-glow);
+        }
+
+        .nav-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-link svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .nav-link.highlight {
+            background: var(--cyan-glow);
+            color: var(--cyan-pure);
+            border: 1px solid var(--border-accent);
+        }
+
+        .nav-link.highlight:hover {
+            background: rgba(0, 255, 213, 0.2);
+        }
+
+        /* Container */
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 24px;
+            padding: 0 40px;
             position: relative;
             z-index: 1;
         }
 
-        /* Header */
-        header {
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 160px 40px 120px;
             text-align: center;
-            padding: 80px 0 60px;
         }
 
-        .logo-wrapper {
+        .hero-icon-wrapper {
             position: relative;
-            display: inline-block;
-            margin-bottom: 32px;
+            margin-bottom: 48px;
         }
 
-        .logo-glow {
+        .hero-icon-ring {
             position: absolute;
             inset: -20px;
-            background: radial-gradient(circle, rgba(var(--primary-rgb), 0.4) 0%, transparent 70%);
-            filter: blur(30px);
-            animation: pulse 3s ease-in-out infinite;
+            border: 1px solid var(--border-accent);
+            border-radius: 50%;
+            animation: rotate-slow 20s linear infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.1); }
+        .hero-icon-ring::before,
+        .hero-icon-ring::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--cyan-pure);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--cyan-pure);
         }
 
-        .logo-icon {
-            position: relative;
+        .hero-icon-ring::before { top: -4px; left: 50%; transform: translateX(-50%); }
+        .hero-icon-ring::after { bottom: -4px; left: 50%; transform: translateX(-50%); }
+
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-icon {
             width: 100px;
             height: 100px;
-            border-radius: 24px;
+            border-radius: 28px;
+            position: relative;
             box-shadow:
-                0 0 0 1px rgba(255,255,255,0.1),
-                0 20px 50px rgba(0,0,0,0.5),
-                0 0 100px rgba(var(--primary-rgb), 0.3);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                0 0 0 1px var(--border-accent),
+                0 0 60px var(--cyan-glow),
+                0 30px 60px rgba(0, 0, 0, 0.5);
         }
 
-        .logo-wrapper:hover .logo-icon {
-            transform: translateY(-8px) scale(1.05);
-        }
-
-        .logo-text {
-            font-size: 3.5em;
-            font-weight: 800;
+        .hero-title {
+            font-size: clamp(3.5rem, 10vw, 6rem);
+            font-weight: 700;
             letter-spacing: -0.04em;
-            background: linear-gradient(135deg, #fff 0%, #fff 40%, var(--primary) 100%);
+            line-height: 1;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .gradient {
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--cyan-pale) 50%, var(--cyan-soft) 100%);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 16px;
+            -webkit-text-fill-color: transparent;
         }
 
-        .tagline {
-            font-size: 1.25em;
-            color: rgba(255, 255, 255, 0.4);
-            font-weight: 400;
-            letter-spacing: -0.01em;
-            max-width: 400px;
-            margin: 0 auto;
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 420px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
         }
 
-        /* CTA Button */
-        .cta-wrapper {
-            margin-top: 48px;
+        .hero-cta {
             display: flex;
-            justify-content: center;
             gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 18px 36px;
-            border-radius: 16px;
-            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-size: 0.95rem;
             font-weight: 600;
-            font-size: 1em;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #38B2AC 100%);
-            color: #000;
-            box-shadow:
-                0 0 0 1px rgba(var(--primary-rgb), 0.3),
-                0 8px 32px rgba(var(--primary-rgb), 0.3),
-                inset 0 1px 0 rgba(255,255,255,0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow:
-                0 0 0 1px rgba(var(--primary-rgb), 0.5),
-                0 16px 48px rgba(var(--primary-rgb), 0.4),
-                inset 0 1px 0 rgba(255,255,255,0.3);
-        }
-
-        .btn-coming-soon {
-            background: rgba(255, 255, 255, 0.08);
-            color: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: default;
+            cursor: pointer;
         }
 
         .btn svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cyan-pure), var(--cyan-soft));
+            color: var(--bg-void);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 8px 40px var(--cyan-glow),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                0 16px 60px rgba(0, 255, 213, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-primary);
+            border-color: var(--border-accent);
+        }
+
+        /* Status indicator */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--cyan-pure);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0 120px;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .features-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--cyan-pure);
+            margin-bottom: 12px;
+        }
+
+        .features-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
         }
 
         /* Bento Grid */
-        .bento-section {
-            margin-top: 80px;
-        }
-
-        .bento-grid {
+        .bento {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: auto auto auto;
             gap: 16px;
         }
 
         .bento-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(40px);
-            -webkit-backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
             padding: 32px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .bento-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+            background: linear-gradient(135deg, rgba(0, 255, 213, 0.03) 0%, transparent 50%);
             opacity: 0;
             transition: opacity 0.3s;
         }
 
         .bento-card:hover {
+            border-color: var(--border-accent);
             transform: translateY(-4px);
-            border-color: rgba(255, 255, 255, 0.12);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .bento-card:hover::before {
@@ -232,36 +403,30 @@
             grid-column: span 12;
             display: flex;
             align-items: center;
-            gap: 32px;
-            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1) 0%, rgba(var(--primary-rgb), 0.02) 100%);
-            border-color: rgba(var(--primary-rgb), 0.15);
+            gap: 40px;
+            padding: 48px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(0, 255, 213, 0.02) 100%);
+            border-color: var(--border-accent);
         }
 
-        .card-lg {
-            grid-column: span 6;
-        }
-
-        .card-sm {
-            grid-column: span 4;
-        }
+        .card-lg { grid-column: span 6; }
+        .card-md { grid-column: span 4; }
 
         @media (max-width: 900px) {
-            .card-lg, .card-sm {
-                grid-column: span 12;
-            }
+            .card-lg, .card-md { grid-column: span 12; }
         }
 
         /* Card content */
         .card-icon {
             width: 56px;
             height: 56px;
-            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.2) 0%, rgba(var(--primary-rgb), 0.05) 100%);
-            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            border: 1px solid rgba(var(--primary-rgb), 0.15);
+            background: var(--cyan-glow);
+            border: 1px solid var(--border-accent);
+            border-radius: 16px;
+            margin-bottom: 24px;
             flex-shrink: 0;
         }
 
@@ -272,67 +437,77 @@
         }
 
         .card-icon svg {
-            width: 28px;
-            height: 28px;
-            fill: var(--primary);
+            width: 26px;
+            height: 26px;
+            fill: var(--cyan-pure);
         }
 
         .card-hero .card-icon svg {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
         }
 
         .card-title {
-            font-size: 1.1em;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #fff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
         }
 
         .card-hero .card-title {
-            font-size: 1.4em;
+            font-size: 1.4rem;
             margin-bottom: 12px;
         }
 
         .card-desc {
-            color: rgba(255, 255, 255, 0.45);
-            font-size: 0.95em;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
         }
 
-        .card-hero .card-desc {
-            font-size: 1.05em;
+        /* Code-like highlight */
+        .code-highlight {
+            font-family: var(--font-mono);
+            font-size: 0.85em;
+            color: var(--cyan-soft);
+            background: rgba(0, 255, 213, 0.08);
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
-        /* Stats */
-        .stats-row {
+        /* Security visual */
+        .security-visual {
             display: flex;
-            gap: 32px;
+            gap: 12px;
             margin-top: 24px;
         }
 
-        .stat {
-            text-align: center;
+        .security-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
-        .stat-value {
-            font-size: 2em;
-            font-weight: 800;
-            color: var(--primary);
-        }
-
-        .stat-label {
-            font-size: 0.8em;
-            color: rgba(255,255,255,0.4);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .security-badge svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--cyan-pure);
         }
 
         /* Footer */
-        .footer {
-            margin-top: 100px;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 48px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -344,149 +519,94 @@
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.4);
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9em;
-            font-weight: 500;
+            font-size: 0.9rem;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--cyan-pure);
         }
 
-        .copyright {
-            color: rgba(255, 255, 255, 0.25);
-            font-size: 0.85em;
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
 
-        /* Top Navigation */
-        .top-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 16px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .nav-logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-        }
-
-        .nav-name {
-            font-weight: 700;
-            font-size: 1.1em;
-            letter-spacing: -0.02em;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-link {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 0.9em;
-            font-weight: 500;
-            padding: 10px 16px;
-            border-radius: 10px;
-            transition: all 0.2s;
-        }
-
-        .nav-link:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .nav-link.highlight {
-            background: rgba(var(--primary-rgb), 0.15);
-            color: var(--primary);
-            border: 1px solid rgba(var(--primary-rgb), 0.3);
-        }
-
-        .nav-link.highlight:hover {
-            background: rgba(var(--primary-rgb), 0.25);
-        }
-
-        .nav-link svg {
-            width: 16px;
-            height: 16px;
-            vertical-align: middle;
-            margin-right: 6px;
-            fill: currentColor;
-        }
-
-        /* Adjust header padding for fixed nav */
-        header {
-            padding-top: 140px;
-        }
-
-        @media (max-width: 640px) {
-            .logo-text {
-                font-size: 2.5em;
-            }
-
-            .footer {
-                flex-direction: column;
-                gap: 24px;
-                text-align: center;
-            }
-
-            .card-hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .bento-card {
-                padding: 24px;
-            }
-
-            .top-nav {
-                padding: 12px 16px;
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
             }
 
             .nav-name {
                 display: none;
             }
 
-            .nav-link {
-                padding: 8px 12px;
-                font-size: 0.85em;
-            }
-
             .nav-link span {
                 display: none;
             }
 
-            header {
-                padding-top: 120px;
+            .hero {
+                padding: 140px 24px 100px;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+
+            .card-hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px;
+            }
+
+            .bento-card {
+                padding: 24px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .security-visual {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Top Navigation -->
-    <nav class="top-nav">
+    <!-- Background elements -->
+    <div class="bg-grid"></div>
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+
+    <!-- Navigation -->
+    <nav id="nav">
         <a href="index.html" class="nav-brand">
             <img src="icon.png" alt="MailFlow" class="nav-logo">
             <span class="nav-name">MailFlow</span>
@@ -507,32 +627,37 @@
         </div>
     </nav>
 
-    <div class="bg-wrapper">
-        <div class="bg-gradient"></div>
-        <div class="noise"></div>
-    </div>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="status-badge">Coming Soon to App Store</div>
 
-    <div class="container">
-        <header>
-            <div class="logo-wrapper">
-                <div class="logo-glow"></div>
-                <img src="icon.png" alt="MailFlow" class="logo-icon">
+        <div class="hero-icon-wrapper">
+            <div class="hero-icon-ring"></div>
+            <img src="icon.png" alt="MailFlow" class="hero-icon">
+        </div>
+
+        <h1 class="hero-title"><span class="gradient">MailFlow</span></h1>
+        <p class="hero-tagline">The smart email reader that respects your privacy. Your inbox, your rules, your device.</p>
+
+        <div class="hero-cta">
+            <div class="btn btn-ghost">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                Coming Soon
             </div>
-            <div class="logo-text">MailFlow</div>
-            <div class="tagline">The smart email reader that respects your privacy</div>
+        </div>
+    </section>
 
-            <div class="cta-wrapper">
-                <div class="btn btn-coming-soon">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                    </svg>
-                    Coming Soon on App Store
-                </div>
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-header">
+                <p class="features-label">Features</p>
+                <h2 class="features-title">Privacy-first by design</h2>
             </div>
-        </header>
 
-        <section class="bento-section">
-            <div class="bento-grid">
+            <div class="bento">
                 <!-- Hero Card -->
                 <div class="bento-card card-hero">
                     <div class="card-icon">
@@ -541,8 +666,18 @@
                         </svg>
                     </div>
                     <div>
-                        <div class="card-title">100% Local. Zero Servers.</div>
-                        <div class="card-desc">Your emails never leave your device. No cloud storage, no tracking, no data mining. Just you and your inbox.</div>
+                        <h3 class="card-title">100% Local. Zero Servers.</h3>
+                        <p class="card-desc">Your emails never leave your device. No cloud storage, no tracking, no data mining. Processing happens entirely on your iPhone using <span class="code-highlight">on-device ML</span>.</p>
+                        <div class="security-visual">
+                            <div class="security-badge">
+                                <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/></svg>
+                                End-to-end encrypted
+                            </div>
+                            <div class="security-badge">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93z"/></svg>
+                                No external servers
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -553,8 +688,8 @@
                             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
                         </svg>
                     </div>
-                    <div class="card-title">Conversation View</div>
-                    <div class="card-desc">Experience your inbox like a modern chat app. Messages grouped by sender, easy to follow, natural to use.</div>
+                    <h3 class="card-title">Conversation View</h3>
+                    <p class="card-desc">Experience your inbox like a modern chat app. Messages grouped by sender, easy to follow, natural to use. No more hunting through threads.</p>
                 </div>
 
                 <div class="bento-card card-lg">
@@ -563,50 +698,73 @@
                             <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
                         </svg>
                     </div>
-                    <div class="card-title">Bank-Level Security</div>
-                    <div class="card-desc">OAuth 2.0 authentication. Credentials encrypted in iOS Keychain. Your password never touches our code.</div>
+                    <h3 class="card-title">Bank-Level Security</h3>
+                    <p class="card-desc">OAuth 2.0 authentication. Credentials encrypted in <span class="code-highlight">iOS Keychain</span>. Your password never touches our code.</p>
                 </div>
 
-                <div class="bento-card card-sm">
+                <div class="bento-card card-md">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                         </svg>
                     </div>
-                    <div class="card-title">Star & Archive</div>
-                    <div class="card-desc">Organize with familiar gestures.</div>
+                    <h3 class="card-title">Star & Archive</h3>
+                    <p class="card-desc">Organize with familiar gestures. Swipe, star, archive.</p>
                 </div>
 
-                <div class="bento-card card-sm">
+                <div class="bento-card card-md">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
                         </svg>
                     </div>
-                    <div class="card-title">Smart Search</div>
-                    <div class="card-desc">Find any email instantly.</div>
+                    <h3 class="card-title">Smart Search</h3>
+                    <p class="card-desc">Find any email instantly. Full-text search that works offline.</p>
                 </div>
 
-                <div class="bento-card card-sm">
+                <div class="bento-card card-md">
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24">
                             <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
                         </svg>
                     </div>
-                    <div class="card-title">Gmail Sync</div>
-                    <div class="card-desc">Changes sync back seamlessly.</div>
+                    <h3 class="card-title">Gmail Sync</h3>
+                    <p class="card-desc">Changes sync back seamlessly. Real-time, bi-directional.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="footer">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="mailto:sheepbeansgames@gmail.com">Contact</a>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="mailto:sheepbeansgames@gmail.com">Contact</a>
+                </div>
+                <p class="footer-copy">&copy; 2026 MailFlow</p>
             </div>
-            <div class="copyright">&copy; 2026 MailFlow</div>
-        </footer>
-    </div>
+        </div>
+    </footer>
+
+    <script>
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Subtle parallax on hero icon
+        document.addEventListener('mousemove', (e) => {
+            const icon = document.querySelector('.hero-icon');
+            if (icon && window.innerWidth > 768) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 10;
+                const y = (e.clientY / window.innerHeight - 0.5) * 10;
+                icon.style.transform = `translate(${x}px, ${y}px)`;
+            }
+        });
+    </script>
 </body>
 </html>

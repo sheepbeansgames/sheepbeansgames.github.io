@@ -20,11 +20,9 @@
     <meta property="og:description" content="下班後，一個人慢慢做的遊戲。NumFusion 是一款結合數字與策略的益智遊戲。">
     <meta property="og:image" content="https://sheepbeansgames.github.io/images/logo-sheepbeans.png">
     <meta property="og:locale" content="zh_TW">
-    <meta property="og:locale:alternate" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://sheepbeansgames.github.io/">
     <meta name="twitter:title" content="Sheep Beans Games - 下班後，一個人慢慢做的遊戲">
     <meta name="twitter:description" content="下班後，一個人慢慢做的遊戲。NumFusion 是一款結合數字與策略的益智遊戲。">
     <meta name="twitter:image" content="https://sheepbeansgames.github.io/images/logo-sheepbeans.png">
@@ -38,54 +36,32 @@
         "url": "https://sheepbeansgames.github.io",
         "logo": "https://sheepbeansgames.github.io/images/logo-sheepbeans.png",
         "description": "下班後，一個人慢慢做的遊戲",
-        "email": "sheepbeansgames@gmail.com",
-        "sameAs": []
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "NumFusion",
-        "operatingSystem": "iOS",
-        "applicationCategory": "GameApplication",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "description": "一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。",
-        "downloadUrl": "https://apps.apple.com/app/id6756245734",
-        "author": {
-            "@type": "Organization",
-            "name": "Sheep Beans Games"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "ratingCount": "1"
-        }
+        "email": "sheepbeansgames@gmail.com"
     }
     </script>
 
     <link rel="icon" type="image/png" href="images/icon-numfusion.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --color-bg: #0f1419;
-            --color-surface: #1a2332;
-            --color-primary: #4ecca3;
-            --color-primary-light: #6ef5c1;
-            --color-secondary: #ff6b9d;
-            --color-accent: #ffd93d;
-            --color-text: #ffffff;
-            --color-text-muted: #a8b2c1;
-            --font-display: 'Fredoka', sans-serif;
-            --font-body: 'DM Sans', sans-serif;
-            --shadow-glow: 0 0 40px rgba(78, 204, 163, 0.3);
-            --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.4);
+            --bg-deep: #0f1419;
+            --bg-warm: #151a24;
+            --bg-card: #1a2332;
+            --primary: #4ecca3;
+            --primary-light: #6ef5c1;
+            --primary-pale: #a7f3d0;
+            --cream: #ffffff;
+            --text-primary: #ffffff;
+            --text-secondary: #a8b2c1;
+            --text-muted: #6b7a90;
+            --accent-coral: #ff6b9d;
+            --accent-gold: #ffd93d;
+            --font-display: 'Crimson Pro', serif;
+            --font-body: 'Outfit', sans-serif;
+            --font-cjk: 'Noto Sans TC', sans-serif;
         }
 
         * {
@@ -94,518 +70,572 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: var(--font-body);
-            background: var(--color-bg);
-            color: var(--color-text);
+            background: var(--bg-deep);
+            color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* Background pattern */
+        /* Grain texture overlay */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(78, 204, 163, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(255, 107, 157, 0.06) 0%, transparent 50%),
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 100px,
-                    rgba(255, 255, 255, 0.01) 100px,
-                    rgba(255, 255, 255, 0.01) 102px
-                );
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.035;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Ambient light effects */
+        .ambient-light {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
             pointer-events: none;
             z-index: 0;
         }
 
+        .ambient-1 {
+            top: -200px;
+            right: -100px;
+            background: var(--primary);
+            animation: float-slow 20s ease-in-out infinite;
+        }
+
+        .ambient-2 {
+            bottom: 20%;
+            left: -200px;
+            background: var(--accent-coral);
+            opacity: 0.08;
+            animation: float-slow 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 20px) scale(1.1); }
+        }
+
         /* Header */
         header {
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 100;
-            padding: 24px 32px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(20px);
-            background: rgba(15, 20, 25, 0.7);
-            border-bottom: 2px solid rgba(78, 204, 163, 0.2);
+            transition: all 0.4s ease;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 48px;
+        header.scrolled {
+            background: rgba(13, 11, 10, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(78, 204, 163, 0.1);
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
         }
 
         .logo img {
-            height: 56px;
-            filter: drop-shadow(0 4px 12px rgba(78, 204, 163, 0.3));
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            height: 48px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(78, 204, 163, 0.2);
         }
 
-        .logo:hover img {
-            transform: scale(1.1) rotate(-5deg);
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: -0.02em;
         }
 
         nav {
             display: flex;
+            align-items: center;
             gap: 8px;
         }
 
         nav a {
-            color: var(--color-text);
+            color: var(--text-secondary);
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: 500;
-            font-size: 15px;
-            transition: all 0.3s ease;
+            padding: 10px 18px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            border-radius: 8px;
+            transition: all 0.25s ease;
             position: relative;
         }
 
-        nav a::before {
-            content: '';
-            position: absolute;
-            bottom: 8px;
-            left: 20px;
-            right: 20px;
-            height: 2px;
-            background: var(--color-primary);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
         nav a:hover {
-            color: var(--color-primary);
+            color: var(--primary-light);
+            background: rgba(78, 204, 163, 0.08);
         }
 
-        nav a:hover::before {
-            transform: scaleX(1);
-        }
-
-        .lang-switch {
+        .lang-toggle {
             display: flex;
-            gap: 4px;
             background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             padding: 4px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-left: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .lang-btn {
-            background: transparent;
+            background: none;
             border: none;
-            color: var(--color-text-muted);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
+            color: var(--text-muted);
+            padding: 6px 14px;
+            font-size: 0.85rem;
             font-family: var(--font-body);
-            transition: all 0.3s ease;
+            font-weight: 500;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.25s ease;
         }
 
         .lang-btn:hover {
-            color: var(--color-text);
+            color: var(--text-secondary);
         }
 
         .lang-btn.active {
-            background: var(--color-primary);
-            color: var(--color-bg);
+            background: var(--primary);
+            color: var(--bg-deep);
         }
 
         /* Hero Section */
         .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 140px 40px 100px;
             position: relative;
-            padding: 120px 32px 80px;
             text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
             z-index: 1;
         }
 
         .hero-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
-            color: var(--color-bg);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-            animation: float 3s ease-in-out infinite;
-            box-shadow: 0 8px 24px rgba(78, 204, 163, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(78, 204, 163, 0.12);
+            border: 1px solid rgba(78, 204, 163, 0.25);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--primary-light);
+            margin-bottom: 32px;
+            animation: fade-in 0.8s ease-out;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-logo {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 40px;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 20px 40px rgba(78, 204, 163, 0.25));
+            border-radius: 32px;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
         }
 
         .hero-title {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 700;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
             line-height: 1.1;
             margin-bottom: 24px;
-            background: linear-gradient(135deg, #ffffff, var(--color-primary-light));
+            animation: fade-up 0.8s ease-out 0.1s both;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--primary-pale) 50%, var(--primary-light) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-subtitle {
+            font-family: var(--font-cjk);
             font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            color: var(--color-text-muted);
-            max-width: 700px;
-            margin: 0 auto 48px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            animation: fade-up 0.8s ease-out 0.2s both;
         }
 
-        .hero-logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 40px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-            filter: drop-shadow(var(--shadow-glow));
+        .hero-subtitle em {
+            font-style: normal;
+            color: var(--primary-light);
         }
 
-        /* Games Section */
-        .games-section {
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Decorative line */
+        .hero-line {
+            width: 1px;
+            height: 100px;
+            background: linear-gradient(to bottom, var(--primary), transparent);
+            margin: 60px auto 0;
+            animation: grow-down 1s ease-out 0.5s both;
+        }
+
+        @keyframes grow-down {
+            from { transform: scaleY(0); transform-origin: top; }
+            to { transform: scaleY(1); transform-origin: top; }
+        }
+
+        /* Works Section */
+        .works-section {
+            padding: 120px 40px;
             position: relative;
-            padding: 80px 32px 120px;
-            z-index: 1;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 64px;
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--primary);
+            margin-bottom: 16px;
+            display: block;
         }
 
         .section-title {
             font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--color-text);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: -0.02em;
         }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--color-text-muted);
-        }
-
-        .games-container {
-            max-width: 1200px;
+        /* Game Card - Editorial Style */
+        .game-showcase {
+            max-width: 1100px;
             margin: 0 auto;
-            display: grid;
-            gap: 40px;
         }
 
         .game-card {
-            background: linear-gradient(135deg, rgba(26, 35, 50, 0.9), rgba(26, 35, 50, 0.6));
-            border-radius: 32px;
-            padding: 48px;
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 48px;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
             align-items: center;
-            border: 2px solid rgba(78, 204, 163, 0.2);
-            box-shadow: var(--shadow-card);
-            backdrop-filter: blur(20px);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            overflow: hidden;
+            background: var(--bg-card);
+            border-radius: 32px;
+            padding: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
             position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .game-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(78, 204, 163, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .game-card:hover::before {
-            opacity: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0.5;
         }
 
         .game-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--color-primary);
-            box-shadow: 0 24px 80px rgba(78, 204, 163, 0.2);
+            border-color: rgba(78, 204, 163, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
         }
 
         .game-visual {
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
-        .game-icon-wrapper {
+        .game-icon-container {
             position: relative;
-            width: 200px;
-            height: 200px;
+            display: inline-block;
         }
 
-        .game-icon-bg {
+        .game-icon-glow {
             position: absolute;
-            inset: -20px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-            border-radius: 40px;
-            opacity: 0.2;
-            filter: blur(30px);
-            animation: pulse 3s ease-in-out infinite;
+            inset: -40px;
+            background: radial-gradient(circle, rgba(78, 204, 163, 0.3) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: pulse-glow 4s ease-in-out infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.2; }
-            50% { transform: scale(1.1); opacity: 0.3; }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
         }
 
         .game-icon {
             position: relative;
-            width: 200px;
-            height: 200px;
-            border-radius: 40px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            width: 220px;
+            height: 220px;
+            border-radius: 48px;
+            box-shadow:
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 30px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .game-card:hover .game-icon {
-            transform: scale(1.05) rotate(3deg);
+            transform: scale(1.03) rotate(2deg);
+        }
+
+        /* Floating elements around icon */
+        .floating-elements {
+            position: absolute;
+            inset: -60px;
+            pointer-events: none;
+        }
+
+        .floating-number {
+            position: absolute;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            opacity: 0.3;
+            animation: float-around 8s ease-in-out infinite;
+        }
+
+        .floating-number:nth-child(1) { top: 0; left: 20%; animation-delay: 0s; }
+        .floating-number:nth-child(2) { top: 30%; right: 0; animation-delay: 2s; }
+        .floating-number:nth-child(3) { bottom: 10%; left: 10%; animation-delay: 4s; }
+
+        @keyframes float-around {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(5px, -10px) rotate(5deg); }
+            50% { transform: translate(-5px, -5px) rotate(-3deg); }
+            75% { transform: translate(8px, 5px) rotate(2deg); }
         }
 
         .game-content {
-            position: relative;
+            padding: 20px 0;
         }
 
         .game-logo {
-            width: 100%;
-            max-width: 300px;
-            margin-bottom: 16px;
+            width: 280px;
+            margin-bottom: 20px;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
         }
 
         .game-status {
-            font-size: 0.9rem;
-            color: var(--color-text-muted);
-            margin-bottom: 16px;
+            font-family: var(--font-display);
             font-style: italic;
-            opacity: 0.8;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
         }
 
         .game-description {
+            font-family: var(--font-cjk);
             font-size: 1.1rem;
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
+            line-height: 1.9;
             margin-bottom: 32px;
-            line-height: 1.8;
         }
 
         .game-tags {
             display: flex;
-            flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
         .game-tag {
-            background: rgba(255, 255, 255, 0.08);
-            color: var(--color-primary-light);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            border: 1px solid rgba(78, 204, 163, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--primary-pale);
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
         }
 
-        .coming-soon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--color-accent), #ffed4e);
-            color: var(--color-bg);
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 15px;
-            box-shadow: 0 8px 24px rgba(255, 217, 61, 0.3);
-            animation: pulse-badge 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-badge {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .coming-soon-badge::before {
-            content: '⭐';
-            font-size: 18px;
-            animation: spin 4s linear infinite;
-        }
-
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .game-tag:hover {
+            background: rgba(78, 204, 163, 0.1);
+            border-color: rgba(78, 204, 163, 0.3);
         }
 
         .app-store-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-primary);
+            color: var(--bg-deep);
+            padding: 14px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .app-store-link:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
 
-        .app-store-badge {
-            height: 50px;
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        .app-store-link svg {
+            width: 24px;
+            height: 24px;
         }
 
-        /* Notes Section */
-        .notes-section {
-            position: relative;
-            padding: 60px 32px;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .notes-header {
+        /* Notes teaser */
+        .notes-teaser {
             max-width: 600px;
-            margin: 0 auto;
+            margin: 120px auto 0;
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .notes-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 20px;
+            opacity: 0.5;
         }
 
         .notes-title {
             font-family: var(--font-display);
             font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--color-text-muted);
-            margin-bottom: 8px;
+            color: var(--cream);
+            margin-bottom: 12px;
         }
 
         .notes-subtitle {
+            font-family: var(--font-cjk);
+            color: var(--text-muted);
             font-size: 0.95rem;
-            color: var(--color-text-muted);
-            opacity: 0.7;
         }
 
         /* Footer */
         footer {
-            position: relative;
-            text-align: center;
-            padding: 80px 32px 40px;
-            background: linear-gradient(to bottom, transparent, rgba(15, 20, 25, 0.8));
-            border-top: 2px solid rgba(78, 204, 163, 0.2);
-            z-index: 1;
+            padding: 80px 40px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 80px;
         }
 
-        .footer-logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 24px;
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer-brand img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             opacity: 0.8;
-            transition: all 0.3s ease;
         }
 
-        .footer-logo:hover {
-            opacity: 1;
-            transform: scale(1.1);
+        .footer-brand span {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
         }
 
         .footer-links {
             display: flex;
-            justify-content: center;
             gap: 32px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: var(--color-text-muted);
+            color: var(--text-muted);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            font-size: 15px;
+            font-size: 0.9rem;
+            transition: color 0.25s ease;
         }
 
         .footer-links a:hover {
-            color: var(--color-primary);
-        }
-
-        .footer-social {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .social-link {
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            color: var(--color-text-muted);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-link:hover {
-            background: var(--color-primary);
-            color: var(--color-bg);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(78, 204, 163, 0.3);
+            color: var(--primary-light);
         }
 
         .footer-copyright {
-            color: var(--color-text-muted);
-            font-size: 14px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
 
         /* Responsive */
-
-        /* Tablet - 1024px and below */
-        @media (max-width: 1024px) {
+        @media (max-width: 900px) {
             .game-card {
                 grid-template-columns: 1fr;
                 text-align: center;
-                padding: 40px 32px;
-                gap: 32px;
+                padding: 48px 32px;
+                gap: 48px;
             }
 
             .game-content {
@@ -614,92 +644,45 @@
                 align-items: center;
             }
 
-            .game-logo {
-                max-width: 250px;
-            }
-
             .game-tags {
                 justify-content: center;
             }
+
+            .game-icon {
+                width: 180px;
+                height: 180px;
+            }
         }
 
-        /* Mobile - 768px and below */
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
-                gap: 16px;
                 padding: 16px 20px;
             }
 
-            .header-left {
-                flex-direction: column;
-                gap: 16px;
-                width: 100%;
-            }
-
-            .logo {
-                justify-content: center;
-            }
-
-            .logo img {
-                height: 48px;
-            }
-
-            nav {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
+            .logo-text {
+                display: none;
             }
 
             nav a {
-                padding: 8px 16px;
-                font-size: 14px;
+                padding: 8px 14px;
+                font-size: 0.85rem;
             }
 
             .hero {
-                padding: 60px 20px 50px;
+                padding: 120px 24px 80px;
             }
 
             .hero-logo {
-                width: 150px;
-                height: 150px;
-                margin-bottom: 32px;
+                width: 120px;
+                height: 120px;
             }
 
-            .hero-title {
-                font-size: clamp(2rem, 10vw, 3rem);
-                margin-bottom: 20px;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 32px;
-            }
-
-            .games-section {
-                padding: 60px 20px 80px;
-            }
-
-            .section-header {
-                margin-bottom: 48px;
-            }
-
-            .section-title {
-                font-size: clamp(1.8rem, 8vw, 2.5rem);
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
+            .works-section {
+                padding: 80px 24px;
             }
 
             .game-card {
                 padding: 32px 24px;
-                border-radius: 24px;
-            }
-
-            .game-icon-wrapper {
-                width: 140px;
-                height: 140px;
             }
 
             .game-icon {
@@ -709,233 +692,158 @@
             }
 
             .game-logo {
-                max-width: 220px;
-                margin-bottom: 20px;
+                width: 200px;
             }
 
-            .game-description {
-                font-size: 1rem;
-                margin-bottom: 24px;
-            }
-
-            .game-tags {
-                gap: 8px;
-                margin-bottom: 24px;
-            }
-
-            .game-tag {
-                font-size: 12px;
-                padding: 6px 12px;
-            }
-
-            .coming-soon-badge {
-                padding: 10px 24px;
-                font-size: 14px;
-            }
-
-            .app-store-badge {
-                height: 45px;
-            }
-
-            footer {
-                padding: 60px 20px 32px;
-            }
-
-            .footer-logo {
-                width: 60px;
-                height: 60px;
-                margin-bottom: 20px;
+            .footer-content {
+                flex-direction: column;
+                gap: 32px;
+                text-align: center;
             }
 
             .footer-links {
-                gap: 20px;
-                flex-direction: column;
-                margin-bottom: 24px;
-            }
-
-            .footer-links a {
-                font-size: 14px;
-            }
-
-            .footer-social {
-                margin-bottom: 24px;
-            }
-        }
-
-        /* Small Mobile - 480px and below */
-        @media (max-width: 480px) {
-            .hero {
-                padding: 40px 16px 40px;
-            }
-
-            .hero-logo {
-                width: 120px;
-                height: 120px;
-                margin-bottom: 24px;
-            }
-
-            .hero-title {
-                font-size: 1.8rem;
-                margin-bottom: 16px;
-            }
-
-            .hero-subtitle {
-                font-size: 0.95rem;
-                padding: 0 8px;
-            }
-
-            .games-section {
-                padding: 40px 16px 60px;
-            }
-
-            .section-header {
-                margin-bottom: 32px;
-            }
-
-            .game-card {
-                padding: 24px 20px;
-                gap: 24px;
-            }
-
-            .game-icon-wrapper {
-                width: 120px;
-                height: 120px;
-            }
-
-            .game-icon {
-                width: 120px;
-                height: 120px;
-                border-radius: 28px;
-            }
-
-            .game-logo {
-                max-width: 180px;
-            }
-
-            .game-description {
-                font-size: 0.95rem;
-            }
-
-            .coming-soon-badge {
-                padding: 8px 20px;
-                font-size: 13px;
-            }
-
-            .app-store-badge {
-                height: 40px;
-            }
-
-            .lang-switch {
-                width: 100%;
+                flex-wrap: wrap;
                 justify-content: center;
             }
         }
 
-        /* Accessibility - Reduce motion for users who prefer it */
+        @media (max-width: 480px) {
+            .hero-subtitle {
+                letter-spacing: 0.05em;
+            }
+
+            .lang-toggle {
+                margin-left: 8px;
+            }
+
+            .lang-btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
-            * {
+            *, *::before, *::after {
                 animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-left">
-            <a href="index.html" class="logo">
-                <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games">
-            </a>
-            <nav>
-                <a href="index.html" data-i18n="nav.home">首頁</a>
-                <a href="numfusion.html" data-i18n="nav.numfusion">NumFusion</a>
-                <a href="privacy.html" data-i18n="nav.privacy">隱私權政策</a>
-            </nav>
-        </div>
-        <div class="lang-switch">
-            <button class="lang-btn active" data-lang="zh">中文</button>
-            <button class="lang-btn" data-lang="en">EN</button>
-        </div>
+    <!-- Ambient lights -->
+    <div class="ambient-light ambient-1"></div>
+    <div class="ambient-light ambient-2"></div>
+
+    <header id="header">
+        <a href="index.html" class="logo">
+            <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games">
+            <span class="logo-text">Sheep Beans Games</span>
+        </a>
+        <nav>
+            <a href="index.html" data-i18n="nav.home">Home</a>
+            <a href="numfusion.html" data-i18n="nav.numfusion">NumFusion</a>
+            <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
+            <div class="lang-toggle">
+                <button class="lang-btn active" data-lang="zh">中</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </nav>
     </header>
 
     <section class="hero">
-        <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games" class="hero-logo">
-        <h1 class="hero-title" data-i18n="hero.title">Sheep Beans Games</h1>
-        <p class="hero-subtitle" data-i18n="hero.subtitle">下班後，一個人慢慢做的遊戲</p>
+        <div class="hero-content">
+            <div class="hero-badge" data-i18n="hero.badge">Indie Game Studio</div>
+            <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games" class="hero-logo">
+            <h1 class="hero-title"><span>Sheep Beans Games</span></h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">下班後，<em>一個人</em>慢慢做的遊戲</p>
+        </div>
+        <div class="hero-line"></div>
     </section>
 
-    <section class="games-section">
+    <section class="works-section">
         <div class="section-header">
-            <h2 class="section-title" data-i18n="games.title">作品</h2>
+            <span class="section-label" data-i18n="works.label">Portfolio</span>
+            <h2 class="section-title" data-i18n="works.title">作品</h2>
         </div>
 
-        <div class="games-container">
+        <div class="game-showcase">
             <article class="game-card">
                 <div class="game-visual">
-                    <div class="game-icon-wrapper">
-                        <div class="game-icon-bg"></div>
+                    <div class="game-icon-container">
+                        <div class="game-icon-glow"></div>
                         <img src="images/icon-numfusion.png" alt="NumFusion" class="game-icon">
+                        <div class="floating-elements">
+                            <span class="floating-number">7</span>
+                            <span class="floating-number">3</span>
+                            <span class="floating-number">9</span>
+                        </div>
                     </div>
                 </div>
                 <div class="game-content">
                     <img src="images/logo-numfusion.png" alt="NumFusion" class="game-logo">
-                    <p class="game-status" data-i18n="games.numfusion.status">仍在調整中的作品</p>
-                    <p class="game-description" data-i18n="games.numfusion.desc">一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。</p>
+                    <p class="game-status" data-i18n="game.status">Still evolving...</p>
+                    <p class="game-description" data-i18n="game.desc">一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。</p>
                     <div class="game-tags">
-                        <span class="game-tag" data-i18n="games.numfusion.tag1">益智</span>
-                        <span class="game-tag" data-i18n="games.numfusion.tag2">策略</span>
-                        <span class="game-tag" data-i18n="games.numfusion.tag3">休閒</span>
+                        <span class="game-tag" data-i18n="game.tag1">益智</span>
+                        <span class="game-tag" data-i18n="game.tag2">策略</span>
+                        <span class="game-tag" data-i18n="game.tag3">休閒</span>
                     </div>
                     <a href="https://apps.apple.com/app/id6756245734" class="app-store-link" target="_blank" rel="noopener noreferrer">
-                        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="app-store-badge">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        <span data-i18n="game.download">Download on App Store</span>
                     </a>
                 </div>
             </article>
         </div>
-    </section>
 
-    <section class="notes-section">
-        <div class="notes-header">
-            <h2 class="notes-title" data-i18n="notes.title">Notes</h2>
+        <div class="notes-teaser">
+            <svg class="notes-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                <path d="M2 2l7.586 7.586"/>
+                <circle cx="11" cy="11" r="2"/>
+            </svg>
+            <h3 class="notes-title" data-i18n="notes.title">Notes</h3>
             <p class="notes-subtitle" data-i18n="notes.subtitle">做遊戲路上的一些小筆記</p>
         </div>
     </section>
 
     <footer>
-        <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games" class="footer-logo">
-        <div class="footer-links">
-            <a href="index.html" data-i18n="nav.home">首頁</a>
-            <a href="privacy.html" data-i18n="nav.privacy">隱私權政策</a>
-            <a href="mailto:sheepbeansgames@gmail.com" data-i18n="footer.contact">聯絡我們</a>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games">
+                <span>Sheep Beans Games</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html" data-i18n="nav.home">Home</a>
+                <a href="privacy.html" data-i18n="nav.privacy">Privacy Policy</a>
+                <a href="mailto:sheepbeansgames@gmail.com" data-i18n="footer.contact">Contact</a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 Sheep Beans Games</p>
         </div>
-        <div class="footer-social">
-            <a href="mailto:sheepbeansgames@gmail.com" class="social-link" title="Email">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                </svg>
-            </a>
-        </div>
-        <p class="footer-copyright">&copy; 2025 Sheep Beans Games. All rights reserved.</p>
     </footer>
 
     <script>
+        // i18n translations
         const i18n = {
             zh: {
                 'nav.home': '首頁',
                 'nav.numfusion': 'NumFusion',
                 'nav.privacy': '隱私權政策',
-                'hero.title': 'Sheep Beans Games',
-                'hero.subtitle': '下班後，一個人慢慢做的遊戲',
-                'games.title': '作品',
-                'games.numfusion.status': '仍在調整中的作品',
-                'games.numfusion.desc': '一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。',
-                'games.numfusion.tag1': '益智',
-                'games.numfusion.tag2': '策略',
-                'games.numfusion.tag3': '休閒',
-                'games.numfusion.appstore': '可以在 App Store 找到 →',
-                'games.coming': '即將上線',
+                'hero.badge': '獨立遊戲工作室',
+                'hero.subtitle': '下班後，<em>一個人</em>慢慢做的遊戲',
+                'works.label': '作品集',
+                'works.title': '作品',
+                'game.status': '仍在調整中...',
+                'game.desc': '一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。',
+                'game.tag1': '益智',
+                'game.tag2': '策略',
+                'game.tag3': '休閒',
+                'game.download': '在 App Store 下載',
                 'notes.title': 'Notes',
                 'notes.subtitle': '做遊戲路上的一些小筆記',
                 'footer.contact': '聯絡我們'
@@ -944,19 +852,19 @@
                 'nav.home': 'Home',
                 'nav.numfusion': 'NumFusion',
                 'nav.privacy': 'Privacy Policy',
-                'hero.title': 'Sheep Beans Games',
-                'hero.subtitle': 'One person. After work. Slowly.',
-                'games.title': 'Work',
-                'games.numfusion.status': 'Still evolving.',
-                'games.numfusion.desc': 'A puzzle game combining numbers and strategy, challenging your logical thinking while training your brain in a relaxed and enjoyable atmosphere.',
-                'games.numfusion.tag1': 'Puzzle',
-                'games.numfusion.tag2': 'Strategy',
-                'games.numfusion.tag3': 'Casual',
-                'games.numfusion.appstore': 'Available on the App Store →',
-                'games.coming': 'Coming Soon',
+                'hero.badge': 'Indie Game Studio',
+                'hero.subtitle': 'One person. After work. <em>Slowly.</em>',
+                'works.label': 'Portfolio',
+                'works.title': 'Works',
+                'game.status': 'Still evolving...',
+                'game.desc': 'A puzzle game combining numbers and strategy, challenging your logical thinking while training your brain in a relaxed atmosphere.',
+                'game.tag1': 'Puzzle',
+                'game.tag2': 'Strategy',
+                'game.tag3': 'Casual',
+                'game.download': 'Download on App Store',
                 'notes.title': 'Notes',
                 'notes.subtitle': 'Thoughts along the way.',
-                'footer.contact': 'Contact Us'
+                'footer.contact': 'Contact'
             }
         };
 
@@ -973,31 +881,31 @@
             });
 
             document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'en';
-            localStorage.setItem('lang', lang);
+            localStorage.setItem('sheepbeans-lang', lang);
         }
 
+        // Language toggle
         document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                setLanguage(btn.getAttribute('data-lang'));
-            });
+            btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
         });
 
-        // Detect browser language
-        function detectLanguage() {
-            const browserLang = navigator.language || navigator.userLanguage;
-            return browserLang.startsWith('zh') ? 'zh' : 'en';
-        }
-
-        // Load saved language, or detect from browser
-        const savedLang = localStorage.getItem('lang') || detectLanguage();
+        // Load saved language
+        const savedLang = localStorage.getItem('sheepbeans-lang') ||
+            (navigator.language.startsWith('zh') ? 'zh' : 'en');
         setLanguage(savedLang);
 
-        // Parallax effect for hero
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Subtle parallax on hero
         document.addEventListener('mousemove', (e) => {
             const hero = document.querySelector('.hero-logo');
-            if (hero) {
-                const x = (e.clientX / window.innerWidth - 0.5) * 20;
-                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            if (hero && window.innerWidth > 768) {
+                const x = (e.clientX / window.innerWidth - 0.5) * 15;
+                const y = (e.clientY / window.innerHeight - 0.5) * 15;
                 hero.style.transform = `translate(${x}px, ${y}px)`;
             }
         });
