@@ -1,8 +1,8 @@
 # Robots.txt for Sheep Beans Games
-# https://sheepbeansgames.github.io
+# https://sheepbeansgames.cc
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://sheepbeansgames.github.io/sitemap.xml
+Sitemap: https://sheepbeansgames.cc/sitemap.xml
