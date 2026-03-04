@@ -6,26 +6,26 @@
     <title>Sheep Beans Games - 下班後，一個人慢慢做的遊戲</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="下班後，一個人慢慢做的遊戲。NumFusion 是一款結合數字與策略的益智遊戲，現已在 App Store 上架。">
-    <meta name="keywords" content="Sheep Beans Games, NumFusion, 益智遊戲, puzzle game, 手機遊戲, mobile game, iOS game, 數字遊戲, 策略遊戲">
+    <meta name="description" content="Sheep Beans Games — 下班後，一個人慢慢做的遊戲。An indie game studio. NumFusion 數字融合益智策略遊戲，現已在 App Store 免費下載。">
+    <meta name="keywords" content="Sheep Beans Games, NumFusion, 數字融合, 益智遊戲, puzzle game, 策略遊戲, strategy game, 手機遊戲, mobile game, iOS game, indie game, 獨立遊戲, 免費遊戲, free game, number game, 數字遊戲, brain training, 腦力訓練, App Store, iPhone game, casual game, 休閒遊戲, 燒腦遊戲, brain teaser, 邏輯遊戲, logic game, 離線遊戲, offline game, 單機遊戲, 不用網路, 好玩的手遊, 推薦益智遊戲, best puzzle game, 通勤遊戲, 打發時間, 類似2048, 數字合併, number merge">
     <meta name="author" content="Sheep Beans Games">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="Mr0FJEafR_nXS1QqFDkjiN8SQrilyDpzkluserdJL5w">
-    <link rel="canonical" href="https://sheepbeansgames.github.io/">
+    <link rel="canonical" href="https://sheepbeansgames.cc/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sheepbeansgames.github.io/">
+    <meta property="og:url" content="https://sheepbeansgames.cc/">
     <meta property="og:title" content="Sheep Beans Games - 下班後，一個人慢慢做的遊戲">
-    <meta property="og:description" content="下班後，一個人慢慢做的遊戲。NumFusion 是一款結合數字與策略的益智遊戲。">
-    <meta property="og:image" content="https://sheepbeansgames.github.io/images/logo-sheepbeans.png">
+    <meta property="og:description" content="An indie game studio. 下班後，一個人慢慢做的遊戲。NumFusion — a number puzzle strategy game, free on App Store.">
+    <meta property="og:image" content="https://sheepbeansgames.cc/images/logo-sheepbeans.png">
     <meta property="og:locale" content="zh_TW">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sheep Beans Games - 下班後，一個人慢慢做的遊戲">
-    <meta name="twitter:description" content="下班後，一個人慢慢做的遊戲。NumFusion 是一款結合數字與策略的益智遊戲。">
-    <meta name="twitter:image" content="https://sheepbeansgames.github.io/images/logo-sheepbeans.png">
+    <meta name="twitter:description" content="An indie game studio. 下班後，一個人慢慢做的遊戲。NumFusion — free number puzzle game on App Store.">
+    <meta name="twitter:image" content="https://sheepbeansgames.cc/images/logo-sheepbeans.png">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -33,14 +33,41 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Sheep Beans Games",
-        "url": "https://sheepbeansgames.github.io",
-        "logo": "https://sheepbeansgames.github.io/images/logo-sheepbeans.png",
+        "url": "https://sheepbeansgames.cc",
+        "logo": "https://sheepbeansgames.cc/images/logo-sheepbeans.png",
         "description": "下班後，一個人慢慢做的遊戲",
         "email": "sheepbeansgames@gmail.com"
     }
     </script>
 
-    <link rel="icon" type="image/png" href="images/icon-numfusion.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Sheep Beans Games",
+        "url": "https://sheepbeansgames.cc",
+        "description": "下班後，一個人慢慢做的遊戲",
+        "inLanguage": ["zh-TW", "en"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "首頁",
+            "item": "https://sheepbeansgames.cc/"
+        }]
+    }
+    </script>
+
+    <meta name="theme-color" content="#0f1419">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+    <link rel="apple-touch-icon" href="images/icon-numfusion.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -656,16 +683,37 @@
 
         @media (max-width: 768px) {
             header {
-                padding: 16px 20px;
+                padding: 10px 16px;
+                position: fixed;
+            }
+
+            .logo img {
+                height: 32px;
+                border-radius: 8px;
             }
 
             .logo-text {
                 display: none;
             }
 
+            nav {
+                gap: 4px;
+            }
+
             nav a {
-                padding: 8px 14px;
-                font-size: 0.85rem;
+                padding: 6px 8px;
+                font-size: 0.78rem;
+                white-space: nowrap;
+            }
+
+            .lang-toggle {
+                margin-left: 6px;
+                padding: 2px;
+            }
+
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 0.7rem;
             }
 
             .hero {
@@ -722,6 +770,26 @@
             }
         }
 
+        /* Scroll reveal */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        [data-reveal].revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero canvas */
+        .hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
@@ -753,9 +821,10 @@
     </header>
 
     <section class="hero">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
         <div class="hero-content">
             <div class="hero-badge" data-i18n="hero.badge">Indie Game Studio</div>
-            <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games" class="hero-logo">
+            <img src="images/logo-sheepbeans.png" alt="Sheep Beans Games 綿羊豆遊戲工作室標誌" class="hero-logo">
             <h1 class="hero-title"><span>Sheep Beans Games</span></h1>
             <p class="hero-subtitle" data-i18n="hero.subtitle">下班後，<em>一個人</em>慢慢做的遊戲</p>
         </div>
@@ -763,17 +832,17 @@
     </section>
 
     <section class="works-section">
-        <div class="section-header">
+        <div class="section-header" data-reveal>
             <span class="section-label" data-i18n="works.label">Portfolio</span>
             <h2 class="section-title" data-i18n="works.title">作品</h2>
         </div>
 
         <div class="game-showcase">
-            <article class="game-card">
+            <article class="game-card" data-reveal>
                 <div class="game-visual">
                     <div class="game-icon-container">
                         <div class="game-icon-glow"></div>
-                        <img src="images/icon-numfusion.png" alt="NumFusion" class="game-icon">
+                        <img src="images/icon-numfusion.png" alt="NumFusion 數字融合益智遊戲圖示" class="game-icon" loading="lazy">
                         <div class="floating-elements">
                             <span class="floating-number">7</span>
                             <span class="floating-number">3</span>
@@ -782,9 +851,9 @@
                     </div>
                 </div>
                 <div class="game-content">
-                    <img src="images/logo-numfusion.png" alt="NumFusion" class="game-logo">
+                    <img src="images/logo-numfusion.png" alt="NumFusion 數字融合遊戲標誌" class="game-logo" loading="lazy">
                     <p class="game-status" data-i18n="game.status">Still evolving...</p>
-                    <p class="game-description" data-i18n="game.desc">一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。</p>
+                    <p class="game-description" data-i18n="game.desc">一款簡單卻讓人停不下來的數字益智遊戲。放置、合併、連鎖，挑戰高分！</p>
                     <div class="game-tags">
                         <span class="game-tag" data-i18n="game.tag1">益智</span>
                         <span class="game-tag" data-i18n="game.tag2">策略</span>
@@ -800,7 +869,7 @@
             </article>
         </div>
 
-        <div class="notes-teaser">
+        <div class="notes-teaser" data-reveal>
             <svg class="notes-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M12 19l7-7 3 3-7 7-3-3z"/>
                 <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
@@ -823,7 +892,7 @@
                 <a href="privacy.html" data-i18n="nav.privacy">Privacy Policy</a>
                 <a href="mailto:sheepbeansgames@gmail.com" data-i18n="footer.contact">Contact</a>
             </div>
-            <p class="footer-copyright">&copy; 2025 Sheep Beans Games</p>
+            <p class="footer-copyright">&copy; 2025-2026 Sheep Beans Games</p>
         </div>
     </footer>
 
@@ -833,13 +902,13 @@
             zh: {
                 'nav.home': '首頁',
                 'nav.numfusion': 'NumFusion',
-                'nav.privacy': '隱私權政策',
+                'nav.privacy': '隱私政策',
                 'hero.badge': '下班後的創作',
                 'hero.subtitle': '下班後，<em>一個人</em>慢慢做的遊戲',
                 'works.label': '作品集',
                 'works.title': '作品',
                 'game.status': '仍在調整中...',
-                'game.desc': '一款結合數字與策略的益智遊戲，挑戰你的邏輯思維，在輕鬆愉快的氛圍中訓練大腦。',
+                'game.desc': '一款簡單卻讓人停不下來的數字益智遊戲。放置、合併、連鎖，挑戰高分！',
                 'game.tag1': '益智',
                 'game.tag2': '策略',
                 'game.tag3': '休閒',
@@ -851,13 +920,13 @@
             en: {
                 'nav.home': 'Home',
                 'nav.numfusion': 'NumFusion',
-                'nav.privacy': 'Privacy Policy',
+                'nav.privacy': 'Privacy',
                 'hero.badge': 'After-hours Creation',
                 'hero.subtitle': 'One person. After work. <em>Slowly.</em>',
                 'works.label': 'Portfolio',
                 'works.title': 'Works',
                 'game.status': 'Still evolving...',
-                'game.desc': 'A puzzle game combining numbers and strategy, challenging your logical thinking while training your brain in a relaxed atmosphere.',
+                'game.desc': 'A simple yet addictive number puzzle game. Place, merge, chain — go for the high score!',
                 'game.tag1': 'Puzzle',
                 'game.tag2': 'Strategy',
                 'game.tag3': 'Casual',
@@ -909,6 +978,92 @@
                 hero.style.transform = `translate(${x}px, ${y}px)`;
             }
         });
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+        // Hero number particles
+        (function() {
+            const canvas = document.getElementById('heroCanvas');
+            if (!canvas) return;
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) return;
+            const ctx = canvas.getContext('2d');
+            let W, H, mouseX = 0, mouseY = 0;
+            const colors = ['#4ecca3', '#ff6b9d', '#ffd93d'];
+            const particles = [];
+
+            function resize() {
+                const hero = canvas.parentElement;
+                W = canvas.width = hero.offsetWidth;
+                H = canvas.height = hero.offsetHeight;
+            }
+
+            function createParticles() {
+                particles.length = 0;
+                for (let i = 0; i < 22; i++) {
+                    particles.push({
+                        x: Math.random() * W,
+                        y: Math.random() * H,
+                        vx: (Math.random() - 0.5) * 0.4,
+                        vy: (Math.random() - 0.5) * 0.3,
+                        num: Math.floor(Math.random() * 9) + 1,
+                        size: 14 + Math.random() * 12,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        alpha: 0.15 + Math.random() * 0.2
+                    });
+                }
+            }
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+                for (const p of particles) {
+                    const dx = mouseX - p.x;
+                    const dy = mouseY - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 200) {
+                        const force = (200 - dist) / 200 * 0.5;
+                        p.x -= dx * force * 0.02;
+                        p.y -= dy * force * 0.02;
+                    }
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    if (p.x < -20) p.x = W + 20;
+                    if (p.x > W + 20) p.x = -20;
+                    if (p.y < -20) p.y = H + 20;
+                    if (p.y > H + 20) p.y = -20;
+
+                    ctx.save();
+                    ctx.globalAlpha = p.alpha;
+                    ctx.font = `600 ${p.size}px 'Crimson Pro', serif`;
+                    ctx.fillStyle = p.color;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(p.num, p.x, p.y);
+                    ctx.restore();
+                }
+                requestAnimationFrame(draw);
+            }
+
+            resize();
+            createParticles();
+            draw();
+            window.addEventListener('resize', () => { resize(); createParticles(); });
+            document.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+            });
+        })();
     </script>
 </body>
 </html>
