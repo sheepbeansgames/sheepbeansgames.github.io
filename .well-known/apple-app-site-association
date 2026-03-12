@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "CZ946U56G7.com.sheepbeansgames.numfusion.game",
+        "paths": [
+          "/puzzle/*"
+        ]
+      }
+    ]
+  }
+}
