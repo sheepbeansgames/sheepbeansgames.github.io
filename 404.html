@@ -1,79 +1,263 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <script>
-    // GitHub Pages SPA fallback: redirect /puzzle/* to puzzle/index.html
-    const path = window.location.pathname;
-    if (path.startsWith('/puzzle/')) {
-      // Stay on this page but show puzzle content
-    } else {
-      // Other 404s redirect to home
-      window.location.href = '/';
-    }
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NumFusion Puzzle Challenge</title>
-  <meta name="apple-itunes-app" content="app-id=6738043567">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .container {
-      text-align: center;
-      padding: 2rem;
-      max-width: 400px;
-    }
-    .icon { font-size: 4rem; margin-bottom: 1rem; }
-    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    .seed {
-      font-family: monospace;
-      background: rgba(255,255,255,0.1);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      margin: 1rem 0;
-      font-size: 0.9rem;
-      word-break: break-all;
-    }
-    p { color: #aaa; margin-bottom: 1.5rem; line-height: 1.6; }
-    .btn {
-      display: inline-block;
-      background: #e94560;
-      color: #fff;
-      text-decoration: none;
-      padding: 0.8rem 2rem;
-      border-radius: 12px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: transform 0.2s;
-    }
-    .btn:hover { transform: scale(1.05); }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const path = window.location.pathname;
-      const match = path.match(/\/puzzle\/(PZ-[A-Z]-\d+-[a-f0-9]+)/i);
-      if (match) {
-        const seedEl = document.getElementById('seed');
-        if (seedEl) seedEl.textContent = match[1];
-      }
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NumFusion Puzzle Challenge</title>
+    <meta name="apple-itunes-app" content="app-id=6738043567">
+    <meta name="theme-color" content="#0f1419">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png">
+    <link rel="apple-touch-icon" href="/images/icon-numfusion.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        // GitHub Pages SPA fallback
+        const path = window.location.pathname;
+        if (!path.startsWith('/puzzle/')) {
+            window.location.href = '/';
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-deep: #0f1419;
+            --bg-card: #1a2332;
+            --primary: #4ecca3;
+            --primary-light: #6ef5c1;
+            --primary-pale: #a7f3d0;
+            --secondary: #ff6b9d;
+            --accent: #ffd93d;
+            --text-primary: #ffffff;
+            --text-secondary: #a8b2c1;
+            --text-muted: #6b7a90;
+            --font-display: 'Crimson Pro', serif;
+            --font-body: 'Outfit', sans-serif;
+            --font-cjk: 'Noto Sans TC', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .ambient-light {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .ambient-1 {
+            top: -100px;
+            left: 10%;
+            background: var(--primary);
+            opacity: 0.12;
+            animation: float-slow 20s ease-in-out infinite;
+        }
+        .ambient-2 {
+            bottom: -50px;
+            right: 5%;
+            background: var(--secondary);
+            opacity: 0.08;
+            animation: float-slow 25s ease-in-out infinite reverse;
+        }
+        @keyframes float-slow {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, 15px) scale(1.05); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 480px;
+            width: 100%;
+            animation: fade-up 0.6s ease-out;
+        }
+
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .logo-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-decoration: none;
+        }
+        .logo-link img {
+            height: 80px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(78, 204, 163, 0.25);
+            transition: transform 0.3s ease;
+        }
+        .logo-link:hover img { transform: scale(1.05); }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--primary-pale), var(--primary-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-cjk);
+        }
+
+        .seed-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(78, 204, 163, 0.2);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .seed-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .seed-value {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 1.2rem;
+            color: var(--primary-light);
+            background: rgba(78, 204, 163, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px solid rgba(78, 204, 163, 0.15);
+            word-break: break-all;
+        }
+
+        .challenge-text {
+            font-family: var(--font-cjk);
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: var(--bg-deep);
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 14px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(78, 204, 163, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(78, 204, 163, 0.4);
+            background: var(--primary-light);
+        }
+        .download-btn svg { width: 20px; height: 20px; }
+
+        .footer-note {
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .footer-note a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .footer-note a:hover { text-decoration: underline; }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const path = window.location.pathname;
+            const match = path.match(/\/puzzle\/(PZ-[A-Z]-\d+-[a-f0-9]+)/i);
+            if (match) {
+                const seed = match[1];
+                const seedEl = document.getElementById('seed-value');
+                if (seedEl) seedEl.textContent = seed;
+
+                const code = seed.split('-')[1];
+                const diffMap = { 'E': 'Easy', 'M': 'Medium', 'H': 'Hard', 'X': 'Expert' };
+                const diffEl = document.getElementById('difficulty');
+                if (diffEl && diffMap[code]) {
+                    diffEl.textContent = diffMap[code];
+                }
+            }
+        });
+    </script>
 </head>
 <body>
-  <div class="container">
-    <div class="icon">🧩</div>
-    <h1>NumFusion Puzzle</h1>
-    <div class="seed" id="seed">—</div>
-    <p>在 NumFusion App 中開啟這個挑戰，看看你能拿到幾星！</p>
-    <a class="btn" href="https://apps.apple.com/app/id6738043567">下載 NumFusion</a>
-  </div>
+    <div class="ambient-light ambient-1"></div>
+    <div class="ambient-light ambient-2"></div>
+
+    <div class="container">
+        <a href="/" class="logo-link">
+            <img src="/images/icon-numfusion.png" alt="NumFusion">
+        </a>
+
+        <h1>Puzzle Challenge</h1>
+        <p class="subtitle" id="difficulty">NumFusion</p>
+
+        <div class="seed-card">
+            <div class="seed-label">Puzzle Seed</div>
+            <div class="seed-value" id="seed-value">&mdash;</div>
+        </div>
+
+        <p class="challenge-text">
+            在 NumFusion 中開啟這道挑戰<br>
+            看看你能拿到幾顆星！
+        </p>
+
+        <a class="download-btn" href="https://apps.apple.com/app/id6738043567">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+        </a>
+
+        <p class="footer-note">
+            <a href="/">Sheep Beans Games</a>
+        </p>
+    </div>
 </body>
 </html>
