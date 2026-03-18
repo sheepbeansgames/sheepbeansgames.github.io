@@ -6,7 +6,7 @@
     <title data-i18n="numfusion.title">NumFusion 數字融合 - 益智策略遊戲 | Sheep Beans Games</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="NumFusion 數字融合 — A number puzzle strategy game. 放置數字卡牌觸發連鎖反應，挑戰邏輯思維！Place number cards, trigger chain reactions. 3x3 to 5x5 grids, 50+ achievements. Free on App Store!">
+    <meta name="description" content="NumFusion 數字融合 — A number puzzle strategy game. 放置卡牌、自動合併、連鎖反應！特殊卡牌、謎題模式、多種主題。Place cards, auto-merge, chain reactions! Special cards, Puzzle mode, 5 themes. Free on App Store!">
     <meta name="keywords" content="NumFusion, 數字融合, Number Fusion, number merge, number puzzle, puzzle game, 益智遊戲, 數字遊戲, 策略遊戲, strategy game, iOS game, iPhone game, 免費遊戲, free puzzle game, 連鎖反應, chain reaction, merge game, 合併遊戲, brain training, 腦力訓練, casual puzzle, 休閒益智, card puzzle, 卡牌益智, indie game, 獨立遊戲, Sheep Beans Games, App Store, number card game, 燒腦遊戲, brain teaser, 邏輯遊戲, logic game, 離線遊戲, offline game, 單機遊戲, 不用網路, no wifi game, 好玩的手遊, 推薦益智遊戲, best puzzle game, 通勤遊戲, 打發時間, 類似2048, like 2048, 數字合成, number matching, 數學遊戲, math game, パズルゲーム, 퍼즐게임">
     <meta name="author" content="Sheep Beans Games">
     <meta name="robots" content="index, follow">
@@ -16,14 +16,14 @@
     <meta property="og:type" content="product">
     <meta property="og:url" content="https://sheepbeansgames.cc/numfusion.html">
     <meta property="og:title" content="NumFusion 數字融合 - 益智策略遊戲">
-    <meta property="og:description" content="Place number cards, trigger chain reactions! 放置數字卡牌觸發連鎖反應。3x3 to 5x5 grids, 50+ achievements. Free on App Store!">
+    <meta property="og:description" content="Place cards, auto-merge, chain reactions! Special cards & Puzzle mode. 放置卡牌、自動合併、連鎖反應！特殊卡牌與謎題模式。Free on App Store!">
     <meta property="og:image" content="https://sheepbeansgames.cc/images/icon-numfusion.png">
     <meta property="og:locale" content="zh_TW">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NumFusion 數字融合 - 益智策略遊戲">
-    <meta name="twitter:description" content="Number puzzle strategy game. 放置數字卡牌觸發連鎖反應！Free on App Store.">
+    <meta name="twitter:description" content="Number puzzle strategy game. Auto-merge, chain reactions, special cards & puzzle mode! Free on App Store.">
     <meta name="twitter:image" content="https://sheepbeansgames.cc/images/icon-numfusion.png">
 
     <!-- JSON-LD Structured Data -->
@@ -41,7 +41,7 @@
             "price": "0",
             "priceCurrency": "USD"
         },
-        "description": "一款結合數字與策略的益智遊戲，放置數字卡牌觸發連鎖反應，挑戰你的邏輯思維。A number puzzle strategy game — place cards, trigger chain reactions, challenge your logic.",
+        "description": "一款結合數字與策略的益智遊戲。自動合併、連鎖反應、特殊卡牌、謎題模式、多種主題。A number puzzle strategy game — auto-merge, chain reactions, special cards, puzzle mode, multiple themes.",
         "downloadUrl": "https://apps.apple.com/app/id6756245734",
         "softwareVersion": "1.3.0",
         "fileSize": "65.5 MB",
@@ -82,7 +82,7 @@
             "name": "NumFusion 怎麼玩？ / How to play NumFusion?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "將數字卡牌放置在棋盤上，讓相同數字的卡牌相鄰，它們會自動融合成更大的數字並獲得分數。策略性地規劃可觸發連鎖反應，一次獲得大量分數。Place number cards on the board next to matching numbers — they merge automatically into larger numbers and score points. Plan strategically to trigger chain reactions for massive combos."
+                "text": "將數字卡牌放置在棋盤上，相鄰相同數字自動融合成更大的數字並獲得分數。善用炸彈、十字、模仿、變形等特殊卡牌扭轉戰局，觸發連鎖反應獲得大量分數。Place number cards on the board — matching adjacent numbers auto-merge. Use special cards (Bomb, Cross, Mimic, Morph) to turn the tide and trigger chain reactions for massive combos."
             }
         }, {
             "@type": "Question",
@@ -93,10 +93,10 @@
             }
         }, {
             "@type": "Question",
-            "name": "NumFusion 有哪些難度？ / What difficulty levels are available?",
+            "name": "NumFusion 有哪些模式？ / What game modes are available?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "NumFusion 提供從 3×3 到 5×5 的不同棋盤大小，適合各種程度的玩家挑戰。NumFusion offers grid sizes from 3×3 to 5×5, suitable for players of all skill levels."
+                "text": "NumFusion 提供經典模式（最大值 13）和無盡模式（無上限），以及謎題模式（固定手牌挑戰星級）。棋盤大小從 3×3 到 5×5。NumFusion offers Classic mode (max 13), Endless mode (no limit), and Puzzle mode (fixed hand, star challenge). Grid sizes from 3×3 to 5×5."
             }
         }, {
             "@type": "Question",
@@ -517,7 +517,7 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
         }
 
@@ -752,6 +752,10 @@
 
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .showcase-row {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
@@ -1075,7 +1079,7 @@
             <div class="hero-badge" data-i18n="numfusion.badge">益智策略遊戲</div>
             <h1 class="hero-title">NumFusion</h1>
             <p class="hero-status" data-i18n="numfusion.status">仍在調整中的作品</p>
-            <p class="hero-desc" data-i18n="numfusion.subtitle">一款簡單卻讓人停不下來的數字益智遊戲。放置卡牌、相同數字相鄰自動合併，連鎖反應接連爆發，挑戰更高分數！</p>
+            <p class="hero-desc" data-i18n="numfusion.subtitle">一款簡單卻讓人停不下來的數字益智遊戲。放置卡牌、自動合併、觸發連鎖反應！特殊卡牌扭轉戰局，謎題模式挑戰策略極限。</p>
 
             <div class="hero-meta">
                 <div class="meta-item">
@@ -1155,21 +1159,42 @@
             <div class="showcase-row" data-reveal>
                 <div class="showcase-item">
                     <div class="device-frame">
-                        <img src="images/showcase/modes.png" alt="NumFusion 多模式選擇畫面" loading="lazy">
+                        <img src="images/showcase/combo-gameplay.png" alt="NumFusion 連鎖合併遊戲畫面" loading="lazy">
                     </div>
-                    <p class="showcase-label" data-i18n="numfusion.showcase.s1">多模式選擇</p>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s1">連鎖合併</p>
                 </div>
                 <div class="showcase-item">
                     <div class="device-frame">
-                        <img src="images/showcase/achievements.png" alt="NumFusion 成就系統畫面" loading="lazy">
+                        <img src="images/showcase/special-cards.png" alt="NumFusion 特殊卡牌畫面" loading="lazy">
                     </div>
-                    <p class="showcase-label" data-i18n="numfusion.showcase.s2">成就系統</p>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s2">特殊卡牌</p>
                 </div>
                 <div class="showcase-item">
                     <div class="device-frame">
-                        <img src="images/showcase/checkin.png" alt="NumFusion 每日簽到畫面" loading="lazy">
+                        <img src="images/showcase/puzzle-mode.png" alt="NumFusion 謎題模式畫面" loading="lazy">
                     </div>
-                    <p class="showcase-label" data-i18n="numfusion.showcase.s3">簽到模式</p>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s3">謎題模式</p>
+                </div>
+            </div>
+
+            <div class="showcase-row" data-reveal>
+                <div class="showcase-item">
+                    <div class="device-frame">
+                        <img src="images/showcase/game-modes.png" alt="NumFusion 經典與無盡模式" loading="lazy">
+                    </div>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s4">經典 / 無盡模式</p>
+                </div>
+                <div class="showcase-item">
+                    <div class="device-frame">
+                        <img src="images/showcase/themes.png" alt="NumFusion 多種主題" loading="lazy">
+                    </div>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s5">多種主題</p>
+                </div>
+                <div class="showcase-item">
+                    <div class="device-frame">
+                        <img src="images/showcase/share-score.png" alt="NumFusion 分享分數" loading="lazy">
+                    </div>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s6">分享分數</p>
                 </div>
             </div>
             <!-- Mobile carousel -->
@@ -1200,21 +1225,39 @@
                 </div>
                 <div class="showcase-slide">
                     <div class="device-frame">
-                        <img src="images/showcase/modes.png" alt="NumFusion 多模式選擇畫面" loading="lazy">
+                        <img src="images/showcase/combo-gameplay.png" alt="NumFusion 連鎖合併遊戲畫面" loading="lazy">
                     </div>
-                    <p class="showcase-label" data-i18n="numfusion.showcase.s1">多模式選擇</p>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s1">連鎖合併</p>
                 </div>
                 <div class="showcase-slide">
                     <div class="device-frame">
-                        <img src="images/showcase/achievements.png" alt="NumFusion 成就系統畫面" loading="lazy">
+                        <img src="images/showcase/special-cards.png" alt="NumFusion 特殊卡牌畫面" loading="lazy">
                     </div>
-                    <p class="showcase-label" data-i18n="numfusion.showcase.s2">成就系統</p>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s2">特殊卡牌</p>
                 </div>
                 <div class="showcase-slide">
                     <div class="device-frame">
-                        <img src="images/showcase/checkin.png" alt="NumFusion 每日簽到畫面" loading="lazy">
+                        <img src="images/showcase/puzzle-mode.png" alt="NumFusion 謎題模式畫面" loading="lazy">
                     </div>
-                    <p class="showcase-label" data-i18n="numfusion.showcase.s3">簽到模式</p>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s3">謎題模式</p>
+                </div>
+                <div class="showcase-slide">
+                    <div class="device-frame">
+                        <img src="images/showcase/game-modes.png" alt="NumFusion 經典與無盡模式" loading="lazy">
+                    </div>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s4">經典 / 無盡模式</p>
+                </div>
+                <div class="showcase-slide">
+                    <div class="device-frame">
+                        <img src="images/showcase/themes.png" alt="NumFusion 多種主題" loading="lazy">
+                    </div>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s5">多種主題</p>
+                </div>
+                <div class="showcase-slide">
+                    <div class="device-frame">
+                        <img src="images/showcase/share-score.png" alt="NumFusion 分享分數" loading="lazy">
+                    </div>
+                    <p class="showcase-label" data-i18n="numfusion.showcase.s6">分享分數</p>
                 </div>
             </div>
             <div class="showcase-dots">
@@ -1224,6 +1267,9 @@
                 <button class="showcase-dot" data-index="3"></button>
                 <button class="showcase-dot" data-index="4"></button>
                 <button class="showcase-dot" data-index="5"></button>
+                <button class="showcase-dot" data-index="6"></button>
+                <button class="showcase-dot" data-index="7"></button>
+                <button class="showcase-dot" data-index="8"></button>
             </div>
         </div>
     </section>
@@ -1239,24 +1285,13 @@
             <div class="feature-card" data-reveal>
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 16v-4"/>
-                        <path d="M12 8h.01"/>
+                        <path d="M12 3v12"/>
+                        <path d="M8 11l4 4 4-4"/>
+                        <rect x="4" y="17" width="16" height="4" rx="1"/>
                     </svg>
                 </div>
-                <h3 class="feature-title" data-i18n="numfusion.f1.title">零門檻上手</h3>
-                <p class="feature-desc" data-i18n="numfusion.f1.desc">規則直覺，三秒就懂。適合所有年齡層的玩家。</p>
-            </div>
-
-            <div class="feature-card" data-reveal>
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.54"/>
-                        <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.54"/>
-                    </svg>
-                </div>
-                <h3 class="feature-title" data-i18n="numfusion.f2.title">策略有深度</h3>
-                <p class="feature-desc" data-i18n="numfusion.f2.desc">每一步佈局都牽動全局勝負，深思熟慮才能獲得高分。</p>
+                <h3 class="feature-title" data-i18n="numfusion.f1.title">自動合併</h3>
+                <p class="feature-desc" data-i18n="numfusion.f1.desc">相鄰相同數字自動合併，規則直覺三秒就懂。</p>
             </div>
 
             <div class="feature-card" data-reveal>
@@ -1265,8 +1300,54 @@
                         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
                     </svg>
                 </div>
-                <h3 class="feature-title" data-i18n="numfusion.f3.title">連鎖超爽快</h3>
-                <p class="feature-desc" data-i18n="numfusion.f3.desc">多重合併瞬間引爆，成就感滿點！</p>
+                <h3 class="feature-title" data-i18n="numfusion.f2.title">連鎖反應</h3>
+                <p class="feature-desc" data-i18n="numfusion.f2.desc">觸發連鎖，分數加倍。多重合併瞬間引爆，成就感滿點！</p>
+            </div>
+
+            <div class="feature-card" data-reveal>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/>
+                        <path d="M12 22V12"/>
+                        <path d="M12 12 3.3 7"/>
+                        <path d="m12 12 8.7-5"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title" data-i18n="numfusion.f3.title">特殊卡牌</h3>
+                <p class="feature-desc" data-i18n="numfusion.f3.desc">炸彈、十字、模仿、變形 — 四種特殊卡牌扭轉戰局。</p>
+            </div>
+
+            <div class="feature-card" data-reveal>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title" data-i18n="numfusion.f4.title">謎題模式</h3>
+                <p class="feature-desc" data-i18n="numfusion.f4.desc">固定手牌，純策略挑戰。分享種子碼與朋友比拼星數！</p>
+            </div>
+
+            <div class="feature-card" data-reveal>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title" data-i18n="numfusion.f5.title">完整重播</h3>
+                <p class="feature-desc" data-i18n="numfusion.f5.desc">回顧每一步神操作，重溫精彩策略時刻。</p>
+            </div>
+
+            <div class="feature-card" data-reveal>
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                        <polyline points="16 6 12 2 8 6"/>
+                        <line x1="12" y1="2" x2="12" y2="15"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title" data-i18n="numfusion.f6.title">分享分數</h3>
+                <p class="feature-desc" data-i18n="numfusion.f6.desc">8 種分享風格，一鍵產生精美成績卡挑戰朋友。</p>
             </div>
 
             <div class="feature-card" data-reveal>
@@ -1278,33 +1359,20 @@
                         <rect x="3" y="14" width="7" height="7"/>
                     </svg>
                 </div>
-                <h3 class="feature-title" data-i18n="numfusion.f4.title">多種難度</h3>
-                <p class="feature-desc" data-i18n="numfusion.f4.desc">3×3 至 5×5 棋盤，新手到高手都有挑戰。</p>
+                <h3 class="feature-title" data-i18n="numfusion.f7.title">多種棋盤</h3>
+                <p class="feature-desc" data-i18n="numfusion.f7.desc">3×3 快速、4×4 標準、5×5 挑戰，新手到高手都適合。</p>
             </div>
 
             <div class="feature-card" data-reveal>
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-                        <path d="M4 22h16"/>
-                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                        <circle cx="13.5" cy="6.5" r="2.5"/>
+                        <path d="M17 2H7a5 5 0 0 0-5 5v10a5 5 0 0 0 5 5h10a5 5 0 0 0 5-5V7a5 5 0 0 0-5-5Z"/>
+                        <path d="M2 12h20"/>
                     </svg>
                 </div>
-                <h3 class="feature-title" data-i18n="numfusion.f5.title">50+ 成就</h3>
-                <p class="feature-desc" data-i18n="numfusion.f5.desc">豐富的成就系統，50+ 項挑戰等你解鎖。</p>
-            </div>
-
-            <div class="feature-card" data-reveal>
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
-                </div>
-                <h3 class="feature-title" data-i18n="numfusion.f6.title">精彩重播</h3>
-                <p class="feature-desc" data-i18n="numfusion.f6.desc">回顧神操作，分享你的策略時刻。</p>
+                <h3 class="feature-title" data-i18n="numfusion.f8.title">多種主題</h3>
+                <p class="feature-desc" data-i18n="numfusion.f8.desc">經典、簡約、手繪、復古、像素 — 自由切換你喜歡的風格。</p>
             </div>
         </div>
     </section>
@@ -1381,25 +1449,29 @@
                 'numfusion.title': 'NumFusion 數字融合 - 益智策略遊戲 | Sheep Beans Games',
                 'numfusion.badge': '益智策略遊戲',
                 'numfusion.status': '仍在調整中的作品',
-                'numfusion.subtitle': '一款簡單卻讓人停不下來的數字益智遊戲。放置卡牌、相同數字相鄰自動合併，連鎖反應接連爆發，挑戰更高分數！',
+                'numfusion.subtitle': '一款簡單卻讓人停不下來的數字益智遊戲。放置卡牌、自動合併、觸發連鎖反應！特殊卡牌扭轉戰局，謎題模式挑戰策略極限。',
                 'numfusion.platform': 'iPhone',
                 'numfusion.languages': '中/英/日/韓',
                 'numfusion.download': '在 App Store 下載',
                 'numfusion.features.label': '特色',
                 'numfusion.features.title': '遊戲特色',
                 'numfusion.features.subtitle': '簡單上手，策略無限',
-                'numfusion.f1.title': '零門檻上手',
-                'numfusion.f1.desc': '規則直覺，三秒就懂。適合所有年齡層的玩家。',
-                'numfusion.f2.title': '策略有深度',
-                'numfusion.f2.desc': '每一步佈局都牽動全局勝負，深思熟慮才能獲得高分。',
-                'numfusion.f3.title': '連鎖超爽快',
-                'numfusion.f3.desc': '多重合併瞬間引爆，成就感滿點！',
-                'numfusion.f4.title': '多種難度',
-                'numfusion.f4.desc': '3×3 至 5×5 棋盤，新手到高手都有挑戰。',
-                'numfusion.f5.title': '50+ 成就',
-                'numfusion.f5.desc': '豐富的成就系統，50+ 項挑戰等你解鎖。',
-                'numfusion.f6.title': '精彩重播',
-                'numfusion.f6.desc': '回顧神操作，分享你的策略時刻。',
+                'numfusion.f1.title': '自動合併',
+                'numfusion.f1.desc': '相鄰相同數字自動合併，規則直覺三秒就懂。',
+                'numfusion.f2.title': '連鎖反應',
+                'numfusion.f2.desc': '觸發連鎖，分數加倍。多重合併瞬間引爆，成就感滿點！',
+                'numfusion.f3.title': '特殊卡牌',
+                'numfusion.f3.desc': '炸彈、十字、模仿、變形 — 四種特殊卡牌扭轉戰局。',
+                'numfusion.f4.title': '謎題模式',
+                'numfusion.f4.desc': '固定手牌，純策略挑戰。分享種子碼與朋友比拼星數！',
+                'numfusion.f5.title': '完整重播',
+                'numfusion.f5.desc': '回顧每一步神操作，重溫精彩策略時刻。',
+                'numfusion.f6.title': '分享分數',
+                'numfusion.f6.desc': '8 種分享風格，一鍵產生精美成績卡挑戰朋友。',
+                'numfusion.f7.title': '多種棋盤',
+                'numfusion.f7.desc': '3×3 快速、4×4 標準、5×5 挑戰，新手到高手都適合。',
+                'numfusion.f8.title': '多種主題',
+                'numfusion.f8.desc': '經典、簡約、手繪、復古、像素 — 自由切換你喜歡的風格。',
                 'numfusion.howto.label': '教學',
                 'numfusion.howto.title': '如何遊玩',
                 'numfusion.howto.subtitle': '三步驟開始你的融合之旅',
@@ -1415,9 +1487,12 @@
                 'numfusion.showcase.v1': '連續合併動畫',
                 'numfusion.showcase.v2': '主題變換',
                 'numfusion.showcase.v3': '重播模式',
-                'numfusion.showcase.s1': '多模式選擇',
-                'numfusion.showcase.s2': '成就系統',
-                'numfusion.showcase.s3': '簽到模式',
+                'numfusion.showcase.s1': '連鎖合併',
+                'numfusion.showcase.s2': '特殊卡牌',
+                'numfusion.showcase.s3': '謎題模式',
+                'numfusion.showcase.s4': '經典 / 無盡模式',
+                'numfusion.showcase.s5': '多種主題',
+                'numfusion.showcase.s6': '分享分數',
                 'numfusion.cta.title': '準備好挑戰了嗎？',
                 'numfusion.cta.desc': '立即免費下載 NumFusion，開始你的數字融合之旅！',
                 'footer.contact': '聯絡我們'
@@ -1429,25 +1504,29 @@
                 'numfusion.title': 'NumFusion - Number Puzzle Game | Sheep Beans Games',
                 'numfusion.badge': 'Puzzle Strategy Game',
                 'numfusion.status': 'Still evolving.',
-                'numfusion.subtitle': 'A simple yet addictive number puzzle game. Place cards, match adjacent numbers to auto-merge, and trigger chain reactions for high scores!',
+                'numfusion.subtitle': 'A simple yet addictive number puzzle game. Place cards, auto-merge, trigger chain reactions! Special cards turn the tide, Puzzle mode challenges your strategy.',
                 'numfusion.platform': 'iPhone',
                 'numfusion.languages': 'EN/ZH/JA/KO',
                 'numfusion.download': 'Download on App Store',
                 'numfusion.features.label': 'Features',
                 'numfusion.features.title': 'Game Features',
                 'numfusion.features.subtitle': 'Easy to learn, endless strategy',
-                'numfusion.f1.title': 'Easy to Learn',
-                'numfusion.f1.desc': 'Intuitive rules — learn in 3 seconds. Perfect for all ages.',
-                'numfusion.f2.title': 'Strategic Depth',
-                'numfusion.f2.desc': 'Every move shapes the outcome. Think carefully for high scores.',
-                'numfusion.f3.title': 'Chain Reactions',
-                'numfusion.f3.desc': 'Multiple merges explode in an instant — pure satisfaction!',
-                'numfusion.f4.title': 'Multiple Difficulties',
-                'numfusion.f4.desc': '3×3 to 5×5 grids — challenges for beginners to experts.',
-                'numfusion.f5.title': '50+ Achievements',
-                'numfusion.f5.desc': '50+ challenges waiting to be unlocked.',
-                'numfusion.f6.title': 'Replay',
-                'numfusion.f6.desc': 'Relive your best moves and share your strategy moments.',
+                'numfusion.f1.title': 'Auto Merge',
+                'numfusion.f1.desc': 'Adjacent same numbers merge automatically. Learn in 3 seconds.',
+                'numfusion.f2.title': 'Chain Reaction',
+                'numfusion.f2.desc': 'Trigger chains, multiply your score. Multiple merges explode — pure satisfaction!',
+                'numfusion.f3.title': 'Special Cards',
+                'numfusion.f3.desc': 'Bomb, Cross, Mimic, Morph — four special cards to turn the tide.',
+                'numfusion.f4.title': 'Puzzle Mode',
+                'numfusion.f4.desc': 'Fixed hand, pure strategy. Share seeds to challenge friends for stars!',
+                'numfusion.f5.title': 'Full Replay',
+                'numfusion.f5.desc': 'Review every brilliant move and relive your best strategy moments.',
+                'numfusion.f6.title': 'Share Score',
+                'numfusion.f6.desc': '8 sharing styles — generate beautiful score cards to challenge friends.',
+                'numfusion.f7.title': 'Multiple Boards',
+                'numfusion.f7.desc': '3×3 Quick, 4×4 Standard, 5×5 Challenge — for all skill levels.',
+                'numfusion.f8.title': 'Multiple Themes',
+                'numfusion.f8.desc': 'Classic, Minimal, Drawn, Vintage, Pixel — switch your favorite style freely.',
                 'numfusion.howto.label': 'Tutorial',
                 'numfusion.howto.title': 'How to Play',
                 'numfusion.howto.subtitle': 'Three steps to start your fusion journey',
@@ -1463,9 +1542,12 @@
                 'numfusion.showcase.v1': 'Chain Merge',
                 'numfusion.showcase.v2': 'Theme Switch',
                 'numfusion.showcase.v3': 'Replay Mode',
-                'numfusion.showcase.s1': 'Multiple Modes',
-                'numfusion.showcase.s2': 'Achievements',
-                'numfusion.showcase.s3': 'Daily Check-in',
+                'numfusion.showcase.s1': 'Chain Merge',
+                'numfusion.showcase.s2': 'Special Cards',
+                'numfusion.showcase.s3': 'Puzzle Mode',
+                'numfusion.showcase.s4': 'Classic / Endless',
+                'numfusion.showcase.s5': 'Multiple Themes',
+                'numfusion.showcase.s6': 'Share Score',
                 'numfusion.cta.title': 'Ready to Challenge?',
                 'numfusion.cta.desc': 'Download NumFusion for free now and start your number fusion journey!',
                 'footer.contact': 'Contact Us'
