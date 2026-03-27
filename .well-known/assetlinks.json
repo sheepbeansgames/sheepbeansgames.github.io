@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.sheepbeansgames.numfusion",
+      "sha256_cert_fingerprints": [
+        "83:6F:2D:02:D3:17:DE:F9:F5:3A:99:45:36:C6:3D:93:CD:19:30:B1:4D:01:16:AF:75:19:4D:D4:AC:DF:ED:FF",
+        "E3:CF:93:FD:E3:2E:35:D1:8F:A5:DA:88:89:80:C8:B9:16:3B:94:4E:94:67:43:6A:3C:B7:87:8D:CE:82:82:82"
+      ]
+    }
+  }
+]
