@@ -1040,8 +1040,7 @@
         });
 
         // Load saved language
-        const savedLang = localStorage.getItem('sheepbeans-lang') ||
-            (navigator.language.startsWith('zh') ? 'zh' : 'en');
+        const savedLang = localStorage.getItem('sheepbeans-lang') || 'zh';
         setLanguage(savedLang);
 
         // Header scroll effect
