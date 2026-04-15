@@ -6,7 +6,7 @@
     <title data-i18n="numfusion.title">NumFusion 數字融合 - 益智策略遊戲 | Sheep Beans Games</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="NumFusion 數字融合 — A number puzzle strategy game. 放置卡牌、自動合併、連鎖反應！特殊卡牌、謎題模式、多種主題。Place cards, auto-merge, chain reactions! Special cards, Puzzle mode, 5 themes. Free on App Store!">
+    <meta name="description" content="NumFusion 數字融合 — A number puzzle strategy game. 放置卡牌、自動合併、連鎖反應！特殊卡牌、謎題模式、多種主題。Place cards, auto-merge, chain reactions! Special cards, Puzzle mode, 5 themes. Free on App Store & Google Play!">
     <meta name="keywords" content="NumFusion, 數字融合, Number Fusion, number merge, number puzzle, puzzle game, 益智遊戲, 數字遊戲, 策略遊戲, strategy game, iOS game, iPhone game, 免費遊戲, free puzzle game, 連鎖反應, chain reaction, merge game, 合併遊戲, brain training, 腦力訓練, casual puzzle, 休閒益智, card puzzle, 卡牌益智, indie game, 獨立遊戲, Sheep Beans Games, App Store, number card game, 燒腦遊戲, brain teaser, 邏輯遊戲, logic game, 離線遊戲, offline game, 單機遊戲, 不用網路, no wifi game, 好玩的手遊, 推薦益智遊戲, best puzzle game, 通勤遊戲, 打發時間, 類似2048, like 2048, 數字合成, number matching, 數學遊戲, math game, パズルゲーム, 퍼즐게임">
     <meta name="author" content="Sheep Beans Games">
     <meta name="robots" content="index, follow">
@@ -16,14 +16,14 @@
     <meta property="og:type" content="product">
     <meta property="og:url" content="https://sheepbeansgames.cc/numfusion.html">
     <meta property="og:title" content="NumFusion 數字融合 - 益智策略遊戲">
-    <meta property="og:description" content="Place cards, auto-merge, chain reactions! Special cards & Puzzle mode. 放置卡牌、自動合併、連鎖反應！特殊卡牌與謎題模式。Free on App Store!">
+    <meta property="og:description" content="Place cards, auto-merge, chain reactions! Special cards & Puzzle mode. 放置卡牌、自動合併、連鎖反應！特殊卡牌與謎題模式。Free on App Store & Google Play!">
     <meta property="og:image" content="https://sheepbeansgames.cc/images/icon-numfusion.png">
     <meta property="og:locale" content="zh_TW">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="NumFusion 數字融合 - 益智策略遊戲">
-    <meta name="twitter:description" content="Number puzzle strategy game. Auto-merge, chain reactions, special cards & puzzle mode! Free on App Store.">
+    <meta name="twitter:description" content="Number puzzle strategy game. Auto-merge, chain reactions, special cards & puzzle mode! Free on App Store & Google Play.">
     <meta name="twitter:image" content="https://sheepbeansgames.cc/images/icon-numfusion.png">
 
     <!-- JSON-LD Structured Data -->
@@ -33,7 +33,7 @@
         "@type": "SoftwareApplication",
         "name": "NumFusion - 數字融合",
         "alternateName": "NumFusion - Number Fusion",
-        "operatingSystem": "iOS",
+        "operatingSystem": ["iOS", "Android"],
         "applicationCategory": "GameApplication",
         "applicationSubCategory": "Puzzle",
         "offers": {
@@ -42,7 +42,7 @@
             "priceCurrency": "USD"
         },
         "description": "一款結合數字與策略的益智遊戲。自動合併、連鎖反應、特殊卡牌、謎題模式、多種主題。A number puzzle strategy game — auto-merge, chain reactions, special cards, puzzle mode, multiple themes.",
-        "downloadUrl": "https://apps.apple.com/app/id6756245734",
+        "downloadUrl": ["https://apps.apple.com/app/id6756245734", "https://play.google.com/store/apps/details?id=com.sheepbeansgames.numfusion"],
         "softwareVersion": "1.3.0",
         "fileSize": "65.5 MB",
         "contentRating": "4+",
@@ -103,7 +103,7 @@
             "name": "NumFusion 免費嗎？ / Is NumFusion free?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "是的，NumFusion 可以在 App Store 免費下載遊玩。Yes, NumFusion is free to download and play on the App Store."
+                "text": "是的，NumFusion 可以在 App Store 和 Google Play 免費下載遊玩。Yes, NumFusion is free to download and play on the App Store and Google Play."
             }
         }, {
             "@type": "Question",
@@ -405,6 +405,39 @@
         }
 
         .app-store-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .store-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .google-play-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #01875f;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .google-play-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            background: #019d70;
+        }
+
+        .google-play-link svg {
             width: 24px;
             height: 24px;
         }
@@ -1121,12 +1154,20 @@
                 </div>
             </div>
 
-            <a href="https://apps.apple.com/app/id6756245734" class="app-store-link" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-                <span data-i18n="numfusion.download">在 App Store 下載</span>
-            </a>
+            <div class="store-buttons">
+                <a href="https://apps.apple.com/app/id6756245734" class="app-store-link" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <span data-i18n="numfusion.download">在 App Store 下載</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.numfusion" class="google-play-link" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.18 23.76c.3.17.64.24.99.19l12.24-7.07-2.61-2.61-10.62 9.49zm-1.87-20.3C1.12 3.76 1 4.1 1 4.5v15c0 .4.12.74.31 1.04l.06.06 8.4-8.4v-.2L1.37 3.4l-.06.06zm18.33 8.15L17.16 9.5l-2.77 2.77 2.77 2.77 2.5-1.44c.71-.41.71-1.08-.02-1.49zM4.17.48c-.35-.05-.7.02-.99.19l10.65 10.65L16.44 9.7 4.17.48z"/>
+                    </svg>
+                    <span data-i18n="numfusion.download.googleplay">在 Google Play 下載</span>
+                </a>
+            </div>
         </div>
 
         <div class="hero-visual">
@@ -1437,12 +1478,20 @@
         <div class="cta-box">
             <h2 class="cta-title" data-i18n="numfusion.cta.title">準備好挑戰了嗎？</h2>
             <p class="cta-desc" data-i18n="numfusion.cta.desc">立即免費下載 NumFusion，開始你的數字融合之旅！</p>
-            <a href="https://apps.apple.com/app/id6756245734" class="app-store-link" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-                <span data-i18n="numfusion.download">在 App Store 下載</span>
-            </a>
+            <div class="store-buttons" style="justify-content: center;">
+                <a href="https://apps.apple.com/app/id6756245734" class="app-store-link" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <span data-i18n="numfusion.download">在 App Store 下載</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.numfusion" class="google-play-link" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.18 23.76c.3.17.64.24.99.19l12.24-7.07-2.61-2.61-10.62 9.49zm-1.87-20.3C1.12 3.76 1 4.1 1 4.5v15c0 .4.12.74.31 1.04l.06.06 8.4-8.4v-.2L1.37 3.4l-.06.06zm18.33 8.15L17.16 9.5l-2.77 2.77 2.77 2.77 2.5-1.44c.71-.41.71-1.08-.02-1.49zM4.17.48c-.35-.05-.7.02-.99.19l10.65 10.65L16.44 9.7 4.17.48z"/>
+                    </svg>
+                    <span data-i18n="numfusion.download.googleplay">在 Google Play 下載</span>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1480,9 +1529,10 @@
                 'numfusion.badge': '益智策略遊戲',
                 'numfusion.status': '仍在調整中的作品',
                 'numfusion.subtitle': '一款簡單卻讓人停不下來的數字益智遊戲。放置卡牌、自動合併、觸發連鎖反應！特殊卡牌扭轉戰局，謎題模式挑戰策略極限。',
-                'numfusion.platform': 'iPhone',
+                'numfusion.platform': 'iOS & Android',
                 'numfusion.languages': '中/英/日/韓',
                 'numfusion.download': '在 App Store 下載',
+                'numfusion.download.googleplay': '在 Google Play 下載',
                 'numfusion.features.label': '特色',
                 'numfusion.features.title': '遊戲特色',
                 'numfusion.features.subtitle': '簡單上手，策略無限',
@@ -1535,9 +1585,10 @@
                 'numfusion.badge': 'Puzzle Strategy Game',
                 'numfusion.status': 'Still evolving.',
                 'numfusion.subtitle': 'A simple yet addictive number puzzle game. Place cards, auto-merge, trigger chain reactions! Special cards turn the tide, Puzzle mode challenges your strategy.',
-                'numfusion.platform': 'iPhone',
+                'numfusion.platform': 'iOS & Android',
                 'numfusion.languages': 'EN/ZH/JA/KO',
                 'numfusion.download': 'Download on App Store',
+                'numfusion.download.googleplay': 'Get it on Google Play',
                 'numfusion.features.label': 'Features',
                 'numfusion.features.title': 'Game Features',
                 'numfusion.features.subtitle': 'Easy to learn, endless strategy',
