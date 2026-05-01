@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隱私權政策 — Swap It.</title>
+    <meta name="description" content="了解「Swap It.」如何收集、使用及保護資料。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="assets/icon/icon.png">
+    <style>
+        :root {
+            --bg: #fbfaf7;
+            --surface: #ffffff;
+            --surface-strong: #f3f7f2;
+            --ink: #241d18;
+            --muted: #675d55;
+            --subtle: #92867b;
+            --line: rgba(36, 29, 24, 0.1);
+            --brand: #df6338;
+            --brand-dark: #a94222;
+            --sage: #4c7a67;
+            --teal: #1f6f78;
+            --gold: #c78925;
+            --blue: #345e8a;
+            --shadow-sm: 0 10px 28px rgba(36, 29, 24, 0.08);
+            --shadow-md: 0 18px 44px rgba(36, 29, 24, 0.12);
+            --radius: 24px;
+            --radius-sm: 14px;
+            --max: 1040px;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        html[data-lang="zh"] [data-lang="en"],
+        html[data-lang="en"] [data-lang="zh"] {
+            display: none !important;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(36, 29, 24, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(36, 29, 24, 0.035) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 70%);
+        }
+
+        a { color: inherit; }
+        h1, h2, h3, .eyebrow, .brand-name { font-family: "Outfit", "Noto Sans TC", sans-serif; }
+        h1, h2, h3, p { margin-top: 0; }
+
+        .wrap {
+            width: min(100%, var(--max));
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(251, 250, 247, 0.9);
+            box-shadow: 0 1px 0 var(--line);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 22px;
+        }
+
+        .logo img {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .nav-back:hover { color: var(--brand-dark); }
+
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-switch button {
+            min-width: 42px;
+            height: 34px;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        html[data-lang="zh"] .lang-switch button[data-set-lang="zh"],
+        html[data-lang="en"] .lang-switch button[data-set-lang="en"] {
+            background: var(--ink);
+            color: #fffaf2;
+        }
+
+        .page-hero {
+            padding: 76px 0 46px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            color: var(--brand-dark);
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 2px;
+            background: currentColor;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.62fr);
+            gap: clamp(28px, 5vw, 58px);
+            align-items: end;
+        }
+
+        .page-hero h1 {
+            margin-bottom: 18px;
+            max-width: 780px;
+            font-size: clamp(40px, 6vw, 76px);
+            font-weight: 900;
+            line-height: 1.02;
+            letter-spacing: 0;
+        }
+
+        .hero-lead {
+            max-width: 700px;
+            margin-bottom: 16px;
+            color: var(--muted);
+            font-size: clamp(18px, 2vw, 23px);
+            line-height: 1.6;
+        }
+
+        .updated {
+            margin-bottom: 0;
+            color: var(--subtle);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .hero-panel {
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff8ef;
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-panel strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .hero-panel p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            padding-bottom: 58px;
+        }
+
+        .highlight-card {
+            min-height: 168px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .highlight-card i {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 16px;
+            color: var(--brand);
+        }
+
+        .highlight-card:nth-child(2) i { color: var(--sage); }
+        .highlight-card:nth-child(3) i { color: var(--teal); }
+        .highlight-card:nth-child(4) i { color: var(--gold); }
+
+        .highlight-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .highlight-card span {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .policy-shell {
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+            gap: clamp(28px, 5vw, 56px);
+            align-items: start;
+            padding-bottom: 96px;
+        }
+
+        .toc {
+            position: sticky;
+            top: 96px;
+            display: grid;
+            gap: 8px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.76);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc a {
+            padding: 8px 10px;
+            border-radius: 10px;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 800;
+            line-height: 1.35;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            background: #f4efe9;
+            color: var(--brand-dark);
+        }
+
+        .content {
+            display: grid;
+            gap: 42px;
+        }
+
+        .policy-block {
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .policy-block h2 {
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+            font-size: clamp(24px, 3vw, 34px);
+            font-weight: 900;
+            line-height: 1.18;
+        }
+
+        .policy-block h3 {
+            margin: 24px 0 10px;
+            font-size: 18px;
+        }
+
+        .policy-block p {
+            margin-bottom: 14px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.82;
+        }
+
+        .policy-block p:last-child { margin-bottom: 0; }
+        .policy-block strong { color: var(--ink); font-weight: 900; }
+
+        .policy-block ul {
+            display: grid;
+            gap: 10px;
+            margin: 14px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .policy-block li {
+            position: relative;
+            padding-left: 22px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.72;
+        }
+
+        .policy-block li::before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 0.72em;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--brand);
+        }
+
+        .policy-block a {
+            color: var(--brand-dark);
+            font-weight: 800;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(169, 66, 34, 0.26);
+        }
+
+        .policy-block a:hover { border-color: var(--brand-dark); }
+
+        .note-card {
+            padding: 18px 20px;
+            margin-top: 18px;
+            border: 1px solid rgba(223, 99, 56, 0.18);
+            border-radius: var(--radius-sm);
+            background: #fff8ef;
+        }
+
+        .note-card p { margin-bottom: 0; }
+
+        footer {
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+            color: var(--subtle);
+            font-size: 14px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover { color: var(--brand-dark); }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .policy-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .highlights {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .wrap { padding: 0 16px; }
+
+            .nav-inner {
+                min-height: 68px;
+                gap: 12px;
+            }
+
+            .logo span { font-size: 19px; }
+            .logo img { width: 38px; height: 38px; }
+            .nav-back span { display: none; }
+
+            .page-hero { padding: 54px 0 34px; }
+            .page-hero h1 { font-size: clamp(42px, 13vw, 60px); }
+            .hero-panel { padding: 18px; }
+            .highlights { grid-template-columns: 1fr; padding-bottom: 42px; }
+            .toc { grid-template-columns: 1fr; }
+            .policy-block { padding: 22px; border-radius: 20px; }
+            .footer-inner { align-items: flex-start; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="wrap nav-inner">
+            <a href="index.html" class="logo" aria-label="Swap It. 首頁">
+                <img src="assets/icon/icon.png" alt="">
+                <span>Swap It.</span>
+            </a>
+            <div class="nav-actions">
+                <div class="lang-switch" aria-label="Language">
+                    <button type="button" data-set-lang="zh">中</button>
+                    <button type="button" data-set-lang="en">EN</button>
+                </div>
+                <a href="index.html" class="nav-back">
+                    <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
+                    <span data-lang="zh">回首頁</span>
+                    <span data-lang="en">Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <div class="eyebrow">Privacy Policy</div>
+                    <h1>
+                        <span data-lang="zh">隱私權政策</span>
+                        <span data-lang="en">Privacy Policy</span>
+                    </h1>
+                    <p class="hero-lead" data-lang="zh">這份頁面說明「Swap It.」如何收集、使用與保護資料。訂閱與 App Store 內購規則請見使用條款。</p>
+                    <p class="hero-lead" data-lang="en">This page explains how Swap It. collects, uses, and protects data. Subscription and App Store purchase rules are covered in the Terms of Use.</p>
+                    <p class="updated" data-lang="zh">最後更新：2026 年 5 月 1 日</p>
+                    <p class="updated" data-lang="en">Last updated: May 1, 2026</p>
+                </div>
+                <div class="hero-panel">
+                    <strong data-lang="zh">重點摘要</strong>
+                    <strong data-lang="en">At a Glance</strong>
+                    <p data-lang="zh">核心資料以本機儲存為主；雲端備份、意見回饋、登入、匿名分析與訂閱狀態會使用 Firebase 或 Apple App Store 相關服務。</p>
+                    <p data-lang="en">Core data is primarily stored on your device. Cloud backup, feedback, sign-in, anonymous analytics, and subscription status use Firebase or Apple App Store services.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap highlights" aria-label="Policy highlights">
+            <div class="highlight-card">
+                <i data-lucide="smartphone"></i>
+                <strong data-lang="zh">本機優先</strong>
+                <strong data-lang="en">Local First</strong>
+                <span data-lang="zh">物品、週期、庫存與設定主要儲存在你的裝置。</span>
+                <span data-lang="en">Items, schedules, inventory, and settings primarily live on your device.</span>
+            </div>
+            <div class="highlight-card">
+                <i data-lucide="cloud"></i>
+                <strong data-lang="zh">備份可選</strong>
+                <strong data-lang="en">Optional Backup</strong>
+                <span data-lang="zh">登入後可手動使用雲端備份，並可要求刪除。</span>
+                <span data-lang="en">Cloud backup is optional after sign-in and can be deleted on request.</span>
+            </div>
+            <div class="highlight-card">
+                <i data-lucide="bar-chart-2"></i>
+                <strong data-lang="zh">匿名分析</strong>
+                <strong data-lang="en">Anonymous Analytics</strong>
+                <span data-lang="zh">功能事件不包含物品名稱或個人識別資訊。</span>
+                <span data-lang="en">Feature events do not include item names or personally identifying details.</span>
+            </div>
+            <div class="highlight-card">
+                <i data-lucide="receipt"></i>
+                <strong data-lang="zh">付款資料</strong>
+                <strong data-lang="en">Payment Data</strong>
+                <span data-lang="zh">付款資訊由 Apple 處理，App 不會儲存信用卡或付款帳號。</span>
+                <span data-lang="en">Payment details are handled by Apple. The app does not store credit cards or payment accounts.</span>
+            </div>
+        </section>
+
+        <section class="wrap policy-shell">
+            <aside class="toc" aria-label="Policy sections">
+                <a href="#overview"><span data-lang="zh">1. 概覽</span><span data-lang="en">1. Overview</span></a>
+                <a href="#local-data"><span data-lang="zh">2. 本機資料</span><span data-lang="en">2. Local Data</span></a>
+                <a href="#analytics"><span data-lang="zh">3. 匿名分析</span><span data-lang="en">3. Analytics</span></a>
+                <a href="#backup"><span data-lang="zh">4. 雲端備份</span><span data-lang="en">4. Cloud Backup</span></a>
+                <a href="#feedback"><span data-lang="zh">5. 意見回饋</span><span data-lang="en">5. Feedback</span></a>
+                <a href="#permissions"><span data-lang="zh">6. 權限</span><span data-lang="en">6. Permissions</span></a>
+                <a href="#third-party"><span data-lang="zh">7. 第三方服務</span><span data-lang="en">7. Third Parties</span></a>
+                <a href="#children-changes"><span data-lang="zh">8. 兒童隱私</span><span data-lang="en">8. Children</span></a>
+                <a href="#contact"><span data-lang="zh">9. 聯絡</span><span data-lang="en">9. Contact</span></a>
+            </aside>
+
+            <div class="content">
+                <section class="policy-block" id="overview">
+                    <h2><span data-lang="zh">1. 概覽</span><span data-lang="en">1. Overview</span></h2>
+                    <p data-lang="zh">「Swap It.」是由 SheepBeansGames 開發的 iOS 應用程式，協助你追蹤家中耗材的更換週期、備品庫存、採購清單與相關提醒。</p>
+                    <p data-lang="en">Swap It. is an iOS app developed by SheepBeansGames to help you track replacement schedules, household inventory, shopping lists, and related reminders.</p>
+                    <p data-lang="zh">核心物品資料以<strong>本機儲存</strong>為主。部分功能，例如雲端備份、意見回饋、登入、匿名分析與訂閱狀態，會使用 Firebase 或 Apple App Store 相關服務。</p>
+                    <p data-lang="en">Core item data is primarily stored <strong>on your device</strong>. Some features, such as cloud backup, feedback, sign-in, anonymous analytics, and subscription status, use Firebase or Apple App Store services.</p>
+                </section>
+
+                <section class="policy-block" id="local-data">
+                    <h2><span data-lang="zh">2. 本機儲存的資料</span><span data-lang="en">2. Data Stored Locally</span></h2>
+                    <p data-lang="zh">以下資料主要儲存在你的裝置本機，不會在未經你操作的情況下自動上傳：</p>
+                    <p data-lang="en">The following data is primarily stored locally on your device and is not automatically uploaded without your action:</p>
+                    <ul data-lang="zh">
+                        <li>你建立的空間名稱、分類結構與排列順序</li>
+                        <li>物品名稱、更換週期、到期日、安全庫存量</li>
+                        <li>你拍攝或選取的物品照片，以及去背後產生的貼紙圖片</li>
+                        <li>更換、補貨、延後等操作紀錄與使用統計</li>
+                        <li>採購清單內容與應用程式設定</li>
+                    </ul>
+                    <ul data-lang="en">
+                        <li>Space names, category structure, and ordering you create</li>
+                        <li>Item names, replacement cycles, due dates, and safety stock levels</li>
+                        <li>Item photos you capture or choose, plus sticker images generated from them</li>
+                        <li>Replacement, restock, snooze, and usage records</li>
+                        <li>Shopping list content and app settings</li>
+                    </ul>
+                </section>
+
+                <section class="policy-block" id="analytics">
+                    <h2><span data-lang="zh">3. Firebase Analytics（匿名）</span><span data-lang="en">3. Firebase Analytics (Anonymous)</span></h2>
+                    <p data-lang="zh">應用程式使用 Firebase Analytics 收集匿名功能使用事件，協助我們了解功能是否正常、改善產品體驗。事件可能包含 onboarding、建立或編輯物品、標記更換、補貨、延後、使用模板、建立貼紙、購物清單操作、雲端備份觸發、通知開關、paywall 顯示、訂閱購買等。</p>
+                    <p data-lang="en">The app uses Firebase Analytics to collect anonymous feature usage events so we can understand whether features work as expected and improve the product. Events may include onboarding, creating or editing items, marking replacements, restocking, snoozing, using templates, creating stickers, shopping list actions, cloud backup triggers, notification settings, paywall views, and subscription purchases.</p>
+                    <p data-lang="zh">這些事件<strong>不包含</strong>物品名稱、照片內容、個人識別資訊或付款資訊。Firebase 的資料處理受 <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google Firebase 隱私權與安全性說明</a>管轄。</p>
+                    <p data-lang="en">These events <strong>do not include</strong> item names, photo contents, personally identifying information, or payment information. Firebase data processing is governed by <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google Firebase privacy and security information</a>.</p>
+                </section>
+
+                <section class="policy-block" id="backup">
+                    <h2><span data-lang="zh">4. 雲端備份（選用）</span><span data-lang="en">4. Cloud Backup (Optional)</span></h2>
+                    <p data-lang="zh">雲端備份為選用功能，需要登入帳號後由你主動觸發。登入方式支援 Apple 帳號及 Google 帳號。</p>
+                    <p data-lang="en">Cloud backup is optional and must be triggered by you after signing in. Sign-in may use Apple or Google accounts.</p>
+                    <p data-lang="zh">使用雲端備份時，物品資料與貼紙圖片可能會上傳至 Firebase Storage，並與你的帳號關聯。雲端最多保留最近 3 份備份；你可以登出並聯絡我們要求刪除雲端備份資料。</p>
+                    <p data-lang="en">When you use cloud backup, item data and sticker images may be uploaded to Firebase Storage and associated with your account. Up to the latest three backups are retained. You may sign out and contact us to request deletion of cloud backup data.</p>
+                </section>
+
+                <section class="policy-block" id="feedback">
+                    <h2><span data-lang="zh">5. 意見回饋</span><span data-lang="en">5. Feedback</span></h2>
+                    <p data-lang="zh">當你透過 App 內的意見回饋功能提交問題或建議時，以下資料可能會上傳至 Firebase Firestore：</p>
+                    <p data-lang="en">When you submit feedback in the app, the following information may be uploaded to Firebase Firestore:</p>
+                    <ul data-lang="zh">
+                        <li>你填寫的回饋內容與選填 Email</li>
+                        <li>App 版本、訂閱方案、裝置型號、系統版本與裝置名稱</li>
+                        <li>若已登入：Firebase 帳號 UID 與信箱</li>
+                    </ul>
+                    <ul data-lang="en">
+                        <li>Your feedback message and optional email address</li>
+                        <li>App version, subscription plan, device model, system version, and device name</li>
+                        <li>If signed in: Firebase account UID and email address</li>
+                    </ul>
+                    <p data-lang="zh">這些資料僅用於處理你的回饋，不會用於廣告或出售。</p>
+                    <p data-lang="en">This information is used only to process your feedback. It is not used for advertising or sold.</p>
+                </section>
+
+                <section class="policy-block" id="permissions">
+                    <h2><span data-lang="zh">6. 權限與裝置功能</span><span data-lang="en">6. Permissions and Device Features</span></h2>
+                    <h3 data-lang="zh">通知</h3>
+                    <h3 data-lang="en">Notifications</h3>
+                    <p data-lang="zh">應用程式會請求通知權限，用於在物品到期或備品低於安全庫存時提醒你。通知內容由裝置本機產生，不會傳送至任何伺服器。</p>
+                    <p data-lang="en">The app may request notification permission to remind you when items are due or inventory is below your safety stock level. Notification content is generated locally on your device and is not sent to a server.</p>
+                    <h3 data-lang="zh">相機與照片</h3>
+                    <h3 data-lang="en">Camera and Photos</h3>
+                    <p data-lang="zh">當你為物品拍照或從相片庫選取圖片時，應用程式會請求相機或相片庫存取權限。照片在本機處理；僅在你主動觸發雲端備份時，貼紙圖片才可能同步至 Firebase Storage。</p>
+                    <p data-lang="en">When you take a photo or choose an image for an item, the app may request camera or photo library access. Photos are processed locally. Sticker images may sync to Firebase Storage only when you trigger cloud backup.</p>
+                    <h3 data-lang="zh">Face ID / Touch ID</h3>
+                    <h3 data-lang="en">Face ID / Touch ID</h3>
+                    <p data-lang="zh">App Lock 可使用 Face ID 或 Touch ID。生物辨識資料由 iOS 系統管理，應用程式不會存取、儲存或傳輸你的生物特徵資料。</p>
+                    <p data-lang="en">App Lock can use Face ID or Touch ID. Biometric data is managed by iOS; the app does not access, store, or transmit your biometric data.</p>
+                </section>
+
+                <section class="policy-block" id="third-party">
+                    <h2><span data-lang="zh">7. 使用的第三方服務</span><span data-lang="en">7. Third-Party Services</span></h2>
+                    <p data-lang="zh">應用程式可能整合以下服務：</p>
+                    <p data-lang="en">The app may integrate the following services:</p>
+                    <ul data-lang="zh">
+                        <li>Firebase Analytics — 匿名功能使用事件</li>
+                        <li>Firebase Authentication — Apple / Google 登入</li>
+                        <li>Firebase Storage — 雲端備份儲存</li>
+                        <li>Cloud Firestore — 意見回饋儲存</li>
+                        <li>Firebase Remote Config — 應用程式設定與版本控制</li>
+                        <li>Apple App Store / StoreKit — 訂閱、內購、復原購買與訂閱狀態</li>
+                    </ul>
+                    <ul data-lang="en">
+                        <li>Firebase Analytics — anonymous feature usage events</li>
+                        <li>Firebase Authentication — Apple / Google sign-in</li>
+                        <li>Firebase Storage — cloud backup storage</li>
+                        <li>Cloud Firestore — feedback storage</li>
+                        <li>Firebase Remote Config — app settings and version control</li>
+                        <li>Apple App Store / StoreKit — subscriptions, in-app purchases, purchase restoration, and subscription status</li>
+                    </ul>
+                </section>
+
+                <section class="policy-block" id="children-changes">
+                    <h2><span data-lang="zh">8. 兒童隱私與政策變更</span><span data-lang="en">8. Children's Privacy and Changes</span></h2>
+                    <p data-lang="zh">本應用程式不針對 13 歲以下兒童設計。若你發現兒童在未經允許下提交了個人資料，請聯絡我們，我們將協助處理。</p>
+                    <p data-lang="en">The app is not directed to children under 13. If you believe a child submitted personal information without permission, contact us and we will help address it.</p>
+                    <p data-lang="zh">若本政策有所變更，我們會在此頁更新內容並修改最後更新日期。重大變更可能透過 App 內訊息或 App Store 更新說明告知。</p>
+                    <p data-lang="en">If this policy changes, we will update this page and the last updated date. Material changes may be announced in the app or App Store release notes.</p>
+                </section>
+
+                <section class="policy-block" id="contact">
+                    <h2><span data-lang="zh">9. 聯絡我們</span><span data-lang="en">9. Contact Us</span></h2>
+                    <p data-lang="zh">對本政策或資料處理有任何疑問，歡迎聯絡：</p>
+                    <p data-lang="en">If you have questions about this policy or data handling, contact:</p>
+                    <div class="note-card">
+                        <p>SheepBeansGames<br>Email: <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a></p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <div>© 2026 SheepBeansGames. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="index.html"><span data-lang="zh">首頁</span><span data-lang="en">Home</span></a>
+                <a href="terms.html"><span data-lang="zh">使用條款</span><span data-lang="en">Terms of Use</span></a>
+                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const setLanguage = (lang) => {
+            document.documentElement.dataset.lang = lang;
+            document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
+            localStorage.setItem("swapit-site-lang", lang);
+        };
+
+        const initialLang = localStorage.getItem("swapit-site-lang") || "zh";
+        setLanguage(initialLang);
+
+        document.querySelectorAll("[data-set-lang]").forEach((button) => {
+            button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>

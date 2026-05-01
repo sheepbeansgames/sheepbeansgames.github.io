@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使用條款 — Swap It.</title>
+    <meta name="description" content="Swap It. 使用條款、Pro 訂閱、自動續訂、取消與退款說明。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="assets/icon/icon.png">
+    <style>
+        :root {
+            --bg: #fbfaf7;
+            --surface: #ffffff;
+            --ink: #241d18;
+            --muted: #675d55;
+            --subtle: #92867b;
+            --line: rgba(36, 29, 24, 0.1);
+            --brand: #df6338;
+            --brand-dark: #a94222;
+            --sage: #4c7a67;
+            --teal: #1f6f78;
+            --gold: #c78925;
+            --shadow-sm: 0 10px 28px rgba(36, 29, 24, 0.08);
+            --shadow-md: 0 18px 44px rgba(36, 29, 24, 0.12);
+            --radius: 24px;
+            --radius-sm: 14px;
+            --max: 1040px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        html[data-lang="zh"] [data-lang="en"],
+        html[data-lang="en"] [data-lang="zh"] {
+            display: none !important;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(36, 29, 24, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(36, 29, 24, 0.035) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 70%);
+        }
+
+        a { color: inherit; }
+        h1, h2, h3, .eyebrow { font-family: "Outfit", "Noto Sans TC", sans-serif; }
+        h1, h2, h3, p { margin-top: 0; }
+
+        .wrap {
+            width: min(100%, var(--max));
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(251, 250, 247, 0.9);
+            box-shadow: 0 1px 0 var(--line);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 22px;
+        }
+
+        .logo img {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-link {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .nav-link:hover { color: var(--brand-dark); }
+
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-switch button {
+            min-width: 42px;
+            height: 34px;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        html[data-lang="zh"] .lang-switch button[data-set-lang="zh"],
+        html[data-lang="en"] .lang-switch button[data-set-lang="en"] {
+            background: var(--ink);
+            color: #fffaf2;
+        }
+
+        .page-hero {
+            padding: 76px 0 46px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            color: var(--brand-dark);
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 2px;
+            background: currentColor;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.62fr);
+            gap: clamp(28px, 5vw, 58px);
+            align-items: end;
+        }
+
+        .page-hero h1 {
+            margin-bottom: 18px;
+            max-width: 780px;
+            font-size: clamp(40px, 6vw, 76px);
+            font-weight: 900;
+            line-height: 1.02;
+            letter-spacing: 0;
+        }
+
+        .hero-lead {
+            max-width: 700px;
+            margin-bottom: 16px;
+            color: var(--muted);
+            font-size: clamp(18px, 2vw, 23px);
+            line-height: 1.6;
+        }
+
+        .updated {
+            margin-bottom: 0;
+            color: var(--subtle);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .hero-panel {
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff8ef;
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-panel strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .hero-panel p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            padding-bottom: 58px;
+        }
+
+        .highlight-card {
+            min-height: 158px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .highlight-card i {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 16px;
+            color: var(--brand);
+        }
+
+        .highlight-card:nth-child(2) i { color: var(--sage); }
+        .highlight-card:nth-child(3) i { color: var(--gold); }
+
+        .highlight-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .highlight-card span {
+            display: block;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .terms-shell {
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+            gap: clamp(28px, 5vw, 56px);
+            align-items: start;
+            padding-bottom: 96px;
+        }
+
+        .toc {
+            position: sticky;
+            top: 96px;
+            display: grid;
+            gap: 8px;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.76);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .toc a {
+            padding: 8px 10px;
+            border-radius: 10px;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 800;
+            line-height: 1.35;
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            background: #f4efe9;
+            color: var(--brand-dark);
+        }
+
+        .content {
+            display: grid;
+            gap: 42px;
+        }
+
+        .terms-block {
+            padding: 30px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .terms-block h2 {
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--line);
+            font-size: clamp(24px, 3vw, 34px);
+            font-weight: 900;
+            line-height: 1.18;
+        }
+
+        .terms-block p {
+            margin-bottom: 14px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.82;
+        }
+
+        .terms-block p:last-child { margin-bottom: 0; }
+        .terms-block strong { color: var(--ink); font-weight: 900; }
+
+        .terms-block ul {
+            display: grid;
+            gap: 10px;
+            margin: 14px 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .terms-block li {
+            position: relative;
+            padding-left: 22px;
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.72;
+        }
+
+        .terms-block li::before {
+            content: "";
+            position: absolute;
+            left: 2px;
+            top: 0.72em;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--brand);
+        }
+
+        .terms-block a {
+            color: var(--brand-dark);
+            font-weight: 800;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(169, 66, 34, 0.26);
+        }
+
+        .note-card {
+            padding: 18px 20px;
+            margin-top: 18px;
+            border: 1px solid rgba(223, 99, 56, 0.18);
+            border-radius: var(--radius-sm);
+            background: #fff8ef;
+        }
+
+        .note-card p { margin-bottom: 0; }
+
+        footer {
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+            color: var(--subtle);
+            font-size: 14px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover { color: var(--brand-dark); }
+
+        @media (max-width: 900px) {
+            .hero-grid,
+            .terms-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .highlights {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .wrap { padding: 0 16px; }
+            .nav-inner { min-height: 68px; gap: 12px; }
+            .logo span { font-size: 19px; }
+            .logo img { width: 38px; height: 38px; }
+            .nav-link.home { display: none; }
+            .page-hero { padding: 54px 0 34px; }
+            .page-hero h1 { font-size: clamp(42px, 13vw, 60px); }
+            .hero-panel { padding: 18px; }
+            .toc { grid-template-columns: 1fr; }
+            .terms-block { padding: 22px; border-radius: 20px; }
+            .footer-inner { align-items: flex-start; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="wrap nav-inner">
+            <a href="index.html" class="logo" aria-label="Swap It. 首頁">
+                <img src="assets/icon/icon.png" alt="">
+                <span>Swap It.</span>
+            </a>
+            <div class="nav-actions">
+                <a href="privacy.html" class="nav-link"><span data-lang="zh">隱私權</span><span data-lang="en">Privacy</span></a>
+                <div class="lang-switch" aria-label="Language">
+                    <button type="button" data-set-lang="zh">中</button>
+                    <button type="button" data-set-lang="en">EN</button>
+                </div>
+                <a href="index.html" class="nav-link home"><span data-lang="zh">回首頁</span><span data-lang="en">Home</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <div class="eyebrow">Terms of Use</div>
+                    <h1>
+                        <span data-lang="zh">使用條款</span>
+                        <span data-lang="en">Terms of Use</span>
+                    </h1>
+                    <p class="hero-lead" data-lang="zh">這份條款說明你使用「Swap It.」App、Pro 訂閱、內購、取消與退款時適用的規則。</p>
+                    <p class="hero-lead" data-lang="en">These terms explain the rules that apply when you use the Swap It. app, Pro subscriptions, in-app purchases, cancellations, and refunds.</p>
+                    <p class="updated" data-lang="zh">最後更新：2026 年 5 月 1 日</p>
+                    <p class="updated" data-lang="en">Last updated: May 1, 2026</p>
+                </div>
+                <div class="hero-panel">
+                    <strong data-lang="zh">訂閱重點</strong>
+                    <strong data-lang="en">Subscription Summary</strong>
+                    <p data-lang="zh">付款、續訂、取消與退款由 Apple App Store 處理。刪除 App 不會自動取消訂閱。</p>
+                    <p data-lang="en">Payments, renewals, cancellations, and refunds are handled by the Apple App Store. Deleting the app does not cancel a subscription.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap highlights" aria-label="Terms highlights">
+            <div class="highlight-card">
+                <i data-lucide="receipt"></i>
+                <strong data-lang="zh">Apple 處理付款</strong>
+                <strong data-lang="en">Apple Handles Payment</strong>
+                <span data-lang="zh">App 不會儲存信用卡、付款帳號或完整付款資訊。</span>
+                <span data-lang="en">The app does not store credit cards, payment accounts, or full payment details.</span>
+            </div>
+            <div class="highlight-card">
+                <i data-lucide="refresh-cw"></i>
+                <strong data-lang="zh">自動續訂</strong>
+                <strong data-lang="en">Auto-Renewal</strong>
+                <span data-lang="zh">訂閱會依 Apple 規則自動續訂，直到你取消。</span>
+                <span data-lang="en">Subscriptions renew under Apple rules until you cancel.</span>
+            </div>
+            <div class="highlight-card">
+                <i data-lucide="undo-2"></i>
+                <strong data-lang="zh">取消與退款</strong>
+                <strong data-lang="en">Cancel and Refunds</strong>
+                <span data-lang="zh">取消和退款請透過 Apple 帳號與 Apple 支援流程處理。</span>
+                <span data-lang="en">Cancellation and refunds are handled through your Apple Account and Apple support flows.</span>
+            </div>
+        </section>
+
+        <section class="wrap terms-shell">
+            <aside class="toc" aria-label="Terms sections">
+                <a href="#acceptance"><span data-lang="zh">1. 接受條款</span><span data-lang="en">1. Acceptance</span></a>
+                <a href="#license"><span data-lang="zh">2. 使用授權</span><span data-lang="en">2. License</span></a>
+                <a href="#features"><span data-lang="zh">3. 功能與資料</span><span data-lang="en">3. Features and Data</span></a>
+                <a href="#subscriptions"><span data-lang="zh">4. 訂閱與內購</span><span data-lang="en">4. Subscriptions</span></a>
+                <a href="#cancellation"><span data-lang="zh">5. 取消與退款</span><span data-lang="en">5. Cancellation</span></a>
+                <a href="#changes"><span data-lang="zh">6. 變更與終止</span><span data-lang="en">6. Changes</span></a>
+                <a href="#contact"><span data-lang="zh">7. 聯絡</span><span data-lang="en">7. Contact</span></a>
+            </aside>
+
+            <div class="content">
+                <section class="terms-block" id="acceptance">
+                    <h2><span data-lang="zh">1. 接受條款</span><span data-lang="en">1. Acceptance of Terms</span></h2>
+                    <p data-lang="zh">當你下載、安裝、存取或使用「Swap It.」（以下稱「本 App」）時，即表示你同意本使用條款與我們的隱私權政策。</p>
+                    <p data-lang="en">By downloading, installing, accessing, or using Swap It. (the "App"), you agree to these Terms of Use and our Privacy Policy.</p>
+                    <p data-lang="zh">若你不同意本條款，請停止使用本 App。若你代表他人或組織使用本 App，請確認你有權代表其接受本條款。</p>
+                    <p data-lang="en">If you do not agree to these terms, please stop using the App. If you use the App on behalf of another person or organization, you confirm you have authority to accept these terms for them.</p>
+                </section>
+
+                <section class="terms-block" id="license">
+                    <h2><span data-lang="zh">2. 使用授權</span><span data-lang="en">2. License to Use the App</span></h2>
+                    <p data-lang="zh">在你遵守本條款的前提下，SheepBeansGames 授予你一項有限、非專屬、不可轉讓、可撤銷的授權，供你在個人裝置上使用本 App。</p>
+                    <p data-lang="en">Subject to your compliance with these terms, SheepBeansGames grants you a limited, non-exclusive, non-transferable, revocable license to use the App on your personal devices.</p>
+                    <p data-lang="zh">除本條款明確允許外，你不得複製、修改、反向工程、出售、轉租、散布本 App，或以未經授權方式存取本 App 的服務。</p>
+                    <p data-lang="en">Except as expressly allowed by these terms, you may not copy, modify, reverse engineer, sell, lease, distribute the App, or access its services in an unauthorized way.</p>
+                    <div class="note-card">
+                        <p data-lang="zh">若 App Store 的 <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Apple 標準授權協議（Standard EULA）</a>適用，且與本條款未衝突，該協議也會規範你透過 App Store 取得本 App 的使用授權。</p>
+                        <p data-lang="en">Where the App Store <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Apple Standard EULA</a> applies and does not conflict with these terms, it also governs your license to use the App obtained through the App Store.</p>
+                    </div>
+                </section>
+
+                <section class="terms-block" id="features">
+                    <h2><span data-lang="zh">3. 功能、資料與責任</span><span data-lang="en">3. Features, Data, and Responsibility</span></h2>
+                    <p data-lang="zh">本 App 協助你記錄耗材更換週期、備品庫存、採購清單、提醒與相關資料。你需自行確認輸入內容、提醒日期、庫存數量與採購資訊是否正確。</p>
+                    <p data-lang="en">The App helps you record replacement schedules, household inventory, shopping lists, reminders, and related information. You are responsible for checking that your entered content, reminder dates, quantities, and shopping information are accurate.</p>
+                    <p data-lang="zh">本 App 不能保證提醒永遠準時送達。通知可能受到 iOS 設定、裝置狀態、系統限制、網路或其他因素影響。</p>
+                    <p data-lang="en">The App cannot guarantee that reminders will always be delivered on time. Notifications may be affected by iOS settings, device state, system limitations, network conditions, or other factors.</p>
+                    <p data-lang="zh">資料處理方式請見 <a href="privacy.html">隱私權政策</a>。</p>
+                    <p data-lang="en">For data handling, see the <a href="privacy.html">Privacy Policy</a>.</p>
+                </section>
+
+                <section class="terms-block" id="subscriptions">
+                    <h2><span data-lang="zh">4. Pro 訂閱與內購</span><span data-lang="en">4. Pro Subscriptions and In-App Purchases</span></h2>
+                    <p data-lang="zh">本 App 可能提供 Pro 訂閱或一次性內購項目。實際可購買項目、價格、試用期、方案期間與功能內容，以 App 內顯示及 App Store 購買畫面為準。</p>
+                    <p data-lang="en">The App may offer Pro subscriptions or one-time in-app purchases. Available products, prices, trial periods, plan durations, and included features are shown in the App and on the App Store purchase sheet.</p>
+                    <ul data-lang="zh">
+                        <li>所有付款均由 Apple App Store 處理；本 App 不會接觸或儲存信用卡、付款帳號或完整付款資訊。</li>
+                        <li>自動續訂訂閱會在每個訂閱期間結束時自動續訂，直到你透過 Apple 帳號取消為止。</li>
+                        <li>若有免費試用，試用期、轉付費時間與取消規則以 App Store 購買畫面為準。</li>
+                        <li>訂閱狀態可能透過 Apple StoreKit 或 App Store 收據機制確認，用於開放 Pro 功能與復原購買。</li>
+                        <li>若訂閱價格或條件變更，通知、同意與生效方式依 Apple App Store 規則處理。</li>
+                    </ul>
+                    <ul data-lang="en">
+                        <li>All payments are processed by the Apple App Store. The App does not access or store credit card details, payment accounts, or full payment information.</li>
+                        <li>Auto-renewable subscriptions renew at the end of each subscription period until you cancel through your Apple Account.</li>
+                        <li>If a free trial is offered, the trial period, paid conversion timing, and cancellation rules are shown on the App Store purchase sheet.</li>
+                        <li>Subscription status may be verified through Apple StoreKit or App Store receipt mechanisms to unlock Pro features and restore purchases.</li>
+                        <li>If subscription pricing or terms change, notice, consent, and effective timing are handled under Apple App Store rules.</li>
+                    </ul>
+                </section>
+
+                <section class="terms-block" id="cancellation">
+                    <h2><span data-lang="zh">5. 取消、退款與復原購買</span><span data-lang="en">5. Cancellation, Refunds, and Restore Purchases</span></h2>
+                    <ul data-lang="zh">
+                        <li>你可以在 iOS 設定或 App Store 的 Apple 帳號頁面管理或取消訂閱。</li>
+                        <li>取消訂閱後，你仍可使用已付款期間內的 Pro 功能；到期後需要 Pro 的功能可能會停止開放。</li>
+                        <li>刪除 App 不會自動取消訂閱。若要停止續訂，請務必透過 Apple 帳號取消。</li>
+                        <li>退款資格與審核由 Apple 處理，請透過 Apple 的退款流程提出申請。</li>
+                        <li>若你更換裝置或重新安裝 App，可使用 App 內的復原購買功能，或依 Apple 帳號購買紀錄恢復權益。</li>
+                    </ul>
+                    <ul data-lang="en">
+                        <li>You can manage or cancel subscriptions in iOS Settings or the App Store Apple Account page.</li>
+                        <li>After cancellation, you may continue using paid Pro features until the end of the current paid period. Features that require Pro may stop after expiration.</li>
+                        <li>Deleting the App does not automatically cancel your subscription. To stop renewal, cancel through your Apple Account.</li>
+                        <li>Refund eligibility and review are handled by Apple. Please use Apple's refund request process.</li>
+                        <li>If you change devices or reinstall the App, you may use restore purchases in the App or restore entitlement through your Apple Account purchase history.</li>
+                    </ul>
+                    <div class="note-card">
+                        <p data-lang="zh">管理訂閱、取消或退款請參考 <a href="https://support.apple.com/billing" target="_blank" rel="noopener">Apple 訂閱與帳單支援</a>、<a href="https://support.apple.com/118223" target="_blank" rel="noopener">Apple 退款申請說明</a>與 <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Apple Media Services 條款</a>。</p>
+                        <p data-lang="en">For subscription management, cancellation, or refund requests, see <a href="https://support.apple.com/billing" target="_blank" rel="noopener">Apple Subscriptions and Billing Support</a>, <a href="https://support.apple.com/118223" target="_blank" rel="noopener">Apple refund request guidance</a>, and the <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Apple Media Services Terms</a>.</p>
+                    </div>
+                </section>
+
+                <section class="terms-block" id="changes">
+                    <h2><span data-lang="zh">6. 變更、暫停與終止</span><span data-lang="en">6. Changes, Suspension, and Termination</span></h2>
+                    <p data-lang="zh">我們可能不定期調整、增加、暫停或移除本 App 的部分功能。若變更會重大影響你的權益，我們會盡合理努力透過 App、App Store 更新說明或本頁通知。</p>
+                    <p data-lang="en">We may update, add, suspend, or remove parts of the App from time to time. If a change materially affects your rights, we will make reasonable efforts to notify you through the App, App Store release notes, or this page.</p>
+                    <p data-lang="zh">若你違反本條款、濫用服務、嘗試未授權存取，或造成安全、法律或營運風險，我們可能限制或終止你使用部分功能。</p>
+                    <p data-lang="en">If you violate these terms, abuse the service, attempt unauthorized access, or create security, legal, or operational risk, we may restrict or terminate your access to some features.</p>
+                </section>
+
+                <section class="terms-block" id="contact">
+                    <h2><span data-lang="zh">7. 聯絡我們</span><span data-lang="en">7. Contact Us</span></h2>
+                    <p data-lang="zh">對本條款、訂閱或內購有任何疑問，歡迎聯絡：</p>
+                    <p data-lang="en">If you have questions about these terms, subscriptions, or in-app purchases, contact:</p>
+                    <div class="note-card">
+                        <p>SheepBeansGames<br>Email: <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a></p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <div>© 2026 SheepBeansGames. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="index.html"><span data-lang="zh">首頁</span><span data-lang="en">Home</span></a>
+                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span></a>
+                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const setLanguage = (lang) => {
+            document.documentElement.dataset.lang = lang;
+            document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
+            localStorage.setItem("swapit-site-lang", lang);
+        };
+
+        const initialLang = localStorage.getItem("swapit-site-lang") || "zh";
+        setLanguage(initialLang);
+
+        document.querySelectorAll("[data-set-lang]").forEach((button) => {
+            button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>

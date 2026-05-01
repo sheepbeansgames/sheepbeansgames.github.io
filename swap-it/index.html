@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap It. — 記住每個該換的日子</title>
+    <meta name="description" content="Swap It. helps you track replacement schedules, household inventory, and shopping lists.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="assets/icon/icon.png">
+    <style>
+        :root {
+            --bg: #fbfaf7;
+            --surface: #ffffff;
+            --surface-strong: #f3f7f2;
+            --ink: #241d18;
+            --muted: #675d55;
+            --subtle: #92867b;
+            --line: rgba(36, 29, 24, 0.1);
+            --brand: #df6338;
+            --brand-dark: #a94222;
+            --sage: #4c7a67;
+            --teal: #1f6f78;
+            --gold: #c78925;
+            --blue: #345e8a;
+            --shadow-sm: 0 10px 28px rgba(36, 29, 24, 0.08);
+            --shadow-md: 0 18px 44px rgba(36, 29, 24, 0.12);
+            --shadow-lg: 0 28px 70px rgba(36, 29, 24, 0.16);
+            --radius: 24px;
+            --radius-sm: 14px;
+            --max: 1160px;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        html[data-lang="zh"] [data-lang="en"],
+        html[data-lang="en"] [data-lang="zh"] {
+            display: none !important;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(36, 29, 24, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(36, 29, 24, 0.035) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 70%);
+        }
+
+        img { max-width: 100%; display: block; }
+
+        a { color: inherit; }
+
+        h1, h2, h3, .eyebrow, .brand-name {
+            font-family: "Outfit", "Noto Sans TC", sans-serif;
+        }
+
+        h1, h2, h3, p {
+            margin-top: 0;
+        }
+
+        .wrap {
+            width: min(100%, var(--max));
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            transition: background 0.25s ease, box-shadow 0.25s ease, height 0.25s ease;
+        }
+
+        .nav-inner {
+            height: 84px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            transition: height 0.25s ease;
+        }
+
+        .site-nav.scrolled {
+            background: rgba(251, 250, 247, 0.9);
+            box-shadow: 0 1px 0 var(--line);
+            backdrop-filter: blur(18px);
+        }
+
+        .site-nav.scrolled .nav-inner {
+            height: 68px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 22px;
+        }
+
+        .logo img {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+        }
+
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-switch button {
+            min-width: 38px;
+            height: 32px;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            font-size: 12px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        html[data-lang="zh"] .lang-switch button[data-set-lang="zh"],
+        html[data-lang="en"] .lang-switch button[data-set-lang="en"] {
+            background: var(--ink);
+            color: #fffaf2;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 12px 22px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            background: var(--brand);
+            color: white;
+            font-weight: 900;
+            text-decoration: none;
+            box-shadow: 0 12px 26px rgba(223, 99, 56, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            background: var(--brand-dark);
+            box-shadow: 0 16px 34px rgba(223, 99, 56, 0.3);
+        }
+
+        .button.secondary {
+            background: var(--surface);
+            color: var(--ink);
+            border-color: var(--line);
+            box-shadow: none;
+        }
+
+        .button.secondary:hover {
+            background: #f4efe9;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .button.app-store-button {
+            background: #171512;
+            color: #fffaf2;
+            box-shadow: 0 14px 30px rgba(23, 21, 18, 0.18);
+        }
+
+        .button.app-store-button:hover {
+            background: #000;
+            box-shadow: 0 18px 38px rgba(23, 21, 18, 0.24);
+        }
+
+        .button.app-store-button:disabled,
+        .button.app-store-button[aria-disabled="true"] {
+            cursor: default;
+            opacity: 0.86;
+            transform: none;
+        }
+
+        .button.app-store-button:disabled:hover,
+        .button.app-store-button[aria-disabled="true"]:hover {
+            background: #171512;
+            box-shadow: 0 14px 30px rgba(23, 21, 18, 0.18);
+        }
+
+        .apple-mark {
+            width: 20px;
+            height: 24px;
+            display: block;
+            fill: currentColor;
+        }
+
+        .hero {
+            min-height: 100svh;
+            display: grid;
+            align-items: center;
+            padding: 126px 0 64px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+            align-items: center;
+            gap: clamp(48px, 7vw, 92px);
+        }
+
+        .hero-copy-block {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            color: var(--brand-dark);
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 2px;
+            background: currentColor;
+        }
+
+        .hero h1 {
+            margin-bottom: 20px;
+            font-size: clamp(48px, 8vw, 92px);
+            font-weight: 900;
+            line-height: 0.98;
+            letter-spacing: 0;
+        }
+
+        .hero-lead {
+            max-width: 650px;
+            margin-bottom: 20px;
+            color: var(--muted);
+            font-size: clamp(19px, 2.2vw, 25px);
+            line-height: 1.58;
+        }
+
+        .hero-copy {
+            max-width: 620px;
+            margin-bottom: 32px;
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 34px;
+        }
+
+        .proof-row {
+            grid-column: 1;
+            grid-row: 2;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            max-width: 640px;
+        }
+
+        .proof {
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .proof strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .proof span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .hero-visual {
+            position: relative;
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            min-height: 680px;
+            display: grid;
+            place-items: center;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: min(325px, 76vw);
+            aspect-ratio: 1320 / 2868;
+            padding: 8px;
+            border-radius: 44px;
+            background: #16110f;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .phone-frame::before {
+            content: "";
+            position: absolute;
+            top: 13px;
+            left: 50%;
+            z-index: 3;
+            width: 88px;
+            height: 22px;
+            transform: translateX(-50%);
+            border-radius: 0 0 15px 15px;
+            background: #16110f;
+        }
+
+        .phone-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 36px;
+            background: white;
+        }
+
+        .hero-note {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            width: 260px;
+            padding: 14px 16px;
+            border: 2px solid rgba(42, 31, 20, 0.06);
+            border-radius: 26px;
+            background: #fff8ef;
+            box-shadow: 0 14px 32px rgba(42, 31, 20, 0.1);
+            color: var(--ink);
+            font-weight: 900;
+            backdrop-filter: blur(14px);
+        }
+
+        .hero-note .note-icon {
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 18px;
+            background: #fde3d6;
+            color: #b54421;
+        }
+
+        .hero-note .note-icon.stock {
+            background: #faedc9;
+            color: #8b6315;
+        }
+
+        .hero-note svg {
+            flex: 0 0 auto;
+            width: 24px;
+            height: 24px;
+        }
+
+        .hero-note small {
+            display: block;
+            margin-bottom: 2px;
+            color: var(--subtle);
+            font-size: 12px;
+            line-height: 1.1;
+            font-weight: 900;
+        }
+
+        .hero-note b {
+            display: block;
+            color: var(--ink);
+            font-size: 17px;
+            line-height: 1.28;
+        }
+
+        .note-a {
+            top: 92px;
+            left: 0;
+        }
+
+        .note-b {
+            right: 0;
+            bottom: 120px;
+        }
+
+        .section {
+            padding: 96px 0;
+        }
+
+        .section.alt {
+            background: #eef4f1;
+        }
+
+        .section-header {
+            display: grid;
+            grid-template-columns: minmax(0, 0.78fr) minmax(280px, 0.55fr);
+            gap: 40px;
+            align-items: end;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            margin-bottom: 0;
+            font-size: clamp(34px, 5vw, 60px);
+            line-height: 1.1;
+        }
+
+        .section-header p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 17px;
+        }
+
+        .status-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 16px;
+            margin-top: 34px;
+        }
+
+        .status-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 13px 18px;
+            border-radius: 999px;
+            background: #fff8ef;
+            color: #6b5b46;
+            font-weight: 900;
+            box-shadow: 0 6px 16px rgba(42, 31, 20, 0.07);
+        }
+
+        .status-chip i {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .status-chip.hot {
+            background: #fde3d6;
+            color: #b54421;
+        }
+
+        .status-chip.green {
+            background: #e2f2e4;
+            color: #2f7048;
+        }
+
+        .status-chip.blue {
+            background: #dbeaf8;
+            color: #2f648e;
+        }
+
+        .feature-story {
+            display: grid;
+            gap: 72px;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: minmax(0, 0.82fr) minmax(300px, 0.72fr);
+            gap: clamp(36px, 6vw, 74px);
+            align-items: center;
+            padding: 38px 0;
+        }
+
+        .feature-row:nth-child(even) {
+            grid-template-columns: minmax(300px, 0.72fr) minmax(0, 0.82fr);
+        }
+
+        .feature-row:nth-child(even) .feature-copy {
+            order: 2;
+        }
+
+        .feature-copy {
+            max-width: 560px;
+        }
+
+        .feature-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            color: var(--brand-dark);
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+        }
+
+        .feature-kicker svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .feature-copy h3 {
+            margin-bottom: 16px;
+            font-size: clamp(31px, 4.5vw, 50px);
+            line-height: 1.14;
+        }
+
+        .feature-copy p {
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 10px;
+            margin: 24px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .feature-list svg {
+            flex: 0 0 auto;
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+            color: var(--sage);
+        }
+
+        .screen-pair {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            align-items: center;
+        }
+
+        .screen-pair .phone-frame {
+            width: 100%;
+            max-width: 248px;
+            justify-self: end;
+            border-radius: 34px;
+            padding: 6px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .screen-pair .phone-frame::before {
+            top: 10px;
+            width: 64px;
+            height: 16px;
+            border-radius: 0 0 11px 11px;
+        }
+
+        .screen-pair .phone-frame img {
+            border-radius: 28px;
+        }
+
+        .screen-pair .phone-frame:nth-child(2) {
+            transform: translateY(42px);
+            justify-self: start;
+        }
+
+        .screen-pair.single {
+            grid-template-columns: minmax(0, 1fr);
+            justify-items: center;
+        }
+
+        .screen-pair.single .phone-frame {
+            justify-self: center;
+            max-width: 282px;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .quick-card {
+            min-height: 230px;
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .quick-icon {
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            background: #f1efe8;
+            color: var(--brand);
+        }
+
+        .quick-card:nth-child(2) .quick-icon { color: var(--teal); background: #e6f1f1; }
+        .quick-card:nth-child(3) .quick-icon { color: var(--gold); background: #f8efe0; }
+        .quick-card:nth-child(4) .quick-icon { color: var(--blue); background: #e7eef6; }
+
+        .quick-card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .quick-card p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .sticker-showcase {
+            display: grid;
+            grid-template-columns: minmax(0, 0.75fr) minmax(320px, 0.9fr);
+            gap: clamp(32px, 6vw, 72px);
+            align-items: center;
+            margin-top: 34px;
+            padding: clamp(26px, 5vw, 48px);
+            border: 1px solid var(--line);
+            border-radius: 32px;
+            background: #fff8ef;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .sticker-copy h3 {
+            margin-bottom: 16px;
+            font-size: clamp(30px, 4.5vw, 50px);
+            line-height: 1.15;
+        }
+
+        .sticker-copy p {
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .sticker-stage {
+            position: relative;
+            min-height: 520px;
+            display: grid;
+            place-items: center;
+        }
+
+        .sticker-stage .phone-frame {
+            width: min(255px, 62vw);
+            z-index: 2;
+            border-radius: 34px;
+            padding: 6px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sticker-stage .phone-frame::before {
+            top: 10px;
+            width: 64px;
+            height: 16px;
+            border-radius: 0 0 11px 11px;
+        }
+
+        .sticker-stage .phone-frame img {
+            border-radius: 28px;
+        }
+
+        .floating-sticker {
+            position: absolute;
+            z-index: 3;
+            width: 86px;
+            height: 86px;
+            object-fit: contain;
+            filter: drop-shadow(0 16px 16px rgba(51, 35, 24, 0.18));
+        }
+
+        .floating-sticker.one {
+            top: 52px;
+            left: 14px;
+            transform: rotate(-9deg);
+        }
+
+        .floating-sticker.two {
+            right: 16px;
+            top: 112px;
+            transform: rotate(8deg);
+        }
+
+        .floating-sticker.three {
+            left: 30px;
+            bottom: 76px;
+            transform: rotate(6deg);
+        }
+
+        .floating-sticker.four {
+            right: 22px;
+            bottom: 42px;
+            transform: rotate(-7deg);
+        }
+
+        .records-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+            gap: clamp(40px, 6vw, 80px);
+            align-items: center;
+        }
+
+        .records-list {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .record-item {
+            position: relative;
+            min-height: 220px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            background: #fff8ef;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .record-images {
+            display: flex;
+            align-items: flex-end;
+            min-height: 104px;
+            margin-bottom: 18px;
+        }
+
+        .record-images img {
+            width: 74px;
+            height: 74px;
+            object-fit: contain;
+            filter: drop-shadow(0 12px 12px rgba(51, 35, 24, 0.16));
+        }
+
+        .record-images img + img {
+            margin-left: -22px;
+        }
+
+        .record-images img:nth-child(2) {
+            transform: translateY(-12px) rotate(4deg);
+        }
+
+        .record-images img:nth-child(3) {
+            transform: translateY(4px) rotate(-5deg);
+        }
+
+        .record-item strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .record-item span {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .cta {
+            padding: 92px 0;
+            background: #1f2528;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            max-width: 760px;
+            margin: 0 auto 18px;
+            font-size: clamp(36px, 6vw, 66px);
+            line-height: 1.08;
+        }
+
+        .cta p {
+            max-width: 640px;
+            margin: 0 auto 32px;
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 18px;
+        }
+
+        .cta .button.secondary {
+            background: white;
+            color: var(--ink);
+        }
+
+        .cta .app-store-button {
+            background: #fffaf2;
+            color: #171512;
+        }
+
+        footer {
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+            color: var(--subtle);
+            font-size: 14px;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .footer-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-brand img {
+            width: 54px;
+            height: 54px;
+            object-fit: contain;
+            border-radius: 14px;
+        }
+
+        .footer-brand span {
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--brand-dark);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        @media (max-width: 980px) {
+            .nav-links a:not(.button) {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 112px;
+            }
+
+            .hero-grid,
+            .section-header,
+            .records-layout,
+            .sticker-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-copy-block,
+            .hero-visual,
+            .proof-row {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            .hero-visual {
+                min-height: 560px;
+            }
+
+            .hero-note {
+                width: 236px;
+            }
+
+            .note-a {
+                left: 6px;
+                top: 58px;
+            }
+
+            .note-b {
+                right: 6px;
+                bottom: 78px;
+            }
+
+            .feature-story {
+                gap: 42px;
+            }
+
+            .feature-row,
+            .feature-row:nth-child(even) {
+                grid-template-columns: 1fr;
+                padding: 24px 0 54px;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .feature-row:last-child {
+                border-bottom: 0;
+            }
+
+            .feature-row:nth-child(even) .feature-copy {
+                order: initial;
+            }
+
+            .feature-copy {
+                max-width: none;
+            }
+
+            .screen-pair {
+                width: min(100%, 540px);
+                margin: 0 auto;
+            }
+
+            .quick-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .sticker-stage {
+                min-height: 460px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .wrap {
+                width: min(100%, var(--max));
+                padding: 0 16px;
+            }
+
+            .site-nav .button span {
+                display: none;
+            }
+
+            .lang-switch button {
+                min-width: 34px;
+            }
+
+            .site-nav .button {
+                width: 48px;
+                min-height: 48px;
+                padding: 0;
+                border-radius: 16px;
+            }
+
+            .nav-inner {
+                height: 72px;
+            }
+
+            .site-nav.scrolled .nav-inner {
+                height: 62px;
+            }
+
+            .logo span {
+                font-size: 19px;
+            }
+
+            .logo img {
+                width: 38px;
+                height: 38px;
+            }
+
+            .hero {
+                padding: 98px 0 44px;
+            }
+
+            .hero h1 {
+                font-size: clamp(54px, 18vw, 76px);
+            }
+
+            .hero-lead {
+                font-size: 19px;
+            }
+
+            .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+
+            .hero-actions .button {
+                width: calc(100vw - 32px);
+            }
+
+            .proof-row,
+            .status-strip,
+            .quick-grid,
+            .records-list {
+                grid-template-columns: 1fr;
+            }
+
+            .status-strip {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .status-chip {
+                width: 100%;
+                padding: 12px 14px;
+                justify-content: flex-start;
+            }
+
+            .hero-visual {
+                min-height: 500px;
+            }
+
+            .phone-frame {
+                width: min(270px, 72vw);
+                border-radius: 38px;
+            }
+
+            .phone-frame img {
+                border-radius: 31px;
+            }
+
+            .hero-note {
+                position: relative;
+                inset: auto;
+                width: 100%;
+                max-width: none;
+                margin-top: 12px;
+            }
+
+            .mobile-notes {
+                display: grid;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .section {
+                padding: 68px 0;
+            }
+
+            .section-header {
+                gap: 18px;
+                margin-bottom: 32px;
+            }
+
+            .feature-row {
+                padding-bottom: 44px;
+            }
+
+            .screen-pair {
+                gap: 10px;
+            }
+
+            .screen-pair .phone-frame {
+                border-radius: 28px;
+                padding: 5px;
+            }
+
+            .screen-pair .phone-frame img {
+                border-radius: 23px;
+            }
+
+            .screen-pair .phone-frame:nth-child(2) {
+                transform: translateY(26px);
+            }
+
+            .sticker-showcase {
+                padding: 22px;
+                border-radius: 24px;
+            }
+
+            .sticker-stage {
+                min-height: 420px;
+            }
+
+            .floating-sticker {
+                width: 66px;
+                height: 66px;
+            }
+
+            .quick-card {
+                min-height: auto;
+            }
+
+            .cta {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar" class="site-nav">
+        <div class="wrap nav-inner">
+            <a href="#" class="logo" aria-label="Swap It.首頁">
+                <img src="assets/icon/icon.png" alt="">
+                <span>Swap It.</span>
+            </a>
+            <div class="nav-links" aria-label="主要導覽">
+                <a href="#features"><span data-lang="zh">功能</span><span data-lang="en">Features</span></a>
+                <a href="privacy.html"><span data-lang="zh">隱私權</span><span data-lang="en">Privacy</span></a>
+                <div class="lang-switch" aria-label="Language">
+                    <button type="button" data-set-lang="zh">中</button>
+                    <button type="button" data-set-lang="en">EN</button>
+                </div>
+                <button class="button app-store-button" type="button" disabled><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg><span data-lang="zh">即將上架</span><span data-lang="en">Coming Soon</span></button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-copy-block reveal">
+                    <div class="eyebrow">Replacement Reminder</div>
+                    <h1>Swap It.</h1>
+                    <p class="hero-lead" data-lang="zh">記住每個該換的日子，更換提醒與備品庫存，一次掌握。</p>
+                    <p class="hero-lead" data-lang="en">Remember every replacement date. Track reminders and household inventory in one place.</p>
+                    <p class="hero-copy" data-lang="zh">「你，上次換牙刷是什麼時候？」有些東西不用每天掛在心上，但到期了就要換、快沒了就要買。生活中的瑣碎，不該佔據你的大腦空間。</p>
+                    <p class="hero-copy" data-lang="en">When did you last replace that toothbrush? Some things do not deserve daily mental space, but they still need to be replaced on time and restocked before they run out.</p>
+                    <div class="hero-actions">
+                        <button class="button app-store-button" type="button" disabled><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg> <span data-lang="zh">即將上架</span><span data-lang="en">Coming Soon</span></button>
+                        <a class="button secondary" href="#features"><i data-lucide="list-checks"></i> <span data-lang="zh">看主要功能</span><span data-lang="en">View Features</span></a>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="phone-frame" aria-label="Swap It. App 首頁截圖">
+                        <img src="assets/screenshots/zh-TW/01_status_overview.png" data-screen="01_status_overview.png" alt="物況首頁概覽">
+                    </div>
+                    <div class="mobile-notes">
+                        <div class="hero-note note-a"><span class="note-icon"><i data-lucide="bell-ring"></i></span><span><small data-lang="zh">今日提醒</small><small data-lang="en">Today</small><b data-lang="zh">該換、該補貨，一打開就看到</b><b data-lang="en">See replacements and restocks immediately</b></span></div>
+                        <div class="hero-note note-b"><span class="note-icon stock"><i data-lucide="archive"></i></span><span><small data-lang="zh">庫存與週期</small><small data-lang="en">Stock & Cycles</small><b data-lang="zh">備品數量、使用天數放在同一處</b><b data-lang="en">Inventory and usage days in one place</b></span></div>
+                    </div>
+                </div>
+
+                <div class="proof-row reveal" aria-label="重點功能">
+                    <div class="proof"><strong data-lang="zh">週期</strong><strong data-lang="en">Cycles</strong><span data-lang="zh">牙刷、濾芯、隱形眼鏡等定期用品</span><span data-lang="en">Toothbrushes, filters, contacts, and other recurring items</span></div>
+                    <div class="proof"><strong data-lang="zh">庫存</strong><strong data-lang="en">Stock</strong><span data-lang="zh">安全存量偏低時提醒你該補貨了</span><span data-lang="en">Get reminded when household backup stock runs low</span></div>
+                    <div class="proof"><strong data-lang="zh">採購</strong><strong data-lang="en">Shopping</strong><span data-lang="zh">把待補貨物品整理成出門清單</span><span data-lang="en">Turn restock needs into a shopping list</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="features">
+            <div class="wrap">
+                <div class="section-header reveal">
+                    <div>
+                        <div class="eyebrow">Material Status</div>
+                        <h2 data-lang="zh">用「物況」管理生活用品</h2>
+                        <h2 data-lang="en">Manage household supplies by status</h2>
+                    </div>
+                    <p data-lang="zh">它不是一般待辦清單，而是把正常使用中、快到期、今天該換、庫存不足，或是暫時延後的物品整理好。打開 App，就知道現在該注意什麼。</p>
+                    <p data-lang="en">Swap It. is not a generic to-do list. It organizes what is active, due soon, due today, low on stock, or temporarily snoozed, so you know what needs attention.</p>
+                </div>
+                <div class="status-strip reveal">
+                    <div class="status-chip hot"><i></i><span data-lang="zh">低於安全值</span><span data-lang="en">Below safety stock</span></div>
+                    <div class="status-chip"><i></i><span data-lang="zh">該補貨了</span><span data-lang="en">Time to restock</span></div>
+                    <div class="status-chip green"><i></i><span data-lang="zh">庫存充足</span><span data-lang="en">Stocked</span></div>
+                    <div class="status-chip green"><i></i><span data-lang="zh">還有 5 天</span><span data-lang="en">5 days left</span></div>
+                    <div class="status-chip"><i></i><span data-lang="zh">還有 1 天</span><span data-lang="en">1 day left</span></div>
+                    <div class="status-chip hot"><i></i><span data-lang="zh">已過期 21 天</span><span data-lang="en">21 days overdue</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap feature-story">
+                <article class="feature-row reveal">
+                    <div class="feature-copy">
+                        <div class="feature-kicker"><i data-lucide="calendar-check"></i> 01 <span data-lang="zh">今日提醒</span><span data-lang="en">Today</span></div>
+                        <h3 data-lang="zh">今天該處理什麼，一眼看懂</h3>
+                        <h3 data-lang="en">Know what needs attention today</h3>
+                        <p data-lang="zh">清楚列出今天該更換、該補貨或需要處理的物品，依急迫程度排序，一打開就看得到重點。</p>
+                        <p data-lang="en">See what needs replacing, restocking, or handling today, sorted by urgency so the important work is visible immediately.</p>
+                        <ul class="feature-list">
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">到期更換與待補貨集中呈現</span><span data-lang="en">Due replacements and restocks in one view</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">可先延後處理，不打亂真實生活節奏</span><span data-lang="en">Snooze items when life needs more room</span></li>
+                        </ul>
+                    </div>
+                    <div class="screen-pair" aria-label="今日提醒畫面">
+                        <div class="phone-frame"><img src="assets/screenshots/zh-TW/01_status_overview.png" data-screen="01_status_overview.png" alt="今日概覽"></div>
+                        <div class="phone-frame"><img src="assets/screenshots/zh-TW/02_status_snoozed.png" data-screen="02_status_snoozed.png" alt="延後處理"></div>
+                    </div>
+                </article>
+
+                <article class="feature-row reveal">
+                    <div class="feature-copy">
+                        <div class="feature-kicker"><i data-lucide="repeat-2"></i> 02 <span data-lang="zh">更換週期管理</span><span data-lang="en">Replacement Cycles</span></div>
+                        <h3 data-lang="zh">牙刷、毛巾、濾芯，該換前就知道</h3>
+                        <h3 data-lang="en">Know before toothbrushes, towels, and filters need replacing</h3>
+                        <p data-lang="zh">為每個物品設定使用週期與提醒日期，適合牙刷、毛巾、濾芯、隱形眼鏡、空調濾網等定期更換品。</p>
+                        <p data-lang="en">Set a usage cycle and reminder date for each item, from toothbrushes and towels to filters, contact lenses, and appliance consumables.</p>
+                        <ul class="feature-list">
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">用實際更換日校準下一次提醒</span><span data-lang="en">Use the actual replacement date to calibrate the next reminder</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">週期、狀態與使用天數同步顯示</span><span data-lang="en">See cycle, status, and usage days together</span></li>
+                        </ul>
+                    </div>
+                    <div class="screen-pair" aria-label="更換週期畫面">
+                        <div class="phone-frame"><img src="assets/screenshots/zh-TW/05_inventory_usage_days.png" data-screen="05_inventory_usage_days.png" alt="使用天數"></div>
+                        <div class="phone-frame"><img src="assets/screenshots/zh-TW/03_inventory_search_list.png" data-screen="03_inventory_search_list.png" alt="全部物品列表"></div>
+                    </div>
+                </article>
+
+                <article class="feature-row reveal">
+                    <div class="feature-copy">
+                        <div class="feature-kicker"><i data-lucide="archive"></i> 03 <span data-lang="zh">備品庫存追蹤</span><span data-lang="en">Inventory Tracking</span></div>
+                        <h3 data-lang="zh">家裡還剩多少，低於安全值就提醒</h3>
+                        <h3 data-lang="en">Track what is left at home and restock before it is low</h3>
+                        <p data-lang="zh">記錄家裡還剩多少備品，並設定安全庫存。數量偏低時，提醒你該補貨了。</p>
+                        <p data-lang="en">Record how many backups you have at home and set a safety stock level. When quantity drops, Swap It. reminds you to restock.</p>
+                        <ul class="feature-list">
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">充足、偏低與待補貨狀態清楚分流</span><span data-lang="en">Clear states for stocked, low, and restock-needed items</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">補貨後可直接更新庫存數量</span><span data-lang="en">Update quantity immediately after restocking</span></li>
+                        </ul>
+                    </div>
+                    <div class="screen-pair" aria-label="備品庫存畫面">
+                        <div class="phone-frame"><img src="assets/screenshots/zh-TW/06_inventory_stock_spares.png" data-screen="06_inventory_stock_spares.png" alt="備品視圖"></div>
+                        <div class="phone-frame"><img src="assets/screenshots/zh-TW/04_inventory_overview.png" data-screen="04_inventory_overview.png" alt="待補貨列表"></div>
+                    </div>
+                </article>
+
+                <article class="feature-row reveal">
+                    <div class="feature-copy">
+                        <div class="feature-kicker"><i data-lucide="shopping-cart"></i> 04 <span data-lang="zh">自動採購清單</span><span data-lang="en">Shopping List</span></div>
+                        <h3 data-lang="zh">出門買東西，不再漏項</h3>
+                        <h3 data-lang="en">Do not miss what you meant to buy</h3>
+                        <p data-lang="zh">庫存不足的物品可整理成採購清單，出門買東西時更不容易漏項。</p>
+                        <p data-lang="en">Low-stock items can be gathered into a shopping list, making errands less likely to miss the small but necessary things.</p>
+                        <ul class="feature-list">
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">待補貨物品自動彙整</span><span data-lang="en">Restock-needed items collected automatically</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">採買完成後回到庫存紀錄</span><span data-lang="en">Return purchased items back to inventory records</span></li>
+                        </ul>
+                    </div>
+                    <div class="screen-pair single" aria-label="採購清單畫面">
+                        <div class="phone-frame"><img src="assets/screenshots/zh-TW/07_shopping_list.png" data-screen="07_shopping_list.png" alt="採購清單"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="wrap">
+                <div class="section-header reveal">
+                    <div>
+                        <div class="eyebrow">Organize Faster</div>
+                        <h2 data-lang="zh">建立、分類、瀏覽都更直覺</h2>
+                        <h2 data-lang="en">Create, sort, and browse with less friction</h2>
+                    </div>
+                    <p data-lang="zh">從照片、範本到空間分類，降低整理生活用品的成本。少一點手動輸入，多一點真正用得上的紀錄。</p>
+                    <p data-lang="en">Photos, templates, and room-based categories reduce the work of organizing household supplies, so records stay useful instead of tedious.</p>
+                </div>
+                <div class="quick-grid">
+                    <article class="quick-card reveal">
+                        <div class="quick-icon"><i data-lucide="image"></i></div>
+                        <h3 data-lang="zh">收藏冊與物品照片</h3>
+                        <h3 data-lang="en">Collection and Photos</h3>
+                        <p data-lang="zh">為物品加入照片與分類，讓日用品不只是文字清單，也能用更直覺的方式瀏覽與管理。</p>
+                        <p data-lang="en">Add photos and categories so everyday supplies are easier to recognize than a plain text list.</p>
+                    </article>
+                    <article class="quick-card reveal">
+                        <div class="quick-icon"><i data-lucide="sparkles"></i></div>
+                        <h3 data-lang="zh">快速建立常見物品</h3>
+                        <h3 data-lang="en">Common Item Templates</h3>
+                        <p data-lang="zh">內建常見居家耗材範本，減少從零設定的時間，常用物品可以更快加入。</p>
+                        <p data-lang="en">Built-in household templates reduce setup time for the things people add most often.</p>
+                    </article>
+                    <article class="quick-card reveal">
+                        <div class="quick-icon"><i data-lucide="map-pin"></i></div>
+                        <h3 data-lang="zh">空間分類</h3>
+                        <h3 data-lang="en">Room Categories</h3>
+                        <p data-lang="zh">依客廳、廚房、衛浴、臥室等位置整理物品，想找東西或確認庫存都更清楚。</p>
+                        <p data-lang="en">Organize supplies by living room, kitchen, bathroom, bedroom, and other locations.</p>
+                    </article>
+                    <article class="quick-card reveal">
+                        <div class="quick-icon"><i data-lucide="bar-chart-3"></i></div>
+                        <h3 data-lang="zh">使用紀錄與統計</h3>
+                        <h3 data-lang="en">Records and Stats</h3>
+                        <p data-lang="zh">記錄每次更換與補貨，回頭檢視實際使用週期，慢慢校準提醒節奏。</p>
+                        <p data-lang="en">Review replacement and restock history to understand real usage cycles over time.</p>
+                    </article>
+                </div>
+                <div class="sticker-showcase reveal">
+                    <div class="sticker-copy">
+                        <div class="feature-kicker"><i data-lucide="camera"></i> <span data-lang="zh">拍照貼紙化</span><span data-lang="en">Photo Stickers</span></div>
+                        <h3 data-lang="zh">拍下物品，變成自己的貼紙圖鑑</h3>
+                        <h3 data-lang="en">Turn your items into a sticker-like collection</h3>
+                        <p data-lang="zh">把家裡真正使用的品牌、型號與外觀留下來。日用品不只是一串文字，也能像收藏冊一樣快速辨認。</p>
+                        <p data-lang="en">Keep the brands, models, and packaging you actually use at home. Everyday supplies become recognizable at a glance.</p>
+                        <ul class="feature-list">
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">物品照片可整理進收藏冊</span><span data-lang="en">Item photos can be organized in the collection</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">貼紙檢視讓備品更好認</span><span data-lang="en">Sticker view makes supplies easier to identify</span></li>
+                        </ul>
+                    </div>
+                    <div class="sticker-stage" aria-label="拍照變貼紙效果">
+                        <img class="floating-sticker one" src="assets/stickers/bath-toothbrush.png" alt="">
+                        <img class="floating-sticker two" src="assets/stickers/kitchen-sponge.png" alt="">
+                        <div class="phone-frame"><img src="assets/screenshots/zh-TW/17_gallery_sticker_preview.png" data-screen="17_gallery_sticker_preview.png" alt="貼紙預覽編輯"></div>
+                        <img class="floating-sticker three" src="assets/stickers/daily-battery.png" alt="">
+                        <img class="floating-sticker four" src="assets/stickers/filter-air-purifier.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="records">
+            <div class="wrap records-layout">
+                <div class="screen-pair reveal" aria-label="收藏冊與統計畫面">
+                    <div class="phone-frame"><img src="assets/screenshots/zh-TW/08_collection_grid.png" data-screen="08_collection_grid.png" alt="收藏冊格子檢視"></div>
+                    <div class="phone-frame"><img src="assets/screenshots/zh-TW/18_statistics.png" data-screen="18_statistics.png" alt="使用統計"></div>
+                </div>
+                    <div class="records-copy reveal">
+                        <div class="eyebrow">Daily Objects</div>
+                    <h2 data-lang="zh">適合那些不想每天記著，但到時間就該處理的小事</h2>
+                    <h2 data-lang="en">For the small things you do not want to remember every day</h2>
+                    <div class="records-list">
+                        <div class="record-item">
+                            <div class="record-images">
+                                <img src="assets/stickers/bath-toothbrush.png" alt="">
+                                <img src="assets/stickers/bath-razor.png" alt="">
+                                <img src="assets/stickers/bath-dental-floss.png" alt="">
+                            </div>
+                            <strong data-lang="zh">定期更換用品</strong>
+                            <strong data-lang="en">Regular Replacement Items</strong>
+                            <span data-lang="zh">牙刷、刮鬍刀片、牙線等。</span>
+                            <span data-lang="en">Toothbrushes, razor blades, dental floss, and more.</span>
+                        </div>
+                        <div class="record-item">
+                            <div class="record-images">
+                                <img src="assets/stickers/filter-air-purifier.png" alt="">
+                                <img src="assets/stickers/cartridge-water-purifier.png" alt="">
+                                <img src="assets/stickers/filter-robot-vacuum-main-brush.png" alt="">
+                            </div>
+                            <strong data-lang="zh">家電與濾材耗材</strong>
+                            <strong data-lang="en">Appliance Filters and Parts</strong>
+                            <span data-lang="zh">空氣清淨機濾網、淨水器濾芯、吸塵器耗材。</span>
+                            <span data-lang="en">Air purifier filters, water filters, vacuum parts, and more.</span>
+                        </div>
+                        <div class="record-item">
+                            <div class="record-images">
+                                <img src="assets/stickers/daily-battery.png" alt="">
+                                <img src="assets/stickers/daily-toilet-paper.png" alt="">
+                                <img src="assets/stickers/daily-laundry-detergent.png" alt="">
+                            </div>
+                            <strong data-lang="zh">日常備品</strong>
+                            <strong data-lang="en">Everyday Supplies</strong>
+                            <span data-lang="zh">電池、衛生紙、洗衣精與清潔補充品。</span>
+                            <span data-lang="en">Batteries, toilet paper, detergent, cleaning refills, and more.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" id="download">
+            <div class="wrap reveal">
+                <h2 data-lang="zh">把更換、補貨與提醒整理在同一個地方</h2>
+                <h2 data-lang="en">Keep replacements, restocks, and reminders in one place</h2>
+                <p data-lang="zh">讓「Swap It.」幫你記住每個該處理的日子。</p>
+                <p data-lang="en">Let Swap It. remember every household item that needs attention.</p>
+                <button class="button app-store-button" type="button" disabled><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg> <span data-lang="zh">即將上架</span><span data-lang="en">Coming Soon</span></button>
+                <p style="margin-top:18px;font-size:13px;"><a href="terms.html" style="color:rgba(255,255,255,0.72);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.32);"><span data-lang="zh">查看使用條款與訂閱規則</span><span data-lang="en">View terms and subscription rules</span></a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <div class="footer-brand">
+                <img src="assets/brand/sheep-beans-games.png" alt="Sheep Beans Games">
+                <span>© 2026 SheepBeansGames. All rights reserved.</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span></a>
+                <a href="terms.html"><span data-lang="zh">使用條款</span><span data-lang="en">Terms of Use</span></a>
+                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const setLanguage = (lang) => {
+            document.documentElement.dataset.lang = lang;
+            document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
+            document.querySelectorAll("img[data-screen]").forEach((image) => {
+                image.src = `assets/screenshots/${lang === "zh" ? "zh-TW" : "en"}/${image.dataset.screen}`;
+            });
+            localStorage.setItem("swapit-site-lang", lang);
+        };
+
+        const initialLang = localStorage.getItem("swapit-site-lang") || "zh";
+        setLanguage(initialLang);
+
+        document.querySelectorAll("[data-set-lang]").forEach((button) => {
+            button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+        });
+
+        lucide.createIcons();
+
+        const navbar = document.getElementById("navbar");
+        const setScrolled = () => {
+            navbar.classList.toggle("scrolled", window.scrollY > 24);
+        };
+        setScrolled();
+        window.addEventListener("scroll", setScrolled, { passive: true });
+
+        const reveals = document.querySelectorAll(".reveal");
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        reveals.forEach((item) => revealObserver.observe(item));
+    </script>
+</body>
+</html>
