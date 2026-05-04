@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資料刪除要求 — 該換了吧 | Swap It.</title>
+    <meta name="description" content="了解如何要求刪除與「該換了吧」相關的使用者資料。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="assets/icon/icon.png">
+    <style>
+        :root {
+            --bg: #fbfaf7;
+            --surface: #ffffff;
+            --surface-strong: #f3f7f2;
+            --ink: #241d18;
+            --muted: #675d55;
+            --subtle: #92867b;
+            --line: rgba(36, 29, 24, 0.1);
+            --brand: #df6338;
+            --brand-dark: #a94222;
+            --shadow-sm: 0 10px 28px rgba(36, 29, 24, 0.08);
+            --shadow-md: 0 18px 44px rgba(36, 29, 24, 0.12);
+            --radius: 24px;
+            --radius-sm: 14px;
+            --max: 1040px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        html[data-lang="zh"] [data-lang="en"],
+        html[data-lang="en"] [data-lang="zh"] {
+            display: none !important;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(36, 29, 24, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(36, 29, 24, 0.035) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 70%);
+        }
+
+        a { color: inherit; }
+        h1, h2, h3, .eyebrow { font-family: "Outfit", "Noto Sans TC", sans-serif; }
+        h1, h2, h3, p { margin-top: 0; }
+
+        .wrap {
+            width: min(100%, var(--max));
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(251, 250, 247, 0.9);
+            box-shadow: 0 1px 0 var(--line);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 22px;
+        }
+
+        .logo img {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .lang-switch {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-switch button {
+            min-width: 42px;
+            height: 34px;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--muted);
+            font: inherit;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        html[data-lang="zh"] .lang-switch button[data-set-lang="zh"],
+        html[data-lang="en"] .lang-switch button[data-set-lang="en"] {
+            background: var(--ink);
+            color: #fffaf2;
+        }
+
+        .page-hero { padding: 76px 0 46px; }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            color: var(--brand-dark);
+            font-size: 13px;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 30px;
+            height: 2px;
+            background: currentColor;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.62fr);
+            gap: clamp(28px, 5vw, 58px);
+            align-items: end;
+        }
+
+        .page-hero h1 {
+            margin-bottom: 18px;
+            max-width: 780px;
+            font-size: clamp(40px, 6vw, 76px);
+            font-weight: 900;
+            line-height: 1.02;
+            letter-spacing: 0;
+        }
+
+        .hero-lead {
+            max-width: 700px;
+            margin-bottom: 16px;
+            color: var(--muted);
+            font-size: clamp(18px, 2vw, 23px);
+            line-height: 1.6;
+        }
+
+        .updated {
+            margin-bottom: 0;
+            color: var(--subtle);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .hero-panel {
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff8ef;
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero-panel strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .hero-panel p {
+            margin-bottom: 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            padding-bottom: 58px;
+        }
+
+        .highlight-card {
+            min-height: 150px;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .highlight-card i {
+            width: 22px;
+            height: 22px;
+            margin-bottom: 18px;
+            color: var(--brand-dark);
+        }
+
+        .highlight-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .highlight-card span {
+            display: block;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .policy-shell {
+            display: grid;
+            grid-template-columns: minmax(220px, 0.35fr) minmax(0, 1fr);
+            gap: 24px;
+            padding-bottom: 84px;
+        }
+
+        .toc {
+            position: sticky;
+            top: 96px;
+            align-self: start;
+            display: grid;
+            gap: 8px;
+        }
+
+        .toc a {
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .content {
+            display: grid;
+            gap: 18px;
+        }
+
+        .policy-block {
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .policy-block h2 {
+            margin-bottom: 12px;
+            font-size: clamp(24px, 3vw, 32px);
+            line-height: 1.18;
+            letter-spacing: 0;
+        }
+
+        .policy-block p,
+        .policy-block li {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .policy-block ul,
+        .policy-block ol {
+            margin: 12px 0 0;
+            padding-left: 20px;
+        }
+
+        .policy-block li { margin: 8px 0; }
+
+        .note-card {
+            padding: 18px;
+            border-radius: var(--radius-sm);
+            background: var(--surface-strong);
+        }
+
+        .note-card p { margin-bottom: 0; color: var(--muted); }
+
+        footer {
+            padding: 30px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-weight: 800;
+        }
+
+        @media (max-width: 820px) {
+            .hero-grid,
+            .policy-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .toc { position: static; grid-template-columns: 1fr; }
+            .highlights { grid-template-columns: 1fr; padding-bottom: 42px; }
+            .nav-back span { display: none; }
+            .page-hero { padding: 54px 0 34px; }
+            .page-hero h1 { font-size: clamp(42px, 13vw, 60px); }
+            .policy-block { padding: 22px; border-radius: 20px; }
+            .footer-inner { align-items: flex-start; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="wrap nav-inner">
+            <a href="index.html" class="logo" aria-label="該換了吧 首頁">
+                <img src="assets/icon/icon.png" alt="">
+                <span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span>
+            </a>
+            <div class="nav-actions">
+                <div class="lang-switch" aria-label="Language">
+                    <button type="button" data-set-lang="zh">中</button>
+                    <button type="button" data-set-lang="en">EN</button>
+                </div>
+                <a href="index.html" class="nav-back">
+                    <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
+                    <span data-lang="zh">回首頁</span>
+                    <span data-lang="en">Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <div class="eyebrow">Data Deletion</div>
+                    <h1>
+                        <span data-lang="zh">資料刪除要求</span>
+                        <span data-lang="en">Data Deletion Request</span>
+                    </h1>
+                    <p class="hero-lead" data-lang="zh">本頁說明如何要求刪除與 SheepBeansGames 開發之「該換了吧」（Swap It.）行動應用程式相關的使用者資料。</p>
+                    <p class="hero-lead" data-lang="en">This page explains how to request deletion of user data associated with the Swap It. mobile app developed by SheepBeansGames.</p>
+                    <p class="updated" data-lang="zh">最後更新：2026 年 5 月 4 日</p>
+                    <p class="updated" data-lang="en">Last updated: May 4, 2026</p>
+                </div>
+                <div class="hero-panel">
+                    <strong data-lang="zh">刪除方式</strong>
+                    <strong data-lang="en">Deletion Method</strong>
+                    <p data-lang="zh">請透過 Email 提出要求。我們可能需要確認帳號擁有權，並會回覆處理結果。</p>
+                    <p data-lang="en">Request deletion by email. We may need to verify account ownership and will reply with the result.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="wrap highlights" aria-label="Data deletion highlights">
+            <div class="highlight-card">
+                <i data-lucide="mail"></i>
+                <strong data-lang="zh">Email 申請</strong>
+                <strong data-lang="en">Email Request</strong>
+                <span data-lang="zh">寄信到 sheepbeansgames@gmail.com 並說明要刪除的資料範圍。</span>
+                <span data-lang="en">Email sheepbeansgames@gmail.com and tell us what data you want deleted.</span>
+            </div>
+            <div class="highlight-card">
+                <i data-lucide="cloud-off"></i>
+                <strong data-lang="zh">雲端資料</strong>
+                <strong data-lang="en">Cloud Data</strong>
+                <span data-lang="zh">可要求刪除帳號關聯、雲端備份與可識別的回饋紀錄。</span>
+                <span data-lang="en">You can request deletion of account-linked records, cloud backups, and identifiable feedback records.</span>
+            </div>
+            <div class="highlight-card">
+                <i data-lucide="clock-3"></i>
+                <strong data-lang="zh">處理期限</strong>
+                <strong data-lang="en">Timing</strong>
+                <span data-lang="zh">一般刪除要求會盡力在 30 天內完成。</span>
+                <span data-lang="en">We aim to complete deletion requests within 30 days.</span>
+            </div>
+        </section>
+
+        <section class="wrap policy-shell">
+            <aside class="toc" aria-label="Data deletion sections">
+                <a href="#request"><span data-lang="zh">1. 如何提出要求</span><span data-lang="en">1. Request Steps</span></a>
+                <a href="#delete"><span data-lang="zh">2. 會刪除的資料</span><span data-lang="en">2. Data We Delete</span></a>
+                <a href="#retain"><span data-lang="zh">3. 可能保留的資料</span><span data-lang="en">3. Data We May Retain</span></a>
+                <a href="#contact"><span data-lang="zh">4. 確認與聯絡</span><span data-lang="en">4. Confirmation</span></a>
+            </aside>
+
+            <div class="content">
+                <section class="policy-block" id="request">
+                    <h2><span data-lang="zh">1. 如何提出刪除要求</span><span data-lang="en">1. How to Request Deletion</span></h2>
+                    <ol data-lang="zh">
+                        <li>請寄信至 <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a>。</li>
+                        <li>信件主旨請填寫：「該換了吧資料刪除要求」。</li>
+                        <li>請提供你用於登入 App 的 Google 或 Apple 帳號 Email；若你只要刪除意見回饋資料，請提供當時填寫的 Email 或大約送出日期。</li>
+                        <li>請說明你要刪除的資料範圍，例如雲端備份、意見回饋、帳號關聯資料，或全部可刪除資料。</li>
+                    </ol>
+                    <ol data-lang="en">
+                        <li>Email <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a>.</li>
+                        <li>Use the subject line: "Swap It. Data Deletion Request".</li>
+                        <li>Include the Google or Apple account email you use to sign in to the app. If you only want feedback data deleted, include the email used in the feedback form or the approximate submission date.</li>
+                        <li>Tell us what you want deleted, such as cloud backups, feedback records, account-linked data, or all deletable data.</li>
+                    </ol>
+                </section>
+
+                <section class="policy-block" id="delete">
+                    <h2><span data-lang="zh">2. 會刪除的資料</span><span data-lang="en">2. Data We Delete</span></h2>
+                    <ul data-lang="zh">
+                        <li>Firebase Authentication 中與 App 相關的帳號關聯資料。</li>
+                        <li>Firebase Storage 中與該帳號相關的雲端備份，包括備份 JSON 與已同步的貼紙圖片。</li>
+                        <li>Cloud Firestore 中可識別或可定位到你的意見回饋紀錄。</li>
+                        <li>與刪除要求相關、且不再需要保留的客服處理紀錄。</li>
+                    </ul>
+                    <ul data-lang="en">
+                        <li>App-related account records in Firebase Authentication.</li>
+                        <li>Cloud backups linked to the account in Firebase Storage, including backup JSON files and synced sticker images.</li>
+                        <li>Feedback records in Cloud Firestore that can be identified as yours.</li>
+                        <li>Support records related to the deletion request when they are no longer needed.</li>
+                    </ul>
+                </section>
+
+                <section class="policy-block" id="retain">
+                    <h2><span data-lang="zh">3. 可能保留的資料與期限</span><span data-lang="en">3. Data We May Retain</span></h2>
+                    <ul data-lang="zh">
+                        <li>本機資料儲存在你的裝置上；你可以在 App 內刪除資料，或移除 App 以刪除裝置上的本機資料。</li>
+                        <li>匿名或彙總分析資料若無法識別特定使用者，可能會保留用於產品統計與品質改善。</li>
+                        <li>付款、退款與訂閱交易紀錄由 Google Play 或 Apple App Store 處理；我們無法刪除商店基於法律、稅務、退款或防詐目的保留的交易紀錄。</li>
+                        <li>若法律、安全、防詐或爭議處理需要，我們可能在必要期間內保留最少量紀錄。一般刪除要求會盡力在 30 天內完成。</li>
+                    </ul>
+                    <ul data-lang="en">
+                        <li>Local data is stored on your device. You can delete it in the app or remove the app to delete local device data.</li>
+                        <li>Anonymous or aggregated analytics that cannot identify a specific user may be retained for product statistics and quality improvement.</li>
+                        <li>Payment, refund, and subscription transaction records are handled by Google Play or Apple App Store. We cannot delete store records retained for legal, tax, refund, or fraud-prevention purposes.</li>
+                        <li>Where required for legal, security, fraud-prevention, or dispute-handling reasons, we may retain minimal records for as long as necessary. We aim to complete deletion requests within 30 days.</li>
+                    </ul>
+                </section>
+
+                <section class="policy-block" id="contact">
+                    <h2><span data-lang="zh">4. 確認與聯絡</span><span data-lang="en">4. Confirmation and Contact</span></h2>
+                    <p data-lang="zh">收到要求後，我們可能會要求你提供足以確認帳號擁有權的資訊。完成刪除後，我們會以 Email 回覆確認。</p>
+                    <p data-lang="en">After receiving your request, we may ask for information needed to verify account ownership. We will reply by email after the deletion is complete.</p>
+                    <div class="note-card">
+                        <p>SheepBeansGames<br>Email: <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a></p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap footer-inner">
+            <div>© 2026 SheepBeansGames. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="index.html"><span data-lang="zh">首頁</span><span data-lang="en">Home</span></a>
+                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span></a>
+                <a href="terms.html"><span data-lang="zh">使用條款</span><span data-lang="en">Terms of Use</span></a>
+                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const setLanguage = (lang) => {
+            document.documentElement.dataset.lang = lang;
+            document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
+            localStorage.setItem("swapit-site-lang", lang);
+        };
+
+        const initialLang = localStorage.getItem("swapit-site-lang") || "zh";
+        setLanguage(initialLang);
+
+        document.querySelectorAll("[data-set-lang]").forEach((button) => {
+            button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+        });
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>
