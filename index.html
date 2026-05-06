@@ -6,8 +6,8 @@
     <title>Sheep Beans Games - 下班後，一個人慢慢做的遊戲</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Sheep Beans Games — 下班後，一個人慢慢做的遊戲。An indie game studio. NumFusion 數字融合益智策略遊戲，現已在 App Store 與 Google Play 免費下載。">
-    <meta name="keywords" content="Sheep Beans Games, NumFusion, 數字融合, 益智遊戲, puzzle game, 策略遊戲, strategy game, 手機遊戲, mobile game, iOS game, indie game, 獨立遊戲, 免費遊戲, free game, number game, 數字遊戲, brain training, 腦力訓練, App Store, iPhone game, casual game, 休閒遊戲, 燒腦遊戲, brain teaser, 邏輯遊戲, logic game, 離線遊戲, offline game, 單機遊戲, 不用網路, 好玩的手遊, 推薦益智遊戲, best puzzle game, 通勤遊戲, 打發時間, 類似2048, 數字合併, number merge">
+    <meta name="description" content="Sheep Beans Games — 下班後，一個人慢慢做的遊戲。作品包含 NumFusion 數字融合，以及管理更換週期、備品庫存與採購清單的該換了吧。">
+    <meta name="keywords" content="Sheep Beans Games, NumFusion, 數字融合, 該換了吧, Swap It, 更換提醒, 備品庫存, 採購清單, 益智遊戲, puzzle game, 策略遊戲, strategy game, 手機遊戲, mobile game, iOS app, indie app, 獨立遊戲, 免費遊戲, free game, number game, 數字遊戲, brain training, 腦力訓練, App Store, iPhone game, casual game, 休閒遊戲, 燒腦遊戲, brain teaser, 邏輯遊戲, logic game, 離線遊戲, offline game, 單機遊戲, 不用網路, 好玩的手遊, 推薦益智遊戲, best puzzle game, 通勤遊戲, 打發時間, 類似2048, 數字合併, number merge">
     <meta name="author" content="Sheep Beans Games">
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="Mr0FJEafR_nXS1QqFDkjiN8SQrilyDpzkluserdJL5w">
@@ -17,7 +17,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sheepbeansgames.cc/">
     <meta property="og:title" content="Sheep Beans Games - 下班後，一個人慢慢做的遊戲">
-    <meta property="og:description" content="An indie game studio. 下班後，一個人慢慢做的遊戲。NumFusion — a number puzzle strategy game, free on App Store & Google Play.">
+    <meta property="og:description" content="An indie game studio. 下班後，一個人慢慢做的遊戲。作品包含 NumFusion 與該換了吧。">
     <meta property="og:image" content="https://sheepbeansgames.cc/images/logo-sheepbeans.png">
     <meta property="og:image:width" content="160">
     <meta property="og:image:height" content="160">
@@ -28,7 +28,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sheep Beans Games - 下班後，一個人慢慢做的遊戲">
-    <meta name="twitter:description" content="An indie game studio. 下班後，一個人慢慢做的遊戲。NumFusion — free number puzzle game on App Store & Google Play.">
+    <meta name="twitter:description" content="An indie game studio. 下班後，一個人慢慢做的遊戲。作品包含 NumFusion 與該換了吧。">
     <meta name="twitter:image" content="https://sheepbeansgames.cc/images/logo-sheepbeans.png">
 
     <!-- JSON-LD Structured Data -->
@@ -415,6 +415,8 @@
         .game-showcase {
             max-width: 1100px;
             margin: 0 auto;
+            display: grid;
+            gap: 28px;
         }
 
         .game-card {
@@ -474,6 +476,7 @@
             position: relative;
             width: 220px;
             height: 220px;
+            object-fit: cover;
             border-radius: 48px;
             box-shadow:
                 0 0 0 1px rgba(255, 255, 255, 0.1),
@@ -521,6 +524,27 @@
             width: 280px;
             margin-bottom: 20px;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        }
+
+        .game-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 6vw, 4.4rem);
+            font-weight: 600;
+            line-height: 1;
+            color: var(--cream);
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+        }
+
+        .game-title small {
+            display: block;
+            margin-top: 8px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--primary-pale);
         }
 
         .game-status {
@@ -616,6 +640,32 @@
         }
 
         .google-play-link svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .product-site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--cream);
+            padding: 14px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .product-site-link:hover {
+            transform: translateY(-2px);
+            border-color: rgba(78, 204, 163, 0.3);
+            background: rgba(78, 204, 163, 0.1);
+        }
+
+        .product-site-link svg {
             width: 24px;
             height: 24px;
         }
@@ -884,6 +934,7 @@
         <nav>
             <a href="index.html" data-i18n="nav.home">Home</a>
             <a href="numfusion.html" data-i18n="nav.numfusion">NumFusion</a>
+            <a href="swap-it/" data-i18n="nav.swapit">該換了吧</a>
             <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
             <div class="lang-toggle">
                 <button class="lang-btn active" data-lang="zh">中</button>
@@ -947,6 +998,45 @@
                     </div>
                 </div>
             </article>
+
+            <article class="game-card" data-reveal>
+                <div class="game-visual">
+                    <div class="game-icon-container">
+                        <div class="game-icon-glow"></div>
+                        <img src="swap-it/assets/icon/icon.png" alt="該換了吧 App 圖示" class="game-icon" loading="lazy">
+                        <div class="floating-elements">
+                            <span class="floating-number">↻</span>
+                            <span class="floating-number">✓</span>
+                            <span class="floating-number">5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-content">
+                    <h3 class="game-title" data-i18n="swapit.title">該換了吧<small>Swap It.</small></h3>
+                    <p class="game-status" data-i18n="swapit.status">記住每個該換的日子</p>
+                    <p class="game-description" data-i18n="swapit.desc">管理牙刷、濾芯、清潔用品等生活耗材的更換週期、備品庫存與採購清單，讓小事到時間再提醒你。</p>
+                    <div class="game-tags">
+                        <span class="game-tag" data-i18n="swapit.tag1">更換提醒</span>
+                        <span class="game-tag" data-i18n="swapit.tag2">備品庫存</span>
+                        <span class="game-tag" data-i18n="swapit.tag3">採購清單</span>
+                    </div>
+                    <div class="store-buttons">
+                        <a href="https://apps.apple.com/app/id6762584972" class="app-store-link" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                            </svg>
+                            <span data-i18n="swapit.download">在 App Store 下載</span>
+                        </a>
+                        <a href="swap-it/" class="product-site-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M7 17 17 7"/>
+                                <path d="M7 7h10v10"/>
+                            </svg>
+                            <span data-i18n="swapit.website">查看產品介紹</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
         </div>
 
         <div class="notes-teaser" data-reveal>
@@ -990,6 +1080,7 @@
             zh: {
                 'nav.home': '首頁',
                 'nav.numfusion': 'NumFusion',
+                'nav.swapit': '該換了吧',
                 'nav.privacy': '隱私政策',
                 'hero.badge': '下班後的創作',
                 'hero.subtitle': '下班後，<em>一個人</em>慢慢做的遊戲',
@@ -1002,6 +1093,14 @@
                 'game.tag3': '休閒',
                 'game.download': '在 App Store 下載',
                 'game.download.googleplay': '在 Google Play 下載',
+                'swapit.title': '該換了吧<small>Swap It.</small>',
+                'swapit.status': '記住每個該換的日子',
+                'swapit.desc': '管理牙刷、濾芯、清潔用品等生活耗材的更換週期、備品庫存與採購清單，讓小事到時間再提醒你。',
+                'swapit.tag1': '更換提醒',
+                'swapit.tag2': '備品庫存',
+                'swapit.tag3': '採購清單',
+                'swapit.download': '在 App Store 下載',
+                'swapit.website': '查看產品介紹',
                 'notes.title': 'Notes',
                 'notes.subtitle': '做遊戲路上的一些小筆記',
                 'footer.contact': '聯絡我們'
@@ -1009,6 +1108,7 @@
             en: {
                 'nav.home': 'Home',
                 'nav.numfusion': 'NumFusion',
+                'nav.swapit': 'Swap It.',
                 'nav.privacy': 'Privacy',
                 'hero.badge': 'After-hours Creation',
                 'hero.subtitle': 'One person. After work. <em>Slowly.</em>',
@@ -1021,6 +1121,14 @@
                 'game.tag3': 'Casual',
                 'game.download': 'Download on App Store',
                 'game.download.googleplay': 'Get it on Google Play',
+                'swapit.title': 'Swap It.<small>Replacement Reminder</small>',
+                'swapit.status': 'Remember every replacement date',
+                'swapit.desc': 'Track replacement cycles, household backup stock, and shopping lists for everyday supplies like toothbrushes, filters, and cleaning refills.',
+                'swapit.tag1': 'Reminders',
+                'swapit.tag2': 'Inventory',
+                'swapit.tag3': 'Shopping List',
+                'swapit.download': 'Download on App Store',
+                'swapit.website': 'View Product Page',
                 'notes.title': 'Notes',
                 'notes.subtitle': 'Thoughts along the way.',
                 'footer.contact': 'Contact'
