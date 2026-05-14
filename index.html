@@ -536,6 +536,16 @@
             letter-spacing: -0.03em;
         }
 
+        .game-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .game-title a:hover {
+            color: var(--primary-light);
+        }
+
         .game-title small {
             display: block;
             margin-top: 8px;
@@ -1012,7 +1022,7 @@
                     </div>
                 </div>
                 <div class="game-content">
-                    <h3 class="game-title" data-i18n="swapit.title">該換了吧<small>Swap It.</small></h3>
+                    <h3 class="game-title"><a href="swap-it/" data-i18n="swapit.title">該換了吧<small>Swap It.</small></a></h3>
                     <p class="game-status" data-i18n="swapit.status">記住每個該換的日子</p>
                     <p class="game-description" data-i18n="swapit.desc">管理牙刷、濾芯、清潔用品等生活耗材的更換週期、備品庫存與採購清單，讓小事到時間再提醒你。</p>
                     <div class="game-tags">
