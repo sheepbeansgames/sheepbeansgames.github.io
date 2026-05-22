@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>該換了吧 — 記住每個該換的日子 | Swap It.</title>
-    <meta name="description" content="該換了吧（Swap It.）是一款生活用品更換提醒 App，幫你管理牙刷、濾芯、清潔用品等耗材的更換週期、備品庫存與採購清單。">
-    <meta name="keywords" content="該換了吧, Swap It, 更換提醒, 生活用品管理, 備品庫存, 採購清單, 補貨提醒, 耗材管理, 牙刷更換提醒, 濾芯更換提醒, 家用品管理, household inventory, replacement reminder, restock reminder, shopping list app, inventory tracker, iOS app, iPhone app, Sheep Beans Games">
+    <title>該換了吧 Swap It｜生活用品更換提醒 App，記住每個該換的日子</title>
+    <meta name="description" content="該換了吧（Swap It）是生活用品更換提醒 App，幫你追蹤牙刷、濾芯、隱形眼鏡等耗材的更換週期，管理備品庫存、低庫存補貨提醒與採購清單，iPhone 免費下載。">
+    <meta name="keywords" content="該換了吧, 該換了吧 app, Swap It, 更換提醒 app, 補貨提醒 app, 備品管理 app, 生活用品管理, 備品庫存, 採購清單, 耗材更換提醒, 牙刷更換提醒, 濾芯更換提醒, 隱形眼鏡更換提醒, 家用品管理, household inventory app, replacement reminder app, restock reminder, shopping list app, inventory tracker, iOS app, iPhone app, Sheep Beans Games">
     <meta name="robots" content="index, follow">
     <meta name="author" content="SheepBeansGames">
     <meta name="theme-color" content="#df6338">
@@ -54,7 +54,15 @@
             "price": "0",
             "priceCurrency": "USD"
         },
-        "description": "該換了吧（Swap It.）是一款生活用品更換提醒 App，幫你管理牙刷、濾芯、清潔用品等耗材的更換週期、備品庫存與採購清單。",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "3",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "contentRating": "4+",
+        "description": "該換了吧（Swap It）是一款生活用品更換提醒 App，幫你管理牙刷、濾芯、隱形眼鏡等耗材的更換週期、備品庫存與採購清單。",
         "url": "https://sheepbeansgames.cc/swap-it/",
         "downloadUrl": "https://apps.apple.com/app/id6762584972",
         "sameAs": "https://apps.apple.com/app/id6762584972",
@@ -94,6 +102,55 @@
             "position": 2,
             "name": "該換了吧",
             "item": "https://sheepbeansgames.cc/swap-it/"
+        }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+            "@type": "Question",
+            "name": "「該換了吧」是什麼樣的 App？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "該換了吧（Swap It）是一款生活用品更換提醒 App，幫你追蹤牙刷、濾芯、隱形眼鏡等耗材的更換週期，並管理備品庫存與補貨採購清單。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "該換了吧可以提醒哪些東西要更換？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "任何有更換週期的生活用品都行——牙刷、刮鬍刀片、牙線、隱形眼鏡、空氣清淨機與淨水器濾芯、吸塵器耗材、電池等，你也可以自訂任何物品與更換週期。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "該換了吧是免費的嗎？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "免費下載，可直接使用核心的更換提醒與備品管理功能；另有訂閱方案可解鎖進階功能。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "跟手機內建的「提醒事項」有什麼不同？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "它不是一般待辦清單，而是用「物況」管理生活用品——正常使用中、快到期、今天該換、庫存不足都一目了然，還能追蹤備品數量、低庫存補貨與採購清單。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "備品快用完時會提醒我補貨嗎？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "會。當備品低於你設定的安全存量，App 會提醒你該補貨，並把待補物品整理成出門採購清單。"
+            }
+        }, {
+            "@type": "Question",
+            "name": "該換了吧支援哪些平台？",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "目前支援 iPhone（iOS），可至 App Store 免費下載。"
+            }
         }]
     }
     </script>
@@ -874,6 +931,59 @@
             font-size: 14px;
         }
 
+        .faq-list {
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 24px;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--ink);
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            flex: none;
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--brand);
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-item .faq-answer {
+            padding: 0 24px 22px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
         .cta {
             padding: 92px 0;
             background: #1f2528;
@@ -1220,6 +1330,7 @@
             </a>
             <div class="nav-links" aria-label="主要導覽">
                 <a href="#features"><span data-lang="zh">功能</span><span data-lang="en">Features</span></a>
+                <a href="#faq"><span data-lang="zh">常見問題</span><span data-lang="en">FAQ</span></a>
                 <a href="privacy.html"><span data-lang="zh">隱私權</span><span data-lang="en">Privacy</span></a>
                 <div class="lang-switch" aria-label="Language">
                     <button type="button" data-set-lang="zh">中</button>
@@ -1470,6 +1581,52 @@
                             <span data-lang="en">Batteries, toilet paper, detergent, cleaning refills, and more.</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="faq">
+            <div class="wrap">
+                <div class="section-header reveal">
+                    <div>
+                        <div class="eyebrow">FAQ</div>
+                        <h2 data-lang="zh">關於「該換了吧」的常見問題</h2>
+                        <h2 data-lang="en">Frequently asked questions about Swap It</h2>
+                    </div>
+                    <p data-lang="zh">關於這款生活用品更換提醒 App，使用者最常問的幾個問題。</p>
+                    <p data-lang="en">The questions people ask most about this household replacement reminder app.</p>
+                </div>
+                <div class="faq-list reveal">
+                    <details class="faq-item" open>
+                        <summary><span data-lang="zh">「該換了吧」是什麼樣的 App？</span><span data-lang="en">What is Swap It?</span></summary>
+                        <div class="faq-answer" data-lang="zh">該換了吧（Swap It）是一款生活用品更換提醒 App，幫你追蹤牙刷、濾芯、隱形眼鏡等耗材的更換週期，並管理備品庫存與補貨採購清單。</div>
+                        <div class="faq-answer" data-lang="en">Swap It is a household replacement reminder app that tracks the replacement cycles of items like toothbrushes, filters, and contact lenses, and manages your backup stock and shopping list.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span data-lang="zh">該換了吧可以提醒哪些東西要更換？</span><span data-lang="en">What can it remind me to replace?</span></summary>
+                        <div class="faq-answer" data-lang="zh">任何有更換週期的生活用品都行——牙刷、刮鬍刀片、牙線、隱形眼鏡、空氣清淨機與淨水器濾芯、吸塵器耗材、電池等，你也可以自訂任何物品與更換週期。</div>
+                        <div class="faq-answer" data-lang="en">Anything with a replacement cycle—toothbrushes, razor blades, dental floss, contact lenses, air purifier and water filters, vacuum parts, batteries, and any custom item and cycle you add.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span data-lang="zh">該換了吧是免費的嗎？</span><span data-lang="en">Is Swap It free?</span></summary>
+                        <div class="faq-answer" data-lang="zh">免費下載，可直接使用核心的更換提醒與備品管理功能；另有訂閱方案可解鎖進階功能。</div>
+                        <div class="faq-answer" data-lang="en">Free to download with core replacement reminders and inventory management. An optional subscription unlocks advanced features.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span data-lang="zh">跟手機內建的「提醒事項」有什麼不同？</span><span data-lang="en">How is it different from the built-in Reminders app?</span></summary>
+                        <div class="faq-answer" data-lang="zh">它不是一般待辦清單，而是用「物況」管理生活用品——正常使用中、快到期、今天該換、庫存不足都一目了然，還能追蹤備品數量、低庫存補貨與採購清單。</div>
+                        <div class="faq-answer" data-lang="en">It is not a generic to-do list. It organizes supplies by status—active, due soon, due today, or low on stock—and tracks backup quantities, restock alerts, and a shopping list.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span data-lang="zh">備品快用完時會提醒我補貨嗎？</span><span data-lang="en">Will it remind me to restock?</span></summary>
+                        <div class="faq-answer" data-lang="zh">會。當備品低於你設定的安全存量，App 會提醒你該補貨，並把待補物品整理成出門採購清單。</div>
+                        <div class="faq-answer" data-lang="en">Yes. When backup stock falls below the safety level you set, Swap It reminds you to restock and turns those items into a shopping list.</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span data-lang="zh">該換了吧支援哪些平台？</span><span data-lang="en">Which platforms are supported?</span></summary>
+                        <div class="faq-answer" data-lang="zh">目前支援 iPhone（iOS），可至 App Store 免費下載。</div>
+                        <div class="faq-answer" data-lang="en">Currently available for iPhone (iOS) as a free download on the App Store.</div>
+                    </details>
                 </div>
             </div>
         </section>
