@@ -37,8 +37,10 @@
             overflow-x: hidden;
         }
 
-        html[data-lang="zh"] [data-lang="en"],
-        html[data-lang="en"] [data-lang="zh"] {
+        html[data-lang="zh"] [data-lang]:not([data-lang="zh"]),
+        html[data-lang="en"] [data-lang]:not([data-lang="en"]),
+        html[data-lang="ja"] [data-lang]:not([data-lang="ja"]),
+        html[data-lang="ko"] [data-lang]:not([data-lang="ko"]) {
             display: none !important;
         }
 
@@ -147,7 +149,9 @@
         }
 
         html[data-lang="zh"] .lang-switch button[data-set-lang="zh"],
-        html[data-lang="en"] .lang-switch button[data-set-lang="en"] {
+        html[data-lang="en"] .lang-switch button[data-set-lang="en"],
+        html[data-lang="ja"] .lang-switch button[data-set-lang="ja"],
+        html[data-lang="ko"] .lang-switch button[data-set-lang="ko"] {
             background: var(--ink);
             color: #fffaf2;
         }
@@ -441,15 +445,17 @@
         <div class="wrap nav-inner">
             <a href="index.html" class="logo" aria-label="該換了吧 首頁">
                 <img src="assets/icon/icon.png" alt="">
-                <span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span>
+                <span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span><span data-lang="ja">Swap It.</span><span data-lang="ko">Swap It.</span>
             </a>
             <div class="nav-actions">
-                <a href="privacy.html" class="nav-link"><span data-lang="zh">隱私權</span><span data-lang="en">Privacy</span></a>
+                <a href="privacy.html" class="nav-link"><span data-lang="zh">隱私權</span><span data-lang="en">Privacy</span><span data-lang="ja">プライバシー</span><span data-lang="ko">개인정보</span></a>
                 <div class="lang-switch" aria-label="Language">
                     <button type="button" data-set-lang="zh">中</button>
                     <button type="button" data-set-lang="en">EN</button>
+                    <button type="button" data-set-lang="ja">日</button>
+                    <button type="button" data-set-lang="ko">한</button>
                 </div>
-                <a href="index.html" class="nav-link home"><span data-lang="zh">回首頁</span><span data-lang="en">Home</span></a>
+                <a href="index.html" class="nav-link home"><span data-lang="zh">回首頁</span><span data-lang="en">Home</span><span data-lang="ja">ホーム</span><span data-lang="ko">홈</span></a>
             </div>
         </div>
     </nav>
@@ -462,17 +468,27 @@
                     <h1>
                         <span data-lang="zh">使用條款</span>
                         <span data-lang="en">Terms of Use</span>
+                        <span data-lang="ja">利用規約</span>
+                        <span data-lang="ko">이용약관</span>
                     </h1>
                     <p class="hero-lead" data-lang="zh">這份條款說明你使用「該換了吧」App、Pro 訂閱、內購、取消與退款時適用的規則。</p>
                     <p class="hero-lead" data-lang="en">These terms explain the rules that apply when you use the Swap It. app, Pro subscriptions, in-app purchases, cancellations, and refunds.</p>
+                    <p class="hero-lead" data-lang="ja">本規約は、Swap It.アプリ、Proサブスクリプション、アプリ内購入、キャンセル、返金を利用する際に適用される規則を説明します。</p>
+                    <p class="hero-lead" data-lang="ko">이 약관은 Swap It. 앱, Pro 구독, 인앱 구매, 취소 및 환불을 이용할 때 적용되는 규칙을 설명합니다.</p>
                     <p class="updated" data-lang="zh">最後更新：2026 年 5 月 4 日</p>
                     <p class="updated" data-lang="en">Last updated: May 4, 2026</p>
+                    <p class="updated" data-lang="ja">最終更新日：2026年5月4日</p>
+                    <p class="updated" data-lang="ko">마지막 업데이트: 2026년 5월 4일</p>
                 </div>
                 <div class="hero-panel">
                     <strong data-lang="zh">訂閱重點</strong>
                     <strong data-lang="en">Subscription Summary</strong>
+                    <strong data-lang="ja">サブスクリプション概要</strong>
+                    <strong data-lang="ko">구독 요약</strong>
                     <p data-lang="zh">付款、續訂、取消與退款由你購買時使用的商店處理，例如 Apple App Store 或 Google Play。刪除 App 不會自動取消訂閱。</p>
                     <p data-lang="en">Payments, renewals, cancellations, and refunds are handled by the store used for purchase, such as Apple App Store or Google Play. Deleting the app does not cancel a subscription.</p>
+                    <p data-lang="ja">支払い、更新、キャンセル、返金は、Apple App StoreやGoogle Playなど購入に使用したストアによって処理されます。アプリを削除してもサブスクリプションは自動的にキャンセルされません。</p>
+                    <p data-lang="ko">결제, 갱신, 취소 및 환불은 Apple App Store 또는 Google Play와 같이 구매에 사용한 스토어에서 처리합니다. 앱을 삭제해도 구독이 자동으로 취소되지 않습니다.</p>
                 </div>
             </div>
         </section>
@@ -482,71 +498,101 @@
                 <i data-lucide="receipt"></i>
                 <strong data-lang="zh">商店處理付款</strong>
                 <strong data-lang="en">Store Handles Payment</strong>
+                <strong data-lang="ja">ストアが支払いを処理</strong>
+                <strong data-lang="ko">스토어가 결제 처리</strong>
                 <span data-lang="zh">App 不會儲存信用卡、付款帳號或完整付款資訊。</span>
                 <span data-lang="en">The app does not store credit cards, payment accounts, or full payment details.</span>
+                <span data-lang="ja">アプリはクレジットカード、支払いアカウント、完全な支払い情報を保存しません。</span>
+                <span data-lang="ko">앱은 신용카드, 결제 계정 또는 전체 결제 정보를 저장하지 않습니다.</span>
             </div>
             <div class="highlight-card">
                 <i data-lucide="refresh-cw"></i>
                 <strong data-lang="zh">自動續訂</strong>
                 <strong data-lang="en">Auto-Renewal</strong>
+                <strong data-lang="ja">自動更新</strong>
+                <strong data-lang="ko">자동 갱신</strong>
                 <span data-lang="zh">訂閱會依購買商店規則自動續訂，直到你取消。</span>
                 <span data-lang="en">Subscriptions renew under the store's rules until you cancel.</span>
+                <span data-lang="ja">サブスクリプションは、あなたがキャンセルするまで購入ストアの規則に従って自動更新されます。</span>
+                <span data-lang="ko">구독은 사용자가 취소할 때까지 구매 스토어의 규칙에 따라 자동 갱신됩니다.</span>
             </div>
             <div class="highlight-card">
                 <i data-lucide="undo-2"></i>
                 <strong data-lang="zh">取消與退款</strong>
                 <strong data-lang="en">Cancel and Refunds</strong>
+                <strong data-lang="ja">キャンセルと返金</strong>
+                <strong data-lang="ko">취소 및 환불</strong>
                 <span data-lang="zh">取消和退款請透過你購買時使用的商店帳號與支援流程處理。</span>
                 <span data-lang="en">Cancellation and refunds are handled through the account and support flow of the store used for purchase.</span>
+                <span data-lang="ja">キャンセルと返金は、購入に使用したストアのアカウントおよびサポート手続きに従って処理されます。</span>
+                <span data-lang="ko">취소와 환불은 구매에 사용한 스토어 계정 및 지원 절차를 통해 처리됩니다.</span>
             </div>
         </section>
 
         <section class="wrap terms-shell">
             <aside class="toc" aria-label="Terms sections">
-                <a href="#acceptance"><span data-lang="zh">1. 接受條款</span><span data-lang="en">1. Acceptance</span></a>
-                <a href="#license"><span data-lang="zh">2. 使用授權</span><span data-lang="en">2. License</span></a>
-                <a href="#features"><span data-lang="zh">3. 功能與資料</span><span data-lang="en">3. Features and Data</span></a>
-                <a href="#subscriptions"><span data-lang="zh">4. 訂閱與內購</span><span data-lang="en">4. Subscriptions</span></a>
-                <a href="#cancellation"><span data-lang="zh">5. 取消與退款</span><span data-lang="en">5. Cancellation</span></a>
-                <a href="#changes"><span data-lang="zh">6. 變更與終止</span><span data-lang="en">6. Changes</span></a>
-                <a href="#contact"><span data-lang="zh">7. 聯絡</span><span data-lang="en">7. Contact</span></a>
+                <a href="#acceptance"><span data-lang="zh">1. 接受條款</span><span data-lang="en">1. Acceptance</span><span data-lang="ja">1. 規約への同意</span><span data-lang="ko">1. 약관 동의</span></a>
+                <a href="#license"><span data-lang="zh">2. 使用授權</span><span data-lang="en">2. License</span><span data-lang="ja">2. 利用ライセンス</span><span data-lang="ko">2. 사용 라이선스</span></a>
+                <a href="#features"><span data-lang="zh">3. 功能與資料</span><span data-lang="en">3. Features and Data</span><span data-lang="ja">3. 機能とデータ</span><span data-lang="ko">3. 기능과 데이터</span></a>
+                <a href="#subscriptions"><span data-lang="zh">4. 訂閱與內購</span><span data-lang="en">4. Subscriptions</span><span data-lang="ja">4. サブスクリプション</span><span data-lang="ko">4. 구독 및 인앱 구매</span></a>
+                <a href="#cancellation"><span data-lang="zh">5. 取消與退款</span><span data-lang="en">5. Cancellation</span><span data-lang="ja">5. キャンセル</span><span data-lang="ko">5. 취소 및 환불</span></a>
+                <a href="#changes"><span data-lang="zh">6. 變更與終止</span><span data-lang="en">6. Changes</span><span data-lang="ja">6. 変更と終了</span><span data-lang="ko">6. 변경 및 종료</span></a>
+                <a href="#contact"><span data-lang="zh">7. 聯絡</span><span data-lang="en">7. Contact</span><span data-lang="ja">7. お問い合わせ</span><span data-lang="ko">7. 문의</span></a>
             </aside>
 
             <div class="content">
                 <section class="terms-block" id="acceptance">
-                    <h2><span data-lang="zh">1. 接受條款</span><span data-lang="en">1. Acceptance of Terms</span></h2>
+                    <h2><span data-lang="zh">1. 接受條款</span><span data-lang="en">1. Acceptance of Terms</span><span data-lang="ja">1. 利用規約への同意</span><span data-lang="ko">1. 약관 동의</span></h2>
                     <p data-lang="zh">當你下載、安裝、存取或使用「該換了吧」（以下稱「本 App」）時，即表示你同意本使用條款與我們的隱私權政策。</p>
                     <p data-lang="en">By downloading, installing, accessing, or using Swap It. (the "App"), you agree to these Terms of Use and our Privacy Policy.</p>
+                    <p data-lang="ja">Swap It.（以下「本アプリ」）をダウンロード、インストール、アクセス、または使用することにより、あなたは本利用規約および当社のプライバシーポリシーに同意したものとみなされます。</p>
+                    <p data-lang="ko">Swap It.(이하 "앱")을 다운로드, 설치, 접속 또는 사용함으로써 사용자는 본 이용약관과 개인정보 처리방침에 동의하는 것으로 간주됩니다.</p>
                     <p data-lang="zh">若你不同意本條款，請停止使用本 App。若你代表他人或組織使用本 App，請確認你有權代表其接受本條款。</p>
                     <p data-lang="en">If you do not agree to these terms, please stop using the App. If you use the App on behalf of another person or organization, you confirm you have authority to accept these terms for them.</p>
+                    <p data-lang="ja">本規約に同意しない場合は、本アプリの使用を停止してください。他の人または組織を代表して本アプリを使用する場合、あなたはその相手を代表して本規約に同意する権限があることを確認するものとします。</p>
+                    <p data-lang="ko">본 약관에 동의하지 않는 경우 앱 사용을 중단해 주세요. 다른 사람 또는 조직을 대신하여 앱을 사용하는 경우, 사용자는 해당 주체를 대신하여 본 약관을 수락할 권한이 있음을 확인합니다.</p>
                 </section>
 
                 <section class="terms-block" id="license">
-                    <h2><span data-lang="zh">2. 使用授權</span><span data-lang="en">2. License to Use the App</span></h2>
+                    <h2><span data-lang="zh">2. 使用授權</span><span data-lang="en">2. License to Use the App</span><span data-lang="ja">2. アプリ利用ライセンス</span><span data-lang="ko">2. 앱 사용 라이선스</span></h2>
                     <p data-lang="zh">在你遵守本條款的前提下，SheepBeansGames 授予你一項有限、非專屬、不可轉讓、可撤銷的授權，供你在個人裝置上使用本 App。</p>
                     <p data-lang="en">Subject to your compliance with these terms, SheepBeansGames grants you a limited, non-exclusive, non-transferable, revocable license to use the App on your personal devices.</p>
+                    <p data-lang="ja">あなたが本規約を遵守することを条件として、SheepBeansGamesは、あなたの個人端末で本アプリを使用するための限定的、非独占的、譲渡不可、取消可能なライセンスを付与します。</p>
+                    <p data-lang="ko">사용자가 본 약관을 준수하는 것을 조건으로, SheepBeansGames는 개인 기기에서 앱을 사용할 수 있는 제한적, 비독점적, 양도 불가, 철회 가능한 라이선스를 부여합니다.</p>
                     <p data-lang="zh">除本條款明確允許外，你不得複製、修改、反向工程、出售、轉租、散布本 App，或以未經授權方式存取本 App 的服務。</p>
                     <p data-lang="en">Except as expressly allowed by these terms, you may not copy, modify, reverse engineer, sell, lease, distribute the App, or access its services in an unauthorized way.</p>
+                    <p data-lang="ja">本規約で明示的に許可される場合を除き、本アプリをコピー、変更、リバースエンジニアリング、販売、リース、配布したり、許可されていない方法で本アプリのサービスにアクセスしたりすることはできません。</p>
+                    <p data-lang="ko">본 약관에서 명시적으로 허용하는 경우를 제외하고, 사용자는 앱을 복사, 수정, 리버스 엔지니어링, 판매, 임대, 배포하거나 승인되지 않은 방식으로 앱 서비스에 접근할 수 없습니다.</p>
                     <div class="note-card">
                         <p data-lang="zh">若 Apple App Store、Google Play 或其他應用程式商店的授權條款適用，且與本條款未衝突，該等商店條款也會規範你透過該商店取得本 App 的使用授權。</p>
                         <p data-lang="en">Where Apple App Store, Google Play, or another app store's license terms apply and do not conflict with these terms, those store terms also govern your license to use the App obtained through that store.</p>
+                        <p data-lang="ja">Apple App Store、Google Play、またはその他のアプリストアのライセンス条件が適用され、本規約と矛盾しない場合、それらのストア条件も、そのストアを通じて取得した本アプリの利用ライセンスを規律します。</p>
+                        <p data-lang="ko">Apple App Store, Google Play 또는 다른 앱 스토어의 라이선스 조건이 적용되고 본 약관과 충돌하지 않는 경우, 해당 스토어 조건도 그 스토어를 통해 받은 앱 사용 라이선스에 적용됩니다.</p>
                     </div>
                 </section>
 
                 <section class="terms-block" id="features">
-                    <h2><span data-lang="zh">3. 功能、資料與責任</span><span data-lang="en">3. Features, Data, and Responsibility</span></h2>
+                    <h2><span data-lang="zh">3. 功能、資料與責任</span><span data-lang="en">3. Features, Data, and Responsibility</span><span data-lang="ja">3. 機能、データ、責任</span><span data-lang="ko">3. 기능, 데이터 및 책임</span></h2>
                     <p data-lang="zh">本 App 協助你記錄耗材更換週期、備品庫存、採購清單、提醒與相關資料。你需自行確認輸入內容、提醒日期、庫存數量與採購資訊是否正確。</p>
                     <p data-lang="en">The App helps you record replacement schedules, household inventory, shopping lists, reminders, and related information. You are responsible for checking that your entered content, reminder dates, quantities, and shopping information are accurate.</p>
+                    <p data-lang="ja">本アプリは、交換スケジュール、家庭内在庫、買い物リスト、リマインダーおよび関連情報の記録を支援します。入力内容、リマインダー日、数量、買い物情報が正確であるかは、あなた自身の責任で確認してください。</p>
+                    <p data-lang="ko">앱은 교체 일정, 가정 내 재고, 장보기 목록, 알림 및 관련 정보를 기록하는 데 도움을 줍니다. 입력한 내용, 알림 날짜, 수량 및 장보기 정보가 정확한지 확인할 책임은 사용자에게 있습니다.</p>
                     <p data-lang="zh">本 App 不能保證提醒永遠準時送達。通知可能受到系統設定、裝置狀態、作業系統限制、網路或其他因素影響。</p>
                     <p data-lang="en">The App cannot guarantee that reminders will always be delivered on time. Notifications may be affected by system settings, device state, operating system limitations, network conditions, or other factors.</p>
+                    <p data-lang="ja">本アプリは、リマインダーが常に時間どおりに届くことを保証しません。通知は、システム設定、端末の状態、OSの制限、ネットワーク状況、その他の要因の影響を受ける場合があります。</p>
+                    <p data-lang="ko">앱은 알림이 항상 정시에 전달된다고 보장하지 않습니다. 알림은 시스템 설정, 기기 상태, 운영체제 제한, 네트워크 상태 또는 기타 요인의 영향을 받을 수 있습니다.</p>
                     <p data-lang="zh">資料處理方式請見 <a href="privacy.html">隱私權政策</a>。</p>
                     <p data-lang="en">For data handling, see the <a href="privacy.html">Privacy Policy</a>.</p>
+                    <p data-lang="ja">データの取り扱いについては、<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+                    <p data-lang="ko">데이터 처리 방식은 <a href="privacy.html">개인정보 처리방침</a>을 확인해 주세요.</p>
                 </section>
 
                 <section class="terms-block" id="subscriptions">
-                    <h2><span data-lang="zh">4. Pro 訂閱與內購</span><span data-lang="en">4. Pro Subscriptions and In-App Purchases</span></h2>
+                    <h2><span data-lang="zh">4. Pro 訂閱與內購</span><span data-lang="en">4. Pro Subscriptions and In-App Purchases</span><span data-lang="ja">4. Proサブスクリプションとアプリ内購入</span><span data-lang="ko">4. Pro 구독 및 인앱 구매</span></h2>
                     <p data-lang="zh">本 App 可能提供 Pro 訂閱或一次性內購項目。實際可購買項目、價格、試用期、方案期間與功能內容，以 App 內顯示及購買商店的購買畫面為準。</p>
                     <p data-lang="en">The App may offer Pro subscriptions or one-time in-app purchases. Available products, prices, trial periods, plan durations, and included features are shown in the App and on the purchase sheet of the store used for purchase.</p>
+                    <p data-lang="ja">本アプリは、Proサブスクリプションまたは一回限りのアプリ内購入を提供する場合があります。購入可能な商品、価格、試用期間、プラン期間、含まれる機能は、アプリ内表示および購入に使用するストアの購入画面に表示される内容に従います。</p>
+                    <p data-lang="ko">앱은 Pro 구독 또는 일회성 인앱 구매 항목을 제공할 수 있습니다. 실제 구매 가능한 항목, 가격, 체험 기간, 요금제 기간 및 포함 기능은 앱 내 표시와 구매에 사용한 스토어의 구매 화면을 기준으로 합니다.</p>
                     <ul data-lang="zh">
                         <li>所有付款均由 Apple App Store、Google Play 或你購買時使用的商店處理；本 App 不會接觸或儲存信用卡、付款帳號或完整付款資訊。</li>
                         <li>自動續訂訂閱會在每個訂閱期間結束時依商店規則自動續訂，直到你透過該商店帳號取消為止。</li>
@@ -561,10 +607,24 @@
                         <li>Subscription status may be verified through Apple StoreKit, Google Play Billing, or store receipt mechanisms to unlock Pro features and restore purchases.</li>
                         <li>If subscription pricing or terms change, notice, consent, and effective timing are handled under the rules of the store used for purchase.</li>
                     </ul>
+                    <ul data-lang="ja">
+                        <li>すべての支払いは、Apple App Store、Google Play、または購入に使用したストアによって処理されます。本アプリは、クレジットカード情報、支払いアカウント、完全な支払い情報にアクセスしたり保存したりしません。</li>
+                        <li>自動更新サブスクリプションは、あなたがそのストアアカウントを通じてキャンセルするまで、各サブスクリプション期間の終了時にストアの規則に従って更新されます。</li>
+                        <li>無料トライアルが提供される場合、試用期間、有料への移行時期、キャンセル規則はストアの購入画面に表示されます。</li>
+                        <li>Pro機能の解放および購入の復元のため、サブスクリプション状態はApple StoreKit、Google Play Billing、またはストアのレシート仕組みによって確認される場合があります。</li>
+                        <li>サブスクリプションの価格または条件が変更される場合、通知、同意、発効時期は購入に使用したストアの規則に従って処理されます。</li>
+                    </ul>
+                    <ul data-lang="ko">
+                        <li>모든 결제는 Apple App Store, Google Play 또는 구매에 사용한 스토어에서 처리합니다. 앱은 신용카드 세부 정보, 결제 계정 또는 전체 결제 정보에 접근하거나 이를 저장하지 않습니다.</li>
+                        <li>자동 갱신 구독은 사용자가 해당 스토어 계정을 통해 취소할 때까지 각 구독 기간 종료 시 스토어 규칙에 따라 갱신됩니다.</li>
+                        <li>무료 체험이 제공되는 경우 체험 기간, 유료 전환 시점 및 취소 규칙은 스토어 구매 화면에 표시됩니다.</li>
+                        <li>Pro 기능 해제 및 구매 복원을 위해 구독 상태는 Apple StoreKit, Google Play Billing 또는 스토어 영수증 메커니즘을 통해 확인될 수 있습니다.</li>
+                        <li>구독 가격이나 조건이 변경되는 경우, 알림, 동의 및 적용 시점은 구매에 사용한 스토어의 규칙에 따라 처리됩니다.</li>
+                    </ul>
                 </section>
 
                 <section class="terms-block" id="cancellation">
-                    <h2><span data-lang="zh">5. 取消、退款與復原購買</span><span data-lang="en">5. Cancellation, Refunds, and Restore Purchases</span></h2>
+                    <h2><span data-lang="zh">5. 取消、退款與復原購買</span><span data-lang="en">5. Cancellation, Refunds, and Restore Purchases</span><span data-lang="ja">5. キャンセル、返金、購入の復元</span><span data-lang="ko">5. 취소, 환불 및 구매 복원</span></h2>
                     <ul data-lang="zh">
                         <li>你可以透過購買時使用的商店帳號管理或取消訂閱，例如 iOS 設定、Apple App Store 帳號頁面或 Google Play 訂閱頁面。</li>
                         <li>取消訂閱後，你仍可使用已付款期間內的 Pro 功能；到期後需要 Pro 的功能可能會停止開放。</li>
@@ -579,24 +639,46 @@
                         <li>Refund eligibility and review are handled by the store used for purchase. Please use that store's refund request process.</li>
                         <li>If you change devices or reinstall the App, you may use restore purchases in the App or restore entitlement through your store account purchase history.</li>
                     </ul>
+                    <ul data-lang="ja">
+                        <li>サブスクリプションは、iOS設定、Apple App Storeのアカウントページ、Google Playのサブスクリプションなど、購入に使用したストアアカウントを通じて管理またはキャンセルできます。</li>
+                        <li>キャンセル後も、現在の有料期間が終了するまでは有料Pro機能を引き続き使用できます。Proが必要な機能は、期間終了後に利用できなくなる場合があります。</li>
+                        <li>アプリを削除してもサブスクリプションは自動的にキャンセルされません。更新を停止するには、購入に使用したストアアカウントからキャンセルしてください。</li>
+                        <li>返金の可否と審査は購入に使用したストアが処理します。そのストアの返金申請手続きを利用してください。</li>
+                        <li>端末を変更したりアプリを再インストールしたりした場合、アプリ内の購入復元機能、またはストアアカウントの購入履歴を通じて権利を復元できる場合があります。</li>
+                    </ul>
+                    <ul data-lang="ko">
+                        <li>구독은 iOS 설정, Apple App Store 계정 페이지 또는 Google Play 구독 등 구매에 사용한 스토어 계정을 통해 관리하거나 취소할 수 있습니다.</li>
+                        <li>취소 후에도 현재 결제 기간이 끝날 때까지 유료 Pro 기능을 계속 사용할 수 있습니다. Pro가 필요한 기능은 만료 후 중단될 수 있습니다.</li>
+                        <li>앱을 삭제해도 구독이 자동으로 취소되지 않습니다. 갱신을 중지하려면 구매에 사용한 스토어 계정을 통해 취소해야 합니다.</li>
+                        <li>환불 자격과 심사는 구매에 사용한 스토어에서 처리합니다. 해당 스토어의 환불 요청 절차를 이용해 주세요.</li>
+                        <li>기기를 변경하거나 앱을 다시 설치하는 경우, 앱 내 구매 복원 기능을 사용하거나 스토어 계정 구매 기록을 통해 권한을 복원할 수 있습니다.</li>
+                    </ul>
                     <div class="note-card">
                         <p data-lang="zh">管理訂閱、取消或退款請參考 <a href="https://support.apple.com/billing" target="_blank" rel="noopener">Apple 訂閱與帳單支援</a>、<a href="https://support.apple.com/118223" target="_blank" rel="noopener">Apple 退款申請說明</a>、<a href="https://support.google.com/googleplay/answer/7018481" target="_blank" rel="noopener">Google Play 訂閱說明</a>與 <a href="https://support.google.com/googleplay/answer/15574897" target="_blank" rel="noopener">Google Play 退款說明</a>。</p>
                         <p data-lang="en">For subscription management, cancellation, or refund requests, see <a href="https://support.apple.com/billing" target="_blank" rel="noopener">Apple Subscriptions and Billing Support</a>, <a href="https://support.apple.com/118223" target="_blank" rel="noopener">Apple refund request guidance</a>, <a href="https://support.google.com/googleplay/answer/7018481" target="_blank" rel="noopener">Google Play subscription help</a>, and <a href="https://support.google.com/googleplay/answer/15574897" target="_blank" rel="noopener">Google Play refund help</a>.</p>
+                        <p data-lang="ja">サブスクリプションの管理、キャンセル、返金申請については、<a href="https://support.apple.com/billing" target="_blank" rel="noopener">Appleサブスクリプションと請求サポート</a>、<a href="https://support.apple.com/118223" target="_blank" rel="noopener">Appleの返金申請案内</a>、<a href="https://support.google.com/googleplay/answer/7018481" target="_blank" rel="noopener">Google Playのサブスクリプションヘルプ</a>、<a href="https://support.google.com/googleplay/answer/15574897" target="_blank" rel="noopener">Google Playの返金ヘルプ</a>をご確認ください。</p>
+                        <p data-lang="ko">구독 관리, 취소 또는 환불 요청은 <a href="https://support.apple.com/billing" target="_blank" rel="noopener">Apple 구독 및 청구 지원</a>, <a href="https://support.apple.com/118223" target="_blank" rel="noopener">Apple 환불 요청 안내</a>, <a href="https://support.google.com/googleplay/answer/7018481" target="_blank" rel="noopener">Google Play 구독 도움말</a>, <a href="https://support.google.com/googleplay/answer/15574897" target="_blank" rel="noopener">Google Play 환불 도움말</a>을 참고해 주세요.</p>
                     </div>
                 </section>
 
                 <section class="terms-block" id="changes">
-                    <h2><span data-lang="zh">6. 變更、暫停與終止</span><span data-lang="en">6. Changes, Suspension, and Termination</span></h2>
+                    <h2><span data-lang="zh">6. 變更、暫停與終止</span><span data-lang="en">6. Changes, Suspension, and Termination</span><span data-lang="ja">6. 変更、停止、終了</span><span data-lang="ko">6. 변경, 중단 및 종료</span></h2>
                     <p data-lang="zh">我們可能不定期調整、增加、暫停或移除本 App 的部分功能。若變更會重大影響你的權益，我們會盡合理努力透過 App、商店資訊、版本更新說明或本頁通知。</p>
                     <p data-lang="en">We may update, add, suspend, or remove parts of the App from time to time. If a change materially affects your rights, we will make reasonable efforts to notify you through the App, store listing, release notes, or this page.</p>
+                    <p data-lang="ja">当社は、本アプリの一部機能を随時変更、追加、停止、または削除する場合があります。変更があなたの権利に重大な影響を与える場合、当社はアプリ、ストア掲載情報、リリースノート、または本ページを通じて通知するよう合理的な努力を行います。</p>
+                    <p data-lang="ko">당사는 수시로 앱의 일부 기능을 변경, 추가, 중단 또는 제거할 수 있습니다. 변경 사항이 사용자의 권리에 중대한 영향을 미치는 경우, 앱, 스토어 정보, 릴리스 노트 또는 본 페이지를 통해 알리기 위해 합리적인 노력을 기울입니다.</p>
                     <p data-lang="zh">若你違反本條款、濫用服務、嘗試未授權存取，或造成安全、法律或營運風險，我們可能限制或終止你使用部分功能。</p>
                     <p data-lang="en">If you violate these terms, abuse the service, attempt unauthorized access, or create security, legal, or operational risk, we may restrict or terminate your access to some features.</p>
+                    <p data-lang="ja">あなたが本規約に違反した場合、サービスを濫用した場合、許可されていないアクセスを試みた場合、またはセキュリティ、法的、運営上のリスクを生じさせた場合、当社は一部機能へのアクセスを制限または終了することがあります。</p>
+                    <p data-lang="ko">사용자가 본 약관을 위반하거나, 서비스를 남용하거나, 무단 접근을 시도하거나, 보안, 법률 또는 운영상 위험을 초래하는 경우, 당사는 일부 기능에 대한 접근을 제한하거나 종료할 수 있습니다.</p>
                 </section>
 
                 <section class="terms-block" id="contact">
-                    <h2><span data-lang="zh">7. 聯絡我們</span><span data-lang="en">7. Contact Us</span></h2>
+                    <h2><span data-lang="zh">7. 聯絡我們</span><span data-lang="en">7. Contact Us</span><span data-lang="ja">7. お問い合わせ</span><span data-lang="ko">7. 문의하기</span></h2>
                     <p data-lang="zh">對本條款、訂閱或內購有任何疑問，歡迎聯絡：</p>
                     <p data-lang="en">If you have questions about these terms, subscriptions, or in-app purchases, contact:</p>
+                    <p data-lang="ja">本規約、サブスクリプション、またはアプリ内購入についてご質問がある場合は、以下までお問い合わせください。</p>
+                    <p data-lang="ko">본 약관, 구독 또는 인앱 구매에 대해 궁금한 점이 있으면 다음으로 문의해 주세요.</p>
                     <div class="note-card">
                         <p>SheepBeansGames<br>Email: <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a></p>
                     </div>
@@ -609,23 +691,32 @@
         <div class="wrap footer-inner">
             <div>© 2026 SheepBeansGames. All rights reserved.</div>
             <div class="footer-links">
-                <a href="index.html"><span data-lang="zh">首頁</span><span data-lang="en">Home</span></a>
-                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span></a>
-                <a href="data-deletion.html"><span data-lang="zh">資料刪除</span><span data-lang="en">Data Deletion</span></a>
-                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span></a>
+                <a href="index.html"><span data-lang="zh">首頁</span><span data-lang="en">Home</span><span data-lang="ja">ホーム</span><span data-lang="ko">홈</span></a>
+                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span><span data-lang="ja">プライバシーポリシー</span><span data-lang="ko">개인정보 처리방침</span></a>
+                <a href="data-deletion.html"><span data-lang="zh">資料刪除</span><span data-lang="en">Data Deletion</span><span data-lang="ja">データ削除</span><span data-lang="ko">데이터 삭제</span></a>
+                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span><span data-lang="ja">お問い合わせ</span><span data-lang="ko">문의하기</span></a>
             </div>
         </div>
     </footer>
 
     <script>
-        const setLanguage = (lang) => {
-            document.documentElement.dataset.lang = lang;
-            document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
-            localStorage.setItem("swapit-site-lang", lang);
+        const LEGAL_LANGS = ["zh", "en", "ja", "ko"];
+        const HTML_LANGS = { zh: "zh-TW", en: "en", ja: "ja", ko: "ko" };
+
+        const setLanguage = (lang, options = {}) => {
+            const { persist = true } = options;
+            const displayLang = LEGAL_LANGS.includes(lang) ? lang : "en";
+            document.documentElement.dataset.lang = displayLang;
+            document.documentElement.lang = HTML_LANGS[displayLang];
+            if (persist) {
+                localStorage.setItem("swapit-site-lang", displayLang);
+            }
         };
 
-        const initialLang = localStorage.getItem("swapit-site-lang") || "zh";
-        setLanguage(initialLang);
+        const requestedLang = new URLSearchParams(window.location.search).get("lang");
+        const storedLang = localStorage.getItem("swapit-site-lang");
+        const initialLang = requestedLang || storedLang || "zh";
+        setLanguage(initialLang, { persist: LEGAL_LANGS.includes(initialLang) });
 
         document.querySelectorAll("[data-set-lang]").forEach((button) => {
             button.addEventListener("click", () => setLanguage(button.dataset.setLang));

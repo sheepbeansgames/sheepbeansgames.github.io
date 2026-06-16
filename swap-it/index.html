@@ -15,6 +15,8 @@
     <link rel="canonical" href="https://sheepbeansgames.cc/swap-it/">
     <link rel="alternate" hreflang="zh-Hant" href="https://sheepbeansgames.cc/swap-it/">
     <link rel="alternate" hreflang="en" href="https://sheepbeansgames.cc/swap-it/?lang=en">
+    <link rel="alternate" hreflang="ja" href="https://sheepbeansgames.cc/swap-it/?lang=ja">
+    <link rel="alternate" hreflang="ko" href="https://sheepbeansgames.cc/swap-it/?lang=ko">
     <link rel="alternate" hreflang="x-default" href="https://sheepbeansgames.cc/swap-it/">
     <meta property="og:type" content="product">
     <meta property="og:site_name" content="該換了吧 | Swap It.">
@@ -29,6 +31,8 @@
     <meta property="og:image:alt" content="該換了吧 App icon">
     <meta property="og:locale" content="zh_TW">
     <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="ko_KR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="該換了吧 — 記住每個該換的日子">
     <meta name="twitter:description" content="生活用品更換提醒、備品庫存、用量追蹤與成員分類，一個 App 管理全家。">
@@ -70,7 +74,7 @@
             "https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory"
         ],
         "image": "https://sheepbeansgames.cc/swap-it/assets/icon/icon-social.png",
-        "inLanguage": ["zh-TW", "en"],
+        "inLanguage": ["zh-TW", "en", "ja", "ko"],
         "featureList": [
             "更換週期提醒",
             "備品庫存追蹤",
@@ -204,8 +208,10 @@
             overflow-x: hidden;
         }
 
-        html[data-lang="zh"] [data-lang="en"],
-        html[data-lang="en"] [data-lang="zh"] {
+        html[data-lang="zh"] [data-lang]:not([data-lang="zh"]),
+        html[data-lang="en"] [data-lang]:not([data-lang="en"]),
+        html[data-lang="ja"] [data-lang]:not([data-lang="ja"]),
+        html[data-lang="ko"] [data-lang]:not([data-lang="ko"]) {
             display: none !important;
         }
 
@@ -331,7 +337,9 @@
         }
 
         html[data-lang="zh"] .lang-switch button[data-set-lang="zh"],
-        html[data-lang="en"] .lang-switch button[data-set-lang="en"] {
+        html[data-lang="en"] .lang-switch button[data-set-lang="en"],
+        html[data-lang="ja"] .lang-switch button[data-set-lang="ja"],
+        html[data-lang="ko"] .lang-switch button[data-set-lang="ko"] {
             background: var(--ink);
             color: #fffaf2;
         }
@@ -1363,18 +1371,20 @@
         <div class="wrap nav-inner">
             <a href="#" class="logo" aria-label="該換了吧首頁">
                 <img src="assets/icon/icon.png" alt="">
-                <span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span>
+                <span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span><span data-lang="ja">Swap It.</span><span data-lang="ko">Swap It.</span>
             </a>
             <div class="nav-links" aria-label="主要導覽">
-                <a href="#highlights"><span data-lang="zh">功能</span><span data-lang="en">Features</span></a>
-                <a href="#faq"><span data-lang="zh">常見問題</span><span data-lang="en">FAQ</span></a>
-                <a href="privacy.html"><span data-lang="zh">隱私權</span><span data-lang="en">Privacy</span></a>
+                <a href="#highlights"><span data-lang="zh">功能</span><span data-lang="en">Features</span><span data-lang="ja">機能</span><span data-lang="ko">기능</span></a>
+                <a href="#faq"><span data-lang="zh">常見問題</span><span data-lang="en">FAQ</span><span data-lang="ja">よくある質問</span><span data-lang="ko">자주 묻는 질문</span></a>
+                <a href="privacy.html"><span data-lang="zh">隱私權</span><span data-lang="en">Privacy</span><span data-lang="ja">プライバシー</span><span data-lang="ko">개인정보</span></a>
                 <div class="lang-switch" aria-label="Language">
                     <button type="button" data-set-lang="zh">中</button>
                     <button type="button" data-set-lang="en">EN</button>
+                    <button type="button" data-set-lang="ja">日</button>
+                    <button type="button" data-set-lang="ko">한</button>
                 </div>
-                <a class="button app-store-button" href="https://apps.apple.com/app/id6762584972" target="_blank" rel="noopener"><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg><span data-lang="zh">App Store</span><span data-lang="en">App Store</span></a>
-                <a class="button play-store-button" href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory" target="_blank" rel="noopener"><svg class="play-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span data-lang="zh">Google Play</span><span data-lang="en">Google Play</span></a>
+                <a class="button app-store-button" href="https://apps.apple.com/app/id6762584972" target="_blank" rel="noopener"><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg><span data-lang="zh">App Store</span><span data-lang="en">App Store</span><span data-lang="ja">App Store</span><span data-lang="ko">App Store</span></a>
+                <a class="button play-store-button" href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory" target="_blank" rel="noopener"><svg class="play-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span data-lang="zh">Google Play</span><span data-lang="en">Google Play</span><span data-lang="ja">Google Play</span><span data-lang="ko">Google Play</span></a>
             </div>
         </div>
     </nav>
@@ -1384,15 +1394,19 @@
             <div class="wrap hero-grid">
                 <div class="hero-copy-block reveal">
                     <div class="eyebrow">Replacement Reminder</div>
-                    <h1><span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span></h1>
+                    <h1><span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span><span data-lang="ja">Swap It.<small style="display:block;font-size:0.36em;font-weight:800;letter-spacing:0;margin-top:10px;">そろそろ交換</small></span><span data-lang="ko">Swap It.<small style="display:block;font-size:0.36em;font-weight:800;letter-spacing:0;margin-top:10px;">교체 시기 알림</small></span></h1>
                     <p class="hero-lead" data-lang="zh">記住每個該換的日子，更換提醒與備品庫存，一次掌握。</p>
                     <p class="hero-lead" data-lang="en">Remember every replacement date. Track reminders and household inventory in one place.</p>
+                    <p class="hero-lead" data-lang="ja">買い替えるべき日を、ぜんぶ覚えておく。交換リマインダーとストック管理を、ひとつに。</p>
+                    <p class="hero-lead" data-lang="ko">교체할 날짜를 모두 기억하세요. 교체 알림과 비품 재고를 한 곳에서 관리합니다.</p>
                     <p class="hero-copy" data-lang="zh">「你，上次換牙刷是什麼時候？」有些東西不用每天掛在心上，但到期了就要換、快沒了就要買。生活中的瑣碎，不該佔據你的大腦空間。</p>
                     <p class="hero-copy" data-lang="en">When did you last replace that toothbrush? Some things do not deserve daily mental space, but they still need to be replaced on time and restocked before they run out.</p>
+                    <p class="hero-copy" data-lang="ja">「歯ブラシ、最後に替えたのはいつ？」毎日気にする必要はないけれど、期限がくれば交換し、なくなる前に買い足したいもの。そんな暮らしの雑事に、頭の中を使わなくていい。</p>
+                    <p class="hero-copy" data-lang="ko">"칫솔, 마지막으로 바꾼 게 언제였죠?" 매일 신경 쓸 필요는 없지만 때가 되면 바꾸고 떨어지기 전에 사야 하는 것들. 사소한 살림이 머릿속 자리를 차지할 필요는 없습니다.</p>
                     <div class="hero-actions">
-                        <a class="button app-store-button" href="https://apps.apple.com/app/id6762584972" target="_blank" rel="noopener"><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg> <span data-lang="zh">App Store</span><span data-lang="en">App Store</span></a>
-                        <a class="button play-store-button" href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory" target="_blank" rel="noopener"><svg class="play-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg> <span data-lang="zh">Google Play</span><span data-lang="en">Google Play</span></a>
-                        <a class="button secondary" href="#highlights"><i data-lucide="list-checks"></i> <span data-lang="zh">看主要功能</span><span data-lang="en">View Features</span></a>
+                        <a class="button app-store-button" href="https://apps.apple.com/app/id6762584972" target="_blank" rel="noopener"><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg> <span data-lang="zh">App Store</span><span data-lang="en">App Store</span><span data-lang="ja">App Store</span><span data-lang="ko">App Store</span></a>
+                        <a class="button play-store-button" href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory" target="_blank" rel="noopener"><svg class="play-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg> <span data-lang="zh">Google Play</span><span data-lang="en">Google Play</span><span data-lang="ja">Google Play</span><span data-lang="ko">Google Play</span></a>
+                        <a class="button secondary" href="#highlights"><i data-lucide="list-checks"></i> <span data-lang="zh">看主要功能</span><span data-lang="en">View Features</span><span data-lang="ja">主な機能を見る</span><span data-lang="ko">주요 기능 보기</span></a>
                     </div>
                 </div>
 
@@ -1401,15 +1415,15 @@
                         <img src="assets/screenshots/zh-TW/01_status_overview.png" data-screen="01_status_overview.png" alt="物況首頁概覽" width="1320" height="2868" fetchpriority="high">
                     </div>
                     <div class="mobile-notes">
-                        <div class="hero-note note-a"><span class="note-icon"><i data-lucide="bell-ring"></i></span><span><small data-lang="zh">今日提醒</small><small data-lang="en">Today</small><b data-lang="zh">該換、該補貨，一打開就看到</b><b data-lang="en">See replacements and restocks immediately</b></span></div>
-                        <div class="hero-note note-b"><span class="note-icon stock"><i data-lucide="archive"></i></span><span><small data-lang="zh">庫存與週期</small><small data-lang="en">Stock & Cycles</small><b data-lang="zh">備品數量、使用天數放在同一處</b><b data-lang="en">Inventory and usage days in one place</b></span></div>
+                        <div class="hero-note note-a"><span class="note-icon"><i data-lucide="bell-ring"></i></span><span><small data-lang="zh">今日提醒</small><small data-lang="en">Today</small><small data-lang="ja">今日のリマインド</small><small data-lang="ko">오늘 할 일</small><b data-lang="zh">該換、該補貨，一打開就看到</b><b data-lang="en">See replacements and restocks immediately</b><b data-lang="ja">交換も買い足しも、開いてすぐ分かる</b><b data-lang="ko">교체와 보충, 열자마자 한눈에</b></span></div>
+                        <div class="hero-note note-b"><span class="note-icon stock"><i data-lucide="archive"></i></span><span><small data-lang="zh">庫存與週期</small><small data-lang="en">Stock & Cycles</small><small data-lang="ja">在庫とサイクル</small><small data-lang="ko">재고와 주기</small><b data-lang="zh">備品數量、使用天數放在同一處</b><b data-lang="en">Inventory and usage days in one place</b><b data-lang="ja">ストック数も使用日数も一か所に</b><b data-lang="ko">비품 수량과 사용 일수를 한 곳에</b></span></div>
                     </div>
                 </div>
 
                 <div class="proof-row reveal" aria-label="重點功能">
-                    <div class="proof"><strong data-lang="zh">週期</strong><strong data-lang="en">Cycles</strong><span data-lang="zh">牙刷、濾芯、隱形眼鏡等定期用品</span><span data-lang="en">Toothbrushes, filters, contacts, and other recurring items</span></div>
-                    <div class="proof"><strong data-lang="zh">庫存</strong><strong data-lang="en">Stock</strong><span data-lang="zh">安全存量偏低時提醒你該補貨了</span><span data-lang="en">Get reminded when household backup stock runs low</span></div>
-                    <div class="proof"><strong data-lang="zh">採購</strong><strong data-lang="en">Shopping</strong><span data-lang="zh">把待補貨物品整理成出門清單</span><span data-lang="en">Turn restock needs into a shopping list</span></div>
+                    <div class="proof"><strong data-lang="zh">週期</strong><strong data-lang="en">Cycles</strong><strong data-lang="ja">サイクル</strong><strong data-lang="ko">주기</strong><span data-lang="zh">牙刷、濾芯、隱形眼鏡等定期用品</span><span data-lang="en">Toothbrushes, filters, contacts, and other recurring items</span><span data-lang="ja">歯ブラシ・フィルター・コンタクトなどの定期消耗品</span><span data-lang="ko">칫솔, 필터, 콘택트렌즈 등 주기적 소모품</span></div>
+                    <div class="proof"><strong data-lang="zh">庫存</strong><strong data-lang="en">Stock</strong><strong data-lang="ja">在庫</strong><strong data-lang="ko">재고</strong><span data-lang="zh">安全存量偏低時提醒你該補貨了</span><span data-lang="en">Get reminded when household backup stock runs low</span><span data-lang="ja">安全在庫を下回ると買い足しをお知らせ</span><span data-lang="ko">안전 재고 아래로 떨어지면 보충 알림</span></div>
+                    <div class="proof"><strong data-lang="zh">採購</strong><strong data-lang="en">Shopping</strong><strong data-lang="ja">買い物</strong><strong data-lang="ko">쇼핑</strong><span data-lang="zh">把待補貨物品整理成出門清單</span><span data-lang="en">Turn restock needs into a shopping list</span><span data-lang="ja">買い足しが必要なものを買い物リストに</span><span data-lang="ko">보충할 물건을 장보기 목록으로</span></div>
                 </div>
             </div>
         </section>
@@ -1421,52 +1435,80 @@
                         <div class="eyebrow">Feature Highlights</div>
                         <h2 data-lang="zh">一個 App，把「該換、該補、該記」全管好</h2>
                         <h2 data-lang="en">One app for everything to replace, restock, and track</h2>
+                        <h2 data-lang="ja">ひとつのアプリで「交換・買い足し・記録」をまるごと管理</h2>
+                        <h2 data-lang="ko">하나의 앱으로 교체, 보충, 기록을 한 번에</h2>
                     </div>
                     <p data-lang="zh">從更換週期到備品庫存、從用量追蹤到成員分類，把生活用品的瑣事整理成一眼就懂的重點。</p>
                     <p data-lang="en">From replacement cycles to backup stock, from usage tracking to organizing by member—household chores distilled into clear, scannable highlights.</p>
+                    <p data-lang="ja">交換サイクルからストック管理、使用量トラッキングからメンバー分類まで。暮らしの雑事を、ひと目で分かる要点に整理します。</p>
+                    <p data-lang="ko">교체 주기부터 비품 재고, 사용량 추적부터 멤버 분류까지. 살림의 자질구레한 일을 한눈에 들어오는 요점으로 정리합니다.</p>
                 </div>
                 <div class="quick-grid">
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="refresh-cw"></i></div>
                         <h3 data-lang="zh">更換週期提醒</h3>
                         <h3 data-lang="en">Replacement Reminders</h3>
+                        <h3 data-lang="ja">交換サイクルのリマインド</h3>
+                        <h3 data-lang="ko">교체 주기 알림</h3>
                         <p data-lang="zh">牙刷、濾芯、隱形眼鏡等定期用品，設定週期後到期自動提醒，不再憑印象猜「上次是什麼時候換的」。</p>
                         <p data-lang="en">Set a cycle for toothbrushes, filters, contact lenses and more—Swap It reminds you on time, so you never guess when you last replaced it.</p>
+                        <p data-lang="ja">歯ブラシ・フィルター・コンタクトなどの定期消耗品にサイクルを設定すれば、期限が来たら自動でお知らせ。「前回いつ替えたっけ？」ともう悩みません。</p>
+                        <p data-lang="ko">칫솔, 필터, 콘택트렌즈 등 주기적 소모품에 주기를 설정하면 때가 됐을 때 자동으로 알려줍니다. "지난번에 언제 바꿨더라" 하고 더는 헷갈리지 않아요.</p>
                     </article>
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="archive"></i></div>
                         <h3 data-lang="zh">備品庫存與補貨提醒</h3>
                         <h3 data-lang="en">Stock &amp; Restock Alerts</h3>
+                        <h3 data-lang="ja">ストック管理と買い足しアラート</h3>
+                        <h3 data-lang="ko">재고와 보충 알림</h3>
                         <p data-lang="zh">記錄每樣物品的備品數量與安全存量，低於下限時主動提醒補貨，家裡缺什麼一目了然。</p>
                         <p data-lang="en">Track backup quantities and safety levels for each item, and get reminded to restock before you run low.</p>
+                        <p data-lang="ja">アイテムごとにストック数と安全在庫を記録。下限を下回ると買い足しをお知らせし、家に何が足りないかひと目で分かります。</p>
+                        <p data-lang="ko">물건마다 비품 수량과 안전 재고를 기록하고, 하한선 아래로 떨어지면 보충 알림을 보냅니다. 집에 무엇이 부족한지 한눈에 알 수 있어요.</p>
                     </article>
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="shopping-cart"></i></div>
                         <h3 data-lang="zh">自動採購清單</h3>
                         <h3 data-lang="en">Smart Shopping List</h3>
+                        <h3 data-lang="ja">自動の買い物リスト</h3>
+                        <h3 data-lang="ko">자동 장보기 목록</h3>
                         <p data-lang="zh">把待補貨的物品自動彙整成出門採購清單，按安全存量算出該補幾個，到店不漏買。</p>
                         <p data-lang="en">Items needing restock are gathered into a ready-to-go shopping list, with suggested quantities based on your safety stock.</p>
+                        <p data-lang="ja">買い足しが必要なものを自動で買い物リストにまとめ、安全在庫から必要な数を計算。お店で買い忘れません。</p>
+                        <p data-lang="ko">보충이 필요한 물건을 자동으로 장보기 목록에 모으고, 안전 재고를 기준으로 필요한 개수를 계산해 매장에서 빠뜨리지 않게 해줍니다.</p>
                     </article>
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="gauge"></i></div>
                         <h3 data-lang="zh">用量追蹤與快用完提醒</h3>
                         <h3 data-lang="en">Usage Tracking &amp; Low Alerts</h3>
+                        <h3 data-lang="ja">使用量トラッキングと残りわずかアラート</h3>
+                        <h3 data-lang="ko">사용량 추적과 소진 임박 알림</h3>
                         <p data-lang="zh">保健食品、藥品、清潔劑等會慢慢用完的東西，記錄剩餘量後依使用頻率估算消耗，快用完前先提醒。</p>
                         <p data-lang="en">For supplements, medicine, and cleaners that run out gradually, track the remaining amount and get reminded before it runs low.</p>
+                        <p data-lang="ja">サプリ・薬・洗剤など少しずつ減るものは、残量を記録すれば使用ペースから消費を推定し、なくなる前にお知らせします。</p>
+                        <p data-lang="ko">영양제, 약, 세제처럼 조금씩 줄어드는 것들은 남은 양을 기록하면 사용 빈도로 소비를 추정해 떨어지기 전에 알려줍니다.</p>
                     </article>
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="users"></i></div>
                         <h3 data-lang="zh">成員管理，一個 App 管理全家</h3>
                         <h3 data-lang="en">Members &amp; Whole-Home View</h3>
+                        <h3 data-lang="ja">メンバー管理で家族全員をひとつに</h3>
+                        <h3 data-lang="ko">멤버 관리로 온 가족을 한 앱에서</h3>
                         <p data-lang="zh">把物品指派給不同家庭成員，再依成員篩選檢視，分清楚誰的隱形眼鏡、誰的保養品，一個人就能管理全家人的物品。</p>
                         <p data-lang="en">Assign items to family members and filter by person—one person can manage the whole household's items and tell whose is whose.</p>
+                        <p data-lang="ja">アイテムを家族それぞれに割り当て、メンバーで絞り込んで表示。誰のコンタクト、誰のスキンケアかをはっきり分けて、ひとりで家族全員のものを管理できます。</p>
+                        <p data-lang="ko">물건을 가족 구성원에게 배정하고 멤버별로 걸러 볼 수 있어, 누구의 콘택트렌즈인지 누구의 화장품인지 구분해 한 사람이 온 가족의 물건을 관리할 수 있습니다.</p>
                     </article>
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="bar-chart-3"></i></div>
                         <h3 data-lang="zh">使用紀錄與統計</h3>
                         <h3 data-lang="en">Records &amp; Statistics</h3>
+                        <h3 data-lang="ja">使用履歴と統計</h3>
+                        <h3 data-lang="ko">사용 기록과 통계</h3>
                         <p data-lang="zh">每次更換、補貨都留下紀錄，回顧花費與週期準確度，越用越貼近你真實的生活節奏。</p>
                         <p data-lang="en">Every replacement and restock is logged—review spending and cycle accuracy that adapt to your real routine.</p>
+                        <p data-lang="ja">交換も買い足しも毎回記録。支出やサイクルの精度を振り返れば、使うほどあなたの暮らしのリズムに近づきます。</p>
+                        <p data-lang="ko">교체와 보충을 매번 기록해 지출과 주기 정확도를 돌아볼 수 있고, 쓸수록 실제 생활 리듬에 가까워집니다.</p>
                     </article>
                 </div>
             </div>
@@ -1479,17 +1521,21 @@
                         <div class="eyebrow">Material Status</div>
                         <h2 data-lang="zh">用「物況」管理生活用品</h2>
                         <h2 data-lang="en">Manage household supplies by status</h2>
+                        <h2 data-lang="ja">「ものの状態」で暮らしの用品を管理</h2>
+                        <h2 data-lang="ko">"물건 상태"로 생활용품을 관리</h2>
                     </div>
                     <p data-lang="zh">它不是一般待辦清單，而是把正常使用中、快到期、今天該換、庫存不足，或是暫時延後的物品整理好。打開 App，就知道現在該注意什麼。</p>
                     <p data-lang="en">Swap It. is not a generic to-do list. It organizes what is active, due soon, due today, low on stock, or temporarily snoozed, so you know what needs attention.</p>
+                    <p data-lang="ja">一般的なToDoリストではありません。使用中・期限間近・今日交換・在庫不足・一時的に先送り、といった状態でアイテムを整理。アプリを開けば、今なにに注意すべきかが分かります。</p>
+                    <p data-lang="ko">평범한 할 일 목록이 아닙니다. 사용 중, 기한 임박, 오늘 교체, 재고 부족, 잠시 미뤄둠 같은 상태로 물건을 정리합니다. 앱을 열면 지금 무엇을 챙겨야 할지 바로 보입니다.</p>
                 </div>
                 <div class="status-strip reveal">
-                    <div class="status-chip hot"><i></i><span data-lang="zh">低於安全值</span><span data-lang="en">Below safety stock</span></div>
-                    <div class="status-chip"><i></i><span data-lang="zh">該補貨了</span><span data-lang="en">Time to restock</span></div>
-                    <div class="status-chip green"><i></i><span data-lang="zh">庫存充足</span><span data-lang="en">Stocked</span></div>
-                    <div class="status-chip green"><i></i><span data-lang="zh">還有 5 天</span><span data-lang="en">5 days left</span></div>
-                    <div class="status-chip"><i></i><span data-lang="zh">還有 1 天</span><span data-lang="en">1 day left</span></div>
-                    <div class="status-chip hot"><i></i><span data-lang="zh">已過期 21 天</span><span data-lang="en">21 days overdue</span></div>
+                    <div class="status-chip hot"><i></i><span data-lang="zh">低於安全值</span><span data-lang="en">Below safety stock</span><span data-lang="ja">安全在庫を下回る</span><span data-lang="ko">안전 재고 미만</span></div>
+                    <div class="status-chip"><i></i><span data-lang="zh">該補貨了</span><span data-lang="en">Time to restock</span><span data-lang="ja">買い足しどき</span><span data-lang="ko">보충할 때</span></div>
+                    <div class="status-chip green"><i></i><span data-lang="zh">庫存充足</span><span data-lang="en">Stocked</span><span data-lang="ja">在庫あり</span><span data-lang="ko">재고 충분</span></div>
+                    <div class="status-chip green"><i></i><span data-lang="zh">還有 5 天</span><span data-lang="en">5 days left</span><span data-lang="ja">あと5日</span><span data-lang="ko">5일 남음</span></div>
+                    <div class="status-chip"><i></i><span data-lang="zh">還有 1 天</span><span data-lang="en">1 day left</span><span data-lang="ja">あと1日</span><span data-lang="ko">1일 남음</span></div>
+                    <div class="status-chip hot"><i></i><span data-lang="zh">已過期 21 天</span><span data-lang="en">21 days overdue</span><span data-lang="ja">21日超過</span><span data-lang="ko">21일 지남</span></div>
                 </div>
             </div>
         </section>
@@ -1498,14 +1544,18 @@
             <div class="wrap feature-story">
                 <article class="feature-row reveal">
                     <div class="feature-copy">
-                        <div class="feature-kicker"><i data-lucide="calendar-check"></i> 01 <span data-lang="zh">今日提醒</span><span data-lang="en">Today</span></div>
+                        <div class="feature-kicker"><i data-lucide="calendar-check"></i> 01 <span data-lang="zh">今日提醒</span><span data-lang="en">Today</span><span data-lang="ja">今日のリマインド</span><span data-lang="ko">오늘 할 일</span></div>
                         <h3 data-lang="zh">今天該處理什麼，一眼看懂</h3>
                         <h3 data-lang="en">Know what needs attention today</h3>
+                        <h3 data-lang="ja">今日やるべきことが、ひと目で分かる</h3>
+                        <h3 data-lang="ko">오늘 챙길 일을 한눈에</h3>
                         <p data-lang="zh">清楚列出今天該更換、該補貨或需要處理的物品，依急迫程度排序，一打開就看得到重點。</p>
                         <p data-lang="en">See what needs replacing, restocking, or handling today, sorted by urgency so the important work is visible immediately.</p>
+                        <p data-lang="ja">今日交換すべきもの、買い足すもの、対応が必要なものを緊急度順に表示。開いた瞬間に要点が見えます。</p>
+                        <p data-lang="ko">오늘 교체하거나 보충하거나 처리해야 할 물건을 긴급도 순으로 정리해, 열자마자 핵심이 보입니다.</p>
                         <ul class="feature-list">
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">到期更換與待補貨集中呈現</span><span data-lang="en">Due replacements and restocks in one view</span></li>
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">可先延後處理，不打亂真實生活節奏</span><span data-lang="en">Snooze items when life needs more room</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">到期更換與待補貨集中呈現</span><span data-lang="en">Due replacements and restocks in one view</span><span data-lang="ja">期限の交換と買い足しをまとめて表示</span><span data-lang="ko">기한 교체와 보충을 한 화면에</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">可先延後處理，不打亂真實生活節奏</span><span data-lang="en">Snooze items when life needs more room</span><span data-lang="ja">先送りもできて、暮らしのペースを崩さない</span><span data-lang="ko">잠시 미뤄둘 수 있어 생활 리듬을 해치지 않아요</span></li>
                         </ul>
                     </div>
                     <div class="screen-pair" aria-label="今日提醒畫面">
@@ -1516,14 +1566,18 @@
 
                 <article class="feature-row reveal">
                     <div class="feature-copy">
-                        <div class="feature-kicker"><i data-lucide="repeat-2"></i> 02 <span data-lang="zh">更換週期管理</span><span data-lang="en">Replacement Cycles</span></div>
+                        <div class="feature-kicker"><i data-lucide="repeat-2"></i> 02 <span data-lang="zh">更換週期管理</span><span data-lang="en">Replacement Cycles</span><span data-lang="ja">交換サイクル管理</span><span data-lang="ko">교체 주기 관리</span></div>
                         <h3 data-lang="zh">牙刷、毛巾、濾芯，該換前就知道</h3>
                         <h3 data-lang="en">Know before toothbrushes, towels, and filters need replacing</h3>
+                        <h3 data-lang="ja">歯ブラシ・タオル・フィルター、替えどきの前に分かる</h3>
+                        <h3 data-lang="ko">칫솔, 수건, 필터를 바꿀 때가 되기 전에 알려줍니다</h3>
                         <p data-lang="zh">為每個物品設定使用週期與提醒日期，適合牙刷、毛巾、濾芯、隱形眼鏡、空調濾網等定期更換品。</p>
                         <p data-lang="en">Set a usage cycle and reminder date for each item, from toothbrushes and towels to filters, contact lenses, and appliance consumables.</p>
+                        <p data-lang="ja">アイテムごとに使用サイクルとリマインド日を設定。歯ブラシ・タオル・フィルター・コンタクト・エアコンフィルターなどの定期交換品にぴったりです。</p>
+                        <p data-lang="ko">물건마다 사용 주기와 알림 날짜를 설정할 수 있어, 칫솔·수건·필터·콘택트렌즈·에어컨 필터 같은 정기 교체품에 잘 맞습니다.</p>
                         <ul class="feature-list">
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">用實際更換日校準下一次提醒</span><span data-lang="en">Use the actual replacement date to calibrate the next reminder</span></li>
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">週期、狀態與使用天數同步顯示</span><span data-lang="en">See cycle, status, and usage days together</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">用實際更換日校準下一次提醒</span><span data-lang="en">Use the actual replacement date to calibrate the next reminder</span><span data-lang="ja">実際の交換日で次のリマインドを補正</span><span data-lang="ko">실제 교체일로 다음 알림을 보정</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">週期、狀態與使用天數同步顯示</span><span data-lang="en">See cycle, status, and usage days together</span><span data-lang="ja">サイクル・状態・使用日数をまとめて表示</span><span data-lang="ko">주기, 상태, 사용 일수를 함께 표시</span></li>
                         </ul>
                     </div>
                     <div class="screen-pair" aria-label="更換週期畫面">
@@ -1534,14 +1588,18 @@
 
                 <article class="feature-row reveal">
                     <div class="feature-copy">
-                        <div class="feature-kicker"><i data-lucide="archive"></i> 03 <span data-lang="zh">備品庫存追蹤</span><span data-lang="en">Inventory Tracking</span></div>
+                        <div class="feature-kicker"><i data-lucide="archive"></i> 03 <span data-lang="zh">備品庫存追蹤</span><span data-lang="en">Inventory Tracking</span><span data-lang="ja">在庫トラッキング</span><span data-lang="ko">비품 재고 추적</span></div>
                         <h3 data-lang="zh">家裡還剩多少，低於安全值就提醒</h3>
                         <h3 data-lang="en">Track what is left at home and restock before it is low</h3>
+                        <h3 data-lang="ja">家にあと何個あるか、安全在庫を切ったらお知らせ</h3>
+                        <h3 data-lang="ko">집에 얼마나 남았는지, 안전 재고 아래면 알림</h3>
                         <p data-lang="zh">記錄家裡還剩多少備品，並設定安全庫存。數量偏低時，提醒你該補貨了。</p>
                         <p data-lang="en">Record how many backups you have at home and set a safety stock level. When quantity drops, Swap It. reminds you to restock.</p>
+                        <p data-lang="ja">家にあるストックの数を記録し、安全在庫を設定。数が少なくなると、買い足しをお知らせします。</p>
+                        <p data-lang="ko">집에 남은 비품 수량을 기록하고 안전 재고를 설정하세요. 수량이 적어지면 보충할 때를 알려줍니다.</p>
                         <ul class="feature-list">
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">充足、偏低與待補貨狀態清楚分流</span><span data-lang="en">Clear states for stocked, low, and restock-needed items</span></li>
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">補貨後可直接更新庫存數量</span><span data-lang="en">Update quantity immediately after restocking</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">充足、偏低與待補貨狀態清楚分流</span><span data-lang="en">Clear states for stocked, low, and restock-needed items</span><span data-lang="ja">在庫あり・少なめ・買い足し要、状態をはっきり分類</span><span data-lang="ko">충분, 부족, 보충 필요 상태를 명확히 구분</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">補貨後可直接更新庫存數量</span><span data-lang="en">Update quantity immediately after restocking</span><span data-lang="ja">買い足したらその場で在庫数を更新</span><span data-lang="ko">보충 후 바로 재고 수량을 업데이트</span></li>
                         </ul>
                     </div>
                     <div class="screen-pair" aria-label="備品庫存畫面">
@@ -1552,14 +1610,18 @@
 
                 <article class="feature-row reveal">
                     <div class="feature-copy">
-                        <div class="feature-kicker"><i data-lucide="shopping-cart"></i> 04 <span data-lang="zh">自動採購清單</span><span data-lang="en">Shopping List</span></div>
+                        <div class="feature-kicker"><i data-lucide="shopping-cart"></i> 04 <span data-lang="zh">自動採購清單</span><span data-lang="en">Shopping List</span><span data-lang="ja">自動の買い物リスト</span><span data-lang="ko">자동 장보기 목록</span></div>
                         <h3 data-lang="zh">出門買東西，不再漏項</h3>
                         <h3 data-lang="en">Do not miss what you meant to buy</h3>
+                        <h3 data-lang="ja">買い物に出ても、買い忘れない</h3>
+                        <h3 data-lang="ko">장 보러 나가도 빠뜨리지 않아요</h3>
                         <p data-lang="zh">庫存不足的物品可整理成採購清單，出門買東西時更不容易漏項。</p>
                         <p data-lang="en">Low-stock items can be gathered into a shopping list, making errands less likely to miss the small but necessary things.</p>
+                        <p data-lang="ja">在庫が足りないものを買い物リストにまとめておけば、買い物のときに買い忘れにくくなります。</p>
+                        <p data-lang="ko">재고가 부족한 물건을 장보기 목록으로 모아두면, 장 볼 때 빠뜨릴 일이 줄어듭니다.</p>
                         <ul class="feature-list">
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">待補貨物品自動彙整</span><span data-lang="en">Restock-needed items collected automatically</span></li>
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">採買完成後回到庫存紀錄</span><span data-lang="en">Return purchased items back to inventory records</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">待補貨物品自動彙整</span><span data-lang="en">Restock-needed items collected automatically</span><span data-lang="ja">買い足しが必要なものを自動でまとめ</span><span data-lang="ko">보충할 물건을 자동으로 모음</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">採買完成後回到庫存紀錄</span><span data-lang="en">Return purchased items back to inventory records</span><span data-lang="ja">買い終わったら在庫記録に戻せる</span><span data-lang="ko">구매 후 재고 기록으로 되돌리기</span></li>
                         </ul>
                     </div>
                     <div class="screen-pair single" aria-label="採購清單畫面">
@@ -1569,14 +1631,18 @@
 
                 <article class="feature-row reveal">
                     <div class="feature-copy">
-                        <div class="feature-kicker"><i data-lucide="gauge"></i> 05 <span data-lang="zh">用量提醒</span><span data-lang="en">Usage Alerts</span></div>
+                        <div class="feature-kicker"><i data-lucide="gauge"></i> 05 <span data-lang="zh">用量提醒</span><span data-lang="en">Usage Alerts</span><span data-lang="ja">使用量アラート</span><span data-lang="ko">사용량 알림</span></div>
                         <h3 data-lang="zh">藥品、保健品、清潔劑，快用完前先提醒</h3>
                         <h3 data-lang="en">Get reminded before pills, supplements, and refills run out</h3>
+                        <h3 data-lang="ja">薬・サプリ・洗剤、なくなる前にお知らせ</h3>
+                        <h3 data-lang="ko">약, 영양제, 세제가 떨어지기 전에 알림</h3>
                         <p data-lang="zh">為用量型物品記錄剩餘量，App 會依你的使用頻率估算消耗，快到你設定的下限時主動提醒，不必每天回來手動數。</p>
                         <p data-lang="en">Track the remaining amount for usage-based items. Swap It. estimates consumption from your usage pace and reminds you before it drops below your threshold — no daily manual counting.</p>
+                        <p data-lang="ja">使用量型のアイテムに残量を記録すれば、使用ペースから消費を推定し、設定した下限に近づくとお知らせ。毎日手で数える必要はありません。</p>
+                        <p data-lang="ko">사용량형 물건에 남은 양을 기록하면 사용 빈도로 소비를 추정해, 설정한 하한선에 가까워지면 알려줍니다. 매일 직접 셀 필요가 없어요.</p>
                         <ul class="feature-list">
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">依使用頻率自動估算剩餘量</span><span data-lang="en">Auto-estimates the remaining amount from your usage pace</span></li>
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">低於設定下限主動通知補貨</span><span data-lang="en">Notifies you to restock before it runs low</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">依使用頻率自動估算剩餘量</span><span data-lang="en">Auto-estimates the remaining amount from your usage pace</span><span data-lang="ja">使用ペースから残量を自動で推定</span><span data-lang="ko">사용 빈도로 남은 양을 자동 추정</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">低於設定下限主動通知補貨</span><span data-lang="en">Notifies you to restock before it runs low</span><span data-lang="ja">設定下限を下回ると買い足しを通知</span><span data-lang="ko">설정 하한선 아래면 보충을 알림</span></li>
                         </ul>
                     </div>
                     <div class="screen-pair" aria-label="用量提醒畫面">
@@ -1587,14 +1653,18 @@
 
                 <article class="feature-row reveal">
                     <div class="feature-copy">
-                        <div class="feature-kicker"><i data-lucide="users"></i> 06 <span data-lang="zh">成員管理</span><span data-lang="en">Members</span></div>
+                        <div class="feature-kicker"><i data-lucide="users"></i> 06 <span data-lang="zh">成員管理</span><span data-lang="en">Members</span><span data-lang="ja">メンバー管理</span><span data-lang="ko">멤버 관리</span></div>
                         <h3 data-lang="zh">分清楚誰的東西，一個 App 管理全家</h3>
                         <h3 data-lang="en">Keep everyone's items separate, manage the whole home in one app</h3>
+                        <h3 data-lang="ja">誰のものかを分けて、家族全員をひとつのアプリで管理</h3>
+                        <h3 data-lang="ko">누구의 물건인지 구분해 온 가족을 한 앱에서 관리</h3>
                         <p data-lang="zh">把物品指派給家中不同成員，再依成員篩選檢視，分清楚誰的隱形眼鏡、誰的保養品，一個 App 就能管理全家人的物品。</p>
                         <p data-lang="en">Assign items to different family members and filter by member, so you always know whose contact lenses or skincare belongs to whom — manage the whole household's items in one app.</p>
+                        <p data-lang="ja">アイテムを家族それぞれに割り当て、メンバーで絞り込んで表示。誰のコンタクト、誰のスキンケアかをはっきり分けて、ひとつのアプリで家族全員のものを管理できます。</p>
+                        <p data-lang="ko">물건을 가족 구성원에게 배정하고 멤버별로 걸러 볼 수 있어, 누구의 콘택트렌즈인지 누구의 화장품인지 구분해 한 앱으로 온 가족의 물건을 관리할 수 있습니다.</p>
                         <ul class="feature-list">
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">物品可指派給指定成員</span><span data-lang="en">Assign items to specific members</span></li>
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">依成員篩選，各自的物品一目了然</span><span data-lang="en">Filter by member to see each person's items at a glance</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">物品可指派給指定成員</span><span data-lang="en">Assign items to specific members</span><span data-lang="ja">アイテムを特定のメンバーに割り当て可能</span><span data-lang="ko">물건을 특정 멤버에게 배정 가능</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">依成員篩選，各自的物品一目了然</span><span data-lang="en">Filter by member to see each person's items at a glance</span><span data-lang="ja">メンバーで絞り込めば、それぞれのものがひと目で</span><span data-lang="ko">멤버별로 걸러 각자의 물건을 한눈에</span></li>
                         </ul>
                     </div>
                     <div class="screen-pair" aria-label="成員管理畫面">
@@ -1612,50 +1682,74 @@
                         <div class="eyebrow">Organize Faster</div>
                         <h2 data-lang="zh">建立、分類、瀏覽都更直覺</h2>
                         <h2 data-lang="en">Create, sort, and browse with less friction</h2>
+                        <h2 data-lang="ja">作成・分類・閲覧が、もっと直感的に</h2>
+                        <h2 data-lang="ko">만들기, 분류, 둘러보기가 더 직관적으로</h2>
                     </div>
                     <p data-lang="zh">從照片、範本到空間分類，降低整理生活用品的成本。少一點手動輸入，多一點真正用得上的紀錄。</p>
                     <p data-lang="en">Photos, templates, and room-based categories reduce the work of organizing household supplies, so records stay useful instead of tedious.</p>
+                    <p data-lang="ja">写真・テンプレート・場所別分類で、暮らしの用品を整理する手間を軽減。手入力は少なく、本当に使える記録を多く。</p>
+                    <p data-lang="ko">사진, 템플릿, 공간별 분류로 생활용품 정리에 드는 수고를 줄입니다. 수동 입력은 줄이고, 진짜 쓸모 있는 기록은 늘립니다.</p>
                 </div>
                 <div class="quick-grid">
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="image"></i></div>
                         <h3 data-lang="zh">收藏冊與物品照片</h3>
                         <h3 data-lang="en">Collection and Photos</h3>
+                        <h3 data-lang="ja">コレクションと写真</h3>
+                        <h3 data-lang="ko">컬렉션과 사진</h3>
                         <p data-lang="zh">為物品加入照片與分類，讓日用品不只是文字清單，也能用更直覺的方式瀏覽與管理。</p>
                         <p data-lang="en">Add photos and categories so everyday supplies are easier to recognize than a plain text list.</p>
+                        <p data-lang="ja">アイテムに写真と分類を追加。日用品が文字の一覧だけでなく、もっと直感的に見て管理できます。</p>
+                        <p data-lang="ko">물건에 사진과 분류를 더해, 생활용품을 단순한 텍스트 목록이 아니라 더 직관적으로 보고 관리할 수 있습니다.</p>
                     </article>
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="sparkles"></i></div>
                         <h3 data-lang="zh">快速建立常見物品</h3>
                         <h3 data-lang="en">Common Item Templates</h3>
+                        <h3 data-lang="ja">よく使うものをすぐ追加</h3>
+                        <h3 data-lang="ko">자주 쓰는 물건 빠른 추가</h3>
                         <p data-lang="zh">內建常見居家耗材範本，減少從零設定的時間，常用物品可以更快加入。</p>
                         <p data-lang="en">Built-in household templates reduce setup time for the things people add most often.</p>
+                        <p data-lang="ja">よくある家庭の消耗品テンプレートを内蔵。ゼロから設定する手間を減らし、定番アイテムをすばやく追加できます。</p>
+                        <p data-lang="ko">자주 쓰는 가정 소모품 템플릿을 내장해, 처음부터 설정하는 시간을 줄이고 자주 쓰는 물건을 더 빨리 추가할 수 있습니다.</p>
                     </article>
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="map-pin"></i></div>
                         <h3 data-lang="zh">空間分類</h3>
                         <h3 data-lang="en">Room Categories</h3>
+                        <h3 data-lang="ja">場所別の分類</h3>
+                        <h3 data-lang="ko">공간별 분류</h3>
                         <p data-lang="zh">依客廳、廚房、衛浴、臥室等位置整理物品，想找東西或確認庫存都更清楚。</p>
                         <p data-lang="en">Organize supplies by living room, kitchen, bathroom, bedroom, and other locations.</p>
+                        <p data-lang="ja">リビング・キッチン・バス・寝室などの場所別にアイテムを整理。探すときも在庫を確認するときも分かりやすくなります。</p>
+                        <p data-lang="ko">거실, 주방, 욕실, 침실 등 위치별로 물건을 정리해, 찾을 때도 재고를 확인할 때도 더 명확합니다.</p>
                     </article>
                     <article class="quick-card reveal">
                         <div class="quick-icon"><i data-lucide="bar-chart-3"></i></div>
                         <h3 data-lang="zh">使用紀錄與統計</h3>
                         <h3 data-lang="en">Records and Stats</h3>
+                        <h3 data-lang="ja">使用履歴と統計</h3>
+                        <h3 data-lang="ko">사용 기록과 통계</h3>
                         <p data-lang="zh">記錄每次更換與補貨，回頭檢視實際使用週期，慢慢校準提醒節奏。</p>
                         <p data-lang="en">Review replacement and restock history to understand real usage cycles over time.</p>
+                        <p data-lang="ja">交換も買い足しも毎回記録。実際の使用サイクルを振り返り、リマインドのペースを少しずつ調整できます。</p>
+                        <p data-lang="ko">교체와 보충을 매번 기록하고 실제 사용 주기를 돌아보며 알림 리듬을 조금씩 맞춰갑니다.</p>
                     </article>
                 </div>
                 <div class="sticker-showcase reveal">
                     <div class="sticker-copy">
-                        <div class="feature-kicker"><i data-lucide="camera"></i> <span data-lang="zh">拍照貼紙化</span><span data-lang="en">Photo Stickers</span></div>
+                        <div class="feature-kicker"><i data-lucide="camera"></i> <span data-lang="zh">拍照貼紙化</span><span data-lang="en">Photo Stickers</span><span data-lang="ja">写真をステッカーに</span><span data-lang="ko">사진을 스티커로</span></div>
                         <h3 data-lang="zh">拍下物品，變成自己的貼紙圖鑑</h3>
                         <h3 data-lang="en">Turn your items into a sticker-like collection</h3>
+                        <h3 data-lang="ja">撮るだけで、自分だけのステッカー図鑑に</h3>
+                        <h3 data-lang="ko">찍기만 하면, 나만의 스티커 도감으로</h3>
                         <p data-lang="zh">把家裡真正使用的品牌、型號與外觀留下來。日用品不只是一串文字，也能像收藏冊一樣快速辨認。</p>
                         <p data-lang="en">Keep the brands, models, and packaging you actually use at home. Everyday supplies become recognizable at a glance.</p>
+                        <p data-lang="ja">家で実際に使っているブランド・型番・見た目を残せます。日用品が文字の羅列ではなく、コレクションのようにすぐ見分けられます。</p>
+                        <p data-lang="ko">집에서 실제로 쓰는 브랜드, 모델, 겉모습을 남겨두세요. 생활용품이 글자의 나열이 아니라 컬렉션처럼 금방 알아볼 수 있습니다.</p>
                         <ul class="feature-list">
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">物品照片可整理進收藏冊</span><span data-lang="en">Item photos can be organized in the collection</span></li>
-                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">貼紙檢視讓備品更好認</span><span data-lang="en">Sticker view makes supplies easier to identify</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">物品照片可整理進收藏冊</span><span data-lang="en">Item photos can be organized in the collection</span><span data-lang="ja">アイテム写真をコレクションに整理できる</span><span data-lang="ko">물건 사진을 컬렉션에 정리 가능</span></li>
+                            <li><i data-lucide="check-circle-2"></i> <span data-lang="zh">貼紙檢視讓備品更好認</span><span data-lang="en">Sticker view makes supplies easier to identify</span><span data-lang="ja">ステッカー表示でストックが見分けやすい</span><span data-lang="ko">스티커 보기로 비품을 더 쉽게 식별</span></li>
                         </ul>
                     </div>
                     <div class="sticker-stage" aria-label="拍照變貼紙效果">
@@ -1679,6 +1773,8 @@
                         <div class="eyebrow">Daily Objects</div>
                     <h2 data-lang="zh">適合那些不想每天記著，但到時間就該處理的小事</h2>
                     <h2 data-lang="en">For the small things you do not want to remember every day</h2>
+                    <h2 data-lang="ja">毎日は覚えていたくないけれど、時期がきたら片づけたい小さなことに</h2>
+                    <h2 data-lang="ko">매일 기억하긴 싫지만 때가 되면 처리해야 하는 소소한 일에 딱</h2>
                     <div class="records-list">
                         <div class="record-item">
                             <div class="record-images">
@@ -1688,8 +1784,12 @@
                             </div>
                             <strong data-lang="zh">定期更換用品</strong>
                             <strong data-lang="en">Regular Replacement Items</strong>
+                            <strong data-lang="ja">定期交換アイテム</strong>
+                            <strong data-lang="ko">정기 교체 용품</strong>
                             <span data-lang="zh">牙刷、刮鬍刀片、牙線等。</span>
                             <span data-lang="en">Toothbrushes, razor blades, dental floss, and more.</span>
+                            <span data-lang="ja">歯ブラシ、替刃、デンタルフロスなど。</span>
+                            <span data-lang="ko">칫솔, 면도날, 치실 등.</span>
                         </div>
                         <div class="record-item">
                             <div class="record-images">
@@ -1699,8 +1799,12 @@
                             </div>
                             <strong data-lang="zh">家電與濾材耗材</strong>
                             <strong data-lang="en">Appliance Filters and Parts</strong>
+                            <strong data-lang="ja">家電・フィルター消耗品</strong>
+                            <strong data-lang="ko">가전과 필터 소모품</strong>
                             <span data-lang="zh">空氣清淨機濾網、淨水器濾芯、吸塵器耗材。</span>
                             <span data-lang="en">Air purifier filters, water filters, vacuum parts, and more.</span>
+                            <span data-lang="ja">空気清浄機フィルター、浄水器カートリッジ、掃除機の消耗品。</span>
+                            <span data-lang="ko">공기청정기 필터, 정수기 필터, 청소기 소모품.</span>
                         </div>
                         <div class="record-item">
                             <div class="record-images">
@@ -1710,8 +1814,12 @@
                             </div>
                             <strong data-lang="zh">日常備品</strong>
                             <strong data-lang="en">Everyday Supplies</strong>
+                            <strong data-lang="ja">毎日のストック</strong>
+                            <strong data-lang="ko">일상 비품</strong>
                             <span data-lang="zh">電池、衛生紙、洗衣精與清潔補充品。</span>
                             <span data-lang="en">Batteries, toilet paper, detergent, cleaning refills, and more.</span>
+                            <span data-lang="ja">電池、トイレットペーパー、洗剤、洗浄補充品。</span>
+                            <span data-lang="ko">건전지, 휴지, 세제와 세정 리필.</span>
                         </div>
                     </div>
                 </div>
@@ -1725,50 +1833,70 @@
                         <div class="eyebrow">FAQ</div>
                         <h2 data-lang="zh">關於「該換了吧」的常見問題</h2>
                         <h2 data-lang="en">Frequently asked questions about Swap It</h2>
+                        <h2 data-lang="ja">「Swap It.」についてのよくある質問</h2>
+                        <h2 data-lang="ko">"Swap It."에 대해 자주 묻는 질문</h2>
                     </div>
                     <p data-lang="zh">關於這款生活用品更換提醒 App，使用者最常問的幾個問題。</p>
                     <p data-lang="en">The questions people ask most about this household replacement reminder app.</p>
+                    <p data-lang="ja">この暮らしの用品の交換リマインダーアプリについて、よく寄せられる質問です。</p>
+                    <p data-lang="ko">이 생활용품 교체 알림 앱에 대해 사용자들이 가장 많이 묻는 질문입니다.</p>
                 </div>
                 <div class="faq-list reveal">
                     <details class="faq-item" open>
-                        <summary><span data-lang="zh">「該換了吧」是什麼樣的 App？</span><span data-lang="en">What is Swap It?</span></summary>
+                        <summary><span data-lang="zh">「該換了吧」是什麼樣的 App？</span><span data-lang="en">What is Swap It?</span><span data-lang="ja">「Swap It.」はどんなアプリ？</span><span data-lang="ko">"Swap It."은 어떤 앱인가요?</span></summary>
                         <div class="faq-answer" data-lang="zh">該換了吧（Swap It）是一款生活用品更換提醒 App，幫你追蹤牙刷、濾芯、隱形眼鏡等耗材的更換週期，並管理備品庫存與補貨採購清單。</div>
                         <div class="faq-answer" data-lang="en">Swap It is a household replacement reminder app that tracks the replacement cycles of items like toothbrushes, filters, and contact lenses, and manages your backup stock and shopping list.</div>
+                        <div class="faq-answer" data-lang="ja">Swap It.は暮らしの用品の交換リマインダーアプリです。歯ブラシ・フィルター・コンタクトなどの交換サイクルを管理し、ストックや買い物リストもまとめて管理できます。</div>
+                        <div class="faq-answer" data-lang="ko">Swap It.은 생활용품 교체 알림 앱입니다. 칫솔, 필터, 콘택트렌즈 같은 소모품의 교체 주기를 추적하고 비품 재고와 보충 장보기 목록을 관리해 줍니다.</div>
                     </details>
                     <details class="faq-item">
-                        <summary><span data-lang="zh">該換了吧可以提醒哪些東西要更換？</span><span data-lang="en">What can it remind me to replace?</span></summary>
+                        <summary><span data-lang="zh">該換了吧可以提醒哪些東西要更換？</span><span data-lang="en">What can it remind me to replace?</span><span data-lang="ja">どんなものの交換を知らせてくれますか？</span><span data-lang="ko">어떤 물건의 교체를 알려주나요?</span></summary>
                         <div class="faq-answer" data-lang="zh">任何有更換週期的生活用品都行——牙刷、刮鬍刀片、牙線、隱形眼鏡、空氣清淨機與淨水器濾芯、吸塵器耗材、電池等，你也可以自訂任何物品與更換週期。</div>
                         <div class="faq-answer" data-lang="en">Anything with a replacement cycle—toothbrushes, razor blades, dental floss, contact lenses, air purifier and water filters, vacuum parts, batteries, and any custom item and cycle you add.</div>
+                        <div class="faq-answer" data-lang="ja">交換サイクルがあるものなら、何でも対応します。歯ブラシ、替刃、デンタルフロス、コンタクト、空気清浄機や浄水器のフィルター、掃除機の消耗品、電池など、好きなアイテムとサイクルも自由に追加できます。</div>
+                        <div class="faq-answer" data-lang="ko">교체 주기가 있는 생활용품이라면 무엇이든 가능합니다. 칫솔, 면도날, 치실, 콘택트렌즈, 공기청정기와 정수기 필터, 청소기 소모품, 건전지 등 원하는 물건과 교체 주기를 직접 추가할 수도 있습니다.</div>
                     </details>
                     <details class="faq-item">
-                        <summary><span data-lang="zh">該換了吧是免費的嗎？</span><span data-lang="en">Is Swap It free?</span></summary>
+                        <summary><span data-lang="zh">該換了吧是免費的嗎？</span><span data-lang="en">Is Swap It free?</span><span data-lang="ja">「Swap It.」は無料ですか？</span><span data-lang="ko">"Swap It."은 무료인가요?</span></summary>
                         <div class="faq-answer" data-lang="zh">免費下載，可直接使用核心的更換提醒與備品管理功能；另有訂閱方案可解鎖進階功能。</div>
                         <div class="faq-answer" data-lang="en">Free to download with core replacement reminders and inventory management. An optional subscription unlocks advanced features.</div>
+                        <div class="faq-answer" data-lang="ja">無料でダウンロードでき、交換リマインダーやストック管理といった主要機能はそのまま使えます。さらに高度な機能はサブスクリプションで解放できます。</div>
+                        <div class="faq-answer" data-lang="ko">무료로 다운로드해 핵심 교체 알림과 비품 관리 기능을 바로 쓸 수 있습니다. 추가로 구독 요금제로 고급 기능을 해제할 수 있습니다.</div>
                     </details>
                     <details class="faq-item">
-                        <summary><span data-lang="zh">跟手機內建的「提醒事項」有什麼不同？</span><span data-lang="en">How is it different from the built-in Reminders app?</span></summary>
+                        <summary><span data-lang="zh">跟手機內建的「提醒事項」有什麼不同？</span><span data-lang="en">How is it different from the built-in Reminders app?</span><span data-lang="ja">スマホ標準の「リマインダー」と何が違いますか？</span><span data-lang="ko">스마트폰 기본 "미리 알림"과 무엇이 다른가요?</span></summary>
                         <div class="faq-answer" data-lang="zh">它不是一般待辦清單，而是用「物況」管理生活用品——正常使用中、快到期、今天該換、庫存不足都一目了然，還能追蹤備品數量、低庫存補貨與採購清單。</div>
                         <div class="faq-answer" data-lang="en">It is not a generic to-do list. It organizes supplies by status—active, due soon, due today, or low on stock—and tracks backup quantities, restock alerts, and a shopping list.</div>
+                        <div class="faq-answer" data-lang="ja">一般的なToDoリストではなく、「ものの状態」で暮らしの用品を管理します。使用中・期限間近・今日交換・在庫不足がひと目で分かり、ストック数や買い足し、買い物リストまで追えます。</div>
+                        <div class="faq-answer" data-lang="ko">일반 할 일 목록이 아니라 "물건 상태"로 생활용품을 관리합니다. 사용 중, 기한 임박, 오늘 교체, 재고 부족이 한눈에 보이고 비품 수량, 보충, 장보기 목록까지 챙길 수 있습니다.</div>
                     </details>
                     <details class="faq-item">
-                        <summary><span data-lang="zh">備品快用完時會提醒我補貨嗎？</span><span data-lang="en">Will it remind me to restock?</span></summary>
+                        <summary><span data-lang="zh">備品快用完時會提醒我補貨嗎？</span><span data-lang="en">Will it remind me to restock?</span><span data-lang="ja">ストックが少なくなったら買い足しを知らせてくれますか？</span><span data-lang="ko">비품이 떨어질 때 보충을 알려주나요?</span></summary>
                         <div class="faq-answer" data-lang="zh">會。當備品低於你設定的安全存量，App 會提醒你該補貨，並把待補物品整理成出門採購清單。</div>
                         <div class="faq-answer" data-lang="en">Yes. When backup stock falls below the safety level you set, Swap It reminds you to restock and turns those items into a shopping list.</div>
+                        <div class="faq-answer" data-lang="ja">はい。ストックが設定した安全在庫を下回ると、買い足しをお知らせし、必要なものを買い物リストにまとめます。</div>
+                        <div class="faq-answer" data-lang="ko">네. 비품이 설정한 안전 재고 아래로 떨어지면 보충할 때를 알려주고, 필요한 물건을 장보기 목록으로 정리해 줍니다.</div>
                     </details>
                     <details class="faq-item">
-                        <summary><span data-lang="zh">可以追蹤保健食品、藥品這類會慢慢用完的東西嗎？</span><span data-lang="en">Can it track things that run out gradually, like supplements or medicine?</span></summary>
+                        <summary><span data-lang="zh">可以追蹤保健食品、藥品這類會慢慢用完的東西嗎？</span><span data-lang="en">Can it track things that run out gradually, like supplements or medicine?</span><span data-lang="ja">サプリや薬のように少しずつ減るものも管理できますか？</span><span data-lang="ko">영양제나 약처럼 조금씩 줄어드는 것도 추적할 수 있나요?</span></summary>
                         <div class="faq-answer" data-lang="zh">可以。記錄剩餘量後，App 會依使用頻率估算消耗，保健食品、藥品、清潔劑快用完前主動提醒，不必每天手動清點。</div>
                         <div class="faq-answer" data-lang="en">Yes. Record the remaining amount and Swap It estimates consumption from your pace, reminding you before supplements, medicine, or cleaners run out.</div>
+                        <div class="faq-answer" data-lang="ja">できます。残量を記録すれば使用ペースから消費を推定し、サプリ・薬・洗剤がなくなる前にお知らせ。毎日手で数える必要はありません。</div>
+                        <div class="faq-answer" data-lang="ko">가능합니다. 남은 양을 기록하면 사용 빈도로 소비를 추정해, 영양제·약·세제가 떨어지기 전에 알려줍니다. 매일 직접 셀 필요가 없어요.</div>
                     </details>
                     <details class="faq-item">
-                        <summary><span data-lang="zh">可以幫全家人一起管理物品嗎？</span><span data-lang="en">Can I manage items for my whole family?</span></summary>
+                        <summary><span data-lang="zh">可以幫全家人一起管理物品嗎？</span><span data-lang="en">Can I manage items for my whole family?</span><span data-lang="ja">家族全員のものをまとめて管理できますか？</span><span data-lang="ko">온 가족의 물건을 함께 관리할 수 있나요?</span></summary>
                         <div class="faq-answer" data-lang="zh">可以。把物品指派給家庭成員、依成員篩選，一個人就能在同一個 App 管理全家人的物品。（成員是分類標籤，非多裝置即時同步。）</div>
                         <div class="faq-answer" data-lang="en">Yes. Assign items to family members and filter by person—one person manages the whole household in one app. (Members are organizing labels, not multi-device sync.)</div>
+                        <div class="faq-answer" data-lang="ja">できます。アイテムを家族メンバーに割り当て、メンバーで絞り込めば、ひとりで同じアプリから家族全員のものを管理できます。（メンバーは分類ラベルで、複数端末のリアルタイム同期ではありません。）</div>
+                        <div class="faq-answer" data-lang="ko">가능합니다. 물건을 가족 구성원에게 배정하고 멤버별로 거르면, 한 사람이 같은 앱에서 온 가족의 물건을 관리할 수 있습니다. (멤버는 분류 라벨이며, 여러 기기 실시간 동기화는 아닙니다.)</div>
                     </details>
                     <details class="faq-item">
-                        <summary><span data-lang="zh">該換了吧支援哪些平台？</span><span data-lang="en">Which platforms are supported?</span></summary>
+                        <summary><span data-lang="zh">該換了吧支援哪些平台？</span><span data-lang="en">Which platforms are supported?</span><span data-lang="ja">「Swap It.」はどのプラットフォームに対応していますか？</span><span data-lang="ko">"Swap It."은 어떤 플랫폼을 지원하나요?</span></summary>
                         <div class="faq-answer" data-lang="zh">支援 iPhone（iOS）與 Android，可至 App Store 或 Google Play 免費下載。</div>
                         <div class="faq-answer" data-lang="en">Available for iPhone (iOS) and Android as a free download on the App Store and Google Play.</div>
+                        <div class="faq-answer" data-lang="ja">iPhone（iOS）とAndroidに対応し、App StoreまたはGoogle Playから無料でダウンロードできます。</div>
+                        <div class="faq-answer" data-lang="ko">iPhone(iOS)과 Android를 지원하며, App Store 또는 Google Play에서 무료로 다운로드할 수 있습니다.</div>
                     </details>
                 </div>
             </div>
@@ -1778,11 +1906,15 @@
             <div class="wrap reveal">
                 <h2 data-lang="zh">把更換、補貨與提醒整理在同一個地方</h2>
                 <h2 data-lang="en">Keep replacements, restocks, and reminders in one place</h2>
+                <h2 data-lang="ja">交換も買い足しもリマインドも、ひとつの場所に</h2>
+                <h2 data-lang="ko">교체, 보충, 알림을 한 곳에 모으세요</h2>
                 <p data-lang="zh">讓「該換了吧」幫你記住每個該處理的日子。</p>
                 <p data-lang="en">Let Swap It. remember every household item that needs attention.</p>
-                <a class="button app-store-button" href="https://apps.apple.com/app/id6762584972" target="_blank" rel="noopener"><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg> <span data-lang="zh">App Store</span><span data-lang="en">App Store</span></a>
-                <a class="button play-store-button" href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory" target="_blank" rel="noopener"><svg class="play-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg> <span data-lang="zh">Google Play</span><span data-lang="en">Google Play</span></a>
-                <p style="margin-top:18px;font-size:13px;"><a href="terms.html" style="color:rgba(255,255,255,0.72);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.32);"><span data-lang="zh">查看使用條款與訂閱規則</span><span data-lang="en">View terms and subscription rules</span></a></p>
+                <p data-lang="ja">「Swap It.」が、対応すべき日をぜんぶ覚えておきます。</p>
+                <p data-lang="ko">"Swap It."이 챙겨야 할 날짜를 모두 기억해 드립니다.</p>
+                <a class="button app-store-button" href="https://apps.apple.com/app/id6762584972" target="_blank" rel="noopener"><svg class="apple-mark" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.2-39.2.6-75.3 22.8-95.5 57.9-40.7 70.6-10.4 174.9 29.3 232.3 19.4 28 42.5 59.5 72.9 58.4 29.2-1.2 40.2-18.9 75.5-18.9 35.2 0 45.1 18.9 76.1 18.3 31.4-.6 51.3-28.5 70.5-56.6 22.3-32.6 31.5-64.2 32-65.8-.7-.3-61-23.4-61.2-97.7zM260.8 101.9c16.1-19.5 27-46.6 24-73.5-23.1.9-51.1 15.4-67.7 34.9-14.8 17.1-27.8 44.7-24.3 71 25.8 2 51.9-13.1 68-32.4z"/></svg> <span data-lang="zh">App Store</span><span data-lang="en">App Store</span><span data-lang="ja">App Store</span><span data-lang="ko">App Store</span></a>
+                <a class="button play-store-button" href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory" target="_blank" rel="noopener"><svg class="play-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg> <span data-lang="zh">Google Play</span><span data-lang="en">Google Play</span><span data-lang="ja">Google Play</span><span data-lang="ko">Google Play</span></a>
+                <p style="margin-top:18px;font-size:13px;"><a href="terms.html" style="color:rgba(255,255,255,0.72);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.32);"><span data-lang="zh">查看使用條款與訂閱規則</span><span data-lang="en">View terms and subscription rules</span><span data-lang="ja">利用規約とサブスクリプション規約を見る</span><span data-lang="ko">이용약관과 구독 규칙 보기</span></a></p>
             </div>
         </section>
     </main>
@@ -1794,26 +1926,85 @@
                 <span>© 2026 SheepBeansGames. All rights reserved.</span>
             </div>
             <div class="footer-links">
-                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span></a>
-                <a href="terms.html"><span data-lang="zh">使用條款</span><span data-lang="en">Terms of Use</span></a>
-                <a href="data-deletion.html"><span data-lang="zh">資料刪除</span><span data-lang="en">Data Deletion</span></a>
-                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span></a>
+                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span><span data-lang="ja">プライバシーポリシー</span><span data-lang="ko">개인정보 처리방침</span></a>
+                <a href="terms.html"><span data-lang="zh">使用條款</span><span data-lang="en">Terms of Use</span><span data-lang="ja">利用規約</span><span data-lang="ko">이용약관</span></a>
+                <a href="data-deletion.html"><span data-lang="zh">資料刪除</span><span data-lang="en">Data Deletion</span><span data-lang="ja">データ削除</span><span data-lang="ko">데이터 삭제</span></a>
+                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span><span data-lang="ja">お問い合わせ</span><span data-lang="ko">문의하기</span></a>
             </div>
         </div>
     </footer>
 
     <script>
+        const SUPPORTED_LANGS = ["zh", "en", "ja", "ko"];
+        const SCREEN_DIRS = { zh: "zh-TW", en: "en", ja: "ja", ko: "ko" };
+        const HTML_LANGS = { zh: "zh-TW", en: "en", ja: "ja", ko: "ko" };
+        const PAGE_META = {
+            zh: {
+                title: "該換了吧 Swap It｜生活用品更換提醒 App，記住每個該換的日子",
+                description: "該換了吧（Swap It）是生活用品更換提醒 App，幫你追蹤牙刷、濾芯、隱形眼鏡等耗材的更換週期，管理備品庫存、低庫存補貨提醒與採購清單。",
+                keywords: "該換了吧, 該換了吧 app, Swap It, 更換提醒 app, 補貨提醒 app, 備品管理 app, 生活用品管理, 備品庫存, 採購清單, 耗材更換提醒",
+                ogTitle: "該換了吧 — 記住每個該換的日子",
+                ogDescription: "該換了吧（Swap It.）幫你管理生活用品的更換週期、備品庫存與採購清單，記住每個該換、該補貨的日子。",
+                imageAlt: "該換了吧 App icon"
+            },
+            en: {
+                title: "Swap It | Household Replacement Reminder and Inventory App",
+                description: "Swap It tracks replacement cycles, backup stock, restock reminders, shopping lists, usage tracking, and member-based household organization.",
+                keywords: "Swap It, replacement reminder app, restock reminder, household inventory app, shopping list app, inventory tracker, usage tracking app",
+                ogTitle: "Swap It — Remember every replacement date",
+                ogDescription: "Track replacement reminders, household inventory, restocks, shopping lists, usage, and member-based item organization in one app.",
+                imageAlt: "Swap It app icon"
+            },
+            ja: {
+                title: "Swap It. | 生活用品の交換リマインダー・在庫管理アプリ",
+                description: "Swap It.は歯ブラシ、フィルター、コンタクトなどの交換サイクル、ストック、買い足し、買い物リスト、使用量をまとめて管理するアプリです。",
+                keywords: "Swap It, 交換リマインダー, 在庫管理アプリ, 買い足しリマインダー, 買い物リスト, 日用品管理, 使用量トラッキング",
+                ogTitle: "Swap It. — 交換する日を忘れない",
+                ogDescription: "生活用品の交換リマインダー、ストック管理、買い足し、買い物リスト、使用量、メンバー分類をひとつのアプリで管理できます。",
+                imageAlt: "Swap Itアプリアイコン"
+            },
+            ko: {
+                title: "Swap It. | 생활용품 교체 알림과 재고 관리 앱",
+                description: "Swap It.은 칫솔, 필터, 콘택트렌즈 같은 생활용품의 교체 주기, 비품 재고, 보충 알림, 장보기 목록, 사용량을 한 곳에서 관리하는 앱입니다.",
+                keywords: "Swap It, 교체 알림 앱, 재고 관리 앱, 보충 알림, 장보기 목록, 생활용품 관리, 사용량 추적",
+                ogTitle: "Swap It. — 교체할 날짜를 잊지 않게",
+                ogDescription: "생활용품 교체 알림, 비품 재고, 보충, 장보기 목록, 사용량, 멤버별 분류를 하나의 앱에서 관리하세요.",
+                imageAlt: "Swap It 앱 아이콘"
+            }
+        };
+
+        const setMetaContent = (selector, value) => {
+            const element = document.head.querySelector(selector);
+            if (element) element.setAttribute("content", value);
+        };
+
         const setLanguage = (lang) => {
+            if (!SUPPORTED_LANGS.includes(lang)) lang = "zh";
+            const meta = PAGE_META[lang];
             document.documentElement.dataset.lang = lang;
-            document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
+            document.documentElement.lang = HTML_LANGS[lang];
+            document.title = meta.title;
+            setMetaContent('meta[name="description"]', meta.description);
+            setMetaContent('meta[name="keywords"]', meta.keywords);
+            setMetaContent('meta[property="og:title"]', meta.ogTitle);
+            setMetaContent('meta[property="og:description"]', meta.ogDescription);
+            setMetaContent('meta[property="og:image:alt"]', meta.imageAlt);
+            setMetaContent('meta[name="twitter:title"]', meta.ogTitle);
+            setMetaContent('meta[name="twitter:description"]', meta.ogDescription);
+            setMetaContent('meta[name="twitter:image:alt"]', meta.imageAlt);
             document.querySelectorAll("img[data-screen]").forEach((image) => {
-                image.src = `assets/screenshots/${lang === "zh" ? "zh-TW" : "en"}/${image.dataset.screen}`;
+                image.src = `assets/screenshots/${SCREEN_DIRS[lang]}/${image.dataset.screen}`;
             });
             localStorage.setItem("swapit-site-lang", lang);
         };
 
         const requestedLang = new URLSearchParams(window.location.search).get("lang");
-        const initialLang = requestedLang === "en" ? "en" : localStorage.getItem("swapit-site-lang") || "zh";
+        const storedLang = localStorage.getItem("swapit-site-lang");
+        const initialLang = SUPPORTED_LANGS.includes(requestedLang)
+            ? requestedLang
+            : SUPPORTED_LANGS.includes(storedLang)
+                ? storedLang
+                : "zh";
         setLanguage(initialLang);
 
         document.querySelectorAll("[data-set-lang]").forEach((button) => {

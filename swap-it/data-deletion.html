@@ -35,8 +35,10 @@
             overflow-x: hidden;
         }
 
-        html[data-lang="zh"] [data-lang="en"],
-        html[data-lang="en"] [data-lang="zh"] {
+        html[data-lang="zh"] [data-lang]:not([data-lang="zh"]),
+        html[data-lang="en"] [data-lang]:not([data-lang="en"]),
+        html[data-lang="ja"] [data-lang]:not([data-lang="ja"]),
+        html[data-lang="ko"] [data-lang]:not([data-lang="ko"]) {
             display: none !important;
         }
 
@@ -146,7 +148,9 @@
         }
 
         html[data-lang="zh"] .lang-switch button[data-set-lang="zh"],
-        html[data-lang="en"] .lang-switch button[data-set-lang="en"] {
+        html[data-lang="en"] .lang-switch button[data-set-lang="en"],
+        html[data-lang="ja"] .lang-switch button[data-set-lang="ja"],
+        html[data-lang="ko"] .lang-switch button[data-set-lang="ko"] {
             background: var(--ink);
             color: #fffaf2;
         }
@@ -367,17 +371,21 @@
         <div class="wrap nav-inner">
             <a href="index.html" class="logo" aria-label="該換了吧 首頁">
                 <img src="assets/icon/icon.png" alt="">
-                <span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span>
+                <span data-lang="zh">該換了吧</span><span data-lang="en">Swap It.</span><span data-lang="ja">Swap It.</span><span data-lang="ko">Swap It.</span>
             </a>
             <div class="nav-actions">
                 <div class="lang-switch" aria-label="Language">
                     <button type="button" data-set-lang="zh">中</button>
                     <button type="button" data-set-lang="en">EN</button>
+                    <button type="button" data-set-lang="ja">日</button>
+                    <button type="button" data-set-lang="ko">한</button>
                 </div>
                 <a href="index.html" class="nav-back">
                     <i data-lucide="arrow-left" style="width:16px;height:16px;"></i>
                     <span data-lang="zh">回首頁</span>
                     <span data-lang="en">Home</span>
+                    <span data-lang="ja">ホーム</span>
+                    <span data-lang="ko">홈</span>
                 </a>
             </div>
         </div>
@@ -391,17 +399,27 @@
                     <h1>
                         <span data-lang="zh">資料刪除要求</span>
                         <span data-lang="en">Data Deletion Request</span>
+                        <span data-lang="ja">データ削除リクエスト</span>
+                        <span data-lang="ko">데이터 삭제 요청</span>
                     </h1>
                     <p class="hero-lead" data-lang="zh">本頁說明如何要求刪除與 SheepBeansGames 開發之「該換了吧」（Swap It.）行動應用程式相關的使用者資料。</p>
                     <p class="hero-lead" data-lang="en">This page explains how to request deletion of user data associated with the Swap It. mobile app developed by SheepBeansGames.</p>
+                    <p class="hero-lead" data-lang="ja">このページでは、SheepBeansGamesが開発したモバイルアプリSwap It.に関連するユーザーデータの削除を依頼する方法を説明します。</p>
+                    <p class="hero-lead" data-lang="ko">이 페이지는 SheepBeansGames가 개발한 Swap It. 모바일 앱과 관련된 사용자 데이터 삭제를 요청하는 방법을 설명합니다.</p>
                     <p class="updated" data-lang="zh">最後更新：2026 年 5 月 4 日</p>
                     <p class="updated" data-lang="en">Last updated: May 4, 2026</p>
+                    <p class="updated" data-lang="ja">最終更新日：2026年5月4日</p>
+                    <p class="updated" data-lang="ko">마지막 업데이트: 2026년 5월 4일</p>
                 </div>
                 <div class="hero-panel">
                     <strong data-lang="zh">刪除方式</strong>
                     <strong data-lang="en">Deletion Method</strong>
+                    <strong data-lang="ja">削除方法</strong>
+                    <strong data-lang="ko">삭제 방법</strong>
                     <p data-lang="zh">請透過 Email 提出要求。我們可能需要確認帳號擁有權，並會回覆處理結果。</p>
                     <p data-lang="en">Request deletion by email. We may need to verify account ownership and will reply with the result.</p>
+                    <p data-lang="ja">削除はメールでご依頼ください。アカウント所有権の確認が必要となる場合があり、処理結果は返信でお知らせします。</p>
+                    <p data-lang="ko">삭제는 이메일로 요청해 주세요. 계정 소유권 확인이 필요할 수 있으며, 처리 결과를 회신해 드립니다.</p>
                 </div>
             </div>
         </section>
@@ -411,36 +429,48 @@
                 <i data-lucide="mail"></i>
                 <strong data-lang="zh">Email 申請</strong>
                 <strong data-lang="en">Email Request</strong>
+                <strong data-lang="ja">メールで申請</strong>
+                <strong data-lang="ko">이메일 요청</strong>
                 <span data-lang="zh">寄信到 sheepbeansgames@gmail.com 並說明要刪除的資料範圍。</span>
                 <span data-lang="en">Email sheepbeansgames@gmail.com and tell us what data you want deleted.</span>
+                <span data-lang="ja">sheepbeansgames@gmail.comへメールし、削除したいデータの範囲をお知らせください。</span>
+                <span data-lang="ko">sheepbeansgames@gmail.com으로 이메일을 보내 삭제하려는 데이터 범위를 알려주세요.</span>
             </div>
             <div class="highlight-card">
                 <i data-lucide="cloud-off"></i>
                 <strong data-lang="zh">雲端資料</strong>
                 <strong data-lang="en">Cloud Data</strong>
+                <strong data-lang="ja">クラウドデータ</strong>
+                <strong data-lang="ko">클라우드 데이터</strong>
                 <span data-lang="zh">可要求刪除帳號關聯、雲端備份與可識別的回饋紀錄。</span>
                 <span data-lang="en">You can request deletion of account-linked records, cloud backups, and identifiable feedback records.</span>
+                <span data-lang="ja">アカウントに関連する記録、クラウドバックアップ、識別可能なフィードバック記録の削除を依頼できます。</span>
+                <span data-lang="ko">계정 연결 기록, 클라우드 백업 및 식별 가능한 피드백 기록의 삭제를 요청할 수 있습니다.</span>
             </div>
             <div class="highlight-card">
                 <i data-lucide="clock-3"></i>
                 <strong data-lang="zh">處理期限</strong>
                 <strong data-lang="en">Timing</strong>
+                <strong data-lang="ja">処理期間</strong>
+                <strong data-lang="ko">처리 기간</strong>
                 <span data-lang="zh">一般刪除要求會盡力在 30 天內完成。</span>
                 <span data-lang="en">We aim to complete deletion requests within 30 days.</span>
+                <span data-lang="ja">削除リクエストは通常30日以内に完了するよう努めます。</span>
+                <span data-lang="ko">일반적인 삭제 요청은 30일 이내에 완료하기 위해 노력합니다.</span>
             </div>
         </section>
 
         <section class="wrap policy-shell">
             <aside class="toc" aria-label="Data deletion sections">
-                <a href="#request"><span data-lang="zh">1. 如何提出要求</span><span data-lang="en">1. Request Steps</span></a>
-                <a href="#delete"><span data-lang="zh">2. 會刪除的資料</span><span data-lang="en">2. Data We Delete</span></a>
-                <a href="#retain"><span data-lang="zh">3. 可能保留的資料</span><span data-lang="en">3. Data We May Retain</span></a>
-                <a href="#contact"><span data-lang="zh">4. 確認與聯絡</span><span data-lang="en">4. Confirmation</span></a>
+                <a href="#request"><span data-lang="zh">1. 如何提出要求</span><span data-lang="en">1. Request Steps</span><span data-lang="ja">1. 申請方法</span><span data-lang="ko">1. 요청 방법</span></a>
+                <a href="#delete"><span data-lang="zh">2. 會刪除的資料</span><span data-lang="en">2. Data We Delete</span><span data-lang="ja">2. 削除するデータ</span><span data-lang="ko">2. 삭제되는 데이터</span></a>
+                <a href="#retain"><span data-lang="zh">3. 可能保留的資料</span><span data-lang="en">3. Data We May Retain</span><span data-lang="ja">3. 保持される場合があるデータ</span><span data-lang="ko">3. 보관될 수 있는 데이터</span></a>
+                <a href="#contact"><span data-lang="zh">4. 確認與聯絡</span><span data-lang="en">4. Confirmation</span><span data-lang="ja">4. 確認と連絡</span><span data-lang="ko">4. 확인 및 연락</span></a>
             </aside>
 
             <div class="content">
                 <section class="policy-block" id="request">
-                    <h2><span data-lang="zh">1. 如何提出刪除要求</span><span data-lang="en">1. How to Request Deletion</span></h2>
+                    <h2><span data-lang="zh">1. 如何提出刪除要求</span><span data-lang="en">1. How to Request Deletion</span><span data-lang="ja">1. 削除リクエストの方法</span><span data-lang="ko">1. 삭제 요청 방법</span></h2>
                     <ol data-lang="zh">
                         <li>請寄信至 <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a>。</li>
                         <li>信件主旨請填寫：「該換了吧資料刪除要求」。</li>
@@ -453,10 +483,22 @@
                         <li>Include the Google or Apple account email you use to sign in to the app. If you only want feedback data deleted, include the email used in the feedback form or the approximate submission date.</li>
                         <li>Tell us what you want deleted, such as cloud backups, feedback records, account-linked data, or all deletable data.</li>
                     </ol>
+                    <ol data-lang="ja">
+                        <li><a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a>までメールしてください。</li>
+                        <li>件名は「Swap It. Data Deletion Request」としてください。</li>
+                        <li>アプリへのサインインに使用しているGoogleまたはAppleアカウントのメールアドレスを記載してください。フィードバックデータのみの削除を希望する場合は、フィードバックフォームで使用したメールアドレス、または送信したおおよその日付を記載してください。</li>
+                        <li>クラウドバックアップ、フィードバック記録、アカウント関連データ、または削除可能なすべてのデータなど、削除したい範囲をお知らせください。</li>
+                    </ol>
+                    <ol data-lang="ko">
+                        <li><a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a>으로 이메일을 보내 주세요.</li>
+                        <li>메일 제목은 "Swap It. Data Deletion Request"로 작성해 주세요.</li>
+                        <li>앱 로그인에 사용하는 Google 또는 Apple 계정 이메일을 포함해 주세요. 피드백 데이터만 삭제하려는 경우, 피드백 양식에 입력한 이메일 또는 대략적인 제출 날짜를 포함해 주세요.</li>
+                        <li>클라우드 백업, 피드백 기록, 계정 연결 데이터 또는 삭제 가능한 모든 데이터 등 삭제하려는 데이터 범위를 알려주세요.</li>
+                    </ol>
                 </section>
 
                 <section class="policy-block" id="delete">
-                    <h2><span data-lang="zh">2. 會刪除的資料</span><span data-lang="en">2. Data We Delete</span></h2>
+                    <h2><span data-lang="zh">2. 會刪除的資料</span><span data-lang="en">2. Data We Delete</span><span data-lang="ja">2. 削除するデータ</span><span data-lang="ko">2. 삭제되는 데이터</span></h2>
                     <ul data-lang="zh">
                         <li>Firebase Authentication 中與 App 相關的帳號關聯資料。</li>
                         <li>Firebase Storage 中與該帳號相關的雲端備份，包括備份 JSON 與已同步的貼紙圖片。</li>
@@ -469,10 +511,22 @@
                         <li>Feedback records in Cloud Firestore that can be identified as yours.</li>
                         <li>Support records related to the deletion request when they are no longer needed.</li>
                     </ul>
+                    <ul data-lang="ja">
+                        <li>Firebase Authentication内のアプリ関連アカウント記録。</li>
+                        <li>Firebase Storage内でそのアカウントに関連付けられたクラウドバックアップ。バックアップJSONファイルおよび同期されたステッカー画像を含みます。</li>
+                        <li>Cloud Firestore内であなたのものと識別できるフィードバック記録。</li>
+                        <li>削除リクエストに関連し、保管の必要がなくなったサポート対応記録。</li>
+                    </ul>
+                    <ul data-lang="ko">
+                        <li>Firebase Authentication의 앱 관련 계정 연결 데이터.</li>
+                        <li>Firebase Storage에서 해당 계정과 연결된 클라우드 백업. 백업 JSON 파일 및 동기화된 스티커 이미지를 포함합니다.</li>
+                        <li>Cloud Firestore에서 사용자와 식별 또는 연결 가능한 피드백 기록.</li>
+                        <li>삭제 요청과 관련되어 더 이상 보관할 필요가 없는 고객 지원 처리 기록.</li>
+                    </ul>
                 </section>
 
                 <section class="policy-block" id="retain">
-                    <h2><span data-lang="zh">3. 可能保留的資料與期限</span><span data-lang="en">3. Data We May Retain</span></h2>
+                    <h2><span data-lang="zh">3. 可能保留的資料與期限</span><span data-lang="en">3. Data We May Retain</span><span data-lang="ja">3. 保持される場合があるデータと期間</span><span data-lang="ko">3. 보관될 수 있는 데이터와 기간</span></h2>
                     <ul data-lang="zh">
                         <li>本機資料儲存在你的裝置上；你可以在 App 內刪除資料，或移除 App 以刪除裝置上的本機資料。</li>
                         <li>匿名或彙總分析資料若無法識別特定使用者，可能會保留用於產品統計與品質改善。</li>
@@ -485,12 +539,26 @@
                         <li>Payment, refund, and subscription transaction records are handled by Google Play or Apple App Store. We cannot delete store records retained for legal, tax, refund, or fraud-prevention purposes.</li>
                         <li>Where required for legal, security, fraud-prevention, or dispute-handling reasons, we may retain minimal records for as long as necessary. We aim to complete deletion requests within 30 days.</li>
                     </ul>
+                    <ul data-lang="ja">
+                        <li>ローカルデータはあなたの端末に保存されます。アプリ内で削除するか、アプリを削除することで端末上のローカルデータを削除できます。</li>
+                        <li>特定のユーザーを識別できない匿名または集計済みの分析データは、製品統計および品質改善のために保持される場合があります。</li>
+                        <li>支払い、返金、サブスクリプションの取引記録はGoogle PlayまたはApple App Storeが処理します。法務、税務、返金、不正防止の目的でストアが保持する記録を当社が削除することはできません。</li>
+                        <li>法令、セキュリティ、不正防止、紛争対応のために必要な場合、必要な期間に限り最小限の記録を保持することがあります。削除リクエストは30日以内に完了するよう努めます。</li>
+                    </ul>
+                    <ul data-lang="ko">
+                        <li>기기 내 데이터는 사용자의 기기에 저장됩니다. 앱 안에서 삭제하거나 앱을 제거하여 기기 내 로컬 데이터를 삭제할 수 있습니다.</li>
+                        <li>특정 사용자를 식별할 수 없는 익명 또는 집계 분석 데이터는 제품 통계와 품질 개선을 위해 보관될 수 있습니다.</li>
+                        <li>결제, 환불 및 구독 거래 기록은 Google Play 또는 Apple App Store에서 처리합니다. 법률, 세금, 환불 또는 사기 방지 목적상 스토어가 보관하는 거래 기록은 당사가 삭제할 수 없습니다.</li>
+                        <li>법률, 보안, 사기 방지 또는 분쟁 처리상 필요한 경우, 필요한 기간 동안 최소한의 기록을 보관할 수 있습니다. 일반적인 삭제 요청은 30일 이내에 완료하기 위해 노력합니다.</li>
+                    </ul>
                 </section>
 
                 <section class="policy-block" id="contact">
-                    <h2><span data-lang="zh">4. 確認與聯絡</span><span data-lang="en">4. Confirmation and Contact</span></h2>
+                    <h2><span data-lang="zh">4. 確認與聯絡</span><span data-lang="en">4. Confirmation and Contact</span><span data-lang="ja">4. 確認と連絡</span><span data-lang="ko">4. 확인 및 연락</span></h2>
                     <p data-lang="zh">收到要求後，我們可能會要求你提供足以確認帳號擁有權的資訊。完成刪除後，我們會以 Email 回覆確認。</p>
                     <p data-lang="en">After receiving your request, we may ask for information needed to verify account ownership. We will reply by email after the deletion is complete.</p>
+                    <p data-lang="ja">リクエストを受け取った後、アカウント所有権を確認するために必要な情報の提供をお願いする場合があります。削除完了後、メールで確認の返信を行います。</p>
+                    <p data-lang="ko">요청을 받은 후, 계정 소유권을 확인하는 데 필요한 정보를 요청할 수 있습니다. 삭제가 완료되면 이메일로 확인 회신을 드립니다.</p>
                     <div class="note-card">
                         <p>SheepBeansGames<br>Email: <a href="mailto:sheepbeansgames@gmail.com">sheepbeansgames@gmail.com</a></p>
                     </div>
@@ -503,23 +571,32 @@
         <div class="wrap footer-inner">
             <div>© 2026 SheepBeansGames. All rights reserved.</div>
             <div class="footer-links">
-                <a href="index.html"><span data-lang="zh">首頁</span><span data-lang="en">Home</span></a>
-                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span></a>
-                <a href="terms.html"><span data-lang="zh">使用條款</span><span data-lang="en">Terms of Use</span></a>
-                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span></a>
+                <a href="index.html"><span data-lang="zh">首頁</span><span data-lang="en">Home</span><span data-lang="ja">ホーム</span><span data-lang="ko">홈</span></a>
+                <a href="privacy.html"><span data-lang="zh">隱私權政策</span><span data-lang="en">Privacy Policy</span><span data-lang="ja">プライバシーポリシー</span><span data-lang="ko">개인정보 처리방침</span></a>
+                <a href="terms.html"><span data-lang="zh">使用條款</span><span data-lang="en">Terms of Use</span><span data-lang="ja">利用規約</span><span data-lang="ko">이용약관</span></a>
+                <a href="mailto:sheepbeansgames@gmail.com"><span data-lang="zh">聯絡我們</span><span data-lang="en">Contact</span><span data-lang="ja">お問い合わせ</span><span data-lang="ko">문의하기</span></a>
             </div>
         </div>
     </footer>
 
     <script>
-        const setLanguage = (lang) => {
-            document.documentElement.dataset.lang = lang;
-            document.documentElement.lang = lang === "zh" ? "zh-TW" : "en";
-            localStorage.setItem("swapit-site-lang", lang);
+        const LEGAL_LANGS = ["zh", "en", "ja", "ko"];
+        const HTML_LANGS = { zh: "zh-TW", en: "en", ja: "ja", ko: "ko" };
+
+        const setLanguage = (lang, options = {}) => {
+            const { persist = true } = options;
+            const displayLang = LEGAL_LANGS.includes(lang) ? lang : "en";
+            document.documentElement.dataset.lang = displayLang;
+            document.documentElement.lang = HTML_LANGS[displayLang];
+            if (persist) {
+                localStorage.setItem("swapit-site-lang", displayLang);
+            }
         };
 
-        const initialLang = localStorage.getItem("swapit-site-lang") || "zh";
-        setLanguage(initialLang);
+        const requestedLang = new URLSearchParams(window.location.search).get("lang");
+        const storedLang = localStorage.getItem("swapit-site-lang");
+        const initialLang = requestedLang || storedLang || "zh";
+        setLanguage(initialLang, { persist: LEGAL_LANGS.includes(initialLang) });
 
         document.querySelectorAll("[data-set-lang]").forEach((button) => {
             button.addEventListener("click", () => setLanguage(button.dataset.setLang));
