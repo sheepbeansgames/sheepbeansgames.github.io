@@ -262,6 +262,7 @@
             left: 0;
             right: 0;
             z-index: 20;
+            padding-top: env(safe-area-inset-top);
             transition: background 0.25s ease, box-shadow 0.25s ease, height 0.25s ease;
         }
 
@@ -288,9 +289,17 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
+            min-width: 0;
             text-decoration: none;
             font-weight: 900;
             font-size: 22px;
+        }
+
+        .logo span {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .logo img {
@@ -303,6 +312,7 @@
         .nav-links {
             display: flex;
             align-items: center;
+            flex: 0 0 auto;
             gap: 26px;
             color: var(--muted);
             font-size: 14px;
@@ -1214,17 +1224,31 @@
                 padding: 0 16px;
             }
 
+            .nav-inner {
+                gap: 8px;
+            }
+
+            .nav-links {
+                gap: 6px;
+            }
+
             .site-nav .button span {
                 display: none;
             }
 
+            .lang-switch {
+                padding: 3px;
+            }
+
             .lang-switch button {
-                min-width: 34px;
+                min-width: 28px;
+                height: 30px;
+                font-size: 11px;
             }
 
             .site-nav .button {
-                width: 48px;
-                min-height: 48px;
+                width: 40px;
+                min-height: 40px;
                 padding: 0;
                 border-radius: 16px;
             }
@@ -1238,7 +1262,7 @@
             }
 
             .logo span {
-                font-size: 19px;
+                font-size: 18px;
             }
 
             .logo img {
@@ -1247,7 +1271,7 @@
             }
 
             .hero {
-                padding: 98px 0 44px;
+                padding: calc(88px + env(safe-area-inset-top)) 0 max(26px, env(safe-area-inset-bottom));
             }
 
             .hero h1 {
@@ -1286,11 +1310,13 @@
             }
 
             .hero-visual {
-                min-height: 500px;
+                min-height: auto;
+                align-content: start;
+                gap: 12px;
             }
 
             .phone-frame {
-                width: min(270px, 72vw);
+                width: min(258px, 70vw, 36dvh);
                 border-radius: 38px;
             }
 
@@ -1303,7 +1329,19 @@
                 inset: auto;
                 width: 100%;
                 max-width: none;
-                margin-top: 12px;
+                margin-top: 0;
+                padding: 12px 14px;
+                border-radius: 22px;
+            }
+
+            .hero-note .note-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 16px;
+            }
+
+            .hero-note b {
+                font-size: 16px;
             }
 
             .mobile-notes {
@@ -1362,6 +1400,75 @@
 
             .cta {
                 padding: 70px 0;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .wrap {
+                padding: 0 12px;
+            }
+
+            .logo {
+                gap: 8px;
+            }
+
+            .logo span {
+                display: none;
+            }
+
+            .lang-switch button {
+                min-width: 27px;
+            }
+
+            .site-nav .button {
+                width: 38px;
+                min-height: 38px;
+            }
+
+            .hero {
+                padding-top: calc(82px + env(safe-area-inset-top));
+            }
+
+            .phone-frame {
+                width: min(238px, 68vw, 34dvh);
+            }
+
+            .hero-note {
+                padding: 10px 12px;
+            }
+        }
+
+        @media (max-width: 640px) and (max-height: 760px) {
+            .hero {
+                padding-top: calc(78px + env(safe-area-inset-top));
+            }
+
+            .hero h1 {
+                margin-bottom: 14px;
+                font-size: clamp(46px, 15vw, 64px);
+            }
+
+            .hero-lead {
+                margin-bottom: 14px;
+                font-size: 17px;
+            }
+
+            .hero-copy {
+                margin-bottom: 24px;
+                font-size: 16px;
+            }
+
+            .phone-frame {
+                width: min(236px, 66vw, 33dvh);
+            }
+
+            .hero-note small {
+                margin-bottom: 0;
+            }
+
+            .hero-note b {
+                font-size: 15px;
+                line-height: 1.22;
             }
         }
     </style>
