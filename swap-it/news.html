@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title id="docTitle">幫助與動態 - 該換了吧 Swap It</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="assets/icon/icon.png">
+    <style>
+        :root {
+            --bg: #fbfaf7;
+            --surface: #ffffff;
+            --surface-strong: #f3f7f2;
+            --ink: #241d18;
+            --muted: #675d55;
+            --subtle: #92867b;
+            --line: rgba(36, 29, 24, 0.1);
+            --brand: #df6338;
+            --brand-dark: #a94222;
+            --sage: #4c7a67;
+            --shadow-sm: 0 10px 28px rgba(36, 29, 24, 0.08);
+            --shadow-md: 0 18px 44px rgba(36, 29, 24, 0.12);
+            --radius: 20px;
+            --radius-sm: 14px;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        * { box-sizing: border-box; }
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(251, 250, 247, 0.9);
+            box-shadow: 0 1px 0 var(--line);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--ink);
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 40px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(rgba(36, 29, 24, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(36, 29, 24, 0.035) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 70%);
+        }
+
+        .wrap {
+            width: min(100%, 720px);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 32px 0 24px;
+        }
+
+        h1 {
+            font-family: "Outfit", "Noto Sans TC", sans-serif;
+            margin: 0 0 12px;
+            font-size: clamp(28px, 6vw, 36px);
+            font-weight: 900;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: 16px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background: var(--surface);
+            border-radius: 999px;
+            padding: 4px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 32px;
+            border: 1px solid var(--line);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        
+        .tabs::-webkit-scrollbar { display: none; }
+
+        .tab-btn {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 12px 16px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--muted);
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s var(--ease);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .tab-btn.active {
+            background: var(--brand);
+            color: white;
+            box-shadow: 0 4px 12px rgba(223, 99, 56, 0.25);
+        }
+        
+        .tab-btn i { width: 18px; height: 18px; }
+
+        .tab-content { display: none; }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s var(--ease);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Search Box (FAQ) */
+        .search-box {
+            position: relative;
+            margin-bottom: 24px;
+            border-radius: 999px;
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            padding: 4px 16px;
+            transition: box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
+        }
+        
+        .search-box:focus-within {
+            box-shadow: var(--shadow-md);
+            border-color: var(--brand);
+        }
+
+        .search-icon { color: var(--muted); width: 20px; height: 20px; flex-shrink: 0; }
+        .search-box input {
+            flex: 1; border: none; background: transparent; padding: 14px 12px;
+            font-size: 16px; color: var(--ink); outline: none; font-family: inherit;
+        }
+        .search-box input::placeholder { color: var(--subtle); }
+        .clear-btn {
+            background: transparent; border: none; color: var(--muted); cursor: pointer;
+            padding: 4px; display: none; align-items: center; justify-content: center; border-radius: 50%;
+        }
+        .clear-btn:hover { color: var(--ink); background: rgba(0,0,0,0.05); }
+        .clear-btn svg { width: 18px; height: 18px; }
+
+        /* FAQ Accordion */
+        .faq-category { margin-bottom: 24px; }
+        .category-title {
+            font-size: 14px; font-weight: 800; color: var(--brand); letter-spacing: 0.05em;
+            margin-bottom: 12px; padding-left: 8px; font-family: "Outfit", "Noto Sans TC", sans-serif;
+        }
+        .faq-item {
+            background: var(--surface); border: 1px solid var(--line);
+            border-radius: var(--radius-sm); margin-bottom: 12px; overflow: hidden;
+            transition: box-shadow 0.2s var(--ease);
+        }
+        .faq-item:hover { box-shadow: 0 4px 12px rgba(36, 29, 24, 0.04); }
+        .faq-question {
+            width: 100%; display: flex; align-items: center; justify-content: space-between;
+            background: transparent; border: none; padding: 18px 20px; font-size: 16px;
+            font-weight: 700; color: var(--ink); text-align: left; cursor: pointer;
+            font-family: inherit; line-height: 1.4;
+        }
+        .faq-question .icon { flex-shrink: 0; margin-left: 16px; color: var(--brand); transition: transform 0.3s var(--ease); }
+        .faq-item.active .faq-question .icon { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s var(--ease), padding 0.3s var(--ease);
+            padding: 0 20px; color: var(--muted); font-size: 15px; background: #fafaf9;
+        }
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px; max-height: 2000px; border-top: 1px solid var(--line); margin-top: 4px; padding-top: 16px;
+        }
+        .no-results { text-align: center; padding: 48px 0; color: var(--subtle); }
+        .no-results svg { width: 48px; height: 48px; margin-bottom: 16px; color: var(--line); }
+        .highlight { color: var(--brand-dark); background: #fde3d6; padding: 0 2px; border-radius: 4px; }
+
+        /* ===== Image Gallery (FAQ) ===== */
+        .faq-images {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px;
+            scrollbar-width: none;
+        }
+        .faq-images::-webkit-scrollbar { display: none; }
+
+        .faq-img-item {
+            flex: 0 0 auto;
+            cursor: pointer;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+            scroll-snap-align: start;
+        }
+        .faq-img-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(36, 29, 24, 0.1);
+        }
+        .faq-img-item img {
+            display: block;
+            height: 200px;
+            width: auto;
+            object-fit: cover;
+        }
+        .faq-img-item .img-caption {
+            padding: 8px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* single image mode */
+        .faq-images.single {
+            justify-content: center;
+        }
+        .faq-images.single .faq-img-item img {
+            height: 240px;
+        }
+
+        /* ===== Updates & Roadmap ===== */
+        .card {
+            background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+            padding: 24px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(36, 29, 24, 0.04);
+        }
+        .card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; }
+        .card-tag { background: #fde3d6; color: var(--brand-dark); padding: 4px 10px; border-radius: 999px; font-weight: 900; }
+        .card-date { color: var(--subtle); font-weight: 600; font-family: "Outfit", sans-serif; }
+        .card h3 { margin: 0 0 10px; font-size: 20px; font-weight: 800; line-height: 1.3; }
+        .card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+        /* Card hero image */
+        .card-hero {
+            margin: 16px -24px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .card-hero:first-of-type { margin-top: 16px; }
+        .card-hero img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s var(--ease);
+        }
+        .card-hero:hover img {
+            transform: scale(1.02);
+        }
+        .card-hero .hero-zoom-hint {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(36, 29, 24, 0.65);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s var(--ease);
+            backdrop-filter: blur(4px);
+        }
+        .card-hero:hover .hero-zoom-hint { opacity: 1; }
+
+        /* ===== Carousel ===== */
+        .carousel-container {
+            margin: 16px -24px;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid var(--line);
+            border-bottom: 1px solid var(--line);
+            background: #f9f8f6;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.45s var(--ease);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .carousel-slide .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px 24px 16px;
+            background: linear-gradient(transparent, rgba(36, 29, 24, 0.7));
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--ink);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            z-index: 2;
+            transition: all 0.2s var(--ease);
+            opacity: 0;
+        }
+        .carousel-container:hover .carousel-btn { opacity: 1; }
+        .carousel-btn:hover {
+            background: white;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+            transform: translateY(-50%) scale(1.05);
+        }
+        .carousel-btn.prev { left: 12px; }
+        .carousel-btn.next { right: 12px; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 0;
+            background: #f9f8f6;
+        }
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: var(--line);
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.2s var(--ease);
+        }
+        .carousel-dot.active {
+            background: var(--brand);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* ===== Roadmap with preview ===== */
+        .list-group { margin-bottom: 32px; }
+        .list-group h3 { font-size: 16px; font-weight: 800; color: var(--ink); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .list-item {
+            background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+            padding: 16px 20px; margin-bottom: 8px; display: flex; gap: 12px; align-items: center;
+            transition: box-shadow 0.2s var(--ease);
+        }
+        .list-item:hover { box-shadow: 0 4px 12px rgba(36, 29, 24, 0.04); }
+        .list-item-content { flex: 1; font-weight: 700; font-size: 15px;}
+        .list-item-status {
+            flex-shrink: 0; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
+            background: #f3f7f2; color: var(--muted); white-space: nowrap;
+        }
+
+        .list-item-preview {
+            flex-shrink: 0;
+            width: 52px;
+            height: 52px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            cursor: pointer;
+            transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+        }
+        .list-item-preview:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(36, 29, 24, 0.1);
+        }
+        .list-item-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Bug item with image */
+        .bug-item-image {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            cursor: pointer;
+            transition: transform 0.2s var(--ease);
+        }
+        .bug-item-image:hover { transform: scale(1.08); }
+        .bug-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .status-done { background: #e2f2e4; color: #2f7048; }
+        .status-doing { background: #fde3d6; color: #b54421; }
+        .status-plan { background: #dbeaf8; color: #2f648e; }
+
+        /* ===== Lightbox ===== */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(18, 14, 10, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s var(--ease);
+        }
+        .lightbox-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-overlay.fade-out {
+            opacity: 0;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s var(--ease);
+            z-index: 1001;
+        }
+        .lightbox-close:hover { background: rgba(255, 255, 255, 0.25); }
+
+        .lightbox-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            max-width: 90vw;
+            max-height: 85vh;
+        }
+
+        .lightbox-img-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img-wrapper img {
+            max-width: 90vw;
+            max-height: 78vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            object-fit: contain;
+            transform: scale(0.92);
+            transition: transform 0.35s var(--ease);
+        }
+        .lightbox-overlay.active .lightbox-img-wrapper img {
+            transform: scale(1);
+        }
+
+        .lightbox-caption {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            max-width: 480px;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s var(--ease);
+            z-index: 1001;
+        }
+        .lightbox-nav:hover { background: rgba(255, 255, 255, 0.3); transform: translateY(-50%) scale(1.08); }
+        .lightbox-nav.prev { left: 16px; }
+        .lightbox-nav.next { right: 16px; }
+        .lightbox-nav[disabled] { opacity: 0.2; pointer-events: none; }
+
+        .lightbox-counter {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            font-weight: 700;
+            font-family: "Outfit", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="wrap nav-inner">
+            <div class="logo">
+                <img src="assets/icon/icon.png" alt="Icon">
+                <span id="logoTitle">該換了吧 Swap It</span>
+            </div>
+        </div>
+    </nav>
+    <div class="wrap">
+        <header>
+            <h1 id="pageTitle">幫助與動態</h1>
+            <p class="subtitle" id="pageSubtitle">快速尋找解答，或追蹤我們的最新消息與開發計畫</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn" id="btnFaq" onclick="switchTab('faq')"><i data-lucide="help-circle"></i> <span class="t-txt">常見問題</span></button>
+            <button class="tab-btn active" id="btnAnnouncements" onclick="switchTab('announcements')"><i data-lucide="megaphone"></i> <span class="t-txt">最新公告</span></button>
+            <button class="tab-btn" id="btnRoadmap" onclick="switchTab('roadmap')"><i data-lucide="map"></i> <span class="t-txt">開發計畫</span></button>
+            <button class="tab-btn" id="btnBugs" onclick="switchTab('bugs')"><i data-lucide="bug"></i> <span class="t-txt">已知問題</span></button>
+        </div>
+
+        <!-- FAQ -->
+        <div id="faq" class="tab-content">
+            <div class="search-box">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" id="searchInput" placeholder="搜尋問題或關鍵字...">
+                <button id="clearSearch" class="clear-btn"><i data-lucide="x"></i></button>
+            </div>
+            <div id="faqContainer"></div>
+            <div class="no-results" id="noResults" style="display:none;">
+                <i data-lucide="search-x"></i>
+                <p id="tNoFaqResults">找不到相關的問題，請嘗試其他關鍵字</p>
+            </div>
+        </div>
+
+        <!-- 最新公告 -->
+        <div id="announcements" class="tab-content active"></div>
+
+        <!-- 開發計畫 -->
+        <div id="roadmap" class="tab-content"></div>
+
+        <!-- 已知問題 -->
+        <div id="bugs" class="tab-content"></div>
+    </div>
+
+    <!-- Lightbox overlay -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <button class="lightbox-close" id="lightboxClose"><i data-lucide="x"></i></button>
+        <button class="lightbox-nav prev" id="lightboxPrev"><i data-lucide="chevron-left"></i></button>
+        <button class="lightbox-nav next" id="lightboxNext"><i data-lucide="chevron-right"></i></button>
+        <div class="lightbox-content">
+            <div class="lightbox-img-wrapper">
+                <img id="lightboxImg" src="" alt="">
+            </div>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        </div>
+    </div>
+
+    <!-- 載入資料 -->
+    <script src="news-data.js"></script>
+    <script>
+        // ===== Language detection =====
+        const urlParams = new URLSearchParams(window.location.search);
+        let lang = urlParams.get('lang') || 'zh';
+        if (lang.startsWith('zh')) lang = 'zh';
+        if (!uiTranslations[lang]) lang = 'en';
+
+        const ui = uiTranslations[lang];
+        const data = newsData[lang] || newsData['en'];
+
+        document.documentElement.lang = lang;
+        document.getElementById('docTitle').textContent = ui.title;
+        document.getElementById('logoTitle').textContent = ui.logoTitle;
+        document.getElementById('pageTitle').textContent = ui.pageTitle;
+        document.getElementById('pageSubtitle').textContent = ui.pageSubtitle;
+        
+        document.querySelector('#btnFaq .t-txt').textContent = ui.tabFaq;
+        document.querySelector('#btnAnnouncements .t-txt').textContent = ui.tabAnnouncements;
+        document.querySelector('#btnRoadmap .t-txt').textContent = ui.tabRoadmap;
+        document.querySelector('#btnBugs .t-txt').textContent = ui.tabBugs;
+        
+        document.getElementById('searchInput').placeholder = ui.searchPlaceholder;
+        document.getElementById('tNoFaqResults').textContent = ui.noFaqResults;
+
+        lucide.createIcons();
+
+        // ===== Lightbox =====
+        let lightboxImages = [];
+        let lightboxIndex = 0;
+
+        function openLightbox(images, index) {
+            lightboxImages = images;
+            lightboxIndex = index;
+            updateLightbox();
+            const overlay = document.getElementById('lightboxOverlay');
+            overlay.classList.add('active');
+            overlay.classList.remove('fade-out');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const overlay = document.getElementById('lightboxOverlay');
+            overlay.classList.add('fade-out');
+            setTimeout(() => {
+                overlay.classList.remove('active', 'fade-out');
+                document.body.style.overflow = '';
+            }, 300);
+        }
+
+        function updateLightbox() {
+            const img = document.getElementById('lightboxImg');
+            const caption = document.getElementById('lightboxCaption');
+            const counter = document.getElementById('lightboxCounter');
+            const prev = document.getElementById('lightboxPrev');
+            const next = document.getElementById('lightboxNext');
+
+            const current = lightboxImages[lightboxIndex];
+            img.src = current.src;
+            img.alt = current.caption || '';
+            caption.textContent = current.caption || '';
+            
+            if (lightboxImages.length > 1) {
+                counter.textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+                counter.style.display = '';
+                prev.style.display = '';
+                next.style.display = '';
+                prev.disabled = lightboxIndex === 0;
+                next.disabled = lightboxIndex === lightboxImages.length - 1;
+            } else {
+                counter.style.display = 'none';
+                prev.style.display = 'none';
+                next.style.display = 'none';
+            }
+        }
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxOverlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget || e.target.closest('.lightbox-content') && !e.target.closest('img')) {
+                closeLightbox();
+            }
+        });
+        document.getElementById('lightboxPrev').addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (lightboxIndex > 0) { lightboxIndex--; updateLightbox(); }
+        });
+        document.getElementById('lightboxNext').addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (lightboxIndex < lightboxImages.length - 1) { lightboxIndex++; updateLightbox(); }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightboxOverlay').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft' && lightboxIndex > 0) { lightboxIndex--; updateLightbox(); }
+            if (e.key === 'ArrowRight' && lightboxIndex < lightboxImages.length - 1) { lightboxIndex++; updateLightbox(); }
+        });
+
+        // ===== Tab switching =====
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            
+            if(tabId === 'faq') document.getElementById('btnFaq').classList.add('active');
+            if(tabId === 'announcements') document.getElementById('btnAnnouncements').classList.add('active');
+            if(tabId === 'roadmap') document.getElementById('btnRoadmap').classList.add('active');
+            if(tabId === 'bugs') document.getElementById('btnBugs').classList.add('active');
+        }
+
+        function getStatusClass(status) {
+            if (status.includes('完成') || status.includes('修復') || status.includes('Done') || status.includes('Fixed')) return 'status-done';
+            if (status.includes('開發中') || status.includes('處理中') || status.includes('Doing') || status.includes('Fixing')) return 'status-doing';
+            return 'status-plan';
+        }
+
+        // ===== Render FAQ with images =====
+        const faqContainer = document.getElementById('faqContainer');
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearSearch');
+        const noResults = document.getElementById('noResults');
+
+        function renderImageGallery(images) {
+            if (!images || images.length === 0) return '';
+
+            const singleClass = images.length === 1 ? ' single' : '';
+            let html = `<div class="faq-images${singleClass}">`;
+            images.forEach((img, i) => {
+                html += `
+                    <div class="faq-img-item" onclick="openLightbox(${escapeAttr(JSON.stringify(images))}, ${i})">
+                        <img src="${img.src}" alt="${img.caption || ''}" loading="lazy">
+                        ${img.caption ? `<div class="img-caption">${img.caption}</div>` : ''}
+                    </div>
+                `;
+            });
+            html += '</div>';
+            return html;
+        }
+
+        function escapeAttr(str) {
+            return str.replace(/&/g, '&amp;').replace(/'/g, '&#39;').replace(/"/g, '&quot;');
+        }
+
+        function renderFAQ(faqData, searchTerm = "") {
+            faqContainer.innerHTML = '';
+            let hasResults = false;
+
+            if(!faqData || faqData.length === 0) {
+                faqContainer.innerHTML = `<div class="no-results"><p>${ui.noFaqData}</p></div>`;
+                return;
+            }
+
+            faqData.forEach(categoryData => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'faq-category';
+                
+                const title = document.createElement('div');
+                title.className = 'category-title';
+                title.textContent = categoryData.category;
+                categoryDiv.appendChild(title);
+
+                let visibleItems = 0;
+
+                categoryData.questions.forEach(qData => {
+                    const matchQ = qData.q.toLowerCase().includes(searchTerm.toLowerCase());
+                    const matchA = qData.a.toLowerCase().includes(searchTerm.toLowerCase());
+
+                    if (searchTerm === "" || matchQ || matchA) {
+                        visibleItems++;
+                        hasResults = true;
+
+                        const item = document.createElement('div');
+                        item.className = 'faq-item';
+                        
+                        let displayQ = qData.q;
+                        let displayA = qData.a;
+                        if (searchTerm !== "") {
+                            const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\$&')})`, 'gi');
+                            displayQ = displayQ.replace(regex, '<span class="highlight">$1</span>');
+                            displayA = displayA.replace(regex, '<span class="highlight">$1</span>');
+                            item.classList.add('active');
+                        }
+
+                        const btn = document.createElement('button');
+                        btn.className = 'faq-question';
+                        btn.innerHTML = `<span>${displayQ}</span><i data-lucide="chevron-down" class="icon"></i>`;
+
+                        const answer = document.createElement('div');
+                        answer.className = 'faq-answer';
+                        answer.innerHTML = displayA + renderImageGallery(qData.images);
+
+                        btn.addEventListener('click', () => {
+                            item.classList.toggle('active');
+                        });
+
+                        item.appendChild(btn);
+                        item.appendChild(answer);
+                        categoryDiv.appendChild(item);
+                    }
+                });
+
+                if (visibleItems > 0) faqContainer.appendChild(categoryDiv);
+            });
+
+            noResults.style.display = (hasResults || !faqData.length) ? 'none' : 'block';
+            lucide.createIcons();
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const val = e.target.value.trim();
+            clearBtn.style.display = val.length > 0 ? 'flex' : 'none';
+            renderFAQ(data.faq, val);
+        });
+
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearBtn.style.display = 'none';
+            renderFAQ(data.faq);
+            searchInput.focus();
+        });
+
+        // ===== Carousel helper =====
+        let carouselIntervals = [];
+
+        function createCarousel(images, containerId) {
+            const id = 'carousel-' + containerId;
+            let html = `<div class="carousel-container" id="${id}">`;
+            html += `<div class="carousel-track">`;
+            images.forEach((img, i) => {
+                html += `
+                    <div class="carousel-slide" onclick="openLightbox(${escapeAttr(JSON.stringify(images))}, ${i})">
+                        <img src="${img.src}" alt="${img.caption || ''}" loading="lazy">
+                        ${img.caption ? `<div class="slide-caption">${img.caption}</div>` : ''}
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            html += `<button class="carousel-btn prev" onclick="event.stopPropagation(); carouselMove('${id}', -1)"><i data-lucide="chevron-left"></i></button>`;
+            html += `<button class="carousel-btn next" onclick="event.stopPropagation(); carouselMove('${id}', 1)"><i data-lucide="chevron-right"></i></button>`;
+            html += `<div class="carousel-dots">`;
+            images.forEach((_, i) => {
+                html += `<button class="carousel-dot${i === 0 ? ' active' : ''}" onclick="carouselGoTo('${id}', ${i})"></button>`;
+            });
+            html += `</div></div>`;
+
+            // Auto-play
+            setTimeout(() => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.dataset.index = '0';
+                el.dataset.count = images.length.toString();
+                const interval = setInterval(() => {
+                    const current = parseInt(el.dataset.index);
+                    const count = parseInt(el.dataset.count);
+                    const next = (current + 1) % count;
+                    carouselGoTo(id, next);
+                }, 5000);
+                carouselIntervals.push(interval);
+
+                // Pause on hover
+                el.addEventListener('mouseenter', () => clearInterval(interval));
+            }, 100);
+
+            return html;
+        }
+
+        function carouselMove(id, dir) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const current = parseInt(el.dataset.index || '0');
+            const count = parseInt(el.dataset.count);
+            const next = Math.max(0, Math.min(count - 1, current + dir));
+            carouselGoTo(id, next);
+        }
+
+        function carouselGoTo(id, index) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.dataset.index = index.toString();
+            const track = el.querySelector('.carousel-track');
+            track.style.transform = `translateX(-${index * 100}%)`;
+            el.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // ===== Initialize Renders =====
+        if (typeof data !== 'undefined') {
+            renderFAQ(data.faq);
+
+            // Announcements
+            const annContainer = document.getElementById('announcements');
+            if (data.announcements && data.announcements.length > 0) {
+                data.announcements.forEach((item, idx) => {
+                    let cardHtml = `
+                        <div class="card">
+                            <div class="card-meta">
+                                <span class="card-tag">${item.tag}</span>
+                                <span class="card-date">${item.date}</span>
+                            </div>
+                            <h3>${item.title}</h3>
+                            <p>${item.content}</p>
+                    `;
+
+                    // Hero image
+                    if (item.image) {
+                        const imgData = [{ src: item.image, caption: item.title }];
+                        cardHtml += `
+                            <div class="card-hero" onclick="openLightbox(${escapeAttr(JSON.stringify(imgData))}, 0)">
+                                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                                <div class="hero-zoom-hint"><i data-lucide="zoom-in"></i></div>
+                            </div>
+                        `;
+                    }
+
+                    // Carousel
+                    if (item.images && item.images.length > 0) {
+                        cardHtml += createCarousel(item.images, 'ann-' + idx);
+                    }
+
+                    cardHtml += `</div>`;
+                    annContainer.innerHTML += cardHtml;
+                });
+            } else {
+                annContainer.innerHTML = `<div class="no-results"><p>${ui.noAnnouncementsData}</p></div>`;
+            }
+
+            // Roadmap
+            const roadContainer = document.getElementById('roadmap');
+            if (data.roadmap && data.roadmap.length > 0) {
+                data.roadmap.forEach(group => {
+                    let html = `<div class="list-group"><h3>${group.status}</h3>`;
+                    group.items.forEach(item => {
+                        const badgeClass = getStatusClass(group.status);
+                        const isObj = typeof item === 'object';
+                        const text = isObj ? item.text : item;
+                        const preview = isObj ? item.preview : null;
+
+                        html += `<div class="list-item">`;
+                        html += `<i data-lucide="check-circle-2" style="color: var(--line); margin-top:2px; width:20px; flex-shrink:0;"></i>`;
+                        html += `<div class="list-item-content">${text}</div>`;
+
+                        if (preview) {
+                            const imgData = [{ src: preview, caption: text }];
+                            html += `
+                                <div class="list-item-preview" onclick="openLightbox(${escapeAttr(JSON.stringify(imgData))}, 0)">
+                                    <img src="${preview}" alt="${text}" loading="lazy">
+                                </div>
+                            `;
+                        }
+
+                        html += `<div class="list-item-status ${badgeClass}">${group.status}</div>`;
+                        html += `</div>`;
+                    });
+                    html += `</div>`;
+                    roadContainer.innerHTML += html;
+                });
+            } else {
+                roadContainer.innerHTML = `<div class="no-results"><p>${ui.noRoadmapData}</p></div>`;
+            }
+
+            // Bugs
+            const bugContainer = document.getElementById('bugs');
+            if (data.bugs && data.bugs.length > 0) {
+                data.bugs.forEach(bug => {
+                    const badgeClass = getStatusClass(bug.status);
+                    let html = `<div class="list-item">`;
+                    html += `<i data-lucide="alert-circle" style="color: var(--muted); margin-top:2px; width:20px; flex-shrink:0;"></i>`;
+                    html += `<div class="list-item-content">${bug.text}</div>`;
+
+                    if (bug.image) {
+                        const imgData = [{ src: bug.image, caption: bug.text }];
+                        html += `
+                            <div class="bug-item-image" onclick="openLightbox(${escapeAttr(JSON.stringify(imgData))}, 0)">
+                                <img src="${bug.image}" alt="${bug.text}" loading="lazy">
+                            </div>
+                        `;
+                    }
+
+                    html += `<div class="list-item-status ${badgeClass}">${bug.status}</div>`;
+                    html += `</div>`;
+                    bugContainer.innerHTML += html;
+                });
+            } else {
+                bugContainer.innerHTML = `<div class="no-results"><p>${ui.noBugsData}</p></div>`;
+            }
+        }
+        
+        lucide.createIcons();
+    </script>
+</body>
+</html>
