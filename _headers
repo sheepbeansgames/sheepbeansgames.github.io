@@ -1,7 +1,2 @@
 /sitemap.xml
   Content-Type: text/xml; charset=utf-8
-
-# 動態頁面資料：關閉 Cloudflare Pages 預設的 4 小時快取（max-age=14400），
-# 改為每次都跟伺服器確認（有 ETag，內容沒變只回 304，不會變慢多少）
-/swap-it/news-data.js
-  Cache-Control: no-cache

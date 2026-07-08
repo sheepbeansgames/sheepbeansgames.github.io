@@ -637,8 +637,11 @@
         </div>
     </div>
 
-    <!-- 載入資料 -->
-    <script src="news-data.js"></script>
+    <!-- 載入資料：Cloudflare proxy 對靜態資源套 4 小時 Browser Cache TTL，
+         帶時間戳讓每次載入都是新 URL，確保拿到最新公告 -->
+    <script>
+        document.write('<script src="news-data.js?t=' + Date.now() + '"><\/script>');
+    </script>
     <script>
         // ===== Language detection =====
         const urlParams = new URLSearchParams(window.location.search);
