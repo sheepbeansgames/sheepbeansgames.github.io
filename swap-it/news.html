@@ -2,12 +2,20 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title id="docTitle">幫助與動態 - 該換了吧 Swap It</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="docTitle">最新動態 - 該換了吧 Swap It.</title>
+    <meta name="description" content="「該換了吧 Swap It.」的最新公告、常見問題與開發計畫。">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="該換了吧 Swap It.">
+    <meta property="og:title" content="最新動態 - 該換了吧 Swap It.">
+    <meta property="og:description" content="追蹤「該換了吧 Swap It.」的最新公告、常見問題與開發計畫。">
+    <meta property="og:url" content="https://sheepbeansgames.cc/swap-it/news">
+    <meta property="og:image" content="https://sheepbeansgames.cc/swap-it/assets/news/1.9.0/multi-instance-batch.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@1.24.0/dist/umd/lucide.min.js"></script>
     <link rel="icon" type="image/png" href="assets/icon/icon.png">
     <style>
         :root {
@@ -124,6 +132,21 @@
         }
         
         .tabs::-webkit-scrollbar { display: none; }
+
+        /* 窄螢幕：4 個分頁單排塞不下會被隱藏捲軸吃掉，改排成 2x2 方格 */
+        @media (max-width: 560px) {
+            .tabs {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 4px;
+                overflow-x: visible;
+                border-radius: var(--radius);
+            }
+            .tab-btn {
+                flex: none;
+                border-radius: var(--radius-sm);
+            }
+        }
 
         .tab-btn {
             flex: 1;
@@ -280,9 +303,19 @@
             background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
             padding: 24px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(36, 29, 24, 0.04);
         }
-        .card-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; }
+        .card-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin-bottom: 12px; font-size: 13px; }
         .card-tag { background: #fde3d6; color: var(--brand-dark); padding: 4px 10px; border-radius: 999px; font-weight: 900; }
+        .card-version {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: var(--surface-strong); color: var(--sage);
+            border: 1px solid var(--line); padding: 3px 10px 3px 8px;
+            border-radius: 999px; font-weight: 800; font-family: "Outfit", sans-serif;
+        }
+        .card-version svg { width: 13px; height: 13px; }
+        .card-platforms { display: inline-flex; align-items: center; gap: 6px; color: var(--subtle); }
+        .card-platforms svg { width: 15px; height: 15px; }
         .card-date { color: var(--subtle); font-weight: 600; font-family: "Outfit", sans-serif; }
+        .card-date::before { content: "·"; margin-right: 10px; color: var(--line); font-weight: 900; }
         .card h3 { margin: 0 0 10px; font-size: 20px; font-weight: 800; line-height: 1.3; }
         .card p { margin: 0; color: var(--muted); font-size: 15px; }
 
@@ -322,6 +355,7 @@
         .card-hero:hover .hero-zoom-hint { opacity: 1; }
 
         /* ===== Carousel ===== */
+        /* 公告截圖保留完整手機畫面；頁面先給足高度，細節可再由 Lightbox 放大。 */
         .carousel-container {
             margin: 16px -24px;
             position: relative;
@@ -343,21 +377,38 @@
         }
 
         .carousel-slide img {
-            width: 100%;
+            width: auto;
+            max-width: 100%;
+            max-height: min(78vh, 960px);
             height: auto;
             display: block;
+            margin: 0 auto;
+            object-fit: contain;
+            background: #f9f8f6;
         }
 
-        .carousel-slide .slide-caption {
+        .carousel-slide .slide-zoom-hint {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 32px 24px 16px;
-            background: linear-gradient(transparent, rgba(36, 29, 24, 0.7));
+            top: 12px;
+            right: 12px;
+            background: rgba(36, 29, 24, 0.65);
             color: white;
-            font-size: 14px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .carousel-slide .slide-zoom-hint svg { width: 17px; height: 17px; }
+
+        .carousel-slide .slide-caption {
+            padding: 12px 20px 4px;
+            color: var(--muted);
+            font-size: 13px;
             font-weight: 700;
+            text-align: center;
         }
 
         .carousel-btn {
@@ -425,6 +476,14 @@
             flex-shrink: 0; font-size: 12px; font-weight: 800; padding: 4px 10px; border-radius: 999px;
             background: #f3f7f2; color: var(--muted); white-space: nowrap;
         }
+
+        .list-item-meta {
+            display: flex; align-items: center; gap: 8px; margin-top: 4px;
+            font-size: 12px; color: var(--subtle);
+        }
+        .list-item-meta .meta-version { font-weight: 800; font-family: "Outfit", sans-serif; }
+        .list-item-meta .meta-platforms { display: inline-flex; align-items: center; gap: 5px; }
+        .list-item-meta .meta-platforms svg { width: 12px; height: 12px; }
 
         .list-item-preview {
             flex-shrink: 0;
@@ -582,7 +641,7 @@
         <div class="wrap nav-inner">
             <div class="logo">
                 <img src="assets/icon/icon.png" alt="Icon">
-                <span id="logoTitle">該換了吧 Swap It</span>
+                <span id="logoTitle">該換了吧 Swap It.</span>
             </div>
         </div>
     </nav>
@@ -637,40 +696,26 @@
         </div>
     </div>
 
-    <!-- 載入資料：Cloudflare proxy 對靜態資源套 4 小時 Browser Cache TTL，
-         帶時間戳讓每次載入都是新 URL，確保拿到最新公告 -->
     <script>
-        document.write('<script src="news-data.js?t=' + Date.now() + '"><\/script>');
-    </script>
-    <script>
-        // ===== Language detection =====
-        const urlParams = new URLSearchParams(window.location.search);
-        let lang = urlParams.get('lang') || 'zh';
-        if (lang.startsWith('zh')) lang = 'zh';
-        if (!uiTranslations[lang]) lang = 'en';
-
-        const ui = uiTranslations[lang];
-        const data = newsData[lang] || newsData['en'];
-
-        document.documentElement.lang = lang;
-        document.getElementById('docTitle').textContent = ui.title;
-        document.getElementById('logoTitle').textContent = ui.logoTitle;
-        document.getElementById('pageTitle').textContent = ui.pageTitle;
-        document.getElementById('pageSubtitle').textContent = ui.pageSubtitle;
-        
-        document.querySelector('#btnFaq .t-txt').textContent = ui.tabFaq;
-        document.querySelector('#btnAnnouncements .t-txt').textContent = ui.tabAnnouncements;
-        document.querySelector('#btnRoadmap .t-txt').textContent = ui.tabRoadmap;
-        document.querySelector('#btnBugs .t-txt').textContent = ui.tabBugs;
-        
-        document.getElementById('searchInput').placeholder = ui.searchPlaceholder;
-        document.getElementById('tNoFaqResults').textContent = ui.noFaqResults;
-
-        lucide.createIcons();
+        // ui / data 由頁尾動態載入 news-data.js 完成後的 initPage() 填入
+        let ui = null;
+        let data = null;
 
         // ===== Lightbox =====
+        // 圖組統一登錄在此，inline onclick 只帶索引，避免把 JSON 塞進 HTML 屬性
+        const lightboxGroups = [];
         let lightboxImages = [];
         let lightboxIndex = 0;
+
+        function registerLightboxGroup(images) {
+            lightboxGroups.push(images);
+            return lightboxGroups.length - 1;
+        }
+
+        function openLightboxGroup(groupIndex, index) {
+            const images = lightboxGroups[groupIndex];
+            if (images) openLightbox(images, index);
+        }
 
         function openLightbox(images, index) {
             lightboxImages = images;
@@ -739,19 +784,25 @@
         });
 
         // ===== Tab switching =====
+        const tabButtonIds = { faq: 'btnFaq', announcements: 'btnAnnouncements', roadmap: 'btnRoadmap', bugs: 'btnBugs' };
+
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            
+
             document.getElementById(tabId).classList.add('active');
-            
-            if(tabId === 'faq') document.getElementById('btnFaq').classList.add('active');
-            if(tabId === 'announcements') document.getElementById('btnAnnouncements').classList.add('active');
-            if(tabId === 'roadmap') document.getElementById('btnRoadmap').classList.add('active');
-            if(tabId === 'bugs') document.getElementById('btnBugs').classList.add('active');
+            const btn = document.getElementById(tabButtonIds[tabId]);
+            if (btn) btn.classList.add('active');
+
+            // 分頁狀態記在 hash，讓特定分頁可以直接分享連結
+            if (history.replaceState) history.replaceState(null, '', '#' + tabId);
         }
 
-        function getStatusClass(status) {
+        // statusCode（done / doing / plan）與語言無關；沒有 statusCode 的舊資料退回文字比對
+        function getStatusClass(statusCode, status) {
+            if (statusCode === 'done') return 'status-done';
+            if (statusCode === 'doing') return 'status-doing';
+            if (statusCode === 'plan') return 'status-plan';
             if (status.includes('完成') || status.includes('修復') || status.includes('Done') || status.includes('Fixed')) return 'status-done';
             if (status.includes('開發中') || status.includes('處理中') || status.includes('Doing') || status.includes('Fixing')) return 'status-doing';
             return 'status-plan';
@@ -766,12 +817,13 @@
         function renderImageGallery(images) {
             if (!images || images.length === 0) return '';
 
+            const groupIndex = registerLightboxGroup(images);
             const singleClass = images.length === 1 ? ' single' : '';
             let html = `<div class="faq-images${singleClass}">`;
             images.forEach((img, i) => {
                 html += `
-                    <div class="faq-img-item" onclick="openLightbox(${escapeAttr(JSON.stringify(images))}, ${i})">
-                        <img src="${img.src}" alt="${img.caption || ''}" loading="lazy">
+                    <div class="faq-img-item" onclick="openLightboxGroup(${groupIndex}, ${i})">
+                        <img src="${img.src}" alt="${escapeAttr(img.caption || '')}" loading="lazy">
                         ${img.caption ? `<div class="img-caption">${img.caption}</div>` : ''}
                     </div>
                 `;
@@ -850,12 +902,14 @@
         }
 
         searchInput.addEventListener('input', (e) => {
+            if (!data) return;
             const val = e.target.value.trim();
             clearBtn.style.display = val.length > 0 ? 'flex' : 'none';
             renderFAQ(data.faq, val);
         });
 
         clearBtn.addEventListener('click', () => {
+            if (!data) return;
             searchInput.value = '';
             clearBtn.style.display = 'none';
             renderFAQ(data.faq);
@@ -863,16 +917,27 @@
         });
 
         // ===== Carousel helper =====
-        let carouselIntervals = [];
+        const carouselTimers = {};
+
+        // 使用者一有操作（箭頭、圓點、觸控、hover）就停止自動播放，
+        // 手機沒有 hover，不能只靠 mouseenter 暫停
+        function carouselStop(id) {
+            if (carouselTimers[id]) {
+                clearInterval(carouselTimers[id]);
+                delete carouselTimers[id];
+            }
+        }
 
         function createCarousel(images, containerId) {
             const id = 'carousel-' + containerId;
+            const groupIndex = registerLightboxGroup(images);
             let html = `<div class="carousel-container" id="${id}">`;
             html += `<div class="carousel-track">`;
             images.forEach((img, i) => {
                 html += `
-                    <div class="carousel-slide" onclick="openLightbox(${escapeAttr(JSON.stringify(images))}, ${i})">
-                        <img src="${img.src}" alt="${img.caption || ''}" loading="lazy">
+                    <div class="carousel-slide" onclick="openLightboxGroup(${groupIndex}, ${i})">
+                        <img src="${img.src}" alt="${escapeAttr(img.caption || '')}" loading="lazy">
+                        <div class="slide-zoom-hint"><i data-lucide="zoom-in"></i></div>
                         ${img.caption ? `<div class="slide-caption">${img.caption}</div>` : ''}
                     </div>
                 `;
@@ -882,7 +947,7 @@
             html += `<button class="carousel-btn next" onclick="event.stopPropagation(); carouselMove('${id}', 1)"><i data-lucide="chevron-right"></i></button>`;
             html += `<div class="carousel-dots">`;
             images.forEach((_, i) => {
-                html += `<button class="carousel-dot${i === 0 ? ' active' : ''}" onclick="carouselGoTo('${id}', ${i})"></button>`;
+                html += `<button class="carousel-dot${i === 0 ? ' active' : ''}" onclick="carouselStop('${id}'); carouselGoTo('${id}', ${i})"></button>`;
             });
             html += `</div></div>`;
 
@@ -892,22 +957,22 @@
                 if (!el) return;
                 el.dataset.index = '0';
                 el.dataset.count = images.length.toString();
-                const interval = setInterval(() => {
+                carouselTimers[id] = setInterval(() => {
                     const current = parseInt(el.dataset.index);
                     const count = parseInt(el.dataset.count);
                     const next = (current + 1) % count;
                     carouselGoTo(id, next);
                 }, 5000);
-                carouselIntervals.push(interval);
 
-                // Pause on hover
-                el.addEventListener('mouseenter', () => clearInterval(interval));
+                el.addEventListener('mouseenter', () => carouselStop(id));
+                el.addEventListener('touchstart', () => carouselStop(id), { passive: true });
             }, 100);
 
             return html;
         }
 
         function carouselMove(id, dir) {
+            carouselStop(id);
             const el = document.getElementById(id);
             if (!el) return;
             const current = parseInt(el.dataset.index || '0');
@@ -927,18 +992,58 @@
             });
         }
 
-        // ===== Initialize Renders =====
-        if (typeof data !== 'undefined') {
+        function platformIcon(platform) {
+            if (platform === 'ios') return '<span style="display:inline-flex;align-items:center;gap:3px;"><i data-lucide="apple"></i> iOS</span>';
+            if (platform === 'android') return '<span style="display:inline-flex;align-items:center;gap:3px;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0004.5511-.4482.9997-.9993.9997zm-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0004.5511-.4482.9997-.9993.9997zm11.4045-6.02l1.9973-3.4592a.416.416 0 0 0-.1521-.5676.416.416 0 0 0-.5676.1521l-2.0223 3.503C15.5902 8.244 13.8533 7.85 12 7.85s-3.5902.394-5.1367 1.1004L4.841 5.4467a.422.422 0 0 0-.5676-.1521.416.416 0 0 0-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396z"/></svg> Android</span>';
+            return '';
+        }
+
+        // 靜態部分（分頁列、搜尋框、lightbox）的 icon 先畫，資料載入後 initPage 再補動態內容的 icon
+        lucide.createIcons();
+
+        // ===== 資料載入完成後的初始化（由頁尾 loader 呼叫）=====
+        function initPage() {
+            // Language detection
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang') || 'zh';
+            if (lang.startsWith('zh')) lang = 'zh';
+            if (!uiTranslations[lang]) lang = 'en';
+
+            ui = uiTranslations[lang];
+            data = newsData[lang] || newsData['en'];
+
+            document.documentElement.lang = lang;
+            document.getElementById('docTitle').textContent = ui.title;
+            document.getElementById('logoTitle').textContent = ui.logoTitle;
+            document.getElementById('pageTitle').textContent = ui.pageTitle;
+            document.getElementById('pageSubtitle').textContent = ui.pageSubtitle;
+
+            document.querySelector('#btnFaq .t-txt').textContent = ui.tabFaq;
+            document.querySelector('#btnAnnouncements .t-txt').textContent = ui.tabAnnouncements;
+            document.querySelector('#btnRoadmap .t-txt').textContent = ui.tabRoadmap;
+            document.querySelector('#btnBugs .t-txt').textContent = ui.tabBugs;
+
+            document.getElementById('searchInput').placeholder = ui.searchPlaceholder;
+            document.getElementById('tNoFaqResults').textContent = ui.noFaqResults;
+
             renderFAQ(data.faq);
 
             // Announcements
             const annContainer = document.getElementById('announcements');
             if (data.announcements && data.announcements.length > 0) {
                 data.announcements.forEach((item, idx) => {
+                    const versionHtml = item.version
+                        ? `<span class="card-version"><i data-lucide="tag"></i>v${item.version}</span>`
+                        : '';
+                    const platformsHtml = (item.platforms && item.platforms.length > 0)
+                        ? `<span class="card-platforms">${item.platforms.map(platformIcon).join('')}</span>`
+                        : '';
                     let cardHtml = `
                         <div class="card">
                             <div class="card-meta">
                                 <span class="card-tag">${item.tag}</span>
+                                ${versionHtml}
+                                ${platformsHtml}
                                 <span class="card-date">${item.date}</span>
                             </div>
                             <h3>${item.title}</h3>
@@ -947,10 +1052,10 @@
 
                     // Hero image
                     if (item.image) {
-                        const imgData = [{ src: item.image, caption: item.title }];
+                        const heroGroup = registerLightboxGroup([{ src: item.image, caption: item.title }]);
                         cardHtml += `
-                            <div class="card-hero" onclick="openLightbox(${escapeAttr(JSON.stringify(imgData))}, 0)">
-                                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                            <div class="card-hero" onclick="openLightboxGroup(${heroGroup}, 0)">
+                                <img src="${item.image}" alt="${escapeAttr(item.title)}" loading="lazy">
                                 <div class="hero-zoom-hint"><i data-lucide="zoom-in"></i></div>
                             </div>
                         `;
@@ -974,7 +1079,7 @@
                 data.roadmap.forEach(group => {
                     let html = `<div class="list-group"><h3>${group.status}</h3>`;
                     group.items.forEach(item => {
-                        const badgeClass = getStatusClass(group.status);
+                        const badgeClass = getStatusClass(group.statusCode, group.status);
                         const isObj = typeof item === 'object';
                         const text = isObj ? item.text : item;
                         const preview = isObj ? item.preview : null;
@@ -984,10 +1089,10 @@
                         html += `<div class="list-item-content">${text}</div>`;
 
                         if (preview) {
-                            const imgData = [{ src: preview, caption: text }];
+                            const previewGroup = registerLightboxGroup([{ src: preview, caption: text }]);
                             html += `
-                                <div class="list-item-preview" onclick="openLightbox(${escapeAttr(JSON.stringify(imgData))}, 0)">
-                                    <img src="${preview}" alt="${text}" loading="lazy">
+                                <div class="list-item-preview" onclick="openLightboxGroup(${previewGroup}, 0)">
+                                    <img src="${preview}" alt="${escapeAttr(text)}" loading="lazy">
                                 </div>
                             `;
                         }
@@ -1006,16 +1111,24 @@
             const bugContainer = document.getElementById('bugs');
             if (data.bugs && data.bugs.length > 0) {
                 data.bugs.forEach(bug => {
-                    const badgeClass = getStatusClass(bug.status);
+                    const badgeClass = getStatusClass(bug.statusCode, bug.status);
+                    const metaParts = [];
+                    if (bug.version) metaParts.push(`<span class="meta-version">v${bug.version}</span>`);
+                    if (bug.platforms && bug.platforms.length > 0) {
+                        metaParts.push(`<span class="meta-platforms">${bug.platforms.map(platformIcon).join('')}</span>`);
+                    }
+                    const metaHtml = metaParts.length > 0
+                        ? `<div class="list-item-meta">${metaParts.join('')}</div>`
+                        : '';
                     let html = `<div class="list-item">`;
                     html += `<i data-lucide="alert-circle" style="color: var(--muted); margin-top:2px; width:20px; flex-shrink:0;"></i>`;
-                    html += `<div class="list-item-content">${bug.text}</div>`;
+                    html += `<div class="list-item-content">${bug.text}${metaHtml}</div>`;
 
                     if (bug.image) {
-                        const imgData = [{ src: bug.image, caption: bug.text }];
+                        const bugGroup = registerLightboxGroup([{ src: bug.image, caption: bug.text }]);
                         html += `
-                            <div class="bug-item-image" onclick="openLightbox(${escapeAttr(JSON.stringify(imgData))}, 0)">
-                                <img src="${bug.image}" alt="${bug.text}" loading="lazy">
+                            <div class="bug-item-image" onclick="openLightboxGroup(${bugGroup}, 0)">
+                                <img src="${bug.image}" alt="${escapeAttr(bug.text)}" loading="lazy">
                             </div>
                         `;
                     }
@@ -1027,9 +1140,34 @@
             } else {
                 bugContainer.innerHTML = `<div class="no-results"><p>${ui.noBugsData}</p></div>`;
             }
+
+            // 資料為空的分頁直接隱藏（空的「開發計畫」對外觀感比沒有這個分頁更糟）
+            [['faq', data.faq], ['roadmap', data.roadmap], ['bugs', data.bugs]].forEach(([tabId, list]) => {
+                if (!list || list.length === 0) {
+                    document.getElementById(tabButtonIds[tabId]).style.display = 'none';
+                }
+            });
+
+            // hash 深連結：#faq / #announcements / #roadmap / #bugs
+            const hashTab = window.location.hash.replace('#', '');
+            if (tabButtonIds[hashTab]) {
+                const hashBtn = document.getElementById(tabButtonIds[hashTab]);
+                if (hashBtn.style.display !== 'none') switchTab(hashTab);
+            }
+
+            lucide.createIcons();
         }
-        
-        lucide.createIcons();
+    </script>
+
+    <!-- 載入資料：Cloudflare proxy 對靜態資源套 4 小時 Browser Cache TTL，
+         帶時間戳讓每次載入都是新 URL，確保拿到最新公告 -->
+    <script>
+        (function () {
+            const s = document.createElement('script');
+            s.src = 'news-data.js?t=' + Date.now();
+            s.onload = initPage;
+            document.head.appendChild(s);
+        })();
     </script>
 </body>
 </html>
