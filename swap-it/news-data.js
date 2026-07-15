@@ -87,9 +87,19 @@ const newsData = {
                 items: [
                     "家庭共用空間：與家人共用物品清單與庫存，誰補了貨全家都知道"
                 ]
+            },
+            {
+                statusCode: "done",
+                status: "已完成",
+                items: [
+                    "支援管理有效期限與開封保質期 (PAO)",
+                    "用量物品紀錄時可以調整使用時間",
+                    "App 內可直接切換顯示語言"
+                ]
             }
         ],
         bugs: [
+            { statusCode: "done", status: "已修復", text: "修復分類標籤無法調整的問題", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復繁體中文語系 (zh-Hant) 偶發顯示英文的問題", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復單位重複判斷的錯誤", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復 Android 桌面小工具設定後偶爾消失的問題", version: "1.8.1", platforms: ["android"] },
@@ -184,9 +194,19 @@ const newsData = {
                 items: [
                     "Family Space: share your item list and stock with family — when someone restocks, everyone knows"
                 ]
+            },
+            {
+                statusCode: "done",
+                status: "Done",
+                items: [
+                    "Support for Expiry Date and Period After Opening (PAO)",
+                    "Adjust usage time when logging usage items",
+                    "In-app language switch settings"
+                ]
             }
         ],
         bugs: [
+            { statusCode: "done", status: "Fixed", text: "Fixed an issue where category tags could not be adjusted", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed an occasional issue where English text would appear in the Traditional Chinese (zh-Hant) locale", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed a validation error related to duplicate units", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed an issue where the Android home screen widget occasionally disappeared after setup", version: "1.8.1", platforms: ["android"] },
@@ -281,9 +301,19 @@ const newsData = {
                 items: [
                     "ファミリー共有スペース：家族でアイテムリストと在庫を共有。誰かが補充すればみんなに伝わります"
                 ]
+            },
+            {
+                statusCode: "done",
+                status: "完了",
+                items: [
+                    "使用期限と開封後の使用期限 (PAO) の管理に対応",
+                    "使用量アイテムを記録する際に使用時間を調整可能に",
+                    "アプリ内での表示言語切り替え"
+                ]
             }
         ],
         bugs: [
+            { statusCode: "done", status: "修正済み", text: "カテゴリタグが調整できない問題を修正", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "繁体字中国語（zh-Hant）のロケールで時々英語が表示される問題を修正", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "単位の重複判定に関するエラーを修正", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "Androidのホーム画面ウィジェットが設定後に時々消える問題を修正", version: "1.8.1", platforms: ["android"] },
@@ -378,9 +408,19 @@ const newsData = {
                 items: [
                     "가족 공유 공간: 가족과 물품 목록·재고를 공유하고, 누가 보충했는지 모두가 알 수 있어요"
                 ]
+            },
+            {
+                statusCode: "done",
+                status: "완료",
+                items: [
+                    "유통기한 및 개봉 후 사용기한(PAO) 관리 지원",
+                    "사용량 아이템 기록 시 사용 시간 조정 가능",
+                    "앱 내 표시 언어 전환 기능"
+                ]
             }
         ],
         bugs: [
+            { statusCode: "done", status: "수정됨", text: "카테고리 태그를 조정할 수 없던 문제 수정", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "번체 중국어(zh-Hant) 언어 설정에서 간헐적으로 영어가 표시되던 문제를 수정", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "단위 중복 판단 관련 오류를 수정", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "Android 홈 화면 위젯이 설정 후 간헐적으로 사라지던 문제를 수정", version: "1.8.1", platforms: ["android"] },

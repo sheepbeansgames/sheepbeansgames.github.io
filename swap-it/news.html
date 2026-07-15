@@ -1083,9 +1083,11 @@
                         const isObj = typeof item === 'object';
                         const text = isObj ? item.text : item;
                         const preview = isObj ? item.preview : null;
+                        const isDone = group.statusCode === 'done' || badgeClass === 'status-done';
+                        const iconColor = isDone ? '#2f7048' : 'var(--line)';
 
                         html += `<div class="list-item">`;
-                        html += `<i data-lucide="check-circle-2" style="color: var(--line); margin-top:2px; width:20px; flex-shrink:0;"></i>`;
+                        html += `<i data-lucide="check-circle-2" style="color: ${iconColor}; margin-top:2px; width:20px; flex-shrink:0;"></i>`;
                         html += `<div class="list-item-content">${text}</div>`;
 
                         if (preview) {
