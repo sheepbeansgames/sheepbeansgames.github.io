@@ -66,7 +66,7 @@ const newsData = {
                 version: "1.9.0",
                 platforms: ["ios", "android"],
                 title: "🚀 1.9.0 正式推出：批次庫存效期、自訂欄位與更聰明的多份使用管理",
-                content: "這次 1.9.0 帶來更貼近日常使用情境的功能升級！<br><br>✨ 批次庫存效期：不同批次的備品可各自設定效期<br>✨ 開封後保質期：設定開封後可用天數，效期隨之計算<br>✨ 多份同時使用：並列顯示各份的狀態和效期<br>✨ 自訂欄位：可以為物品加上更多自訂描述<br>✨ 語言切換：App 內可指定顯示語言<br>✨ 提醒設定：自訂效期提醒的提前天數，Pro 用戶可個別設定<br>✨ 用量物品重新設計：現在把使用量跟備品數量分開算，備品用完才會自動換上新的一份<br>✨ 介面優化：畫面更簡潔，狀態一眼就懂<br><br>此外也包含多項細節優化，提升整體穩定性。",
+                content: "這次 1.9.0 帶來更貼近日常使用情境的功能升級！<br><br>✨ 批次庫存效期：不同批次的備品可各自設定效期<br>✨ 開封後保質期：設定開封後可用天數，效期隨之計算<br>✨ 多份同時使用：並列顯示各份的狀態和效期<br>✨ 自訂欄位：可以為物品加上更多自訂描述<br>✨ 語言切換：App 內可指定顯示語言<br>✨ 提醒設定：自訂效期提醒的提前天數，Pro 用戶可個別設定<br>✨ 用量物品重新設計：現在把使用量跟備品數量分開算，備品用完才會自動換上新的一份<br>✨ 調整使用時間：用量物品紀錄時可以調整使用時間<br>✨ 介面優化：畫面更簡潔，狀態一眼就懂<br><br>此外也包含多項細節優化，提升整體穩定性。",
                 images: [
                     { src: "assets/news/1.9.0/zh-TW/item-detail-full-info.webp", caption: "有效期限與開封保質期：目前物品的使用期限與 PAO 都會分別提醒，剩餘天數一眼看懂。" },
                     { src: "assets/news/1.9.0/zh-TW/item-detail-custom-fields.webp", caption: "完整資訊：完整手機畫面保留產品名、廠牌、型號、專用耗材型號、序號與購買通路等細節。" },
@@ -163,7 +163,7 @@ const newsData = {
                 version: "1.9.0",
                 platforms: ["ios", "android"],
                 title: "🚀 1.9.0 Is Here: Batch Expiry, Custom Fields, and Smarter Multi-Instance Usage",
-                content: "1.9.0 brings feature upgrades that fit your everyday routine!<br><br>✨ Batch Expiry: set an expiry date for each stock batch<br>✨ Period After Opening: expiry follows the date you open it<br>✨ Multiple In Use: see each one's status and expiry side by side<br>✨ Custom Fields: add your own details to items<br>✨ Language Switch: choose the app language in Settings<br>✨ Reminders: set days ahead to be reminded (Pro can set per item)<br>✨ Usage Items Redesigned: usage amount and spare stock are now tracked separately, with a new spare swapped in once the current one runs out<br>✨ UI Upgrade: cleaner screens, status at a glance<br><br>We've also improved overall stability for a smoother experience.",
+                content: "1.9.0 brings feature upgrades that fit your everyday routine!<br><br>✨ Batch Expiry: set an expiry date for each stock batch<br>✨ Period After Opening: expiry follows the date you open it<br>✨ Multiple In Use: see each one's status and expiry side by side<br>✨ Custom Fields: add your own details to items<br>✨ Language Switch: choose the app language in Settings<br>✨ Reminders: set days ahead to be reminded (Pro can set per item)<br>✨ Usage Items Redesigned: usage amount and spare stock are now tracked separately, with a new spare swapped in once the current one runs out<br>✨ Adjust Usage Time: you can adjust the usage time when logging usage items<br>✨ UI Upgrade: cleaner screens, status at a glance<br><br>We've also improved overall stability for a smoother experience.",
                 images: [
                     { src: "assets/news/1.9.0/en/item-detail-full-info.webp", caption: "Expiry & Period After Opening: Track the item's expiry and PAO separately, with the days remaining clearly shown for each." },
                     { src: "assets/news/1.9.0/en/item-detail-custom-fields.webp", caption: "Complete Details: The full phone view keeps product name, brand, model, consumable model, serial number, and purchase channel close at hand." },
@@ -260,7 +260,7 @@ const newsData = {
                 version: "1.9.0",
                 platforms: ["ios", "android"],
                 title: "🚀 1.9.0 公開：バッチごとの期限管理、カスタムフィールド、よりスマートな複数使用管理",
-                content: "1.9.0では、日常により寄り添った機能アップグレードをお届けします！<br><br>✨ バッチ期限管理：ストックを購入分ごとに分けて期限を設定<br>✨ 開封後の使用期限：開封日に合わせて期限を計算<br>✨ 複数同時使用：それぞれの状態と期限を並べて確認<br>✨ カスタム項目：自由な情報をアイテムに追加<br>✨ 言語切替：設定からアプリの表示言語を選択<br>✨ リマインダー設定：何日前に知らせるかを設定可能（Proならアイテムごとに）<br>✨ 使用量アイテムを刷新：使用量と予備の数を分けて管理し、使い切ったら自動で新しい予備に切り替わります<br>✨ インターフェース刷新：デザインを整理し、状態がひと目でわかるように<br><br>さらに、全体的な安定性を向上し、より快適にご利用いただけます。",
+                content: "1.9.0では、日常により寄り添った機能アップグレードをお届けします！<br><br>✨ バッチ期限管理：ストックを購入分ごとに分けて期限を設定<br>✨ 開封後の使用期限：開封日に合わせて期限を計算<br>✨ 複数同時使用：それぞれの状態と期限を並べて確認<br>✨ カスタム項目：自由な情報をアイテムに追加<br>✨ 言語切替：設定からアプリの表示言語を選択<br>✨ リマインダー設定：何日前に知らせるかを設定可能（Proならアイテムごとに）<br>✨ 使用量アイテムを刷新：使用量と予備の数を分けて管理し、使い切ったら自動で新しい予備に切り替わります<br>✨ 使用時間の調整：使用量アイテムを記録する際に使用時間を調整できるようになりました<br>✨ インターフェース刷新：デザインを整理し、状態がひと目でわかるように<br><br>さらに、全体的な安定性を向上し、より快適にご利用いただけます。",
                 images: [
                     { src: "assets/news/1.9.0/ja/item-detail-full-info.webp", caption: "使用期限と開封後の使用期限：それぞれを個別に管理し、残り日数をひと目で確認できます。" },
                     { src: "assets/news/1.9.0/ja/item-detail-custom-fields.webp", caption: "詳しい情報：フル画面で製品名、メーカー、型番、専用消耗品の型番、シリアル番号、購入先まで確認できます。" },
@@ -357,7 +357,7 @@ const newsData = {
                 version: "1.9.0",
                 platforms: ["ios", "android"],
                 title: "🚀 1.9.0 출시: 재고별 유통기한, 사용자 정의 필드 및 더 스마트한 여러 개 사용 관리",
-                content: "1.9.0는 일상에 더 밀접한 기능 업그레이드를 제공합니다!<br><br>✨ 재고별 유통기한: 재고를 구매분별로 나눠 각각 기한 설정<br>✨ 개봉 후 사용기한: 개봉일에 맞춰 기한 계산<br>✨ 여러 개 동시 사용: 각각의 상태와 기한을 나란히 확인<br>✨ 사용자 정의 필드: 물품에 자유롭게 정보 추가<br>✨ 언어 전환: 설정에서 앱 표시 언어 직접 선택<br>✨ 알림 설정: 며칠 전에 알릴지 설정 (Pro 사용자는 물품별 설정 가능)<br>✨ 사용량 아이템 재설계: 사용량과 여분 수량을 따로 계산하고, 다 쓰면 자동으로 새 여분으로 바뀝니다<br>✨ 인터페이스 개편: 상태를 한눈에 확인할 수 있는 깔끔한 디자인<br><br>또한 전반적인 안정성을 개선하여 더욱 원활하게 이용하실 수 있습니다.",
+                content: "1.9.0는 일상에 더 밀접한 기능 업그레이드를 제공합니다!<br><br>✨ 재고별 유통기한: 재고를 구매분별로 나눠 각각 기한 설정<br>✨ 개봉 후 사용기한: 개봉일에 맞춰 기한 계산<br>✨ 여러 개 동시 사용: 각각의 상태와 기한을 나란히 확인<br>✨ 사용자 정의 필드: 물품에 자유롭게 정보 추가<br>✨ 언어 전환: 설정에서 앱 표시 언어 직접 선택<br>✨ 알림 설정: 며칠 전에 알릴지 설정 (Pro 사용자는 물품별 설정 가능)<br>✨ 사용량 아이템 재설계: 사용량과 여분 수량을 따로 계산하고, 다 쓰면 자동으로 새 여분으로 바뀝니다<br>✨ 사용 시간 조정: 사용량 아이템 기록 시 사용 시간을 조정할 수 있습니다<br>✨ 인터페이스 개편: 상태를 한눈에 확인할 수 있는 깔끔한 디자인<br><br>또한 전반적인 안정성을 개선하여 더욱 원활하게 이용하실 수 있습니다.",
                 images: [
                     { src: "assets/news/1.9.0/ko/item-detail-full-info.webp", caption: "유통기한과 개봉 후 사용기한: 각각 따로 관리하고 남은 일수를 한눈에 확인할 수 있어요." },
                     { src: "assets/news/1.9.0/ko/item-detail-custom-fields.webp", caption: "상세 정보: 전체 휴대폰 화면에서 제품명, 브랜드, 모델, 전용 소모품 모델, 일련번호와 구매처까지 확인하세요." },
