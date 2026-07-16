@@ -99,6 +99,7 @@ const newsData = {
             }
         ],
         bugs: [
+            { date: "2026-07-16", statusCode: "doing", status: "處理中", text: "建立物品時若未設定圖片，後續編輯無法加入" },
             { statusCode: "done", status: "已修復", text: "修復分類標籤無法調整的問題", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復繁體中文語系 (zh-Hant) 偶發顯示英文的問題", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復單位重複判斷的錯誤", version: "1.9.0", platforms: ["ios", "android"] },
@@ -206,6 +207,7 @@ const newsData = {
             }
         ],
         bugs: [
+            { date: "2026-07-16", statusCode: "doing", status: "Fixing", text: "Unable to add an image via edit if the item was created without one" },
             { statusCode: "done", status: "Fixed", text: "Fixed an issue where category tags could not be adjusted", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed an occasional issue where English text would appear in the Traditional Chinese (zh-Hant) locale", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed a validation error related to duplicate units", version: "1.9.0", platforms: ["ios", "android"] },
@@ -313,6 +315,7 @@ const newsData = {
             }
         ],
         bugs: [
+            { date: "2026-07-16", statusCode: "doing", status: "対応中", text: "画像なしでアイテムを作成した場合、後から編集で画像を追加できない問題" },
             { statusCode: "done", status: "修正済み", text: "カテゴリタグが調整できない問題を修正", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "繁体字中国語（zh-Hant）のロケールで時々英語が表示される問題を修正", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "単位の重複判定に関するエラーを修正", version: "1.9.0", platforms: ["ios", "android"] },
@@ -420,6 +423,7 @@ const newsData = {
             }
         ],
         bugs: [
+            { date: "2026-07-16", statusCode: "doing", status: "처리 중", text: "이미지 없이 물품을 생성한 경우, 나중에 편집으로 이미지를 추가할 수 없는 문제" },
             { statusCode: "done", status: "수정됨", text: "카테고리 태그를 조정할 수 없던 문제 수정", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "번체 중국어(zh-Hant) 언어 설정에서 간헐적으로 영어가 표시되던 문제를 수정", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "단위 중복 판단 관련 오류를 수정", version: "1.9.0", platforms: ["ios", "android"] },

@@ -1115,6 +1115,7 @@
                 data.bugs.forEach(bug => {
                     const badgeClass = getStatusClass(bug.statusCode, bug.status);
                     const metaParts = [];
+                    if (bug.date) metaParts.push(`<span class="meta-date">${bug.date}</span>`);
                     if (bug.version) metaParts.push(`<span class="meta-version">v${bug.version}</span>`);
                     if (bug.platforms && bug.platforms.length > 0) {
                         metaParts.push(`<span class="meta-platforms">${bug.platforms.map(platformIcon).join('')}</span>`);
