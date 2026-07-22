@@ -61,6 +61,22 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-07-21",
+                tag: "新功能",
+                version: "1.9.3",
+                platforms: ["ios", "android"],
+                title: "🎨 1.9.3：庫存排序與貼紙外觀客製化",
+                content: "這次更新聚焦在庫存整理與貼紙客製化：<br><br>✨ 排序功能：庫存可依緊急程度、用量、名稱或時間排序；收藏冊能拖曳調整順序<br>✨ 物品外觀：可加上底色；自製貼紙能重新調整線框顏色、旋轉與大小<br>✨ 新增物品：建立時可選用預設物品圖片當照片<br><br>優化：庫存有效日期在編輯物品時也能設定；小縮圖在多個頁面顯示更一致，貼紙不再被裁切。<br><br>修正：使用紀錄調整用量的操作問題，以及庫存依使用天數排序時的計算方式。"
+            },
+            {
+                date: "2026-07-16",
+                tag: "優化",
+                version: "1.9.1",
+                platforms: ["ios", "android"],
+                title: "🔧 1.9.1：分類圖示更多選擇，修正編輯物品與庫存單位問題",
+                content: "優化：<br>・分類圖示新增更多圖示與顏色選項<br>・App 鎖定：辨識功能關閉時，會引導你前往設定開啟<br><br>修正：<br>・編輯物品時，沒有圖片的情況下選圖入口不會再消失<br>・庫存單位未設定時保持空白，不再誤顯示成預設單位"
+            },
+            {
                 date: "2026-07-11",
                 tag: "新版本",
                 version: "1.9.0",
@@ -99,7 +115,8 @@ const newsData = {
             }
         ],
         bugs: [
-            { date: "2026-07-16", statusCode: "doing", status: "處理中", text: "建立物品時若未設定圖片，後續編輯無法加入" },
+            { statusCode: "done", status: "已修復", text: "修復桌面小工具部分物品資訊顯示不穩定的問題", version: "1.9.2", platforms: ["android"] },
+            { statusCode: "done", status: "已修復", text: "建立物品時若未設定圖片，後續編輯無法加入", version: "1.9.1", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復分類標籤無法調整的問題", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復繁體中文語系 (zh-Hant) 偶發顯示英文的問題", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復單位重複判斷的錯誤", version: "1.9.0", platforms: ["ios", "android"] },
@@ -169,6 +186,22 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-07-21",
+                tag: "New Feature",
+                version: "1.9.3",
+                platforms: ["ios", "android"],
+                title: "🎨 1.9.3: Inventory Sorting and Custom Sticker Looks",
+                content: "This update focuses on organizing your inventory and customizing stickers:<br><br>✨ Sorting: sort inventory by urgency, usage, name, or time added; drag to reorder in the collection<br>✨ Item appearance: add a backdrop color; adjust custom stickers' edge color, rotation, and size<br>✨ Add item: choose a default item's image as the photo when creating<br><br>Improvements: stock expiry date is now also settable when editing an item; thumbnails are more consistent across pages, and stickers no longer get cropped.<br><br>Fixes: fixed an issue with adjusting usage amounts, and the calculation used when sorting inventory by days in use."
+            },
+            {
+                date: "2026-07-16",
+                tag: "Improvements",
+                version: "1.9.1",
+                platforms: ["ios", "android"],
+                title: "🔧 1.9.1: More Category Icons, Fixes for Editing Items and Inventory Units",
+                content: "Improvements:<br>・More category icon and color options<br>・App lock now guides you to Settings when biometric authentication is turned off<br><br>Fixes:<br>・Editing items: the photo picker no longer disappears when an item has no photo yet<br>・Inventory unit: left blank when not set, instead of showing a default unit"
+            },
+            {
                 date: "2026-07-11",
                 tag: "New Version",
                 version: "1.9.0",
@@ -207,7 +240,8 @@ const newsData = {
             }
         ],
         bugs: [
-            { date: "2026-07-16", statusCode: "doing", status: "Fixing", text: "Unable to add an image via edit if the item was created without one" },
+            { statusCode: "done", status: "Fixed", text: "Fixed an issue where some item information displayed unreliably in the home screen widget", version: "1.9.2", platforms: ["android"] },
+            { statusCode: "done", status: "Fixed", text: "Unable to add an image via edit if the item was created without one", version: "1.9.1", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed an issue where category tags could not be adjusted", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed an occasional issue where English text would appear in the Traditional Chinese (zh-Hant) locale", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed a validation error related to duplicate units", version: "1.9.0", platforms: ["ios", "android"] },
@@ -277,6 +311,22 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-07-21",
+                tag: "新機能",
+                version: "1.9.3",
+                platforms: ["ios", "android"],
+                title: "🎨 1.9.3公開：在庫の並べ替えとステッカーのカスタム外観",
+                content: "今回のアップデートは在庫整理とステッカーのカスタマイズが中心です：<br><br>✨ 並べ替え機能：在庫は緊急度・使用量・名前・追加日時で並べ替え可能、コレクションはドラッグで順番を変更できます<br>✨ アイテムの外観：背景色を追加できます。自作のステッカーも線の色・回転・サイズを後から調整できます<br>✨ アイテムの追加：作成時にプリセットアイテムの画像を写真として選べます<br><br>改善：在庫の有効期限はアイテム編集時にも設定できるようになりました。サムネイルは複数の画面で表示がより統一され、ステッカーが切り取られなくなりました。<br><br>修正：使用量調整時の操作の問題と、使用日数で並べ替える際の計算方法を修正しました。"
+            },
+            {
+                date: "2026-07-16",
+                tag: "改善",
+                version: "1.9.1",
+                platforms: ["ios", "android"],
+                title: "🔧 1.9.1：カテゴリアイコンを追加、アイテム編集と単位表示の不具合を修正",
+                content: "改善：<br>・カテゴリアイコンとカラーの選択肢を追加<br>・生体認証がオフのとき、アプリロックが設定画面へ案内するように<br><br>修正：<br>・アイテム編集：写真のないアイテムでも写真選択の入り口が消えないように修正<br>・在庫の単位：未設定のときは空欄のままにし、既定の単位が誤って表示されないように修正"
+            },
+            {
                 date: "2026-07-11",
                 tag: "新バージョン",
                 version: "1.9.0",
@@ -315,7 +365,8 @@ const newsData = {
             }
         ],
         bugs: [
-            { date: "2026-07-16", statusCode: "doing", status: "対応中", text: "画像なしでアイテムを作成した場合、後から編集で画像を追加できない問題" },
+            { statusCode: "done", status: "修正済み", text: "ホーム画面ウィジェットで一部のアイテム情報の表示が不安定だった問題を修正", version: "1.9.2", platforms: ["android"] },
+            { statusCode: "done", status: "修正済み", text: "画像なしでアイテムを作成した場合、後から編集で画像を追加できない問題", version: "1.9.1", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "カテゴリタグが調整できない問題を修正", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "繁体字中国語（zh-Hant）のロケールで時々英語が表示される問題を修正", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "単位の重複判定に関するエラーを修正", version: "1.9.0", platforms: ["ios", "android"] },
@@ -385,6 +436,22 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-07-21",
+                tag: "새로운 기능",
+                version: "1.9.3",
+                platforms: ["ios", "android"],
+                title: "🎨 1.9.3 출시: 재고 정렬과 스티커 커스텀 외관",
+                content: "이번 업데이트는 재고 정리와 스티커 커스터마이징에 집중했습니다:<br><br>✨ 정렬 기능: 재고를 긴급도・사용량・이름・추가 시간순으로 정렬할 수 있고, 컬렉션은 드래그로 순서를 바꿀 수 있습니다<br>✨ 물품 외관: 배경색을 추가할 수 있습니다. 직접 만든 스티커도 다시 열어 테두리 색상, 회전, 크기를 조정할 수 있습니다<br>✨ 물품 추가: 만들 때 기본 제공 물품의 이미지를 사진으로 선택할 수 있습니다<br><br>개선: 재고 유효기간을 물품 편집 시에도 설정할 수 있게 되었습니다. 썸네일은 여러 화면에서 더 일관되게 표시되고, 스티커가 잘리지 않습니다.<br><br>수정: 사용량 조정 시 발생하던 조작 문제와, 사용 일수 기준 정렬 시 계산 방식을 수정했습니다."
+            },
+            {
+                date: "2026-07-16",
+                tag: "개선",
+                version: "1.9.1",
+                platforms: ["ios", "android"],
+                title: "🔧 1.9.1: 카테고리 아이콘 추가, 물품 편집 및 단위 표시 문제 수정",
+                content: "개선:<br>・카테고리 아이콘과 색상 옵션 추가<br>・생체 인식이 꺼져 있을 때 앱 잠금이 설정 화면으로 안내<br><br>수정:<br>・물품 편집: 사진이 없는 물품도 사진 선택 진입점이 사라지지 않도록 수정<br>・재고 단위: 설정하지 않았을 때 기본 단위로 표시되지 않고 비워 둠"
+            },
+            {
                 date: "2026-07-11",
                 tag: "새 버전",
                 version: "1.9.0",
@@ -423,7 +490,8 @@ const newsData = {
             }
         ],
         bugs: [
-            { date: "2026-07-16", statusCode: "doing", status: "처리 중", text: "이미지 없이 물품을 생성한 경우, 나중에 편집으로 이미지를 추가할 수 없는 문제" },
+            { statusCode: "done", status: "수정됨", text: "홈 화면 위젯에서 일부 물품 정보 표시가 불안정하던 문제 수정", version: "1.9.2", platforms: ["android"] },
+            { statusCode: "done", status: "수정됨", text: "이미지 없이 물품을 생성한 경우, 나중에 편집으로 이미지를 추가할 수 없는 문제", version: "1.9.1", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "카테고리 태그를 조정할 수 없던 문제 수정", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "번체 중국어(zh-Hant) 언어 설정에서 간헐적으로 영어가 표시되던 문제를 수정", version: "1.9.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "단위 중복 판단 관련 오류를 수정", version: "1.9.0", platforms: ["ios", "android"] },
