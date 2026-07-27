@@ -61,6 +61,14 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-07-27",
+                tag: "新版本",
+                version: "1.10.0",
+                platforms: ["ios", "android"],
+                title: "🗂️ 1.10.0：個人空間上線，畫面體驗全面優化",
+                content: "✨ 個人空間：可以依使用情境或場所把物品分開管理，每個空間各自獨立，讓物品管理可以更清楚<br><br>優化：<br>・畫面與文字：調整物品縮圖、庫存頁的卡片與標籤，部分用字也改得更加貼切<br><br>修正：<br>・有效期限與提醒：物品的有效期限會正常顯示在物況頁，設定的提醒天數也一致套用在畫面與通知"
+            },
+            {
                 date: "2026-07-21",
                 tag: "新功能",
                 version: "1.9.3",
@@ -108,6 +116,7 @@ const newsData = {
                 statusCode: "done",
                 status: "已完成",
                 items: [
+                    "個人空間：依使用情境或場所把物品分開管理",
                     "支援管理有效期限與開封保質期 (PAO)",
                     "用量物品紀錄時可以調整使用時間",
                     "App 內可直接切換顯示語言"
@@ -115,6 +124,7 @@ const newsData = {
             }
         ],
         bugs: [
+            { statusCode: "done", status: "已修復", text: "修復物況頁面中到期提醒的顯示異常問題，設定的提醒天數也一致套用在畫面與通知", version: "1.10.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復桌面小工具部分物品資訊顯示不穩定的問題", version: "1.9.2", platforms: ["android"] },
             { statusCode: "done", status: "已修復", text: "建立物品時若未設定圖片，後續編輯無法加入", version: "1.9.1", platforms: ["ios", "android"] },
             { statusCode: "done", status: "已修復", text: "修復分類標籤無法調整的問題", version: "1.9.0", platforms: ["ios", "android"] },
@@ -186,6 +196,14 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-07-27",
+                tag: "New Version",
+                version: "1.10.0",
+                platforms: ["ios", "android"],
+                title: "🗂️ 1.10.0: Personal Spaces Have Arrived, Plus Display Refinements",
+                content: "✨ Personal Spaces: separate items by where or how you use them, with each space kept independent so everything is easier to keep track of<br><br>Improvements:<br>・Display & wording: refined item thumbnails, inventory cards and labels, with wording that fits better<br><br>Fixes:<br>・Expiry dates & reminders: expiry dates now show properly under Alerts, and your reminder days apply consistently to both the app and notifications"
+            },
+            {
                 date: "2026-07-21",
                 tag: "New Feature",
                 version: "1.9.3",
@@ -233,6 +251,7 @@ const newsData = {
                 statusCode: "done",
                 status: "Done",
                 items: [
+                    "Personal Spaces: separate items by where or how you use them",
                     "Support for Expiry Date and Period After Opening (PAO)",
                     "Adjust usage time when logging usage items",
                     "In-app language switch settings"
@@ -240,6 +259,7 @@ const newsData = {
             }
         ],
         bugs: [
+            { statusCode: "done", status: "Fixed", text: "Fixed the display issue for expiration alerts on the Status page; reminder days now apply consistently across the app and notifications", version: "1.10.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed an issue where some item information displayed unreliably in the home screen widget", version: "1.9.2", platforms: ["android"] },
             { statusCode: "done", status: "Fixed", text: "Unable to add an image via edit if the item was created without one", version: "1.9.1", platforms: ["ios", "android"] },
             { statusCode: "done", status: "Fixed", text: "Fixed an issue where category tags could not be adjusted", version: "1.9.0", platforms: ["ios", "android"] },
@@ -311,6 +331,14 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-07-27",
+                tag: "新バージョン",
+                version: "1.10.0",
+                platforms: ["ios", "android"],
+                title: "🗂️ 1.10.0 公開：パーソナルスペース登場、表示体験を全面的に改善",
+                content: "✨ パーソナルスペース：使う場所やシーンごとにアイテムを分けて管理できます。スペースごとに独立しているので、管理がわかりやすくなります<br><br>改善：<br>・表示と文言：アイテムのサムネイル、在庫カードやラベルを調整し、表現をより適切に見直しました<br><br>修正：<br>・期限日とリマインド：期限日が「状況」画面に正しく表示され、設定したリマインド日数が画面と通知の両方に一貫して反映されます"
+            },
+            {
                 date: "2026-07-21",
                 tag: "新機能",
                 version: "1.9.3",
@@ -358,6 +386,7 @@ const newsData = {
                 statusCode: "done",
                 status: "完了",
                 items: [
+                    "パーソナルスペース：使う場所やシーンごとにアイテムを分けて管理",
                     "使用期限と開封後の使用期限 (PAO) の管理に対応",
                     "使用量アイテムを記録する際に使用時間を調整可能に",
                     "アプリ内での表示言語切り替え"
@@ -365,6 +394,7 @@ const newsData = {
             }
         ],
         bugs: [
+            { statusCode: "done", status: "修正済み", text: "ステータス画面で期限リマインダーの表示が不具合になる問題を修正。設定したリマインド日数も画面と通知に一貫して反映されるように", version: "1.10.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "ホーム画面ウィジェットで一部のアイテム情報の表示が不安定だった問題を修正", version: "1.9.2", platforms: ["android"] },
             { statusCode: "done", status: "修正済み", text: "画像なしでアイテムを作成した場合、後から編集で画像を追加できない問題", version: "1.9.1", platforms: ["ios", "android"] },
             { statusCode: "done", status: "修正済み", text: "カテゴリタグが調整できない問題を修正", version: "1.9.0", platforms: ["ios", "android"] },
@@ -436,6 +466,14 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-07-27",
+                tag: "새 버전",
+                version: "1.10.0",
+                platforms: ["ios", "android"],
+                title: "🗂️ 1.10.0 출시: 개인 공간 등장, 화면 경험 전면 개선",
+                content: "✨ 개인 공간: 사용하는 장소나 상황에 따라 물품을 나누어 관리할 수 있습니다. 공간마다 독립되어 있어 물품 관리가 더 명확해집니다<br><br>개선:<br>・화면 및 문구: 물품 썸네일, 재고 카드와 라벨을 조정하고 표현을 더 알맞게 다듬었습니다<br><br>수정:<br>・유효 기한 및 알림: 유효 기한이 '현황' 화면에 정상적으로 표시되고, 설정한 알림 일수가 화면과 알림에 일관되게 적용됩니다"
+            },
+            {
                 date: "2026-07-21",
                 tag: "새로운 기능",
                 version: "1.9.3",
@@ -483,6 +521,7 @@ const newsData = {
                 statusCode: "done",
                 status: "완료",
                 items: [
+                    "개인 공간: 사용하는 장소나 상황에 따라 물품을 나누어 관리",
                     "유통기한 및 개봉 후 사용기한(PAO) 관리 지원",
                     "사용량 아이템 기록 시 사용 시간 조정 가능",
                     "앱 내 표시 언어 전환 기능"
@@ -490,6 +529,7 @@ const newsData = {
             }
         ],
         bugs: [
+            { statusCode: "done", status: "수정됨", text: "상태 화면에서 만료 알림 표시가 올바르지 않던 문제를 수정했습니다. 설정한 알림 일수도 화면과 알림에 일관되게 적용됩니다", version: "1.10.0", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "홈 화면 위젯에서 일부 물품 정보 표시가 불안정하던 문제 수정", version: "1.9.2", platforms: ["android"] },
             { statusCode: "done", status: "수정됨", text: "이미지 없이 물품을 생성한 경우, 나중에 편집으로 이미지를 추가할 수 없는 문제", version: "1.9.1", platforms: ["ios", "android"] },
             { statusCode: "done", status: "수정됨", text: "카테고리 태그를 조정할 수 없던 문제 수정", version: "1.9.0", platforms: ["ios", "android"] },
