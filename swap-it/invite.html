@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8">
@@ -6,84 +6,405 @@
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Cache-Control" content="no-store">
-  <title>Swap It. Family Invite</title>
+  <meta name="theme-color" content="#fbfaf7">
+  <title>該換了吧｜家庭邀請</title>
   <style>
-    :root { color-scheme: light; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    :root {
+      color-scheme: light;
+      --bg: #fbfaf7;
+      --surface: #ffffff;
+      --ink: #241d18;
+      --muted: #675d55;
+      --subtle: #92867b;
+      --line: rgba(36, 29, 24, .1);
+      --brand: #df6338;
+      --brand-dark: #a94222;
+      --sage: #4c7a67;
+      --shadow: 0 24px 64px rgba(36, 29, 24, .13);
+    }
+
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fff8eb; color: #2d2925; padding: 24px; }
-    main { width: min(100%, 440px); padding: 32px 24px; border: 1px solid #eadfce; border-radius: 24px; background: #fffdf8; box-shadow: 0 16px 40px rgba(73, 57, 39, .09); text-align: center; }
-    .mark { width: 64px; height: 64px; display: grid; place-items: center; margin: 0 auto 18px; border-radius: 18px; background: #f5c768; font-size: 30px; }
-    h1 { margin: 0 0 8px; font-size: 25px; }
-    p { margin: 0 0 22px; color: #655e57; line-height: 1.55; }
-    .code { margin: 0 0 18px; padding: 14px; border-radius: 14px; background: #f7f1e6; font: 800 21px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 3px; }
-    .actions { display: grid; gap: 10px; }
-    a, button { width: 100%; min-height: 48px; display: grid; place-items: center; border: 0; border-radius: 14px; padding: 12px 16px; font: inherit; font-weight: 750; text-decoration: none; cursor: pointer; }
-    .primary { background: #d58a2e; color: white; }
-    .secondary { background: #f2e6d4; color: #4f3b28; }
-    .stores { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-    .status { min-height: 22px; margin: 14px 0 0; font-size: 14px; color: #655e57; }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Avenir Next", "Noto Sans TC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(36, 29, 24, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(36, 29, 24, .035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, .62), transparent 78%);
+    }
+
+    button, a { font: inherit; }
+    a { color: inherit; }
+
+    .site-nav {
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 250, 247, .88);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      width: min(100%, 760px);
+      min-height: 72px;
+      margin: 0 auto;
+      padding: 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      font-size: 19px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      box-shadow: 0 8px 22px rgba(36, 29, 24, .1);
+    }
+
+    .nav-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    main {
+      min-height: calc(100svh - 73px);
+      display: grid;
+      place-items: center;
+      padding: 44px 20px 64px;
+    }
+
+    .invite-card {
+      width: min(100%, 520px);
+      padding: clamp(24px, 6vw, 38px);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .card-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 18px;
+      border-radius: 17px;
+      box-shadow: 0 10px 28px rgba(36, 29, 24, .1);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 10px;
+      color: var(--sage);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .06em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(27px, 7vw, 36px);
+      font-weight: 900;
+      line-height: 1.18;
+      letter-spacing: -.025em;
+    }
+
+    .lead {
+      max-width: 400px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .code-panel {
+      margin-bottom: 18px;
+      padding: 24px 18px;
+      border: 2px solid rgba(223, 99, 56, .24);
+      border-radius: 20px;
+      background: #fff7f2;
+      box-shadow: inset 0 0 0 4px rgba(255, 255, 255, .72);
+    }
+
+    .code-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--brand-dark);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .code {
+      color: var(--ink);
+      font: 900 clamp(26px, 7.6vw, 35px) ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .14em;
+      overflow-wrap: anywhere;
+    }
+
+    .invalid-panel {
+      margin-bottom: 18px;
+      padding: 20px;
+      border: 1px solid rgba(169, 66, 34, .16);
+      border-radius: 18px;
+      background: #fff7f2;
+      color: var(--brand-dark);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+    }
+
+    .button {
+      width: 100%;
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 12px 26px rgba(223, 99, 56, .25);
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--brand-dark);
+    }
+
+    .button:focus-visible {
+      outline: 3px solid rgba(223, 99, 56, .25);
+      outline-offset: 3px;
+    }
+
+    .button.secondary {
+      border-color: var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: none;
+    }
+
+    .button.secondary:hover { background: #f4efe9; }
+
+    .status {
+      min-height: 22px;
+      margin-top: 10px;
+      color: var(--sage);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .secure-note {
+      margin: 4px auto 0;
+      color: var(--subtle);
+      font-size: 12px;
+    }
+
+    .store-area {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--subtle);
+      font-size: 12px;
+    }
+
+    .store-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 7px;
+    }
+
+    .store-links a {
+      color: var(--ink);
+      font-weight: 900;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 520px) {
+      main {
+        align-items: start;
+        padding: 26px 14px 44px;
+      }
+
+      .nav-inner { padding-inline: 18px; }
+      .nav-label { display: none; }
+
+      .invite-card {
+        padding: 24px 20px;
+        border-radius: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
   </style>
 </head>
 <body>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="logo" href="./">
+        <img src="assets/icon/icon.png" alt="">
+        <span id="brand-name">該換了吧</span>
+      </a>
+      <span class="nav-label" id="nav-label"></span>
+    </div>
+  </header>
+
   <main>
-    <div class="mark" aria-hidden="true">🏠</div>
-    <h1 id="title"></h1>
-    <p id="body"></p>
-    <div class="code" id="code" hidden></div>
-    <div class="actions">
-      <a class="primary" id="open-app" href="#"></a>
-      <button class="secondary" id="copy-code" type="button"></button>
-    </div>
-    <div class="stores">
-      <a class="secondary" href="https://apps.apple.com/app/id6762584972" rel="noopener noreferrer">App Store</a>
-      <a class="secondary" href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory" rel="noopener noreferrer">Google Play</a>
-    </div>
-    <div class="status" id="status" role="status" aria-live="polite"></div>
+    <section class="invite-card" aria-labelledby="title">
+      <img class="card-icon" src="assets/icon/icon.png" alt="">
+      <div class="eyebrow" id="eyebrow"></div>
+      <h1 id="title"></h1>
+      <p class="lead" id="body"></p>
+
+      <div class="code-panel" id="code-panel" hidden>
+        <span class="code-label" id="code-label"></span>
+        <div class="code" id="code"></div>
+      </div>
+      <div class="invalid-panel" id="invalid-panel" hidden></div>
+
+      <div class="actions" id="actions">
+        <a class="button" id="open-app" href="#"></a>
+        <button class="button secondary" id="copy-code" type="button"></button>
+      </div>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+      <p class="secure-note" id="secure-note"></p>
+
+      <div class="store-area">
+        <span id="store-label"></span>
+        <div class="store-links">
+          <a href="https://apps.apple.com/app/id6762584972" rel="noopener noreferrer">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.sheepbeansgames.shelfory" rel="noopener noreferrer">Google Play</a>
+        </div>
+      </div>
+    </section>
   </main>
+
   <script>
     (() => {
       const copy = {
         'zh-Hant': {
-          title: '加入該換了吧家庭',
-          body: '開啟 App 後確認家庭與身分，才會完成加入。',
+          brand: '該換了吧',
+          nav: '家庭共享邀請',
+          eyebrow: '私人家庭邀請',
+          title: '加入共享家庭',
+          body: '使用下面的邀請碼開啟 App，確認家庭與身分後即可加入。',
           invalid: '這個邀請連結不完整，請向管理員索取新的連結。',
-          open: '開啟該換了吧',
+          codeLabel: '邀請碼',
+          open: '使用此邀請碼開啟 App',
           copy: '複製邀請碼',
-          copied: '已複製邀請碼'
+          copied: '已複製邀請碼',
+          store: '還沒安裝 App？',
+          secure: '點開連結不會自動加入，你仍需在 App 內確認。'
         },
         'zh-Hans': {
-          title: '加入该换了吧家庭',
-          body: '打开 App 后确认家庭与身份，才会完成加入。',
+          brand: '该换了吧',
+          nav: '家庭共享邀请',
+          eyebrow: '私人家庭邀请',
+          title: '加入共享家庭',
+          body: '使用下面的邀请码打开 App，确认家庭与身份后即可加入。',
           invalid: '这个邀请链接不完整，请向管理员索取新的链接。',
-          open: '打开该换了吧',
+          codeLabel: '邀请码',
+          open: '使用此邀请码打开 App',
           copy: '复制邀请码',
-          copied: '已复制邀请码'
+          copied: '已复制邀请码',
+          store: '还没安装 App？',
+          secure: '打开链接不会自动加入，你仍需在 App 内确认。'
         },
         en: {
-          title: 'Join a family on Swap It.',
-          body: 'Open the app and confirm the family and identity before joining.',
+          brand: 'Swap It.',
+          nav: 'Shared family invite',
+          eyebrow: 'Private family invite',
+          title: 'Join a shared family',
+          body: 'Use the invite code below to open the app, review your family and identity, then join.',
           invalid: 'This invite link is incomplete. Ask the owner for a new link.',
-          open: 'Open Swap It.',
+          codeLabel: 'Invite code',
+          open: 'Open app with this code',
           copy: 'Copy invite code',
-          copied: 'Invite code copied'
+          copied: 'Invite code copied',
+          store: 'Don’t have the app yet?',
+          secure: 'Opening the link never joins automatically. You’ll still confirm in the app.'
         },
         ja: {
-          title: 'Swap It. の家族に参加',
-          body: 'Appを開き、家族とメンバー名を確認すると参加が完了します。',
+          brand: 'Swap It.',
+          nav: '家族共有への招待',
+          eyebrow: '非公開の家族招待',
+          title: '共有家族に参加',
+          body: '下の招待コードでAppを開き、家族とメンバー名を確認して参加します。',
           invalid: 'この招待リンクは無効です。管理者に新しいリンクを依頼してください。',
-          open: 'Swap It.を開く',
+          codeLabel: '招待コード',
+          open: 'このコードでAppを開く',
           copy: '招待コードをコピー',
-          copied: '招待コードをコピーしました'
+          copied: '招待コードをコピーしました',
+          store: 'Appをまだお持ちでないですか？',
+          secure: 'リンクを開いただけでは参加しません。App内で確認が必要です。'
         },
         ko: {
-          title: 'Swap It. 가족에 참여',
-          body: 'App을 열고 가족과 이름을 확인해야 참여가 완료돼요.',
+          brand: 'Swap It.',
+          nav: '공유 가족 초대',
+          eyebrow: '비공개 가족 초대',
+          title: '공유 가족에 참여',
+          body: '아래 초대 코드로 App을 열고 가족과 이름을 확인한 뒤 참여하세요.',
           invalid: '초대 링크가 올바르지 않아요. 관리자에게 새 링크를 요청하세요.',
-          open: 'Swap It. 열기',
+          codeLabel: '초대 코드',
+          open: '이 코드로 App 열기',
           copy: '초대 코드 복사',
-          copied: '초대 코드를 복사했어요'
+          copied: '초대 코드를 복사했어요',
+          store: '아직 App이 없나요?',
+          secure: '링크를 여는 것만으로 참여되지는 않아요. App에서 직접 확인해야 해요.'
         }
       };
+
       const browserLanguage = navigator.language || 'en';
       const language = browserLanguage.startsWith('zh')
         ? (browserLanguage.toLowerCase().includes('hans') || /-cn|-sg/i.test(browserLanguage) ? 'zh-Hans' : 'zh-Hant')
@@ -92,21 +413,35 @@
         : 'en';
       const text = copy[language];
       document.documentElement.lang = language;
+      document.title = text.brand + '｜' + text.title;
+
+      document.getElementById('brand-name').textContent = text.brand;
+      document.getElementById('nav-label').textContent = text.nav;
+      document.getElementById('eyebrow').textContent = text.eyebrow;
+      document.getElementById('title').textContent = text.title;
+      document.getElementById('code-label').textContent = text.codeLabel;
+      document.getElementById('open-app').textContent = text.open;
+      document.getElementById('copy-code').textContent = text.copy;
+      document.getElementById('store-label').textContent = text.store;
+      document.getElementById('secure-note').textContent = text.secure;
+
       const rawCode = new URLSearchParams(location.search).get('code') || '';
       const code = rawCode.trim().toUpperCase();
       const valid = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{10}$/.test(code);
-      document.getElementById('title').textContent = text.title;
       document.getElementById('body').textContent = valid ? text.body : text.invalid;
-      document.getElementById('open-app').textContent = text.open;
-      document.getElementById('copy-code').textContent = text.copy;
+
       if (!valid) {
-        document.getElementById('open-app').hidden = true;
-        document.getElementById('copy-code').hidden = true;
+        document.getElementById('actions').hidden = true;
+        const invalidPanel = document.getElementById('invalid-panel');
+        invalidPanel.textContent = text.invalid;
+        invalidPanel.hidden = false;
         return;
       }
+
+      const codePanel = document.getElementById('code-panel');
       const codeElement = document.getElementById('code');
       codeElement.textContent = code;
-      codeElement.hidden = false;
+      codePanel.hidden = false;
       document.getElementById('open-app').href = 'shelfory:///swap-it/invite?code=' + encodeURIComponent(code);
       document.getElementById('copy-code').addEventListener('click', async () => {
         try {
