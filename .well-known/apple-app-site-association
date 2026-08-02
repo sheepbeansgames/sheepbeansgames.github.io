@@ -7,6 +7,12 @@
         "paths": [
           "/puzzle/*"
         ]
+      },
+      {
+        "appID": "CZ946U56G7.com.sheepbeansgames.shelfory",
+        "paths": [
+          "/swap-it/invite"
+        ]
       }
     ]
   }

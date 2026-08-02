@@ -9,5 +9,15 @@
         "E3:CF:93:FD:E3:2E:35:D1:8F:A5:DA:88:89:80:C8:B9:16:3B:94:4E:94:67:43:6A:3C:B7:87:8D:CE:82:82:82"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.sheepbeansgames.shelfory",
+      "sha256_cert_fingerprints": [
+        "13:EA:BD:C3:E9:C8:06:F4:D2:49:5B:65:B7:95:F6:DF:C1:96:59:8D:22:A0:FB:AC:94:6C:52:66:6E:22:00:A8"
+      ]
+    }
   }
 ]

@@ -1,2 +1,20 @@
 /sitemap.xml
   Content-Type: text/xml; charset=utf-8
+
+/.well-known/apple-app-site-association
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=300
+
+/.well-known/assetlinks.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=300
+
+/swap-it/invite
+  Cache-Control: no-store
+  Referrer-Policy: no-referrer
+  X-Robots-Tag: noindex, nofollow
+
+/swap-it/invite.html
+  Cache-Control: no-store
+  Referrer-Policy: no-referrer
+  X-Robots-Tag: noindex, nofollow
