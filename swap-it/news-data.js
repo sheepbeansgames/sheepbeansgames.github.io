@@ -20,19 +20,23 @@ const newsData = {
                 ]
             },
             {
-                category: "備份與資料",
+                category: "同步與資料",
                 questions: [
                     {
                         q: "換手機資料會不見嗎？",
-                        a: "資料存在手機本機。換手機前先在設定裡執行「雲端備份」（Pro 版功能，需登入帳號），新手機登入同一個帳號後用「還原」把資料拿回來。請注意這是手動備份，不是即時同步——換機前記得先備份一次最新狀態。照片部分以貼紙顯示圖為主，原始大圖不保證完整還原。"
+                        a: "資料先存在這支手機。Pro 登入後可開啟個人空間同步，換手機用同一個帳號登入就能接續。家庭空間只要家人在同一個家庭裡，各人的手機都會一起更新。沒開同步、也沒用家庭的話，資料只在這支手機上。"
                     },
                     {
-                        q: "為什麼我找不到登入／雲端備份的選項？",
-                        a: "登入與雲端備份是 Pro 版功能，需要在已購買 Pro 的裝置上才能使用備份與還原。免費版的資料只存在手機本機。"
+                        q: "為什麼我找不到登入或同步的選項？",
+                        a: "個人空間同步是 Pro 功能，登入後可在設定裡開啟。免費版的個人資料只存在這支手機。加入家人建立的家庭不需要 Pro，登入後就能一起記；建立家庭則與 Pro 方案有關。"
+                    },
+                    {
+                        q: "可以跟家人一起記嗎？",
+                        a: "可以。建立家庭、把家人邀請進來，物品、庫存和該換的日子會一起更新。誰補了貨、誰換了東西會留在家庭動態。建立家庭需要 Pro，被邀請的家人不用。"
                     },
                     {
                         q: "你們看得到我記錄的物品內容嗎？",
-                        a: "看不到。物品名稱、照片、備註、存放位置都只存在你的手機裡；就算使用雲端備份，內容也只用於你自己的還原。我們的匿名統計不包含任何這類內容。"
+                        a: "看不到。物品名稱、照片、備註不會進我們的匿名統計。沒開同步、也沒用家庭時，這些內容只在你的手機裡。你開啟個人同步或使用家庭後，內容會存到雲端，只為了讓你自己或家人接續使用。"
                     }
                 ]
             },
@@ -50,7 +54,7 @@ const newsData = {
                 questions: [
                     {
                         q: "免費版和 Pro 差在哪？",
-                        a: "免費版可以使用核心功能，但物品數量、存放位置、分類等都有數量限制。Pro 解鎖這些上限，並開放雲端備份等完整功能。"
+                        a: "免費版可以使用核心功能，但物品數量、存放位置、分類等都有數量限制。Pro 解鎖這些上限，並可開啟個人空間同步，換手機也能把個人資料帶著走。建立家庭也需要 Pro；加入家人的家庭則不用。"
                     },
                     {
                         q: "換手機後 Pro 資格怎麼拿回來？",
@@ -60,6 +64,19 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-09-07",
+                tag: "重大更新",
+                version: "2.0.0",
+                platforms: ["ios", "android"],
+                title: "🏠 2.0.0：從一個人記，變成一家人一起記",
+                content: "以前，家裡的東西是自己記、自己換、自己補。現在，建立家庭、把家人邀請進來，哪些快用完、哪些該換了，打開就能看到。<br>誰補了貨、誰換了東西，會留在家庭動態裡。<br><br>新功能：<br>・個人空間自動同步：Pro 帳號可開啟，不再需要自己手動備份還原<br>・這個位置放了什麼：管理頁的存放位置可以直接查看裡面的物品<br>・物品可以留下使用照片：每件最多三張，點一下就能放大看",
+                images: [
+                    { src: "assets/screenshots/zh-TW/34_family_spaces_list.png", caption: "家庭空間：建立家庭、把家人邀請進來。" },
+                    { src: "assets/screenshots/zh-TW/36_family_activity.png", caption: "家庭動態：誰補了貨、誰換了東西。" },
+                    { src: "assets/screenshots/zh-TW/53_item_record_photos.png", caption: "使用照片：每件最多三張，點一下就能放大看。" }
+                ]
+            },
             {
                 date: "2026-07-27",
                 tag: "新版本",
@@ -106,16 +123,13 @@ const newsData = {
         ],
         roadmap: [
             {
-                statusCode: "doing",
-                status: "開發中",
-                items: [
-                    "家庭共用空間：與家人共用物品清單與庫存，誰補了貨全家都知道"
-                ]
-            },
-            {
                 statusCode: "done",
                 status: "已完成",
                 items: [
+                    "家庭空間：建立家庭、邀請家人，一起看該換該補；動態會留下是誰做的",
+                    "個人空間自動同步：Pro 可開啟，換手機也能接續",
+                    "存放位置可直接查看裡面的物品",
+                    "物品可留下使用照片（每件最多三張）",
                     "個人空間：依使用情境或場所把物品分開管理",
                     "支援管理有效期限與開封保質期 (PAO)",
                     "用量物品紀錄時可以調整使用時間",
@@ -155,19 +169,23 @@ const newsData = {
                 ]
             },
             {
-                category: "Backup & Data",
+                category: "Sync & Data",
                 questions: [
                     {
                         q: "Will I lose my data when I switch phones?",
-                        a: "Your data lives on your phone. Before switching, run a Cloud Backup in Settings (a Pro feature — sign-in required), then sign in with the same account on the new phone and restore. Note this is a manual backup, not real-time sync — back up right before you switch. For photos, sticker display images are backed up first; original full-size photos aren't guaranteed to be fully restored."
+                        a: "Your data starts on this phone. With Pro, sign in and turn on Personal Space sync — then sign in with the same account on the new phone to keep going. Family spaces stay in sync for everyone in the family. If sync is off and you are not in a family, the data stays only on this phone."
                     },
                     {
-                        q: "Why can't I find the sign-in / cloud backup option?",
-                        a: "Sign-in and cloud backup are Pro features. Backup and restore are only available on a device with an active Pro purchase. On the free plan, data is stored only on your phone."
+                        q: "Why can't I find sign-in or sync?",
+                        a: "Personal Space sync is a Pro feature. After you sign in, you can turn it on in Settings. On the free plan, personal data stays on this phone. Joining a family someone else created does not require Pro — sign in and you can record together; creating a family is tied to the Pro plan."
+                    },
+                    {
+                        q: "Can we keep track together as a family?",
+                        a: "Yes. Create a family, invite people in, and items, stock, and due dates stay updated together. Who restocked and who replaced something is kept in Family Activity. Creating a family requires Pro; invited members do not."
                     },
                     {
                         q: "Can you see what I record in the app?",
-                        a: "No. Item names, photos, notes, and storage locations stay on your phone; even with cloud backup, the content is used only for your own restore. Our anonymous statistics never include any of it."
+                        a: "No. Item names, photos, and notes are not included in our anonymous statistics. If sync is off and you are not using a family, that content stays on your phone. If you turn on personal sync or use a family, it is stored in the cloud only so you or your family can keep using it."
                     }
                 ]
             },
@@ -185,7 +203,7 @@ const newsData = {
                 questions: [
                     {
                         q: "What's the difference between Free and Pro?",
-                        a: "The free plan covers the core features, with limits on the number of items, storage locations, categories, and so on. Pro lifts those limits and unlocks the full feature set, including cloud backup."
+                        a: "The free plan covers the core features, with limits on the number of items, storage locations, categories, and so on. Pro lifts those limits and lets you turn on Personal Space sync so your personal data can follow you to another phone. Creating a family also requires Pro; joining a family does not."
                     },
                     {
                         q: "How do I get Pro back on a new phone?",
@@ -195,6 +213,19 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-09-07",
+                tag: "Major Update",
+                version: "2.0.0",
+                platforms: ["ios", "android"],
+                title: "🏠 2.0.0: From keeping track on your own, to keeping track together",
+                content: "You used to track household items alone. Now create a family, invite people in, and see what's running low or due. Who restocked and who replaced something stays in Family Activity.<br><br>New:<br>・Personal Space auto-sync: for Pro, so you no longer need to back up and restore by hand<br>・See what's in a storage spot: open a location in Management to view the items there<br>・Keep photos with an item: up to three per item, tap to view larger",
+                images: [
+                    { src: "assets/screenshots/en/34_family_spaces_list.png", caption: "Family spaces: create a family and invite people in." },
+                    { src: "assets/screenshots/en/36_family_activity.png", caption: "Family Activity: who restocked and who replaced something." },
+                    { src: "assets/screenshots/en/53_item_record_photos.png", caption: "Item photos: up to three per item, tap to enlarge." }
+                ]
+            },
             {
                 date: "2026-07-27",
                 tag: "New Version",
@@ -241,16 +272,13 @@ const newsData = {
         ],
         roadmap: [
             {
-                statusCode: "doing",
-                status: "In Progress",
-                items: [
-                    "Family Space: share your item list and stock with family — when someone restocks, everyone knows"
-                ]
-            },
-            {
                 statusCode: "done",
                 status: "Done",
                 items: [
+                    "Family spaces: create a family, invite people in, and keep track together; Family Activity shows who did what",
+                    "Personal Space auto-sync: available on Pro, so your data can follow you to another phone",
+                    "See what's in a storage spot from Management",
+                    "Keep up to three photos with an item",
                     "Personal Spaces: separate items by where or how you use them",
                     "Support for Expiry Date and Period After Opening (PAO)",
                     "Adjust usage time when logging usage items",
@@ -290,19 +318,23 @@ const newsData = {
                 ]
             },
             {
-                category: "バックアップとデータ",
+                category: "同期とデータ",
                 questions: [
                     {
                         q: "機種変更でデータは消えますか？",
-                        a: "データは端末内に保存されています。機種変更の前に設定から「クラウドバックアップ」（Pro機能・ログインが必要）を実行し、新しい端末で同じアカウントにログインして復元してください。リアルタイム同期ではなく手動バックアップなので、変更直前に最新の状態をバックアップするのがおすすめです。写真はステッカー表示用の画像が中心で、元の大きな画像の完全な復元は保証されません。"
+                        a: "データはこの端末にあります。Proでログインして個人スペース同期をオンにすれば、新しい端末で同じアカウントにログインして続けられます。家族スペースは、同じ家族に入っている端末どうしで更新されます。同期がオフで家族も使っていなければ、データはこの端末だけに残ります。"
                     },
                     {
-                        q: "ログイン／クラウドバックアップの項目が見つかりません",
-                        a: "ログインとクラウドバックアップはPro版の機能です。Proを購入済みの端末でのみバックアップ・復元が利用できます。無料版のデータは端末内のみに保存されます。"
+                        q: "ログインや同期の項目が見つかりません",
+                        a: "個人スペース同期はProの機能です。ログイン後、設定からオンにできます。無料版の個人データはこの端末だけにあります。家族が作った家族への参加に Pro は不要で、ログインすれば一緒に記録できます。家族の作成は Pro プランに関係します。"
+                    },
+                    {
+                        q: "家族で一緒に記録できますか？",
+                        a: "できます。家族を作って招けば、アイテム、在庫、替えどきが一緒に更新されます。誰が補充したか、誰が替えたかは家族の動きに残ります。家族の作成には Pro が必要で、招待された家族には不要です。"
                     },
                     {
                         q: "記録した内容は運営側から見えますか？",
-                        a: "見えません。アイテム名・写真・メモ・保管場所はすべて端末内に保存され、クラウドバックアップを使ってもご自身の復元にのみ使われます。匿名の統計にこれらの内容が含まれることはありません。"
+                        a: "見えません。アイテム名、写真、メモは匿名の統計に含まれません。同期がオフで家族も使っていなければ、その内容はこの端末だけにあります。個人同期をオンにするか家族を使うと、クラウドに保存されるのは、あなたや家族が続けて使うためです。"
                     }
                 ]
             },
@@ -320,7 +352,7 @@ const newsData = {
                 questions: [
                     {
                         q: "無料版とProの違いは？",
-                        a: "無料版でも主要機能は使えますが、アイテム数・保管場所・カテゴリなどに数の上限があります。Proでは上限が解除され、クラウドバックアップを含む全機能が使えます。"
+                        a: "無料版でも主要機能は使えますが、アイテム数・保管場所・カテゴリなどに数の上限があります。Proでは上限が解除され、個人スペース同期をオンにして端末を変えても個人データを引き継げます。家族の作成にも Pro が必要ですが、家族への参加には不要です。"
                     },
                     {
                         q: "機種変更後にProを引き継ぐには？",
@@ -330,6 +362,19 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-09-07",
+                tag: "大型アップデート",
+                version: "2.0.0",
+                platforms: ["ios", "android"],
+                title: "🏠 2.0.0：ひとりで記録していたことが、家族で一緒に記録できるように",
+                content: "以前は、家のものを自分で記録し、自分で替え、自分で補充していました。いまは家族を作って招けば、残りが少なくなったものや替えどきのものが、開くだけでわかります。<br>誰が補充したか、誰が替えたかは、家族の動きに残ります。<br><br>新機能：<br>・個人スペースの自動同期：Pro アカウントでオンにできます。手動のバックアップと復元は不要です<br>・この場所に何があるか：管理画面の保管場所から、中のアイテムを直接確認できます<br>・使用中の写真を残せます：1つのアイテムにつき最大3枚。タップで拡大できます",
+                images: [
+                    { src: "assets/screenshots/ja/34_family_spaces_list.png", caption: "家族スペース：家族を作って招けます。" },
+                    { src: "assets/screenshots/ja/36_family_activity.png", caption: "家族の動き：誰が補充したか、誰が替えたか。" },
+                    { src: "assets/screenshots/ja/53_item_record_photos.png", caption: "使用写真：1件あたり最大3枚。タップで拡大。" }
+                ]
+            },
             {
                 date: "2026-07-27",
                 tag: "新バージョン",
@@ -376,16 +421,13 @@ const newsData = {
         ],
         roadmap: [
             {
-                statusCode: "doing",
-                status: "開発中",
-                items: [
-                    "ファミリー共有スペース：家族でアイテムリストと在庫を共有。誰かが補充すればみんなに伝わります"
-                ]
-            },
-            {
                 statusCode: "done",
                 status: "完了",
                 items: [
+                    "家族スペース：家族を作って招き、替えどきや補充を一緒に確認。誰がしたかは家族の動きに残ります",
+                    "個人スペースの自動同期：Pro でオンにでき、端末を変えてもデータを引き継げます",
+                    "保管場所から中のアイテムを直接確認",
+                    "アイテムに使用写真を残せる（1件あたり最大3枚）",
                     "パーソナルスペース：使う場所やシーンごとにアイテムを分けて管理",
                     "使用期限と開封後の使用期限 (PAO) の管理に対応",
                     "使用量アイテムを記録する際に使用時間を調整可能に",
@@ -425,19 +467,23 @@ const newsData = {
                 ]
             },
             {
-                category: "백업 및 데이터",
+                category: "동기화와 데이터",
                 questions: [
                     {
                         q: "휴대폰을 바꾸면 데이터가 사라지나요?",
-                        a: "데이터는 휴대폰에 저장됩니다. 기기를 바꾸기 전에 설정에서 '클라우드 백업'(Pro 기능, 로그인 필요)을 실행하고, 새 기기에서 같은 계정으로 로그인해 복원하세요. 실시간 동기화가 아닌 수동 백업이므로 바꾸기 직전에 최신 상태를 백업해 두는 것이 좋습니다. 사진은 스티커 표시용 이미지 위주로 백업되며, 원본 큰 이미지의 완전한 복원은 보장되지 않습니다."
+                        a: "데이터는 먼저 이 휴대폰에 있습니다. Pro로 로그인한 뒤 개인 공간 동기화를 켜면, 새 휴대폰에서 같은 계정으로 로그인해 이어서 쓸 수 있습니다. 가족 공간은 같은 가족에 속한 휴대폰끼리 함께 갱신됩니다. 동기화를 끄고 가족도 쓰지 않으면 데이터는 이 휴대폰에만 남습니다."
                     },
                     {
-                        q: "로그인/클라우드 백업 메뉴가 보이지 않아요",
-                        a: "로그인과 클라우드 백업은 Pro 기능입니다. Pro를 구매한 기기에서만 백업과 복원을 사용할 수 있습니다. 무료 버전의 데이터는 휴대폰에만 저장됩니다."
+                        q: "로그인이나 동기화 메뉴가 보이지 않아요",
+                        a: "개인 공간 동기화는 Pro 기능입니다. 로그인한 뒤 설정에서 켤 수 있습니다. 무료 버전의 개인 데이터는 이 휴대폰에만 있습니다. 가족이 만든 가족에 참여하는 데는 Pro가 필요하지 않으며, 로그인하면 함께 기록할 수 있습니다. 가족 만들기는 Pro 요금제와 관련이 있습니다."
+                    },
+                    {
+                        q: "가족이 함께 기록할 수 있나요?",
+                        a: "가능합니다. 가족을 만들고 초대하면 물건, 재고, 교체 시기가 함께 갱신됩니다. 누가 보충했는지, 누가 교체했는지는 가족 활동에 남습니다. 가족 만들기에는 Pro가 필요하지만 초대받은 가족은 필요하지 않습니다."
                     },
                     {
                         q: "제가 기록한 내용을 운영진이 볼 수 있나요?",
-                        a: "볼 수 없습니다. 물품 이름, 사진, 메모, 보관 위치는 모두 휴대폰에만 저장되며, 클라우드 백업을 사용해도 본인의 복원에만 사용됩니다. 익명 통계에는 이런 내용이 포함되지 않습니다."
+                        a: "볼 수 없습니다. 물건 이름, 사진, 메모는 익명 통계에 들어가지 않습니다. 동기화를 끄고 가족도 쓰지 않으면 그 내용은 휴대폰에만 있습니다. 개인 동기화를 켜거나 가족을 쓰면 클라우드에 저장되는 것은, 본인이나 가족이 이어서 쓰기 위해서입니다."
                     }
                 ]
             },
@@ -455,7 +501,7 @@ const newsData = {
                 questions: [
                     {
                         q: "무료 버전과 Pro는 무엇이 다른가요?",
-                        a: "무료 버전에서도 핵심 기능을 사용할 수 있지만 물품 수, 보관 위치, 카테고리 등에 수량 제한이 있습니다. Pro에서는 이런 제한이 해제되고 클라우드 백업을 포함한 전체 기능이 열립니다."
+                        a: "무료 버전에서도 핵심 기능을 사용할 수 있지만 물품 수, 보관 위치, 카테고리 등에 수량 제한이 있습니다. Pro에서는 이런 제한이 해제되고, 개인 공간 동기화를 켜서 휴대폰을 바꿔도 개인 데이터를 이어서 쓸 수 있습니다. 가족 만들기에도 Pro가 필요하지만 가족에 참여하는 데는 필요하지 않습니다."
                     },
                     {
                         q: "휴대폰을 바꾼 후 Pro를 어떻게 복원하나요?",
@@ -465,6 +511,19 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-09-07",
+                tag: "대규모 업데이트",
+                version: "2.0.0",
+                platforms: ["ios", "android"],
+                title: "🏠 2.0.0: 혼자 기록하던 일이 가족이 함께 기록하는 일이 되었습니다",
+                content: "이전에는 집안의 물건을 직접 기록하고, 직접 교체하고, 직접 보충했습니다. 이제는 가족을 만들고 초대하면, 무엇이 바닥나고 무엇이 교체 시기인지 열기만 해도 볼 수 있습니다.<br>누가 보충했는지, 누가 교체했는지는 가족 활동에 남습니다.<br><br>새로운 기능:<br>・개인 공간 자동 동기화: Pro 계정에서 켤 수 있으며, 더 이상 직접 백업하고 복원할 필요가 없습니다<br>・이 자리에 무엇이 있는지: 관리 화면의 보관 위치에서 그곳의 물품을 바로 볼 수 있습니다<br>・사용 사진을 남길 수 있습니다: 물품당 최대 3장, 탭하면 크게 볼 수 있습니다",
+                images: [
+                    { src: "assets/screenshots/ko/34_family_spaces_list.png", caption: "가족 공간: 가족을 만들고 초대할 수 있습니다." },
+                    { src: "assets/screenshots/ko/36_family_activity.png", caption: "가족 활동: 누가 보충했는지, 누가 교체했는지." },
+                    { src: "assets/screenshots/ko/53_item_record_photos.png", caption: "사용 사진: 물품당 최대 3장, 탭하면 크게 볼 수 있습니다." }
+                ]
+            },
             {
                 date: "2026-07-27",
                 tag: "새 버전",
@@ -511,16 +570,13 @@ const newsData = {
         ],
         roadmap: [
             {
-                statusCode: "doing",
-                status: "개발 중",
-                items: [
-                    "가족 공유 공간: 가족과 물품 목록·재고를 공유하고, 누가 보충했는지 모두가 알 수 있어요"
-                ]
-            },
-            {
                 statusCode: "done",
                 status: "완료",
                 items: [
+                    "가족 공간: 가족을 만들고 초대해 교체·보충을 함께 보고, 누가 했는지는 가족 활동에 남습니다",
+                    "개인 공간 자동 동기화: Pro에서 켤 수 있으며, 휴대폰을 바꿔도 데이터를 이어서 쓸 수 있습니다",
+                    "보관 위치에서 그곳의 물품을 바로 확인",
+                    "물품에 사용 사진을 남길 수 있습니다(물품당 최대 3장)",
                     "개인 공간: 사용하는 장소나 상황에 따라 물품을 나누어 관리",
                     "유통기한 및 개봉 후 사용기한(PAO) 관리 지원",
                     "사용량 아이템 기록 시 사용 시간 조정 가능",
