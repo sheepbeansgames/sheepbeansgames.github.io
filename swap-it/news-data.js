@@ -65,6 +65,39 @@ const newsData = {
         ],
         announcements: [
             {
+                "date": "2026-10-21",
+                "tag": "重大更新",
+                "version": "2.2.0",
+                "platforms": [
+                    "ios",
+                    "android"
+                ],
+                "title": "《該換了吧》2.2.0，把「用東西」這件事記得更完整。",
+                "content": "以前，東西用完就換一個，備品還剩幾個、買的是哪種大小、在哪裡買的，常常只能靠自己記。<br>現在，補了多少、換上哪一批、在哪買、花了多少，都會留下來。<br><br>一串衛生紙買回家，拆一包放廁所、一包放客廳，哪邊用完了再從備品拿，打開就看得到。<br><br>新功能<br>・第一次用也不怕：新增互動教學，跟著點一遍就知道怎麼用。<br>・用完換新更直覺：補充和換新分開記，換新時可以選要換上哪一批備品。<br>・在哪買、花多少：購買地點和金額都能記下來，之後回頭查也方便。<br>・用得快不快：使用紀錄可以看到這個月用了多少、花了多少。<br>・同樣東西不同大小：備品可以設定規格，大包小包分得清楚。<br><br>優化<br>・用量操作：記用了、補進來、從備品拿，步驟更少也更清楚。<br>・新增物品：欄位分成必填和選填，填起來更輕鬆。<br>・物品照片：可以保留原圖，不去背。<br><br>修正<br>・提升同步與系統穩定性。",
+                "images": [
+                    {
+                        "src": "assets/screenshots/zh-TW/16_item_form.png",
+                        "caption": "新增物品：必填、提醒與選填分區，需要時再補細節。"
+                    },
+                    {
+                        "src": "assets/screenshots/zh-TW/57_spec_layers.png",
+                        "caption": "備品規格：大包小包分開記。"
+                    },
+                    {
+                        "src": "assets/screenshots/zh-TW/58_purchase_compare.png",
+                        "caption": "購買紀錄：留下在哪買、花多少。"
+                    },
+                    {
+                        "src": "assets/screenshots/zh-TW/59_advanced_review.png",
+                        "caption": "更換回顧：查看哪些物品常晚換，以及每次更換的準時情況。"
+                    },
+                    {
+                        "src": "assets/screenshots/zh-TW/60_advanced_spend.png",
+                        "caption": "購買花費：回頭查看花費。"
+                    }
+                ]
+            },
+            {
                 date: "2026-09-07",
                 tag: "重大更新",
                 version: "2.0.0",
@@ -126,6 +159,11 @@ const newsData = {
                 statusCode: "done",
                 status: "已完成",
                 items: [
+                    "2.2.0：第一次用也不怕：新增互動教學，跟著點一遍就知道怎麼用。",
+                    "2.2.0：用完換新更直覺：補充和換新分開記，換新時可以選要換上哪一批備品。",
+                    "2.2.0：在哪買、花多少：購買地點和金額都能記下來，之後回頭查也方便。",
+                    "2.2.0：用得快不快：使用紀錄可以看到這個月用了多少、花了多少。",
+                    "2.2.0：同樣東西不同大小：備品可以設定規格，大包小包分得清楚。",
                     "家庭空間：建立家庭、邀請家人，一起看該換該補；動態會留下是誰做的",
                     "個人空間自動同步：Pro 可開啟，換手機也能接續",
                     "存放位置可直接查看裡面的物品",
@@ -214,6 +252,39 @@ const newsData = {
         ],
         announcements: [
             {
+                "date": "2026-10-21",
+                "tag": "Major Update",
+                "version": "2.2.0",
+                "platforms": [
+                    "ios",
+                    "android"
+                ],
+                "title": "Swap It. 2.2.0: keeping a fuller record of how you use things.",
+                "content": "Before, when something ran out you just replaced it — how many spares were left, which size you bought, and where you got it were all things you had to remember yourself.<br>Now, how much you topped up, which batch you swapped in, where you bought it, and what it cost are all kept.<br><br>Bring home a pack of tissues, put one box in the bathroom and one in the living room, and when either runs out, take another from your spares. It's all there when you open the app.<br><br>New<br>・Easy from the very first time: a new interactive tutorial walks you through it step by step.<br>・Replacing feels more natural: top-ups and replacements are logged separately, and you can choose which spare batch to swap in.<br>・Where you bought it and what it cost: log the purchase place and price, so it's easy to look back later.<br>・How fast things go: Usage records show how much you used and spent this month.<br>・Same item, different sizes: set sizes for your spares, so big packs and small packs stay apart.<br><br>Improvements<br>・Usage actions: Used, Topped up, and Take from spares now take fewer steps and read more clearly.<br>・Add item: fields are split into required and optional, so it's easier to fill in.<br>・Item photos: keep the original photo without cutting out the background.<br><br>Fixes<br>・Improved sync and overall stability.",
+                "images": [
+                    {
+                        "src": "assets/screenshots/en/16_item_form.png",
+                        "caption": "Add item: required fields, reminder settings, and optional details are grouped clearly."
+                    },
+                    {
+                        "src": "assets/screenshots/en/57_spec_layers.png",
+                        "caption": "Spare sizes: keep different pack sizes apart."
+                    },
+                    {
+                        "src": "assets/screenshots/en/58_purchase_compare.png",
+                        "caption": "Purchase records: keep the store and amount paid."
+                    },
+                    {
+                        "src": "assets/screenshots/en/59_advanced_review.png",
+                        "caption": "Replacement review: see which items are often replaced late and the timing of each replacement."
+                    },
+                    {
+                        "src": "assets/screenshots/en/60_advanced_spend.png",
+                        "caption": "Purchase spending: look back at what you spent."
+                    }
+                ]
+            },
+            {
                 date: "2026-09-07",
                 tag: "Major Update",
                 version: "2.0.0",
@@ -275,6 +346,11 @@ const newsData = {
                 statusCode: "done",
                 status: "Done",
                 items: [
+                    "2.2.0: Easy from the very first time: a new interactive tutorial walks you through it step by step.",
+                    "2.2.0: Replacing feels more natural: top-ups and replacements are logged separately, and you can choose which spare batch to swap in.",
+                    "2.2.0: Where you bought it and what it cost: log the purchase place and price, so it's easy to look back later.",
+                    "2.2.0: How fast things go: Usage records show how much you used and spent this month.",
+                    "2.2.0: Same item, different sizes: set sizes for your spares, so big packs and small packs stay apart.",
                     "Family spaces: create a family, invite people in, and keep track together; Family Activity shows who did what",
                     "Personal Space auto-sync: available on Pro, so your data can follow you to another phone",
                     "See what's in a storage spot from Management",
@@ -363,6 +439,39 @@ const newsData = {
         ],
         announcements: [
             {
+                "date": "2026-10-21",
+                "tag": "大型アップデート",
+                "version": "2.2.0",
+                "platforms": [
+                    "ios",
+                    "android"
+                ],
+                "title": "Swap It. 2.2.0。「使う」ことを、もっとまるごと記録できるようになりました。",
+                "content": "これまでは、使い切ったら新しいものに替えるだけ。予備があといくつあるか、どのサイズを買ったか、どこで買ったかは、自分で覚えておくしかありませんでした。<br>いまは、どれだけ補充したか、どの分に替えたか、どこで買ったか、いくらだったかが残ります。<br><br>ティッシュをまとめて買ってきて、ひとつはトイレ、ひとつはリビングへ。どちらかがなくなったら予備から出すだけで、開けばすぐにわかります。<br><br>新機能<br>・はじめてでも迷わない：インタラクティブな使い方ガイドを追加。順番にタップするだけで使い方がわかります。<br>・交換がもっと自然に：補充と交換を分けて記録でき、交換するときはどの予備に替えるかを選べます。<br>・どこで買って、いくらだったか：購入先と金額を記録でき、あとから見返せます。<br>・使うペースがわかる：使用記録で、今月どれだけ使って、いくら使ったかがわかります。<br>・同じものでもサイズ違い：予備に規格を設定でき、大きいパックと小さいパックを区別できます。<br><br>改善<br>・使用量の操作：「使った」「補充」「予備から補充」の手順が少なく、わかりやすくなりました。<br>・アイテムの追加：入力項目を必須と任意に分け、入力しやすくなりました。<br>・アイテムの写真：切り抜かずに元の写真のまま使えます。<br><br>修正<br>・同期と全体の安定性を向上しました。",
+                "images": [
+                    {
+                        "src": "assets/screenshots/ja/16_item_form.png",
+                        "caption": "アイテム追加：必須・リマインド・任意の項目を分け、詳細は必要なときに入力。"
+                    },
+                    {
+                        "src": "assets/screenshots/ja/57_spec_layers.png",
+                        "caption": "予備の規格：サイズ違いを分けて記録。"
+                    },
+                    {
+                        "src": "assets/screenshots/ja/58_purchase_compare.png",
+                        "caption": "購入記録：購入先と金額を残せます。"
+                    },
+                    {
+                        "src": "assets/screenshots/ja/59_advanced_review.png",
+                        "caption": "交換の振り返り：交換が遅れがちなアイテムや、毎回の交換タイミングを確認。"
+                    },
+                    {
+                        "src": "assets/screenshots/ja/60_advanced_spend.png",
+                        "caption": "購入金額：かかった費用を振り返れます。"
+                    }
+                ]
+            },
+            {
                 date: "2026-09-07",
                 tag: "大型アップデート",
                 version: "2.0.0",
@@ -424,6 +533,11 @@ const newsData = {
                 statusCode: "done",
                 status: "完了",
                 items: [
+                    "2.2.0: はじめてでも迷わない：インタラクティブな使い方ガイドを追加。順番にタップするだけで使い方がわかります。",
+                    "2.2.0: 交換がもっと自然に：補充と交換を分けて記録でき、交換するときはどの予備に替えるかを選べます。",
+                    "2.2.0: どこで買って、いくらだったか：購入先と金額を記録でき、あとから見返せます。",
+                    "2.2.0: 使うペースがわかる：使用記録で、今月どれだけ使って、いくら使ったかがわかります。",
+                    "2.2.0: 同じものでもサイズ違い：予備に規格を設定でき、大きいパックと小さいパックを区別できます。",
                     "家族スペース：家族を作って招き、替えどきや補充を一緒に確認。誰がしたかは家族の動きに残ります",
                     "個人スペースの自動同期：Pro でオンにでき、端末を変えてもデータを引き継げます",
                     "保管場所から中のアイテムを直接確認",
@@ -512,6 +626,39 @@ const newsData = {
         ],
         announcements: [
             {
+                "date": "2026-10-21",
+                "tag": "대규모 업데이트",
+                "version": "2.2.0",
+                "platforms": [
+                    "ios",
+                    "android"
+                ],
+                "title": "Swap It. 2.2.0, '쓰는 일'을 더 온전하게 기록할 수 있게 되었습니다.",
+                "content": "이전에는 다 쓰면 새것으로 바꾸기만 했습니다. 예비가 몇 개 남았는지, 어떤 크기를 샀는지, 어디서 샀는지는 직접 기억해야 했습니다.<br>이제는 얼마나 보충했는지, 어느 묶음으로 바꿨는지, 어디서 샀는지, 얼마였는지가 모두 남습니다.<br><br>휴지를 한 묶음 사 와서 하나는 화장실에, 하나는 거실에 두고, 어느 쪽이든 다 쓰면 예비에서 꺼내면 됩니다. 앱을 열면 바로 보입니다.<br><br>새로운 기능<br>・처음이어도 걱정 없이: 인터랙티브 사용 가이드가 추가되어 차례대로 누르기만 하면 사용법을 알 수 있습니다.<br>・교체가 더 자연스럽게: 보충과 교체를 나눠 기록하고, 교체할 때 어느 예비 묶음으로 바꿀지 고를 수 있습니다.<br>・어디서 샀고 얼마였는지: 구매처와 금액을 기록해 두고 나중에 다시 볼 수 있습니다.<br>・얼마나 빨리 쓰는지: 사용 기록에서 이번 달에 얼마나 쓰고 얼마를 썼는지 볼 수 있습니다.<br>・같은 물건, 다른 크기: 예비에 규격을 설정해 큰 팩과 작은 팩을 구분할 수 있습니다.<br><br>개선<br>・사용량 조작: 사용함, 보충, 예비품에서 꺼내기의 단계가 줄고 더 알기 쉬워졌습니다.<br>・물품 추가: 입력 항목을 필수와 선택으로 나눠 더 쉽게 입력할 수 있습니다.<br>・물품 사진: 배경을 제거하지 않고 원본 사진 그대로 쓸 수 있습니다.<br><br>수정<br>・동기화와 전체 안정성을 개선했어요.",
+                "images": [
+                    {
+                        "src": "assets/screenshots/ko/16_item_form.png",
+                        "caption": "물품 추가: 필수 항목, 알림 설정, 선택 항목을 나눠 필요한 내용부터 입력해요."
+                    },
+                    {
+                        "src": "assets/screenshots/ko/57_spec_layers.png",
+                        "caption": "예비품 규격: 크기가 다른 팩을 나눠 기록해요."
+                    },
+                    {
+                        "src": "assets/screenshots/ko/58_purchase_compare.png",
+                        "caption": "구매 기록: 구매처와 금액을 남겨요."
+                    },
+                    {
+                        "src": "assets/screenshots/ko/59_advanced_review.png",
+                        "caption": "교체 돌아보기: 자주 늦게 교체하는 물품과 매번 제때 교체했는지 확인해요."
+                    },
+                    {
+                        "src": "assets/screenshots/ko/60_advanced_spend.png",
+                        "caption": "구매 지출: 쓴 금액을 돌아봐요."
+                    }
+                ]
+            },
+            {
                 date: "2026-09-07",
                 tag: "대규모 업데이트",
                 version: "2.0.0",
@@ -573,6 +720,11 @@ const newsData = {
                 statusCode: "done",
                 status: "완료",
                 items: [
+                    "2.2.0: 처음이어도 걱정 없이: 인터랙티브 사용 가이드가 추가되어 차례대로 누르기만 하면 사용법을 알 수 있습니다.",
+                    "2.2.0: 교체가 더 자연스럽게: 보충과 교체를 나눠 기록하고, 교체할 때 어느 예비 묶음으로 바꿀지 고를 수 있습니다.",
+                    "2.2.0: 어디서 샀고 얼마였는지: 구매처와 금액을 기록해 두고 나중에 다시 볼 수 있습니다.",
+                    "2.2.0: 얼마나 빨리 쓰는지: 사용 기록에서 이번 달에 얼마나 쓰고 얼마를 썼는지 볼 수 있습니다.",
+                    "2.2.0: 같은 물건, 다른 크기: 예비에 규격을 설정해 큰 팩과 작은 팩을 구분할 수 있습니다.",
                     "가족 공간: 가족을 만들고 초대해 교체·보충을 함께 보고, 누가 했는지는 가족 활동에 남습니다",
                     "개인 공간 자동 동기화: Pro에서 켤 수 있으며, 휴대폰을 바꿔도 데이터를 이어서 쓸 수 있습니다",
                     "보관 위치에서 그곳의 물품을 바로 확인",
