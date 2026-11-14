@@ -65,6 +65,22 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-11-05",
+                tag: "新版本",
+                version: "2.4.0",
+                platforms: ["ios", "android"],
+                title: "📱 2.4.0：不用打開 App，也能看到該換的東西",
+                content: "這次把常用的入口放到 App 外面，鎖定畫面、控制中心、長按圖示，都能直接看到或打開。<br><br>新功能<br>・鎖定畫面小工具（iOS）：不用解鎖，就能看到該換的東西。<br>・控制中心（iOS）：加入購物清單，一按就開。<br>・長按 App 圖示：可以直接進購物清單、今天要處理，或新增物品。<br><br>優化<br>・桌面小工具：可以一次看到所有空間的物品。<br>・用量物品：不知道實際用了多少，也可以改記使用次數。<br>・預設物品：已經先依週期、用量、僅記錄分好類，也能照自己的需求調整。<br>・通知：同一天要處理的事情比較多時，會合併成一則提醒。"
+            },
+            {
+                date: "2026-10-28",
+                tag: "新功能",
+                version: "2.3.0",
+                platforms: ["ios", "android"],
+                title: "📲 2.3.0：平板也能用了",
+                content: "新功能<br>・支援 iPad 與 iPhone Duo；Android 也支援平板。<br><br>優化<br>・更新系統元件，提升穩定性。"
+            },
+            {
                 "date": "2026-10-21",
                 "tag": "重大更新",
                 "version": "2.2.0",
@@ -159,6 +175,10 @@ const newsData = {
                 statusCode: "done",
                 status: "已完成",
                 items: [
+                    "2.4.0：鎖定畫面小工具（iOS）：不用解鎖，就能看到該換的東西。",
+                    "2.4.0：控制中心（iOS）：加入購物清單，一按就開。",
+                    "2.4.0：長按 App 圖示：可以直接進購物清單、今天要處理，或新增物品。",
+                    "2.3.0：支援 iPad 與 iPhone Duo；Android 也支援平板。",
                     "2.2.0：第一次用也不怕：新增互動教學，跟著點一遍就知道怎麼用。",
                     "2.2.0：用完換新更直覺：補充和換新分開記，換新時可以選要換上哪一批備品。",
                     "2.2.0：在哪買、花多少：購買地點和金額都能記下來，之後回頭查也方便。",
@@ -251,6 +271,22 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-05",
+                tag: "New Version",
+                version: "2.4.0",
+                platforms: ["ios", "android"],
+                title: "📱 2.4.0: See what needs replacing without opening the app",
+                content: "This update brings your most-used shortcuts outside the app — on the Lock Screen, in Control Center, and on the app icon.<br><br>New<br>・Lock Screen widgets (iOS): see what needs replacing without unlocking.<br>・Control Center (iOS): open your shopping list with one tap.<br>・Long-press the app icon: jump straight to Shopping list, Today, or Add item.<br><br>Improvements<br>・Home Screen widgets: see items from all your spaces at once.<br>・Usage items: if you don't know the exact amount used, you can log the number of uses instead.<br>・Default items: now pre-sorted into Cycle, Usage, and Log only, and you can still adjust them as you like.<br>・Notifications: when several things are due on the same day, they're combined into one reminder."
+            },
+            {
+                date: "2026-10-28",
+                tag: "New Feature",
+                version: "2.3.0",
+                platforms: ["ios", "android"],
+                title: "📲 2.3.0: Now on tablets",
+                content: "New<br>・Now supports iPad and iPhone Duo, and tablets on Android.<br><br>Improvements<br>・Updated system components for better stability."
+            },
             {
                 "date": "2026-10-21",
                 "tag": "Major Update",
@@ -346,6 +382,10 @@ const newsData = {
                 statusCode: "done",
                 status: "Done",
                 items: [
+                    "2.4.0: Lock Screen widgets (iOS): see what needs replacing without unlocking.",
+                    "2.4.0: Control Center (iOS): open your shopping list with one tap.",
+                    "2.4.0: Long-press the app icon: jump straight to Shopping list, Today, or Add item.",
+                    "2.3.0: Now supports iPad and iPhone Duo, and tablets on Android.",
                     "2.2.0: Easy from the very first time: a new interactive tutorial walks you through it step by step.",
                     "2.2.0: Replacing feels more natural: top-ups and replacements are logged separately, and you can choose which spare batch to swap in.",
                     "2.2.0: Where you bought it and what it cost: log the purchase place and price, so it's easy to look back later.",
@@ -438,6 +478,22 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-05",
+                tag: "新バージョン",
+                version: "2.4.0",
+                platforms: ["ios", "android"],
+                title: "📱 2.4.0：アプリを開かなくても、替えどきがわかる",
+                content: "よく使う入口をアプリの外に出しました。ロック画面、コントロールセンター、アイコンの長押しから、すぐに確認・起動できます。<br><br>新機能<br>・ロック画面ウィジェット（iOS）：ロックを解除しなくても、交換が必要なものを確認できます。<br>・コントロールセンター（iOS）：買い物リストをワンタップで開けるようになりました。<br>・アプリアイコンを長押し：買い物リスト、今日の対応、アイテムを追加にすぐ移動できます。<br><br>改善<br>・ホーム画面ウィジェット：すべてのスペースのアイテムをまとめて表示できます。<br>・使用量アイテム：実際の使用量がわからなくても、使用回数で記録できます。<br>・デフォルトアイテム：周期・使用量・記録のみにあらかじめ分類済みで、必要に応じて調整もできます。<br>・通知：同じ日に対応することが多いときは、1つの通知にまとめてお知らせします。"
+            },
+            {
+                date: "2026-10-28",
+                tag: "新機能",
+                version: "2.3.0",
+                platforms: ["ios", "android"],
+                title: "📲 2.3.0：タブレットでも使えるように",
+                content: "新機能<br>・iPad と iPhone Duo に対応しました。Android もタブレットに対応しています。<br><br>改善<br>・システムコンポーネントを更新し、安定性を向上しました。"
+            },
             {
                 "date": "2026-10-21",
                 "tag": "大型アップデート",
@@ -533,6 +589,10 @@ const newsData = {
                 statusCode: "done",
                 status: "完了",
                 items: [
+                    "2.4.0: ロック画面ウィジェット（iOS）：ロックを解除しなくても、交換が必要なものを確認できます。",
+                    "2.4.0: コントロールセンター（iOS）：買い物リストをワンタップで開けるようになりました。",
+                    "2.4.0: アプリアイコンを長押し：買い物リスト、今日の対応、アイテムを追加にすぐ移動できます。",
+                    "2.3.0: iPad と iPhone Duo に対応しました。Android もタブレットに対応しています。",
                     "2.2.0: はじめてでも迷わない：インタラクティブな使い方ガイドを追加。順番にタップするだけで使い方がわかります。",
                     "2.2.0: 交換がもっと自然に：補充と交換を分けて記録でき、交換するときはどの予備に替えるかを選べます。",
                     "2.2.0: どこで買って、いくらだったか：購入先と金額を記録でき、あとから見返せます。",
@@ -625,6 +685,22 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-05",
+                tag: "새 버전",
+                version: "2.4.0",
+                platforms: ["ios", "android"],
+                title: "📱 2.4.0: 앱을 열지 않아도 바꿀 물건이 보여요",
+                content: "자주 쓰는 입구를 앱 밖으로 꺼냈어요. 잠금 화면, 제어 센터, 앱 아이콘 길게 누르기로 바로 확인하고 열 수 있어요.<br><br>새로운 기능<br>・잠금 화면 위젯(iOS): 잠금을 풀지 않아도 바꿀 물건을 확인할 수 있어요.<br>・제어 센터(iOS): 쇼핑 목록을 한 번에 열 수 있어요.<br>・앱 아이콘 길게 누르기: 쇼핑 목록, 오늘 처리할 일, 물품 추가로 바로 이동할 수 있어요.<br><br>개선<br>・홈 화면 위젯: 모든 공간의 물품을 한 번에 볼 수 있어요.<br>・사용량 물품: 실제 사용량을 모르더라도 사용 횟수로 기록할 수 있어요.<br>・기본 물품: 주기, 사용량, 기록만으로 미리 분류되어 있고, 필요에 맞게 조정할 수도 있어요.<br>・알림: 같은 날 처리할 일이 많으면 하나의 알림으로 묶어서 알려 드려요."
+            },
+            {
+                date: "2026-10-28",
+                tag: "새로운 기능",
+                version: "2.3.0",
+                platforms: ["ios", "android"],
+                title: "📲 2.3.0: 태블릿에서도 쓸 수 있어요",
+                content: "새로운 기능<br>・iPad와 iPhone Duo를 지원합니다. Android도 태블릿을 지원해요.<br><br>개선<br>・시스템 구성 요소를 업데이트해 안정성을 개선했어요."
+            },
             {
                 "date": "2026-10-21",
                 "tag": "대규모 업데이트",
@@ -720,6 +796,10 @@ const newsData = {
                 statusCode: "done",
                 status: "완료",
                 items: [
+                    "2.4.0: 잠금 화면 위젯(iOS): 잠금을 풀지 않아도 바꿀 물건을 확인할 수 있어요.",
+                    "2.4.0: 제어 센터(iOS): 쇼핑 목록을 한 번에 열 수 있어요.",
+                    "2.4.0: 앱 아이콘 길게 누르기: 쇼핑 목록, 오늘 처리할 일, 물품 추가로 바로 이동할 수 있어요.",
+                    "2.3.0: iPad와 iPhone Duo를 지원합니다. Android도 태블릿을 지원해요.",
                     "2.2.0: 처음이어도 걱정 없이: 인터랙티브 사용 가이드가 추가되어 차례대로 누르기만 하면 사용법을 알 수 있습니다.",
                     "2.2.0: 교체가 더 자연스럽게: 보충과 교체를 나눠 기록하고, 교체할 때 어느 예비 묶음으로 바꿀지 고를 수 있습니다.",
                     "2.2.0: 어디서 샀고 얼마였는지: 구매처와 금액을 기록해 두고 나중에 다시 볼 수 있습니다.",
