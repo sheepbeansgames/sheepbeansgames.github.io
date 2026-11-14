@@ -65,6 +65,14 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-11-14",
+                tag: "優化",
+                version: "2.5.0",
+                platforms: ["ios", "android"],
+                title: "🔧 2.5.0：記用量更省事，記錯也好改",
+                content: "這次更新讓記用量更順手，記錯了也能輕鬆改回來。<br><br>優化<br>・用量記錯了：刪掉紀錄時，可以選擇把數量加回去。<br>・可以固定常用的用量：之後記錄只要點一下就好。<br>・優化同步流程。"
+            },
+            {
                 "date": "2026-10-21",
                 "tag": "重大更新",
                 "version": "2.2.0",
@@ -159,6 +167,8 @@ const newsData = {
                 statusCode: "done",
                 status: "已完成",
                 items: [
+                    "2.5.0：用量記錯了：刪掉紀錄時，可以選擇把數量加回去。",
+                    "2.5.0：可以固定常用的用量：之後記錄只要點一下就好。",
                     "2.2.0：第一次用也不怕：新增互動教學，跟著點一遍就知道怎麼用。",
                     "2.2.0：用完換新更直覺：補充和換新分開記，換新時可以選要換上哪一批備品。",
                     "2.2.0：在哪買、花多少：購買地點和金額都能記下來，之後回頭查也方便。",
@@ -251,6 +261,14 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-14",
+                tag: "Improvements",
+                version: "2.5.0",
+                platforms: ["ios", "android"],
+                title: "🔧 2.5.0: Quicker usage logging, easier to fix mistakes",
+                content: "This update makes logging usage quicker, and mistakes easier to undo.<br><br>Improvements<br>・Logged usage by mistake: when you delete the record, you can choose to add the amount back.<br>・Save your usual amount: next time, log it with a single tap.<br>・Improved syncing."
+            },
             {
                 "date": "2026-10-21",
                 "tag": "Major Update",
@@ -346,6 +364,8 @@ const newsData = {
                 statusCode: "done",
                 status: "Done",
                 items: [
+                    "2.5.0: Logged usage by mistake: when you delete the record, you can choose to add the amount back.",
+                    "2.5.0: Save your usual amount: next time, log it with a single tap.",
                     "2.2.0: Easy from the very first time: a new interactive tutorial walks you through it step by step.",
                     "2.2.0: Replacing feels more natural: top-ups and replacements are logged separately, and you can choose which spare batch to swap in.",
                     "2.2.0: Where you bought it and what it cost: log the purchase place and price, so it's easy to look back later.",
@@ -438,6 +458,14 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-14",
+                tag: "改善",
+                version: "2.5.0",
+                platforms: ["ios", "android"],
+                title: "🔧 2.5.0：使用量の記録がもっと手軽に、間違えても直しやすく",
+                content: "今回のアップデートで、使用量の記録がより手軽になり、間違えたときも簡単に戻せるようになりました。<br><br>改善<br>・使用量を間違えて記録したとき：記録を削除する際に、数量を戻すかどうか選べます。<br>・よく使う量を固定できます：次からはワンタップで記録できます。<br>・同期の流れを改善しました。"
+            },
             {
                 "date": "2026-10-21",
                 "tag": "大型アップデート",
@@ -533,6 +561,8 @@ const newsData = {
                 statusCode: "done",
                 status: "完了",
                 items: [
+                    "2.5.0: 使用量を間違えて記録したとき：記録を削除する際に、数量を戻すかどうか選べます。",
+                    "2.5.0: よく使う量を固定できます：次からはワンタップで記録できます。",
                     "2.2.0: はじめてでも迷わない：インタラクティブな使い方ガイドを追加。順番にタップするだけで使い方がわかります。",
                     "2.2.0: 交換がもっと自然に：補充と交換を分けて記録でき、交換するときはどの予備に替えるかを選べます。",
                     "2.2.0: どこで買って、いくらだったか：購入先と金額を記録でき、あとから見返せます。",
@@ -625,6 +655,14 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-14",
+                tag: "개선",
+                version: "2.5.0",
+                platforms: ["ios", "android"],
+                title: "🔧 2.5.0: 사용량 기록은 더 간편하게, 잘못 기록해도 쉽게 되돌리기",
+                content: "이번 업데이트로 사용량 기록이 더 간편해지고, 잘못 기록해도 쉽게 되돌릴 수 있어요.<br><br>개선<br>・사용량을 잘못 기록했을 때: 기록을 삭제할 때 수량을 되돌릴지 선택할 수 있어요.<br>・자주 쓰는 사용량을 고정할 수 있어요: 이후에는 한 번만 누르면 기록돼요.<br>・동기화 과정을 개선했어요."
+            },
             {
                 "date": "2026-10-21",
                 "tag": "대규모 업데이트",
@@ -720,6 +758,8 @@ const newsData = {
                 statusCode: "done",
                 status: "완료",
                 items: [
+                    "2.5.0: 사용량을 잘못 기록했을 때: 기록을 삭제할 때 수량을 되돌릴지 선택할 수 있어요.",
+                    "2.5.0: 자주 쓰는 사용량을 고정할 수 있어요: 이후에는 한 번만 누르면 기록돼요.",
                     "2.2.0: 처음이어도 걱정 없이: 인터랙티브 사용 가이드가 추가되어 차례대로 누르기만 하면 사용법을 알 수 있습니다.",
                     "2.2.0: 교체가 더 자연스럽게: 보충과 교체를 나눠 기록하고, 교체할 때 어느 예비 묶음으로 바꿀지 고를 수 있습니다.",
                     "2.2.0: 어디서 샀고 얼마였는지: 구매처와 금액을 기록해 두고 나중에 다시 볼 수 있습니다.",
