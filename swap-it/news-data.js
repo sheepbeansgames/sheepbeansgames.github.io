@@ -65,6 +65,14 @@ const newsData = {
         ],
         announcements: [
             {
+                date: "2026-11-15",
+                tag: "新版本",
+                version: "2.5.0",
+                platforms: ["ios", "android"],
+                title: "✍️ 2.5.0：記用量更順手",
+                content: "優化<br>・常用的用量可以固定：第一次記的時候勾「下次跟這次一樣」，之後點一下就記好。<br>・用量記錯了：刪掉最新一筆紀錄時，可以選擇把數量加回去。週期物品刪掉最新的完成紀錄，日期和備品也會回到原本的。<br>・優化同步流程。"
+            },
+            {
                 date: "2026-11-05",
                 tag: "新版本",
                 version: "2.4.0",
@@ -175,6 +183,8 @@ const newsData = {
                 statusCode: "done",
                 status: "已完成",
                 items: [
+                    "2.5.0：可以固定常用的用量，之後記錄只要點一下就好。",
+                    "2.5.0：刪掉最新一筆紀錄時，可以選擇把數量和日期還原。",
                     "2.4.0：鎖定畫面小工具（iOS）：不用解鎖，就能看到該換的東西。",
                     "2.4.0：控制中心（iOS）：加入購物清單，一按就開。",
                     "2.4.0：長按 App 圖示：可以直接進購物清單、今天要處理，或新增物品。",
@@ -271,6 +281,14 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-15",
+                tag: "New Version",
+                version: "2.5.0",
+                platforms: ["ios", "android"],
+                title: "✍️ 2.5.0: Logging usage is now easier",
+                content: "Improvements<br>・Save your usual amount: tick “Same next time” the first time you log it, then record it with one tap after that.<br>・Logged by mistake: when you delete the latest record, you can choose to put the amount back. For cycle items, deleting the latest completion also restores the dates and spares.<br>・Improved syncing."
+            },
             {
                 date: "2026-11-05",
                 tag: "New Version",
@@ -382,6 +400,8 @@ const newsData = {
                 statusCode: "done",
                 status: "Done",
                 items: [
+                    "2.5.0: Save your usual amount and log it with one tap.",
+                    "2.5.0: When you delete the latest record, you can restore the amount and dates.",
                     "2.4.0: Lock Screen widgets (iOS): see what needs replacing without unlocking.",
                     "2.4.0: Control Center (iOS): open your shopping list with one tap.",
                     "2.4.0: Long-press the app icon: jump straight to Shopping list, Today, or Add item.",
@@ -478,6 +498,14 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-15",
+                tag: "新バージョン",
+                version: "2.5.0",
+                platforms: ["ios", "android"],
+                title: "✍️ 2.5.0：使用量の記録がもっと手軽に",
+                content: "改善<br>・よく使う量を固定：最初に記録するとき「次回も同じ量にして、ワンタップで記録する」にチェックすれば、次からはワンタップで記録できます。<br>・記録を間違えたとき：最新の記録を削除する際に、数量を戻すか選べます。周期アイテムで最新の完了記録を削除すると、日付と予備も元に戻ります。<br>・同期の流れを改善しました。"
+            },
             {
                 date: "2026-11-05",
                 tag: "新バージョン",
@@ -589,6 +617,8 @@ const newsData = {
                 statusCode: "done",
                 status: "完了",
                 items: [
+                    "2.5.0: よく使う量を固定して、ワンタップで記録できます。",
+                    "2.5.0: 最新の記録を削除するとき、数量と日付を元に戻せます。",
                     "2.4.0: ロック画面ウィジェット（iOS）：ロックを解除しなくても、交換が必要なものを確認できます。",
                     "2.4.0: コントロールセンター（iOS）：買い物リストをワンタップで開けるようになりました。",
                     "2.4.0: アプリアイコンを長押し：買い物リスト、今日の対応、アイテムを追加にすぐ移動できます。",
@@ -685,6 +715,14 @@ const newsData = {
             }
         ],
         announcements: [
+            {
+                date: "2026-11-15",
+                tag: "새 버전",
+                version: "2.5.0",
+                platforms: ["ios", "android"],
+                title: "✍️ 2.5.0: 사용량 기록이 더 간편해졌어요",
+                content: "개선<br>・자주 쓰는 양 고정: 처음 기록할 때 「다음에도 같은 양으로 한 번에 기록하기」를 체크하면, 다음부터는 한 번만 눌러 기록돼요.<br>・잘못 기록했을 때: 최신 기록을 삭제할 때 수량을 되돌릴지 선택할 수 있어요. 주기 물품은 최신 완료 기록을 삭제하면 날짜와 예비품도 원래대로 돌아가요.<br>・동기화 과정을 개선했어요."
+            },
             {
                 date: "2026-11-05",
                 tag: "새 버전",
@@ -796,6 +834,8 @@ const newsData = {
                 statusCode: "done",
                 status: "완료",
                 items: [
+                    "2.5.0: 자주 쓰는 양을 고정하고 한 번만 눌러 기록할 수 있어요.",
+                    "2.5.0: 최신 기록을 삭제할 때 수량과 날짜를 되돌릴 수 있어요.",
                     "2.4.0: 잠금 화면 위젯(iOS): 잠금을 풀지 않아도 바꿀 물건을 확인할 수 있어요.",
                     "2.4.0: 제어 센터(iOS): 쇼핑 목록을 한 번에 열 수 있어요.",
                     "2.4.0: 앱 아이콘 길게 누르기: 쇼핑 목록, 오늘 처리할 일, 물품 추가로 바로 이동할 수 있어요.",
